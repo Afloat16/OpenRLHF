@@ -1,0 +1,55 @@
+{
+  "repository": "OpenRLHF/OpenRLHF",
+  "stars": 10151,
+  "title": "Preserve episode counts when concatenating unequal experience batches",
+  "base": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+  "branch": "fix/experience-concat-episode-vectors-20261112",
+  "commit": "773b2aa2784f0361dbe2b4ff1f48acbb771ac73e",
+  "tree": "505c313d0307b4cfac92e50da12639cb1e7a45a4",
+  "commit_url": "https://github.com/Afloat16/OpenRLHF/commit/773b2aa2784f0361dbe2b4ff1f48acbb771ac73e",
+  "body": "## Problem\n\n`concat_experiences` sends every tensor through sequence padding. For a per-episode tensor with shape `(B,)`, its only dimension is the batch dimension, so concatenating unequal batch sizes pads smaller batches with artificial zero-valued episodes. For example, combining batches of two and one produces four rewards but only three sequence rows. Episode metrics become misaligned and subsequent `split_experience_batch` can fail.\n\n## Change\n\nConcatenate one-dimensional per-episode tensors directly along the batch dimension. Continue using the existing right-padding path for step-wise sequence/action tensors. The recursive merge also preserves the length of one-dimensional tensor metrics in `info`.\n\nThe scope is concatenation of batched experiences, including unequal batch sizes. The separate single-sample `make_experience_batch` path is unchanged.\n\n## Native validation\n\nExact source commit: `773b2aa2784f0361dbe2b4ff1f48acbb771ac73e`; original main: `26494490bc237f6c3af62dab6117e6bbb0a78dba`.\n\n[Successful CPU before/after run](https://github.com/Afloat16/OpenRLHF/actions/runs/43305640708), Python 3.12.16 / PyTorch 2.9.1+cpu:\n\n- Identical 17 new tests on unchanged main: **14 failed, 3 passed**.\n- Fixed source: **17 new tests and all 3 existing experience tests passed**, **20 passed** in total.\n- Unequal, equal and empty component batches; different sequence widths; all episode fields; recursive metrics; metadata and input preservation; and concat → split → rebatch are checked against independently padded sample references.\n- Native CPU Linear/SGD and Linear/Adam training performs three updates with sample-aligned features and rewards, comparing losses, gradients, parameters and optimizer state with an independent reference.\n- Black 26.5.1, isort, autoflake and `git diff --check` passed.\n\nThe new tests import the actual public experience module and tensor utilities. The three pre-existing tests retain their upstream fixture behavior. Full PPO/DeepSpeed/Ray training, GPUs and multi-rank execution were not run. Validation workflow files are isolated on a separate fork branch.\n\n## Prior work checked\n\nAll-state concat/merge/episode-padding searches, the complete five-commit history of `experience.py`, the relevant prior PR patches including #1299 and #1307, and all pre-existing fork branches were checked. The earlier balancing and selection changes do not correct one-dimensional tensor padding.\n",
+  "validation": {
+    "run_url": "https://github.com/Afloat16/OpenRLHF/actions/runs/43305640708",
+    "run_id": 43305640708,
+    "job_id": 131488105311,
+    "conclusion": "success",
+    "environment": "Python 3.12.16; PyTorch 2.9.1+cpu; Transformers 4.57.1",
+    "before": {
+      "new_failed": 14,
+      "new_passed": 3,
+      "errors": 0,
+      "skips": 0
+    },
+    "after": {
+      "new_passed": 17,
+      "existing_passed": 3,
+      "total_passed": 20
+    },
+    "style": "Black 26.5.1, isort, autoflake, git diff --check",
+    "limits": [
+      "CPU native public experience API and actual optimizer training",
+      "Not full PPO/DeepSpeed/Ray integration",
+      "No GPU or multi-rank execution",
+      "Existing three tests retain upstream fixture behavior"
+    ]
+  },
+  "peer_review": "Independent read-only review approved original production change and all 17 tests; subsequent commit only applies Black formatting.",
+  "deduplication": {
+    "file_history_commits": 5,
+    "related_prs": [
+      1299,
+      1307
+    ],
+    "preexisting_fork_branches": 5,
+    "queries": "Eight all-state concat/merge/episode-padding searches; no equivalent found."
+  },
+  "pr_created": false,
+  "pr_url": null,
+  "merged_at": null,
+  "status": "validated_fork_commit_upstream_pr_creation_blocked",
+  "prefilled_url": "https://github.com/OpenRLHF/OpenRLHF/compare/main...Afloat16:fix/experience-concat-episode-vectors-20261112?expand=1&title=Preserve%20episode%20counts%20when%20concatenating%20unequal%20experience%20batches&body=%23%23%20Problem%0A%0A%60concat_experiences%60%20sends%20every%20tensor%20through%20sequence%20padding.%20For%20a%20per-episode%20tensor%20with%20shape%20%60(B%2C)%60%2C%20its%20only%20dimension%20is%20the%20batch%20dimension%2C%20so%20concatenating%20unequal%20batch%20sizes%20pads%20smaller%20batches%20with%20artificial%20zero-valued%20episodes.%20For%20example%2C%20combining%20batches%20of%20two%20and%20one%20produces%20four%20rewards%20but%20only%20three%20sequence%20rows.%20Episode%20metrics%20become%20misaligned%20and%20subsequent%20%60split_experience_batch%60%20can%20fail.%0A%0A%23%23%20Change%0A%0AConcatenate%20one-dimensional%20per-episode%20tensors%20directly%20along%20the%20batch%20dimension.%20Continue%20using%20the%20existing%20right-padding%20path%20for%20step-wise%20sequence%2Faction%20tensors.%20The%20recursive%20merge%20also%20preserves%20the%20length%20of%20one-dimensional%20tensor%20metrics%20in%20%60info%60.%0A%0AThe%20scope%20is%20concatenation%20of%20batched%20experiences%2C%20including%20unequal%20batch%20sizes.%20The%20separate%20single-sample%20%60make_experience_batch%60%20path%20is%20unchanged.%0A%0A%23%23%20Native%20validation%0A%0AExact%20source%20commit%3A%20%60773b2aa2784f0361dbe2b4ff1f48acbb771ac73e%60%3B%20original%20main%3A%20%6026494490bc237f6c3af62dab6117e6bbb0a78dba%60.%0A%0A%5BSuccessful%20CPU%20before%2Fafter%20run%5D(https%3A%2F%2Fgithub.com%2FAfloat16%2FOpenRLHF%2Factions%2Fruns%2F43305640708)%2C%20Python%203.12.16%20%2F%20PyTorch%202.9.1%2Bcpu%3A%0A%0A-%20Identical%2017%20new%20tests%20on%20unchanged%20main%3A%20**14%20failed%2C%203%20passed**.%0A-%20Fixed%20source%3A%20**17%20new%20tests%20and%20all%203%20existing%20experience%20tests%20passed**%2C%20**20%20passed**%20in%20total.%0A-%20Unequal%2C%20equal%20and%20empty%20component%20batches%3B%20different%20sequence%20widths%3B%20all%20episode%20fields%3B%20recursive%20metrics%3B%20metadata%20and%20input%20preservation%3B%20and%20concat%20%E2%86%92%20split%20%E2%86%92%20rebatch%20are%20checked%20against%20independently%20padded%20sample%20references.%0A-%20Native%20CPU%20Linear%2FSGD%20and%20Linear%2FAdam%20training%20performs%20three%20updates%20with%20sample-aligned%20features%20and%20rewards%2C%20comparing%20losses%2C%20gradients%2C%20parameters%20and%20optimizer%20state%20with%20an%20independent%20reference.%0A-%20Black%2026.5.1%2C%20isort%2C%20autoflake%20and%20%60git%20diff%20--check%60%20passed.%0A%0AThe%20new%20tests%20import%20the%20actual%20public%20experience%20module%20and%20tensor%20utilities.%20The%20three%20pre-existing%20tests%20retain%20their%20upstream%20fixture%20behavior.%20Full%20PPO%2FDeepSpeed%2FRay%20training%2C%20GPUs%20and%20multi-rank%20execution%20were%20not%20run.%20Validation%20workflow%20files%20are%20isolated%20on%20a%20separate%20fork%20branch.%0A%0A%23%23%20Prior%20work%20checked%0A%0AAll-state%20concat%2Fmerge%2Fepisode-padding%20searches%2C%20the%20complete%20five-commit%20history%20of%20%60experience.py%60%2C%20the%20relevant%20prior%20PR%20patches%20including%20%231299%20and%20%231307%2C%20and%20all%20pre-existing%20fork%20branches%20were%20checked.%20The%20earlier%20balancing%20and%20selection%20changes%20do%20not%20correct%20one-dimensional%20tensor%20padding.%0A",
+  "pr_creation_error": {
+    "status": 403,
+    "message": "Resource not accessible by integration"
+  }
+}
