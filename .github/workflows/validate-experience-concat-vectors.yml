@@ -1,0 +1,61 @@
+name: Validate unequal experience batch concatenation
+on:
+  push:
+    branches: [validation/experience-concat-vectors-20261112]
+permissions:
+  contents: read
+jobs:
+  native-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: .
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 50e44300393772aa0995f0ad514a977c4990a201
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install native CPU dependencies
+        run: |
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install torch==2.9.1 transformers==4.57.1 pylatexenc pytest==9.0.2 black==26.5.1 isort==9.0.0a3 autoflake==2.3.3
+          python -m pip freeze > installed-dependencies.txt
+      - name: Verify native public API regression tests
+        run: |
+          test "$(git rev-parse HEAD)" = "50e44300393772aa0995f0ad514a977c4990a201"
+          python -m pytest tests/test_experience_concat_vectors.py tests/test_experience.py -q --junitxml=patched.xml
+      - name: Verify the same regressions fail on the original base
+        run: |
+          git show 26494490bc237f6c3af62dab6117e6bbb0a78dba:openrlhf/trainer/ppo_utils/experience.py > openrlhf/trainer/ppo_utils/experience.py
+          python - <<'PY'
+          import subprocess
+          import sys
+          import xml.etree.ElementTree as ET
+
+          result = subprocess.run([sys.executable, "-m", "pytest", "tests/test_experience_concat_vectors.py", "-q", "--junitxml=baseline.xml"], check=False)
+          suites = ET.parse("baseline.xml").getroot()
+          totals = {name: sum(int(s.get(name, 0)) for s in suites.iter("testsuite")) for name in ("tests", "failures", "errors", "skipped")}
+          print("Exact-base regression totals:", totals, flush=True)
+          assert result.returncode == 1, result.returncode
+          assert totals == {"tests": 17, "failures": 14, "errors": 0, "skipped": 0}, totals
+          PY
+          git restore openrlhf/trainer/ppo_utils/experience.py
+      - name: Check project Python style
+        run: |
+          python -m isort --check-only --diff openrlhf/trainer/ppo_utils/experience.py tests/test_experience_concat_vectors.py
+          python -m black --check --diff openrlhf/trainer/ppo_utils/experience.py tests/test_experience_concat_vectors.py
+          python -m autoflake --check-diff --remove-all-unused-imports openrlhf/trainer/ppo_utils/experience.py tests/test_experience_concat_vectors.py
+          git diff --check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: experience-concat-native-results
+          path: |
+            patched.xml
+            baseline.xml
+            installed-dependencies.txt
