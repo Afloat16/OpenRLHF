@@ -15,8 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 50e44300393772aa0995f0ad514a977c4990a201
-          fetch-depth: 2
+          ref: 773b2aa2784f0361dbe2b4ff1f48acbb771ac73e
+          fetch-depth: 3
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -27,7 +27,7 @@ jobs:
           python -m pip freeze > installed-dependencies.txt
       - name: Verify native public API regression tests
         run: |
-          test "$(git rev-parse HEAD)" = "50e44300393772aa0995f0ad514a977c4990a201"
+          test "$(git rev-parse HEAD)" = "773b2aa2784f0361dbe2b4ff1f48acbb771ac73e"
           python -m pytest tests/test_experience_concat_vectors.py tests/test_experience.py -q --junitxml=patched.xml
       - name: Verify the same regressions fail on the original base
         run: |
