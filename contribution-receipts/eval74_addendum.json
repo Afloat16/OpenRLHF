@@ -1,0 +1,52 @@
+{
+  "scope": "Four additional contributions after the original seven-project, seventy-item scope",
+  "count": 4,
+  "original_seventy_manifest": "https://github.com/Afloat16/lm-evaluation-harness/blob/3387d04972829adf230517baf672c37c6d3e9986/contribution-receipts/eval70_manifest.json",
+  "counting_rule": "Each row is one independent upstream PR. Status fields are publication snapshots; only a non-null upstream merged_at counts as merged. The global final inventory refresh is maintained separately.",
+  "contributions": [
+    {
+      "repository": "bitsandbytes-foundation/bitsandbytes",
+      "pr_number": 2140,
+      "pr_url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2140",
+      "head": "11527a20279abe05140c9c154eefedba854acbdb",
+      "native_run": "https://github.com/Afloat16/bitsandbytes/actions/runs/43416652893",
+      "receipt": "https://github.com/Afloat16/bitsandbytes/blob/03a44da9d62a4551cfdd0f34d65ff204404b7a30/.validation/bnb9_contribution.json",
+      "status": "open",
+      "draft": true,
+      "merged_at": null
+    },
+    {
+      "repository": "bitsandbytes-foundation/bitsandbytes",
+      "pr_number": 2141,
+      "pr_url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2141",
+      "head": "5fa7276f1f2590b7e27419c02ddd05f25b5b1612",
+      "native_run": "https://github.com/Afloat16/bitsandbytes/actions/runs/43417110064",
+      "receipt": "https://github.com/Afloat16/bitsandbytes/blob/6cdde8bd8b122a72746a0671df9378883ec90d16/.validation/bnb10_contribution.json",
+      "status": "open",
+      "draft": true,
+      "merged_at": null
+    },
+    {
+      "repository": "OpenRLHF/OpenRLHF",
+      "pr_number": 1415,
+      "pr_url": "https://github.com/OpenRLHF/OpenRLHF/pull/1415",
+      "head": "3378c344009614dc0d8f49c2f0642abee96bb4bf",
+      "native_run": "https://github.com/Afloat16/OpenRLHF/actions/runs/43421276254",
+      "receipt": "https://github.com/Afloat16/OpenRLHF/blob/57dad5252ad3d34531d13cb600354e43dbaa1994/contribution-receipts/openrlhf9_logprobs.json",
+      "status": "open",
+      "draft": false,
+      "merged_at": null
+    },
+    {
+      "repository": "OpenRLHF/OpenRLHF",
+      "pr_number": 1417,
+      "pr_url": "https://github.com/OpenRLHF/OpenRLHF/pull/1417",
+      "head": "3737390e06bb85a36f050358f4813807a12e4713",
+      "native_run": "https://github.com/Afloat16/OpenRLHF/actions/runs/43422837888",
+      "receipt": "https://github.com/Afloat16/OpenRLHF/blob/7b5ceb27942a22e79dff5afd977137cb668aaa0b/contribution-receipts/openrlhf10_single_padding.json",
+      "status": "open",
+      "draft": false,
+      "merged_at": null
+    }
+  ]
+}
