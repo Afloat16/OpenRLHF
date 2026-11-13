@@ -172,13 +172,15 @@
     ],
     "new_contribution": true
   },
-  "peer_review": {
-    "reviewer": "data_contributions",
-    "status": "semantic review passed with integer-assignment cast finding fixed and tested; final confirmation pending"
-  },
-  "pr_created": false,
-  "pr_url": null,
+  "peer_review": "Final exact source e2686ee519b511a4b5d037e168511665a9615165 reviewed read-only by data_contributions; no blocking issue.",
+  "pr_created": true,
+  "pr_url": "https://github.com/OpenRLHF/OpenRLHF/pull/1414",
   "merged_at": null,
-  "status": "native_verified_ready",
-  "audit_branch": "audit/batched-length-penalties-20261113"
+  "status": "upstream_pr_open",
+  "audit_branch": "audit/batched-length-penalties-20261113",
+  "pr_number": 1414,
+  "pr_state": "open",
+  "pr_draft": false,
+  "api_verified_head": "e2686ee519b511a4b5d037e168511665a9615165",
+  "maintainer_can_modify": false
 }
