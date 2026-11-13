@@ -1,0 +1,121 @@
+{
+  "repository": "OpenRLHF/OpenRLHF",
+  "stars": 10151,
+  "title": "Preserve KL forward values when correcting the gradient",
+  "base": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+  "branch": "fix/corrected-kl-forward-preservation-20261113",
+  "commit": "3736b55a69bfc63119c06e838cf67c986c714a81",
+  "tree": "c61192e0eb699c2016368a4bd3473115d9dd9220",
+  "commit_url": "https://github.com/Afloat16/OpenRLHF/commit/3736b55a69bfc63119c06e838cf67c986c714a81",
+  "body": "## Problem\n\nWith `unbiased_gradient=True`, `compute_approx_kl` promises to keep the chosen estimator's forward value and substitute the corrected reverse-KL gradient. The current expression evaluates `value + grad_surrogate` first. A large but finite surrogate can round away part or all of the clipped forward value before the detached surrogate is subtracted.\n\nFor example, current/reference log probabilities of -12000 and -1 produce a finite squared surrogate much larger than the clipped k2 value of 10. The current expression returns a different loss even though the gradient correction is intended to affect only backward. Normalized categorical-policy examples and real GPT2 training reproduce the same error.\n\n## Change\n\nSubtract the surrogate and its detached value before adding the detached estimator value:\n\n```python\nreturn value.detach() + (grad_surrogate - grad_surrogate.detach())\n```\n\nFor finite surrogates, the parenthesized expression is zero in forward and retains the existing surrogate gradient. Estimator selection, clipping, importance weighting and the default `unbiased_gradient=False` path keep their existing formulas.\n\n## Validation\n\nExact source `3736b55a69bfc63119c06e838cf67c986c714a81`, based on `26494490bc237f6c3af62dab6117e6bbb0a78dba`.\n\n[Native before/after run](https://github.com/Afloat16/OpenRLHF/actions/runs/43422359359), Python 3.12.16, official PyTorch 2.9.1+cpu, DeepSpeed 0.19.6 and Transformers 5.15.0:\n\n- Identical 44 new tests on the original implementation: **42 failed, 2 passed**.\n- Fixed implementation: **44 passed**.\n- Existing repository suite: **203 passed, 2 skipped** on the original implementation; the full suite including the new tests is **247 passed, 2 skipped** after the fix.\n- Coverage includes k1/k2/k3, on-policy and off-policy weighting, FP16/BF16/FP32/FP64 input tensors, normalized categorical policies, and preserved NaN/invalid-estimator behavior.\n- Twelve real GPT2 training cases cover SGD with momentum and AdamW, FP32/FP64 models and all three estimators. Three updates compare reported losses, every parameter gradient, weights and optimizer state against an independently supplied analytic KL-gradient reference. A disk checkpoint after the first update restores the model and optimizer before the remaining updates.\n- Compile checks and the repository's Black, isort and autoflake checks pass.\n\nThe new tests execute the complete source utility module with installed native dependencies; they do not replace PyTorch or DeepSpeed. Validation is CPU-only. The numerical guarantee is for finite surrogate values; this change does not define behavior for an infinite surrogate minus itself or alter non-finite inputs.\n\n## Prior work checked\n\nAll-state issue/PR searches, the affected file's 39-entry history and every existing non-audit/non-validation fork head were checked. #1309 introduced the corrected-gradient expression, #1101 proposed an earlier gradient variant, and #1335 bounds the separate k3 exponential derivative. None preserves the corrected-gradient forward value by changing this evaluation order.",
+  "prefilled_url": "https://github.com/OpenRLHF/OpenRLHF/compare/main...Afloat16:OpenRLHF:fix/corrected-kl-forward-preservation-20261113?expand=1&title=Preserve%20KL%20forward%20values%20when%20correcting%20the%20gradient&body=%23%23%20Problem%0A%0AWith%20%60unbiased_gradient%3DTrue%60%2C%20%60compute_approx_kl%60%20promises%20to%20keep%20the%20chosen%20estimator's%20forward%20value%20and%20substitute%20the%20corrected%20reverse-KL%20gradient.%20The%20current%20expression%20evaluates%20%60value%20%2B%20grad_surrogate%60%20first.%20A%20large%20but%20finite%20surrogate%20can%20round%20away%20part%20or%20all%20of%20the%20clipped%20forward%20value%20before%20the%20detached%20surrogate%20is%20subtracted.%0A%0AFor%20example%2C%20current%2Freference%20log%20probabilities%20of%20-12000%20and%20-1%20produce%20a%20finite%20squared%20surrogate%20much%20larger%20than%20the%20clipped%20k2%20value%20of%2010.%20The%20current%20expression%20returns%20a%20different%20loss%20even%20though%20the%20gradient%20correction%20is%20intended%20to%20affect%20only%20backward.%20Normalized%20categorical-policy%20examples%20and%20real%20GPT2%20training%20reproduce%20the%20same%20error.%0A%0A%23%23%20Change%0A%0ASubtract%20the%20surrogate%20and%20its%20detached%20value%20before%20adding%20the%20detached%20estimator%20value%3A%0A%0A%60%60%60python%0Areturn%20value.detach()%20%2B%20(grad_surrogate%20-%20grad_surrogate.detach())%0A%60%60%60%0A%0AFor%20finite%20surrogates%2C%20the%20parenthesized%20expression%20is%20zero%20in%20forward%20and%20retains%20the%20existing%20surrogate%20gradient.%20Estimator%20selection%2C%20clipping%2C%20importance%20weighting%20and%20the%20default%20%60unbiased_gradient%3DFalse%60%20path%20keep%20their%20existing%20formulas.%0A%0A%23%23%20Validation%0A%0AExact%20source%20%603736b55a69bfc63119c06e838cf67c986c714a81%60%2C%20based%20on%20%6026494490bc237f6c3af62dab6117e6bbb0a78dba%60.%0A%0A%5BNative%20before%2Fafter%20run%5D(https%3A%2F%2Fgithub.com%2FAfloat16%2FOpenRLHF%2Factions%2Fruns%2F43422359359)%2C%20Python%203.12.16%2C%20official%20PyTorch%202.9.1%2Bcpu%2C%20DeepSpeed%200.19.6%20and%20Transformers%205.15.0%3A%0A%0A-%20Identical%2044%20new%20tests%20on%20the%20original%20implementation%3A%20**42%20failed%2C%202%20passed**.%0A-%20Fixed%20implementation%3A%20**44%20passed**.%0A-%20Existing%20repository%20suite%3A%20**203%20passed%2C%202%20skipped**%20on%20the%20original%20implementation%3B%20the%20full%20suite%20including%20the%20new%20tests%20is%20**247%20passed%2C%202%20skipped**%20after%20the%20fix.%0A-%20Coverage%20includes%20k1%2Fk2%2Fk3%2C%20on-policy%20and%20off-policy%20weighting%2C%20FP16%2FBF16%2FFP32%2FFP64%20input%20tensors%2C%20normalized%20categorical%20policies%2C%20and%20preserved%20NaN%2Finvalid-estimator%20behavior.%0A-%20Twelve%20real%20GPT2%20training%20cases%20cover%20SGD%20with%20momentum%20and%20AdamW%2C%20FP32%2FFP64%20models%20and%20all%20three%20estimators.%20Three%20updates%20compare%20reported%20losses%2C%20every%20parameter%20gradient%2C%20weights%20and%20optimizer%20state%20against%20an%20independently%20supplied%20analytic%20KL-gradient%20reference.%20A%20disk%20checkpoint%20after%20the%20first%20update%20restores%20the%20model%20and%20optimizer%20before%20the%20remaining%20updates.%0A-%20Compile%20checks%20and%20the%20repository's%20Black%2C%20isort%20and%20autoflake%20checks%20pass.%0A%0AThe%20new%20tests%20execute%20the%20complete%20source%20utility%20module%20with%20installed%20native%20dependencies%3B%20they%20do%20not%20replace%20PyTorch%20or%20DeepSpeed.%20Validation%20is%20CPU-only.%20The%20numerical%20guarantee%20is%20for%20finite%20surrogate%20values%3B%20this%20change%20does%20not%20define%20behavior%20for%20an%20infinite%20surrogate%20minus%20itself%20or%20alter%20non-finite%20inputs.%0A%0A%23%23%20Prior%20work%20checked%0A%0AAll-state%20issue%2FPR%20searches%2C%20the%20affected%20file's%2039-entry%20history%20and%20every%20existing%20non-audit%2Fnon-validation%20fork%20head%20were%20checked.%20%231309%20introduced%20the%20corrected-gradient%20expression%2C%20%231101%20proposed%20an%20earlier%20gradient%20variant%2C%20and%20%231335%20bounds%20the%20separate%20k3%20exponential%20derivative.%20None%20preserves%20the%20corrected-gradient%20forward%20value%20by%20changing%20this%20evaluation%20order.%0A",
+  "pr_created": true,
+  "pr_url": "https://github.com/OpenRLHF/OpenRLHF/pull/1416",
+  "merged_at": null,
+  "status": "upstream_pr_open",
+  "native_run_url": "https://github.com/Afloat16/OpenRLHF/actions/runs/43422359359",
+  "native_job_id": 131875197249,
+  "validation_head": "cc95b84520a0bb4402ef5b1f69aa608477652846",
+  "validation_before": {
+    "new_failed": 42,
+    "new_passed": 2,
+    "existing_passed": 203,
+    "existing_skipped": 2
+  },
+  "validation_after": {
+    "new_passed": 44,
+    "new_failed": 0,
+    "total_passed": 247,
+    "total_skipped": 2
+  },
+  "validation_environment": {
+    "python": "3.12.16",
+    "torch": "2.9.1+cpu",
+    "deepspeed": "0.19.6",
+    "transformers": "5.15.0"
+  },
+  "validation_limitations": [
+    "CPU-only native validation; no GPU/distributed PPO training claim.",
+    "Forward preservation applies to finite surrogate values; infinite-surrogate subtraction is not addressed.",
+    "The existing implementation casts log probabilities to FP32; input dtype coverage does not claim FP64 internal arithmetic."
+  ],
+  "deduplication": {
+    "upstream_path_history_entries": 39,
+    "actual_related_patches": [
+      1309,
+      1101,
+      1335
+    ],
+    "fork_production_and_old_heads": [
+      {
+        "ref": "refs/heads/fix/actor-module-packing-state-20261113",
+        "sha": "f644edc44b24a66ba2382d474b2762bbdc4dbf90",
+        "old_expression": true
+      },
+      {
+        "ref": "refs/heads/fix/empty-loss-normalizers-20261112",
+        "sha": "6721b9503c98c8da6c3fd164ab39ce20f7c1b337",
+        "old_expression": true
+      },
+      {
+        "ref": "refs/heads/fix/entropy-offset-stability-20261112",
+        "sha": "9b60b3652af3960de24d7a65d88c32f1aaef2c28",
+        "old_expression": true
+      },
+      {
+        "ref": "refs/heads/fix/experience-concat-episode-vectors-20261112",
+        "sha": "773b2aa2784f0361dbe2b4ff1f48acbb771ac73e",
+        "old_expression": true
+      },
+      {
+        "ref": "refs/heads/fix/math-integer-reward-precision-20261112",
+        "sha": "4a777b1d8af433e0c26f1d8433e39b071f245544",
+        "old_expression": true
+      },
+      {
+        "ref": "refs/heads/fix/math-thousands-separators-20261112",
+        "sha": "c616b1ee69f1b806844fe2a108756ab60730aa41",
+        "old_expression": true
+      },
+      {
+        "ref": "refs/heads/fix/selective-log-probability-stability-20261113",
+        "sha": "3378c344009614dc0d8f49c2f0642abee96bb4bf",
+        "old_expression": true
+      },
+      {
+        "ref": "refs/heads/main",
+        "sha": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+        "old_expression": true
+      },
+      {
+        "ref": "refs/heads/perf/batched-length-penalties-20261113",
+        "sha": "e2686ee519b511a4b5d037e168511665a9615165",
+        "old_expression": true
+      },
+      {
+        "ref": "refs/heads/perf/zero-width-padding-copies-20261113",
+        "sha": "2610aac7095e1e3476b00d3b2cb5f7027f355f33",
+        "old_expression": true
+      }
+    ],
+    "queries": [
+      "grad_surrogate",
+      "unbiased_gradient forward",
+      "KL cancellation",
+      "surrogate precision"
+    ],
+    "independent_other_work": [
+      "#1411 entropy",
+      "selective log-probabilities numerical stability",
+      "zero-width sequence padding copies"
+    ]
+  },
+  "peer_review": "data_contributions read the complete compute_approx_kl function and all 44 new cases; no blocking issue.",
+  "audit_branch": "audit/corrected-kl-forward-preservation-20261113",
+  "pr_number": 1416,
+  "pr_state": "open",
+  "pr_draft": false,
+  "created_at": "2026-11-13T12:16:02Z",
+  "api_verified_head": "3736b55a69bfc63119c06e838cf67c986c714a81",
+  "maintainer_can_modify": false
+}
