@@ -1,0 +1,184 @@
+{
+  "repository": "OpenRLHF/OpenRLHF",
+  "stars": 10151,
+  "title": "Batch length-penalty reward updates",
+  "base": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+  "branch": "perf/batched-length-penalties-20261113",
+  "commit": "e2686ee519b511a4b5d037e168511665a9615165",
+  "tree": "3bb1f205b12482eb98869971f8af70a39697a3d3",
+  "commit_url": "https://github.com/Afloat16/OpenRLHF/commit/e2686ee519b511a4b5d037e168511665a9615165",
+  "body": "## Summary\n\nDAPO and ProRL length penalties currently extract one Python scalar for every sample, then update rewards in Python. This makes reward shaping expensive for large rollout batches.\n\nThis change computes each penalty mask and reward update in a batch, keeping one scalar extraction per experience for the returned sample count. The overlong formula retains the original Python floating-point calculation before rounding penalties to the reward dtype. The in-place reward tensor, selected-sample counts, fractional buffers, negative fixed rewards, integer assignment casts, and untouched values are preserved.\n\n## Validation\n\nExact source: `e2686ee519b511a4b5d037e168511665a9615165`, based on `26494490bc237f6c3af62dab6117e6bbb0a78dba`.\n\n[Native CPU before/after run](https://github.com/Afloat16/OpenRLHF/actions/runs/43418881621) uses Python 3.12, official PyTorch 2.9.1+cpu, and Transformers 4.57.1.\n\n- **50 new tests pass.** The unchanged source passes 48 semantic controls and fails the two profiler regression tests: each helper extracts 256 scalars for two 128-sample experiences; the change extracts two.\n- Tests import the public Experience and penalty functions normally. They cover FP16/BF16/FP32/FP64 rewards, noncontiguous views, fractional/zero/negative buffers, fixed and scaled penalties, absent/empty flags, NaN/infinity controls, signed zero, and integer rewards.\n- Four real GPT-2 training cases compare three SGD/AdamW steps, gradients, parameters, optimizer state, and disk checkpoint continuation against independently specified reward values.\n- The existing multiturn truncation tests pass: **24 passed, 32 deselected**.\n- `compileall`, Black, isort, and autoflake pass.\n- The complete existing suite was also attempted on both sources. Both stop at the same five collection errors: `test_dataset_utils.py` and `test_pretrain_loss_mask.py` need `datasets`; `test_kl_estimator_gradient.py`, `test_loss_aggregation.py`, and `test_reward_shaping.py` need `deepspeed`. These results do not establish full-suite compatibility.\n\n## Measured cost\n\nA single CPU thread, five timed invocations per size, real Experience objects, both penalty helpers, and identical reward hashes/counts before and after:\n\n| Samples | Before median | After median | Before / after |\n| ---: | ---: | ---: | ---: |\n| 1 | 0.0115 ms | 0.0342 ms | 0.34x |\n| 64 | 0.2637 ms | 0.0361 ms | 7.30x |\n| 4,096 | 16.8356 ms | 0.0600 ms | 280.41x |\n| 32,768 | 209.4488 ms | 0.6199 ms | 337.88x |\n\nThe benchmark uses response lengths `arange(batch_size) % 8193`, a 4096-token buffer at a maximum of 8192, and every third sample marked truncated. The smaller three cases have no overlong samples; the 32,768-sample case includes 16,380 overlong and 10,923 truncated samples. Reward cloning is outside the timed section. The benchmark source and raw measurements are in the validation branch/run artifacts.\n\nBatching adds linear temporary tensors, including FP64 length arithmetic, and is slower for the single-sample case shown above. These are CPU helper measurements; GPU timing and full distributed PPO throughput have not been measured.\n",
+  "prefilled_url": "https://github.com/OpenRLHF/OpenRLHF/compare/main...Afloat16:OpenRLHF:perf/batched-length-penalties-20261113?expand=1&title=Batch%20length-penalty%20reward%20updates&body=%23%23%20Summary%0A%0ADAPO%20and%20ProRL%20length%20penalties%20currently%20extract%20one%20Python%20scalar%20for%20every%20sample%2C%20then%20update%20rewards%20in%20Python.%20This%20makes%20reward%20shaping%20expensive%20for%20large%20rollout%20batches.%0A%0AThis%20change%20computes%20each%20penalty%20mask%20and%20reward%20update%20in%20a%20batch%2C%20keeping%20one%20scalar%20extraction%20per%20experience%20for%20the%20returned%20sample%20count.%20The%20overlong%20formula%20retains%20the%20original%20Python%20floating-point%20calculation%20before%20rounding%20penalties%20to%20the%20reward%20dtype.%20The%20in-place%20reward%20tensor%2C%20selected-sample%20counts%2C%20fractional%20buffers%2C%20negative%20fixed%20rewards%2C%20integer%20assignment%20casts%2C%20and%20untouched%20values%20are%20preserved.%0A%0A%23%23%20Validation%0A%0AExact%20source%3A%20%60e2686ee519b511a4b5d037e168511665a9615165%60%2C%20based%20on%20%6026494490bc237f6c3af62dab6117e6bbb0a78dba%60.%0A%0A%5BNative%20CPU%20before%2Fafter%20run%5D(https%3A%2F%2Fgithub.com%2FAfloat16%2FOpenRLHF%2Factions%2Fruns%2F43418881621)%20uses%20Python%203.12%2C%20official%20PyTorch%202.9.1%2Bcpu%2C%20and%20Transformers%204.57.1.%0A%0A-%20**50%20new%20tests%20pass.**%20The%20unchanged%20source%20passes%2048%20semantic%20controls%20and%20fails%20the%20two%20profiler%20regression%20tests%3A%20each%20helper%20extracts%20256%20scalars%20for%20two%20128-sample%20experiences%3B%20the%20change%20extracts%20two.%0A-%20Tests%20import%20the%20public%20Experience%20and%20penalty%20functions%20normally.%20They%20cover%20FP16%2FBF16%2FFP32%2FFP64%20rewards%2C%20noncontiguous%20views%2C%20fractional%2Fzero%2Fnegative%20buffers%2C%20fixed%20and%20scaled%20penalties%2C%20absent%2Fempty%20flags%2C%20NaN%2Finfinity%20controls%2C%20signed%20zero%2C%20and%20integer%20rewards.%0A-%20Four%20real%20GPT-2%20training%20cases%20compare%20three%20SGD%2FAdamW%20steps%2C%20gradients%2C%20parameters%2C%20optimizer%20state%2C%20and%20disk%20checkpoint%20continuation%20against%20independently%20specified%20reward%20values.%0A-%20The%20existing%20multiturn%20truncation%20tests%20pass%3A%20**24%20passed%2C%2032%20deselected**.%0A-%20%60compileall%60%2C%20Black%2C%20isort%2C%20and%20autoflake%20pass.%0A-%20The%20complete%20existing%20suite%20was%20also%20attempted%20on%20both%20sources.%20Both%20stop%20at%20the%20same%20five%20collection%20errors%3A%20%60test_dataset_utils.py%60%20and%20%60test_pretrain_loss_mask.py%60%20need%20%60datasets%60%3B%20%60test_kl_estimator_gradient.py%60%2C%20%60test_loss_aggregation.py%60%2C%20and%20%60test_reward_shaping.py%60%20need%20%60deepspeed%60.%20These%20results%20do%20not%20establish%20full-suite%20compatibility.%0A%0A%23%23%20Measured%20cost%0A%0AA%20single%20CPU%20thread%2C%20five%20timed%20invocations%20per%20size%2C%20real%20Experience%20objects%2C%20both%20penalty%20helpers%2C%20and%20identical%20reward%20hashes%2Fcounts%20before%20and%20after%3A%0A%0A%7C%20Samples%20%7C%20Before%20median%20%7C%20After%20median%20%7C%20Before%20%2F%20after%20%7C%0A%7C%20---%3A%20%7C%20---%3A%20%7C%20---%3A%20%7C%20---%3A%20%7C%0A%7C%201%20%7C%200.0115%20ms%20%7C%200.0342%20ms%20%7C%200.34x%20%7C%0A%7C%2064%20%7C%200.2637%20ms%20%7C%200.0361%20ms%20%7C%207.30x%20%7C%0A%7C%204%2C096%20%7C%2016.8356%20ms%20%7C%200.0600%20ms%20%7C%20280.41x%20%7C%0A%7C%2032%2C768%20%7C%20209.4488%20ms%20%7C%200.6199%20ms%20%7C%20337.88x%20%7C%0A%0AThe%20benchmark%20uses%20response%20lengths%20%60arange(batch_size)%20%25%208193%60%2C%20a%204096-token%20buffer%20at%20a%20maximum%20of%208192%2C%20and%20every%20third%20sample%20marked%20truncated.%20The%20smaller%20three%20cases%20have%20no%20overlong%20samples%3B%20the%2032%2C768-sample%20case%20includes%2016%2C380%20overlong%20and%2010%2C923%20truncated%20samples.%20Reward%20cloning%20is%20outside%20the%20timed%20section.%20The%20benchmark%20source%20and%20raw%20measurements%20are%20in%20the%20validation%20branch%2Frun%20artifacts.%0A%0ABatching%20adds%20linear%20temporary%20tensors%2C%20including%20FP64%20length%20arithmetic%2C%20and%20is%20slower%20for%20the%20single-sample%20case%20shown%20above.%20These%20are%20CPU%20helper%20measurements%3B%20GPU%20timing%20and%20full%20distributed%20PPO%20throughput%20have%20not%20been%20measured.%0A",
+  "validation": {
+    "run_id": 43418881621,
+    "run_url": "https://github.com/Afloat16/OpenRLHF/actions/runs/43418881621",
+    "job_id": 131863590565,
+    "head": "8aa7e68c01f7e487b79cdbb5ce0b5bc09ebfd0f0",
+    "conclusion": "success",
+    "before": {
+      "new_passed": 48,
+      "new_failed": 2,
+      "errors": 0,
+      "scalar_extractions_per_helper": 256
+    },
+    "after": {
+      "new_passed": 50,
+      "existing_passed": 24,
+      "existing_deselected": 32,
+      "scalar_extractions_per_helper": 2
+    },
+    "style": "compileall, Black, isort, autoflake passed",
+    "complete_existing_suite": {
+      "before_collection_errors": 5,
+      "after_collection_errors": 5,
+      "reasons": {
+        "datasets": [
+          "test_dataset_utils.py",
+          "test_pretrain_loss_mask.py"
+        ],
+        "deepspeed": [
+          "test_kl_estimator_gradient.py",
+          "test_loss_aggregation.py",
+          "test_reward_shaping.py"
+        ]
+      }
+    },
+    "benchmark": [
+      {
+        "samples": 1,
+        "before_ms": 0.011477000001036686,
+        "after_ms": 0.03423199999019744,
+        "speedup": 0.33527109150278106,
+        "penalized_count": 0,
+        "truncated_count": 1,
+        "sha256": "8b5b83959ef43d276462d9577a01e58fea571d97acd41b53e7603a6d0f9bd063"
+      },
+      {
+        "samples": 64,
+        "before_ms": 0.2637049999947294,
+        "after_ms": 0.03614400000628848,
+        "speedup": 7.2959550671992295,
+        "penalized_count": 0,
+        "truncated_count": 22,
+        "sha256": "fcf50c2a22fe0619ab45e3a1d47c48bf2f0d6f3e9c7e4bc701777bd5eefe9889"
+      },
+      {
+        "samples": 4096,
+        "before_ms": 16.835576999994828,
+        "after_ms": 0.060039999993932724,
+        "speedup": 280.4060126864778,
+        "penalized_count": 0,
+        "truncated_count": 1366,
+        "sha256": "3795627240a91a77a9d0741630aa5da846ab977e1f6e924ee4e96e68610051e8"
+      },
+      {
+        "samples": 32768,
+        "before_ms": 209.44877499999848,
+        "after_ms": 0.6198980000107213,
+        "speedup": 337.8761909158862,
+        "penalized_count": 16380,
+        "truncated_count": 10923,
+        "sha256": "de5a3f45992af88dd523f35866d7b9301bae463767c5c7b4c0c569995f85ad0d"
+      }
+    ],
+    "limits": [
+      "CPU only; no GPU timings or full distributed PPO run",
+      "Linear temporary tensors including FP64 response arithmetic",
+      "Single-sample case slower; full existing suite collection blocked by unchanged dependency errors"
+    ]
+  },
+  "deduplication": {
+    "file_history_commits": 5,
+    "actual_related_patches_read": [
+      1091,
+      1392,
+      1378
+    ],
+    "fork_sources": [
+      {
+        "ref": "refs/heads/audit/actor-module-packing-state-20261113",
+        "sha": "a49e2b2ec9ebfa154b23c9efbb419413e137dbf3",
+        "same": true,
+        "error": false
+      },
+      {
+        "ref": "refs/heads/audit/experience-concat-episode-vectors-20261112",
+        "sha": "efef8f95729b9b40cb3ecc6fdf13503966947b7d",
+        "same": true,
+        "error": false
+      },
+      {
+        "ref": "refs/heads/fix/actor-module-packing-state-20261113",
+        "sha": "f644edc44b24a66ba2382d474b2762bbdc4dbf90",
+        "same": true,
+        "error": false
+      },
+      {
+        "ref": "refs/heads/fix/empty-loss-normalizers-20261112",
+        "sha": "6721b9503c98c8da6c3fd164ab39ce20f7c1b337",
+        "same": true,
+        "error": false
+      },
+      {
+        "ref": "refs/heads/fix/entropy-offset-stability-20261112",
+        "sha": "9b60b3652af3960de24d7a65d88c32f1aaef2c28",
+        "same": true,
+        "error": false
+      },
+      {
+        "ref": "refs/heads/fix/experience-concat-episode-vectors-20261112",
+        "sha": "773b2aa2784f0361dbe2b4ff1f48acbb771ac73e",
+        "same": true,
+        "error": false
+      },
+      {
+        "ref": "refs/heads/fix/math-integer-reward-precision-20261112",
+        "sha": "4a777b1d8af433e0c26f1d8433e39b071f245544",
+        "same": true,
+        "error": false
+      },
+      {
+        "ref": "refs/heads/fix/math-thousands-separators-20261112",
+        "sha": "c616b1ee69f1b806844fe2a108756ab60730aa41",
+        "same": true,
+        "error": false
+      },
+      {
+        "ref": "refs/heads/main",
+        "sha": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+        "same": true,
+        "error": false
+      },
+      {
+        "ref": "refs/heads/validation/actor-module-packing-state-20261113",
+        "sha": "4d3b326ac8a02f9dcd8a115505464229482e2369",
+        "same": true,
+        "error": false
+      },
+      {
+        "ref": "refs/heads/validation/experience-concat-vectors-20261112",
+        "sha": "1eaf5c6fb51d39b1bd5c62738f637a0390ab71f3",
+        "same": true,
+        "error": false
+      }
+    ],
+    "author_historical_prs": [
+      1408,
+      1409,
+      1410,
+      1411,
+      1412,
+      1413
+    ],
+    "new_contribution": true
+  },
+  "peer_review": {
+    "reviewer": "data_contributions",
+    "status": "semantic review passed with integer-assignment cast finding fixed and tested; final confirmation pending"
+  },
+  "pr_created": false,
+  "pr_url": null,
+  "merged_at": null,
+  "status": "native_verified_ready",
+  "audit_branch": "audit/batched-length-penalties-20261113"
+}

@@ -1,0 +1,945 @@
+﻿2026-11-13T11:40:06.4108538Z Current runner version: '2.338.2'
+2026-11-13T11:40:06.4128353Z ##[group]Runner Image Provisioner
+2026-11-13T11:40:06.4129089Z Hosted Compute Agent
+2026-11-13T11:40:06.4129597Z Version: 20261103.629
+2026-11-13T11:40:06.4130184Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-13T11:40:06.4131065Z Build Date: 2026-11-03T17:26:59Z
+2026-11-13T11:40:06.4131689Z Worker ID: {bfb482b1-3c2a-4497-84a4-e518ce61c3f1}
+2026-11-13T11:40:06.4132283Z Region: westus3
+2026-11-13T11:40:06.4132740Z Cloud: Azure
+2026-11-13T11:40:06.4133214Z ##[endgroup]
+2026-11-13T11:40:06.4134322Z ##[group]Operating System
+2026-11-13T11:40:06.4135192Z Ubuntu
+2026-11-13T11:40:06.4135712Z 26.04.1
+2026-11-13T11:40:06.4136136Z LTS
+2026-11-13T11:40:06.4136593Z ##[endgroup]
+2026-11-13T11:40:06.4137056Z ##[group]Runner Image
+2026-11-13T11:40:06.4137562Z Image: ubuntu-26.04
+2026-11-13T11:40:06.4138075Z Version: 20261111.196.1
+2026-11-13T11:40:06.4139087Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-13T11:40:06.4140551Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-13T11:40:06.4141396Z ##[endgroup]
+2026-11-13T11:40:06.4142348Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T11:40:06.4143859Z Contents: read
+2026-11-13T11:40:06.4144458Z Metadata: read
+2026-11-13T11:40:06.4144960Z ##[endgroup]
+2026-11-13T11:40:06.4146974Z Secret source: Actions
+2026-11-13T11:40:06.4147768Z Cache mode: write
+2026-11-13T11:40:06.4148513Z Prepare workflow directory
+2026-11-13T11:40:06.4464960Z Prepare all required actions
+2026-11-13T11:40:06.4504621Z Getting action download info
+2026-11-13T11:40:06.7329726Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-13T11:40:06.8619095Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-13T11:40:07.0295414Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-13T11:40:07.2597205Z Complete job name: native-cpu
+2026-11-13T11:40:07.3269388Z ##[group]Run actions/checkout@v4
+2026-11-13T11:40:07.3270060Z with:
+2026-11-13T11:40:07.3270556Z   fetch-depth: 8
+2026-11-13T11:40:07.3270932Z   repository: Afloat16/OpenRLHF
+2026-11-13T11:40:07.3274129Z   token: ***
+2026-11-13T11:40:07.3274467Z   ssh-strict: true
+2026-11-13T11:40:07.3274817Z   ssh-user: git
+2026-11-13T11:40:07.3275174Z   persist-credentials: true
+2026-11-13T11:40:07.3275564Z   clean: true
+2026-11-13T11:40:07.3275923Z   sparse-checkout-cone-mode: true
+2026-11-13T11:40:07.3276339Z   fetch-tags: false
+2026-11-13T11:40:07.3276696Z   show-progress: true
+2026-11-13T11:40:07.3277050Z   lfs: false
+2026-11-13T11:40:07.3277377Z   submodules: false
+2026-11-13T11:40:07.3277735Z   set-safe-directory: true
+2026-11-13T11:40:07.3278141Z   allow-unsafe-pr-checkout: false
+2026-11-13T11:40:07.3278690Z env:
+2026-11-13T11:40:07.3279008Z   PYTHONPATH: .
+2026-11-13T11:40:07.3279354Z   OMP_NUM_THREADS: 1
+2026-11-13T11:40:07.3279723Z   MKL_NUM_THREADS: 1
+2026-11-13T11:40:07.3280159Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:40:07.3280612Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T11:40:07.3280990Z ##[endgroup]
+2026-11-13T11:40:07.5705003Z Syncing repository: Afloat16/OpenRLHF
+2026-11-13T11:40:07.5706452Z ##[group]Getting Git version info
+2026-11-13T11:40:07.5707045Z Working directory is '/home/runner/work/OpenRLHF/OpenRLHF'
+2026-11-13T11:40:07.6425017Z [command]/usr/bin/git version
+2026-11-13T11:40:07.6467062Z git version 2.56.1
+2026-11-13T11:40:07.6495496Z ##[endgroup]
+2026-11-13T11:40:07.6507680Z Temporarily overriding HOME='/home/runner/work/_temp/5dfadc61-9125-4d28-92ea-721e8bab7c3d' before making global git config changes
+2026-11-13T11:40:07.6509912Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T11:40:07.6513197Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T11:40:07.6575251Z Deleting the contents of '/home/runner/work/OpenRLHF/OpenRLHF'
+2026-11-13T11:40:07.6578513Z ##[group]Initializing the repository
+2026-11-13T11:40:07.6581945Z [command]/usr/bin/git init /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T11:40:07.6686379Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T11:40:07.6687870Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T11:40:07.6689859Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T11:40:07.6690994Z hint: call:
+2026-11-13T11:40:07.6691359Z hint:
+2026-11-13T11:40:07.6691786Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T11:40:07.6692298Z hint:
+2026-11-13T11:40:07.6692799Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T11:40:07.6693692Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T11:40:07.6694632Z hint:
+2026-11-13T11:40:07.6695136Z hint: 	git branch -m <name>
+2026-11-13T11:40:07.6695745Z hint:
+2026-11-13T11:40:07.6696525Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T11:40:07.6697805Z Initialized empty Git repository in /home/runner/work/OpenRLHF/OpenRLHF/.git/
+2026-11-13T11:40:07.6704922Z [command]/usr/bin/git remote add origin https://github.com/Afloat16/OpenRLHF
+2026-11-13T11:40:07.6749007Z ##[endgroup]
+2026-11-13T11:40:07.6749944Z ##[group]Disabling automatic garbage collection
+2026-11-13T11:40:07.6753156Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T11:40:07.6782290Z ##[endgroup]
+2026-11-13T11:40:07.6783173Z ##[group]Setting up auth
+2026-11-13T11:40:07.6787637Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T11:40:07.6816943Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T11:40:07.7258218Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T11:40:07.7287081Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T11:40:07.7522144Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T11:40:07.7550668Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T11:40:07.7784066Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T11:40:07.7818270Z ##[endgroup]
+2026-11-13T11:40:07.7819092Z ##[group]Fetching the repository
+2026-11-13T11:40:07.7825720Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=8 origin +8aa7e68c01f7e487b79cdbb5ce0b5bc09ebfd0f0:refs/remotes/origin/validation/batched-length-penalties-20261113
+2026-11-13T11:40:08.5642711Z From https://github.com/Afloat16/OpenRLHF
+2026-11-13T11:40:08.5644841Z  * [new ref]         8aa7e68c01f7e487b79cdbb5ce0b5bc09ebfd0f0 -> origin/validation/batched-length-penalties-20261113
+2026-11-13T11:40:08.5648981Z ##[endgroup]
+2026-11-13T11:40:08.5650538Z ##[group]Determining the checkout info
+2026-11-13T11:40:08.5651853Z ##[endgroup]
+2026-11-13T11:40:08.5652821Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T11:40:08.5694974Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T11:40:08.5727055Z ##[group]Checking out the ref
+2026-11-13T11:40:08.5731393Z [command]/usr/bin/git checkout --progress --force -B validation/batched-length-penalties-20261113 refs/remotes/origin/validation/batched-length-penalties-20261113
+2026-11-13T11:40:08.5849014Z Switched to a new branch 'validation/batched-length-penalties-20261113'
+2026-11-13T11:40:08.5854542Z branch 'validation/batched-length-penalties-20261113' set up to track 'origin/validation/batched-length-penalties-20261113'.
+2026-11-13T11:40:08.5858796Z ##[endgroup]
+2026-11-13T11:40:08.5899242Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T11:40:08.5920304Z 8aa7e68c01f7e487b79cdbb5ce0b5bc09ebfd0f0
+2026-11-13T11:40:08.6301259Z ##[group]Run actions/setup-python@v5
+2026-11-13T11:40:08.6302295Z with:
+2026-11-13T11:40:08.6303069Z   python-version: 3.12
+2026-11-13T11:40:08.6303933Z   check-latest: false
+2026-11-13T11:40:08.6312615Z   token: ***
+2026-11-13T11:40:08.6313412Z   update-environment: true
+2026-11-13T11:40:08.6314315Z   allow-prereleases: false
+2026-11-13T11:40:08.6315211Z   freethreaded: false
+2026-11-13T11:40:08.6316003Z env:
+2026-11-13T11:40:08.6316702Z   PYTHONPATH: .
+2026-11-13T11:40:08.6317457Z   OMP_NUM_THREADS: 1
+2026-11-13T11:40:08.6318246Z   MKL_NUM_THREADS: 1
+2026-11-13T11:40:08.6319025Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:40:08.6319815Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T11:40:08.6320845Z ##[endgroup]
+2026-11-13T11:40:08.7392790Z ##[group]Installed versions
+2026-11-13T11:40:08.8164455Z (node:2195) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:40:08.8167909Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:40:08.8169960Z Successfully set up CPython (3.12.16)
+2026-11-13T11:40:08.8172356Z ##[endgroup]
+2026-11-13T11:40:08.8366751Z ##[group]Run python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+2026-11-13T11:40:08.8369820Z [36;1mpython -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu[0m
+2026-11-13T11:40:08.8373770Z [36;1mpython -m pip install torch==2.9.1 transformers==4.57.1 pylatexenc sympy pytest==9.0.2 aiohttp httpx black==26.5.1 isort==9.0.0a3 autoflake==2.3.3[0m
+2026-11-13T11:40:08.8377150Z [36;1mpython -m pip freeze > installed-dependencies.txt[0m
+2026-11-13T11:40:08.8379541Z [36;1mgit diff --exit-code e2686ee519b511a4b5d037e168511665a9615165 -- openrlhf tests[0m
+2026-11-13T11:40:08.8527267Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:40:08.8528254Z env:
+2026-11-13T11:40:08.8528995Z   PYTHONPATH: .
+2026-11-13T11:40:08.8529766Z   OMP_NUM_THREADS: 1
+2026-11-13T11:40:08.8530702Z   MKL_NUM_THREADS: 1
+2026-11-13T11:40:08.8531502Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:40:08.8532309Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T11:40:08.8533434Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:08.8534945Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:40:08.8536451Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:08.8537824Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:08.8539179Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:08.8540652Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:40:08.8541861Z ##[endgroup]
+2026-11-13T11:40:11.3969229Z Looking in indexes: https://download.pytorch.org/whl/cpu
+2026-11-13T11:40:11.4821533Z Collecting torch==2.9.1
+2026-11-13T11:40:11.6875241Z   Downloading torch-2.9.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (29 kB)
+2026-11-13T11:40:11.7125393Z Collecting filelock (from torch==2.9.1)
+2026-11-13T11:40:11.7325825Z   Downloading filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+2026-11-13T11:40:11.7466144Z Collecting typing-extensions>=4.10.0 (from torch==2.9.1)
+2026-11-13T11:40:11.7497236Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-13T11:40:11.7582075Z Collecting setuptools (from torch==2.9.1)
+2026-11-13T11:40:11.7618016Z   Downloading setuptools-78.1.0-py3-none-any.whl.metadata (6.6 kB)
+2026-11-13T11:40:11.7773583Z Collecting sympy>=1.13.3 (from torch==2.9.1)
+2026-11-13T11:40:11.7804567Z   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+2026-11-13T11:40:11.8082282Z Collecting networkx>=2.5.1 (from torch==2.9.1)
+2026-11-13T11:40:11.8113067Z   Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+2026-11-13T11:40:11.8215627Z Collecting jinja2 (from torch==2.9.1)
+2026-11-13T11:40:11.8249664Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-11-13T11:40:11.8424738Z Collecting fsspec>=0.8.5 (from torch==2.9.1)
+2026-11-13T11:40:11.8456515Z   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+2026-11-13T11:40:11.8666123Z Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.9.1)
+2026-11-13T11:40:11.8697338Z   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+2026-11-13T11:40:11.8870293Z Collecting MarkupSafe>=2.0 (from jinja2->torch==2.9.1)
+2026-11-13T11:40:11.8908252Z   Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-11-13T11:40:11.9124427Z Downloading torch-2.9.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (184.4 MB)
+2026-11-13T11:40:13.5792944Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 184.4/184.4 MB 112.4 MB/s  0:00:01
+2026-11-13T11:40:13.5825763Z Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+2026-11-13T11:40:13.5909512Z Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+2026-11-13T11:40:13.6095875Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 119.8 MB/s  0:00:00
+2026-11-13T11:40:13.6127277Z Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+2026-11-13T11:40:13.6762503Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 98.0 MB/s  0:00:00
+2026-11-13T11:40:13.6797369Z Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+2026-11-13T11:40:13.6854636Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 70.1 MB/s  0:00:00
+2026-11-13T11:40:13.6884599Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-13T11:40:13.6929835Z Downloading filelock-4.2.4-py3-none-any.whl (162 kB)
+2026-11-13T11:40:13.6988758Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-11-13T11:40:13.7043630Z Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+2026-11-13T11:40:13.7095125Z Downloading setuptools-78.1.0-py3-none-any.whl (1.3 MB)
+2026-11-13T11:40:13.7214911Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 99.0 MB/s  0:00:00
+2026-11-13T11:40:14.2831466Z Installing collected packages: mpmath, typing-extensions, sympy, setuptools, networkx, MarkupSafe, fsspec, filelock, jinja2, torch
+2026-11-13T11:40:29.5511109Z 
+2026-11-13T11:40:29.5526304Z Successfully installed MarkupSafe-3.0.3 filelock-4.2.4 fsspec-2026.9.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.7 setuptools-78.1.0 sympy-1.14.0 torch-2.9.1+cpu typing-extensions-4.16.0
+2026-11-13T11:40:29.9103897Z Requirement already satisfied: torch==2.9.1 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (2.9.1+cpu)
+2026-11-13T11:40:29.9575266Z Collecting transformers==4.57.1
+2026-11-13T11:40:29.9790540Z   Downloading transformers-4.57.1-py3-none-any.whl.metadata (43 kB)
+2026-11-13T11:40:30.0435259Z Collecting pylatexenc
+2026-11-13T11:40:30.0464643Z   Downloading pylatexenc-2.11-py2.py3-none-any.whl.metadata (3.9 kB)
+2026-11-13T11:40:30.0495286Z Requirement already satisfied: sympy in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (1.14.0)
+2026-11-13T11:40:30.0745216Z Collecting pytest==9.0.2
+2026-11-13T11:40:30.0779809Z   Downloading pytest-9.0.2-py3-none-any.whl.metadata (7.6 kB)
+2026-11-13T11:40:30.4250896Z Collecting aiohttp
+2026-11-13T11:40:30.4286229Z   Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+2026-11-13T11:40:30.4432844Z Collecting httpx
+2026-11-13T11:40:30.4470088Z   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+2026-11-13T11:40:30.4861724Z Collecting black==26.5.1
+2026-11-13T11:40:30.4895522Z   Downloading black-26.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (95 kB)
+2026-11-13T11:40:30.5181257Z Collecting isort==9.0.0a3
+2026-11-13T11:40:30.5223186Z   Downloading isort-9.0.0a3-py3-none-any.whl.metadata (11 kB)
+2026-11-13T11:40:30.5387681Z Collecting autoflake==2.3.3
+2026-11-13T11:40:30.5426470Z   Downloading autoflake-2.3.3-py3-none-any.whl.metadata (7.6 kB)
+2026-11-13T11:40:30.5462444Z Requirement already satisfied: filelock in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (4.2.4)
+2026-11-13T11:40:30.5465902Z Requirement already satisfied: typing-extensions>=4.10.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (4.16.0)
+2026-11-13T11:40:30.5470037Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (78.1.0)
+2026-11-13T11:40:30.5479182Z Requirement already satisfied: networkx>=2.5.1 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (3.7)
+2026-11-13T11:40:30.5482356Z Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (3.1.6)
+2026-11-13T11:40:30.5485590Z Requirement already satisfied: fsspec>=0.8.5 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (2026.9.0)
+2026-11-13T11:40:30.5738624Z Collecting huggingface-hub<1.0,>=0.34.0 (from transformers==4.57.1)
+2026-11-13T11:40:30.5771581Z   Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)
+2026-11-13T11:40:30.7351797Z Collecting numpy>=1.17 (from transformers==4.57.1)
+2026-11-13T11:40:30.7387517Z   Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-11-13T11:40:30.7506191Z Collecting packaging>=20.0 (from transformers==4.57.1)
+2026-11-13T11:40:30.7538573Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-11-13T11:40:30.7783229Z Collecting pyyaml>=5.1 (from transformers==4.57.1)
+2026-11-13T11:40:30.7812566Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-11-13T11:40:31.0472537Z Collecting regex!=2019.12.17 (from transformers==4.57.1)
+2026-11-13T11:40:31.0508872Z   Downloading regex-2026.11.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+2026-11-13T11:40:31.0704923Z Collecting requests (from transformers==4.57.1)
+2026-11-13T11:40:31.0734929Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+2026-11-13T11:40:31.1832171Z Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==4.57.1)
+2026-11-13T11:40:31.1865788Z   Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+2026-11-13T11:40:31.2661441Z Collecting safetensors>=0.4.3 (from transformers==4.57.1)
+2026-11-13T11:40:31.2693567Z   Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+2026-11-13T11:40:31.2907488Z Collecting tqdm>=4.27 (from transformers==4.57.1)
+2026-11-13T11:40:31.2939609Z   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+2026-11-13T11:40:31.3403445Z Collecting iniconfig>=1.0.1 (from pytest==9.0.2)
+2026-11-13T11:40:31.3436477Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-11-13T11:40:31.3531442Z Collecting pluggy<2,>=1.5 (from pytest==9.0.2)
+2026-11-13T11:40:31.3565039Z   Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-11-13T11:40:31.3692382Z Collecting pygments>=2.7.2 (from pytest==9.0.2)
+2026-11-13T11:40:31.3725441Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-11-13T11:40:31.3871243Z Collecting click>=8.0.0 (from black==26.5.1)
+2026-11-13T11:40:31.3902119Z   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+2026-11-13T11:40:31.3984849Z Collecting mypy-extensions>=0.4.3 (from black==26.5.1)
+2026-11-13T11:40:31.4016628Z   Downloading mypy_extensions-1.2.0-py3-none-any.whl.metadata (1.1 kB)
+2026-11-13T11:40:31.4117678Z Collecting pathspec>=1.0.0 (from black==26.5.1)
+2026-11-13T11:40:31.4148544Z   Downloading pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+2026-11-13T11:40:31.4314168Z Collecting platformdirs>=2 (from black==26.5.1)
+2026-11-13T11:40:31.4344126Z   Downloading platformdirs-4.14.5-py3-none-any.whl.metadata (5.7 kB)
+2026-11-13T11:40:31.4454658Z Collecting pytokens~=0.4.0 (from black==26.5.1)
+2026-11-13T11:40:31.4484166Z   Downloading pytokens-0.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+2026-11-13T11:40:31.4595129Z Collecting pyflakes>=3.0.0 (from autoflake==2.3.3)
+2026-11-13T11:40:31.4623924Z   Downloading pyflakes-4.1.0-py2.py3-none-any.whl.metadata (3.7 kB)
+2026-11-13T11:40:31.4944819Z Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface-hub<1.0,>=0.34.0->transformers==4.57.1)
+2026-11-13T11:40:31.4977197Z   Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+2026-11-13T11:40:31.5081725Z Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from sympy) (1.3.0)
+2026-11-13T11:40:31.5256427Z Collecting aiohappyeyeballs>=2.5.0 (from aiohttp)
+2026-11-13T11:40:31.5287176Z   Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+2026-11-13T11:40:31.5369441Z Collecting aiosignal>=1.4.0 (from aiohttp)
+2026-11-13T11:40:31.5398943Z   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+2026-11-13T11:40:31.5502326Z Collecting attrs>=17.3.0 (from aiohttp)
+2026-11-13T11:40:31.5533193Z   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+2026-11-13T11:40:31.5972041Z Collecting frozenlist>=1.1.1 (from aiohttp)
+2026-11-13T11:40:31.6004518Z   Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+2026-11-13T11:40:31.8169714Z Collecting multidict<8.0,>=4.5 (from aiohttp)
+2026-11-13T11:40:31.8205422Z   Downloading multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (6.1 kB)
+2026-11-13T11:40:31.8673369Z Collecting propcache>=0.2.0 (from aiohttp)
+2026-11-13T11:40:31.8707409Z   Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+2026-11-13T11:40:32.0413211Z Collecting yarl<2.0,>=1.25.1 (from aiohttp)
+2026-11-13T11:40:32.0446420Z   Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+2026-11-13T11:40:32.0635151Z Collecting idna>=2.0 (from yarl<2.0,>=1.25.1->aiohttp)
+2026-11-13T11:40:32.0666843Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-11-13T11:40:32.0841478Z Collecting anyio (from httpx)
+2026-11-13T11:40:32.0871764Z   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+2026-11-13T11:40:32.1016594Z Collecting certifi (from httpx)
+2026-11-13T11:40:32.1048634Z   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+2026-11-13T11:40:32.1348299Z Collecting httpcore==1.* (from httpx)
+2026-11-13T11:40:32.1378682Z   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+2026-11-13T11:40:32.1476194Z Collecting h11>=0.16 (from httpcore==1.*->httpx)
+2026-11-13T11:40:32.1506901Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2026-11-13T11:40:32.1721538Z Requirement already satisfied: MarkupSafe>=2.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from jinja2->torch==2.9.1) (3.0.3)
+2026-11-13T11:40:32.2553937Z Collecting charset_normalizer<4,>=2 (from requests->transformers==4.57.1)
+2026-11-13T11:40:32.2586614Z   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+2026-11-13T11:40:32.2768704Z Collecting urllib3<3,>=1.26 (from requests->transformers==4.57.1)
+2026-11-13T11:40:32.2798531Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+2026-11-13T11:40:32.2920660Z Downloading transformers-4.57.1-py3-none-any.whl (12.0 MB)
+2026-11-13T11:40:32.3815620Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 137.6 MB/s  0:00:00
+2026-11-13T11:40:32.3849552Z Downloading pytest-9.0.2-py3-none-any.whl (374 kB)
+2026-11-13T11:40:32.3946375Z Downloading black-26.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+2026-11-13T11:40:32.4094556Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 124.5 MB/s  0:00:00
+2026-11-13T11:40:32.4134552Z Downloading isort-9.0.0a3-py3-none-any.whl (97 kB)
+2026-11-13T11:40:32.4182813Z Downloading autoflake-2.3.3-py3-none-any.whl (17 kB)
+2026-11-13T11:40:32.4226228Z Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+2026-11-13T11:40:32.4273037Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 98.8 MB/s  0:00:00
+2026-11-13T11:40:32.4311960Z Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+2026-11-13T11:40:32.4598903Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 149.9 MB/s  0:00:00
+2026-11-13T11:40:32.4630095Z Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-11-13T11:40:32.4675119Z Downloading pytokens-0.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+2026-11-13T11:40:32.4733626Z Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+2026-11-13T11:40:32.4953636Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 147.5 MB/s  0:00:00
+2026-11-13T11:40:32.4987189Z Downloading pylatexenc-2.11-py2.py3-none-any.whl (137 kB)
+2026-11-13T11:40:32.5163272Z Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+2026-11-13T11:40:32.5295521Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 142.9 MB/s  0:00:00
+2026-11-13T11:40:32.5328004Z Downloading multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (516 kB)
+2026-11-13T11:40:32.5394611Z Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+2026-11-13T11:40:32.5441197Z Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+2026-11-13T11:40:32.5486562Z Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+2026-11-13T11:40:32.5534751Z Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+2026-11-13T11:40:32.5579469Z Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+2026-11-13T11:40:32.5624228Z Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+2026-11-13T11:40:32.5670791Z Downloading click-8.5.1-py3-none-any.whl (126 kB)
+2026-11-13T11:40:32.5717670Z Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+2026-11-13T11:40:32.5765740Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+2026-11-13T11:40:32.5815149Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+2026-11-13T11:40:32.5861966Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-11-13T11:40:32.5906207Z Downloading mypy_extensions-1.2.0-py3-none-any.whl (5.1 kB)
+2026-11-13T11:40:32.5952410Z Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+2026-11-13T11:40:32.7931713Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 84.0 MB/s  0:00:00
+2026-11-13T11:40:32.7968348Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-11-13T11:40:32.8084774Z Downloading pathspec-1.1.1-py3-none-any.whl (57 kB)
+2026-11-13T11:40:32.8131509Z Downloading platformdirs-4.14.5-py3-none-any.whl (35 kB)
+2026-11-13T11:40:32.8179566Z Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
+2026-11-13T11:40:32.8229056Z Downloading pyflakes-4.1.0-py2.py3-none-any.whl (66 kB)
+2026-11-13T11:40:32.8276002Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-11-13T11:40:32.8358196Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 157.2 MB/s  0:00:00
+2026-11-13T11:40:32.8395369Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+2026-11-13T11:40:32.8454272Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 126.5 MB/s  0:00:00
+2026-11-13T11:40:32.8486279Z Downloading regex-2026.11.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (808 kB)
+2026-11-13T11:40:32.8554164Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 808.8/808.8 kB 108.3 MB/s  0:00:00
+2026-11-13T11:40:32.8587853Z Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+2026-11-13T11:40:32.8654545Z Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+2026-11-13T11:40:32.8700582Z Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+2026-11-13T11:40:32.8746841Z Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+2026-11-13T11:40:32.8793317Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+2026-11-13T11:40:32.8840298Z Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+2026-11-13T11:40:32.8889168Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+2026-11-13T11:40:33.1194718Z Installing collected packages: pylatexenc, urllib3, tqdm, safetensors, regex, pyyaml, pytokens, pygments, pyflakes, propcache, pluggy, platformdirs, pathspec, packaging, numpy, mypy-extensions, multidict, isort, iniconfig, idna, hf-xet, h11, frozenlist, click, charset_normalizer, certifi, attrs, aiohappyeyeballs, yarl, requests, pytest, httpcore, black, autoflake, anyio, aiosignal, huggingface-hub, httpx, aiohttp, tokenizers, transformers
+2026-11-13T11:40:43.0602139Z 
+2026-11-13T11:40:43.0635476Z Successfully installed aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiosignal-1.4.0 anyio-4.16.0 attrs-26.1.0 autoflake-2.3.3 black-26.5.1 certifi-2026.10.23 charset_normalizer-3.5.2 click-8.5.1 frozenlist-1.8.0 h11-0.16.0 hf-xet-1.8.0 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-0.36.2 idna-3.20 iniconfig-2.3.1 isort-9.0.0a3 multidict-7.2.1 mypy-extensions-1.2.0 numpy-2.5.4 packaging-26.3 pathspec-1.1.1 platformdirs-4.14.5 pluggy-1.7.0 propcache-0.5.4 pyflakes-4.1.0 pygments-2.21.0 pylatexenc-2.11 pytest-9.0.2 pytokens-0.4.1 pyyaml-6.0.3 regex-2026.11.9 requests-2.34.2 safetensors-0.8.0 tokenizers-0.22.2 tqdm-4.70.1 transformers-4.57.1 urllib3-2.8.0 yarl-1.25.1
+2026-11-13T11:40:43.4332951Z ##[group]Run git checkout 26494490bc237f6c3af62dab6117e6bbb0a78dba -- openrlhf/trainer/ppo_utils/length_penalty.py
+2026-11-13T11:40:43.4333607Z [36;1mgit checkout 26494490bc237f6c3af62dab6117e6bbb0a78dba -- openrlhf/trainer/ppo_utils/length_penalty.py[0m
+2026-11-13T11:40:43.4334003Z [36;1mpython - <<'PY'[0m
+2026-11-13T11:40:43.4334197Z [36;1mimport subprocess[0m
+2026-11-13T11:40:43.4334388Z [36;1mimport sys[0m
+2026-11-13T11:40:43.4334588Z [36;1mimport xml.etree.ElementTree as ET[0m
+2026-11-13T11:40:43.4334839Z [36;1mwith open("baseline.log", "w") as log:[0m
+2026-11-13T11:40:43.4335427Z [36;1m    result = subprocess.run([sys.executable, "-m", "pytest", "-q", "tests/test_length_penalty_batches.py", "--junitxml=baseline.xml"], stdout=log, stderr=subprocess.STDOUT, check=False)[0m
+2026-11-13T11:40:43.4336002Z [36;1mprint(open("baseline.log").read(), flush=True)[0m
+2026-11-13T11:40:43.4336559Z [36;1mtotals = {name: sum(int(s.get(name, 0)) for s in ET.parse("baseline.xml").getroot().iter("testsuite")) for name in ("tests", "failures", "errors", "skipped")}[0m
+2026-11-13T11:40:43.4337242Z [36;1mprint("Exact-base totals:", totals, flush=True)[0m
+2026-11-13T11:40:43.4337650Z [36;1massert result.returncode == 1 and totals == {"tests": 50, "failures": 2, "errors": 0, "skipped": 0}, totals[0m
+2026-11-13T11:40:43.4338023Z [36;1mPY[0m
+2026-11-13T11:40:43.4338349Z [36;1mpython contribution-validation/benchmark_length_penalties.py > baseline-benchmark.json[0m
+2026-11-13T11:40:43.4338721Z [36;1mcat baseline-benchmark.json[0m
+2026-11-13T11:40:43.4385999Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:40:43.4386208Z env:
+2026-11-13T11:40:43.4386375Z   PYTHONPATH: .
+2026-11-13T11:40:43.4386556Z   OMP_NUM_THREADS: 1
+2026-11-13T11:40:43.4386731Z   MKL_NUM_THREADS: 1
+2026-11-13T11:40:43.4386904Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:40:43.4387077Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T11:40:43.4387314Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:43.4387665Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:40:43.4388003Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:43.4388299Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:43.4388600Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:43.4388905Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:40:43.4389174Z ##[endgroup]
+2026-11-13T11:40:48.8074627Z ============================= test session starts ==============================
+2026-11-13T11:40:48.8075120Z platform linux -- Python 3.12.16, pytest-9.0.2, pluggy-1.7.0
+2026-11-13T11:40:48.8075452Z rootdir: /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T11:40:48.8075705Z configfile: pyproject.toml
+2026-11-13T11:40:48.8075922Z plugins: platformdirs-4.14.5, anyio-4.16.0
+2026-11-13T11:40:48.8076145Z collected 50 items
+2026-11-13T11:40:48.8076253Z 
+2026-11-13T11:40:48.8076446Z tests/test_length_penalty_batches.py ................................... [ 70%]
+2026-11-13T11:40:48.8076895Z .........FF....                                                          [100%]
+2026-11-13T11:40:48.8077071Z 
+2026-11-13T11:40:48.8077183Z =================================== FAILURES ===================================
+2026-11-13T11:40:48.8077551Z _______ test_length_penalties_extract_only_batch_scalar_counts[overlong] _______
+2026-11-13T11:40:48.8077797Z 
+2026-11-13T11:40:48.8077868Z kind = 'overlong'
+2026-11-13T11:40:48.8077977Z 
+2026-11-13T11:40:48.8078120Z     @pytest.mark.parametrize("kind", ["overlong", "stop"])
+2026-11-13T11:40:48.8078451Z     def test_length_penalties_extract_only_batch_scalar_counts(kind):
+2026-11-13T11:40:48.8078771Z         experiences = [
+2026-11-13T11:40:48.8079040Z             Experience(
+2026-11-13T11:40:48.8079281Z                 rewards=torch.linspace(-1, 1, 128),
+2026-11-13T11:40:48.8079533Z                 response_length=torch.arange(128) % 17,
+2026-11-13T11:40:48.8080150Z                 truncated=torch.arange(128) % 2 == 0,
+2026-11-13T11:40:48.8080539Z             )
+2026-11-13T11:40:48.8080711Z             for _ in range(2)
+2026-11-13T11:40:48.8080895Z         ]
+2026-11-13T11:40:48.8081202Z         with torch.profiler.profile(activities=[torch.profiler.ProfilerActivity.CPU]) as profile:
+2026-11-13T11:40:48.8081569Z             if kind == "overlong":
+2026-11-13T11:40:48.8081804Z                 apply_overlong_penalty(experiences, 12, 4)
+2026-11-13T11:40:48.8082033Z             else:
+2026-11-13T11:40:48.8082239Z                 apply_stop_properly_penalty(experiences, 0.5)
+2026-11-13T11:40:48.8082808Z         scalar_reads = sum(event.count for event in profile.key_averages() if event.key == "aten::_local_scalar_dense")
+2026-11-13T11:40:48.8083238Z >       assert scalar_reads <= len(experiences), scalar_reads
+2026-11-13T11:40:48.8083493Z E       AssertionError: 256
+2026-11-13T11:40:48.8083682Z E       assert 256 <= 2
+2026-11-13T11:40:48.8084373Z E        +  where 2 = len([Experience(sequences=None, attention_mask=None, action_mask=None, action_log_probs=None, base_action_log_probs=None, ..., False,  True, False]), total_length=None, index=None, prompts=[], labels=[], images=[], mm_train_inputs=[], info={})])
+2026-11-13T11:40:48.8085179Z 
+2026-11-13T11:40:48.8085310Z tests/test_length_penalty_batches.py:138: AssertionError
+2026-11-13T11:40:48.8085655Z _________ test_length_penalties_extract_only_batch_scalar_counts[stop] _________
+2026-11-13T11:40:48.8085904Z 
+2026-11-13T11:40:48.8085972Z kind = 'stop'
+2026-11-13T11:40:48.8086184Z 
+2026-11-13T11:40:48.8086300Z     @pytest.mark.parametrize("kind", ["overlong", "stop"])
+2026-11-13T11:40:48.8086631Z     def test_length_penalties_extract_only_batch_scalar_counts(kind):
+2026-11-13T11:40:48.8086905Z         experiences = [
+2026-11-13T11:40:48.8087085Z             Experience(
+2026-11-13T11:40:48.8087276Z                 rewards=torch.linspace(-1, 1, 128),
+2026-11-13T11:40:48.8087521Z                 response_length=torch.arange(128) % 17,
+2026-11-13T11:40:48.8087773Z                 truncated=torch.arange(128) % 2 == 0,
+2026-11-13T11:40:48.8087995Z             )
+2026-11-13T11:40:48.8088155Z             for _ in range(2)
+2026-11-13T11:40:48.8088334Z         ]
+2026-11-13T11:40:48.8088636Z         with torch.profiler.profile(activities=[torch.profiler.ProfilerActivity.CPU]) as profile:
+2026-11-13T11:40:48.8088998Z             if kind == "overlong":
+2026-11-13T11:40:48.8089227Z                 apply_overlong_penalty(experiences, 12, 4)
+2026-11-13T11:40:48.8089454Z             else:
+2026-11-13T11:40:48.8089668Z                 apply_stop_properly_penalty(experiences, 0.5)
+2026-11-13T11:40:48.8090098Z         scalar_reads = sum(event.count for event in profile.key_averages() if event.key == "aten::_local_scalar_dense")
+2026-11-13T11:40:48.8090611Z >       assert scalar_reads <= len(experiences), scalar_reads
+2026-11-13T11:40:48.8090861Z E       AssertionError: 256
+2026-11-13T11:40:48.8091049Z E       assert 256 <= 2
+2026-11-13T11:40:48.8091726Z E        +  where 2 = len([Experience(sequences=None, attention_mask=None, action_mask=None, action_log_probs=None, base_action_log_probs=None, ..., False,  True, False]), total_length=None, index=None, prompts=[], labels=[], images=[], mm_train_inputs=[], info={})])
+2026-11-13T11:40:48.8092351Z 
+2026-11-13T11:40:48.8092475Z tests/test_length_penalty_batches.py:138: AssertionError
+2026-11-13T11:40:48.8092770Z =============================== warnings summary ===============================
+2026-11-13T11:40:48.8093040Z openrlhf/utils/math_utils.py:102
+2026-11-13T11:40:48.8093439Z   /home/runner/work/OpenRLHF/OpenRLHF/openrlhf/utils/math_utils.py:102: SyntaxWarning: invalid escape sequence '\%'
+2026-11-13T11:40:48.8093849Z     string = string.replace("\%", "")
+2026-11-13T11:40:48.8093996Z 
+2026-11-13T11:40:48.8094168Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T11:40:48.8094563Z ----- generated xml file: /home/runner/work/OpenRLHF/OpenRLHF/baseline.xml -----
+2026-11-13T11:40:48.8095040Z ============================== slowest durations ===============================
+2026-11-13T11:40:48.8095478Z 0.07s call     tests/test_length_penalty_batches.py::test_length_penalties_extract_only_batch_scalar_counts[stop]
+2026-11-13T11:40:48.8096034Z 0.07s call     tests/test_length_penalty_batches.py::test_length_penalties_extract_only_batch_scalar_counts[overlong]
+2026-11-13T11:40:48.8096637Z 0.05s call     tests/test_length_penalty_batches.py::test_combined_penalties_preserve_language_model_updates_and_resume[AdamW-dtype0]
+2026-11-13T11:40:48.8097265Z 0.05s call     tests/test_length_penalty_batches.py::test_combined_penalties_preserve_language_model_updates_and_resume[AdamW-dtype1]
+2026-11-13T11:40:48.8097892Z 0.05s call     tests/test_length_penalty_batches.py::test_combined_penalties_preserve_language_model_updates_and_resume[SGD-dtype0]
+2026-11-13T11:40:48.8098507Z 0.04s call     tests/test_length_penalty_batches.py::test_combined_penalties_preserve_language_model_updates_and_resume[SGD-dtype1]
+2026-11-13T11:40:48.8099068Z 0.03s call     tests/test_length_penalty_batches.py::test_overlong_nan_lengths_and_inactive_integer_rewards
+2026-11-13T11:40:48.8099474Z 
+2026-11-13T11:40:48.8099621Z (143 durations < 0.005s hidden.  Use -vv to show these durations.)
+2026-11-13T11:40:48.8099942Z =========================== short test summary info ============================
+2026-11-13T11:40:48.8100631Z FAILED tests/test_length_penalty_batches.py::test_length_penalties_extract_only_batch_scalar_counts[overlong] - AssertionError: 256
+2026-11-13T11:40:48.8101107Z assert 256 <= 2
+2026-11-13T11:40:48.8101765Z  +  where 2 = len([Experience(sequences=None, attention_mask=None, action_mask=None, action_log_probs=None, base_action_log_probs=None, ..., False,  True, False]), total_length=None, index=None, prompts=[], labels=[], images=[], mm_train_inputs=[], info={})])
+2026-11-13T11:40:48.8102662Z FAILED tests/test_length_penalty_batches.py::test_length_penalties_extract_only_batch_scalar_counts[stop] - AssertionError: 256
+2026-11-13T11:40:48.8103085Z assert 256 <= 2
+2026-11-13T11:40:48.8103710Z  +  where 2 = len([Experience(sequences=None, attention_mask=None, action_mask=None, action_log_probs=None, base_action_log_probs=None, ..., False,  True, False]), total_length=None, index=None, prompts=[], labels=[], images=[], mm_train_inputs=[], info={})])
+2026-11-13T11:40:48.8104427Z =================== 2 failed, 48 passed, 1 warning in 3.56s ====================
+2026-11-13T11:40:48.8104629Z 
+2026-11-13T11:40:48.8104788Z Exact-base totals: {'tests': 50, 'failures': 2, 'errors': 0, 'skipped': 0}
+2026-11-13T11:40:52.9129856Z {
+2026-11-13T11:40:52.9130222Z   "torch": "2.9.1+cpu",
+2026-11-13T11:40:52.9130677Z   "cpu_threads": 1,
+2026-11-13T11:40:52.9130943Z   "rows": [
+2026-11-13T11:40:52.9131160Z     {
+2026-11-13T11:40:52.9131398Z       "batch_size": 1,
+2026-11-13T11:40:52.9131705Z       "median_seconds": 1.1477000001036686e-05,
+2026-11-13T11:40:52.9132071Z       "samples_seconds": [
+2026-11-13T11:40:52.9132366Z         1.6875000000027285e-05,
+2026-11-13T11:40:52.9132678Z         1.2988999998242434e-05,
+2026-11-13T11:40:52.9132873Z         1.1477000001036686e-05,
+2026-11-13T11:40:52.9133051Z         1.1327000009941912e-05,
+2026-11-13T11:40:52.9133226Z         1.0806999995338629e-05
+2026-11-13T11:40:52.9133404Z       ],
+2026-11-13T11:40:52.9133565Z       "penalized_count": 0,
+2026-11-13T11:40:52.9133764Z       "truncated_count": 1,
+2026-11-13T11:40:52.9134072Z       "reward_sha256": "8b5b83959ef43d276462d9577a01e58fea571d97acd41b53e7603a6d0f9bd063"
+2026-11-13T11:40:52.9134397Z     },
+2026-11-13T11:40:52.9134548Z     {
+2026-11-13T11:40:52.9134701Z       "batch_size": 64,
+2026-11-13T11:40:52.9134897Z       "median_seconds": 0.0002637049999947294,
+2026-11-13T11:40:52.9135120Z       "samples_seconds": [
+2026-11-13T11:40:52.9135314Z         0.0002628439999909915,
+2026-11-13T11:40:52.9135495Z         0.0002643560000024081,
+2026-11-13T11:40:52.9135672Z         0.0002637049999947294,
+2026-11-13T11:40:52.9135844Z         0.0002705050000031406,
+2026-11-13T11:40:52.9136605Z         0.00026190200000542063
+2026-11-13T11:40:52.9136907Z       ],
+2026-11-13T11:40:52.9137141Z       "penalized_count": 0,
+2026-11-13T11:40:52.9137428Z       "truncated_count": 22,
+2026-11-13T11:40:52.9137880Z       "reward_sha256": "fcf50c2a22fe0619ab45e3a1d47c48bf2f0d6f3e9c7e4bc701777bd5eefe9889"
+2026-11-13T11:40:52.9138387Z     },
+2026-11-13T11:40:52.9138588Z     {
+2026-11-13T11:40:52.9138797Z       "batch_size": 4096,
+2026-11-13T11:40:52.9139092Z       "median_seconds": 0.016835576999994828,
+2026-11-13T11:40:52.9139435Z       "samples_seconds": [
+2026-11-13T11:40:52.9139682Z         0.01669327300000134,
+2026-11-13T11:40:52.9139866Z         0.016835576999994828,
+2026-11-13T11:40:52.9140044Z         0.0167061430000075,
+2026-11-13T11:40:52.9140220Z         0.016911570000004872,
+2026-11-13T11:40:52.9140581Z         0.01700543100000118
+2026-11-13T11:40:52.9140786Z       ],
+2026-11-13T11:40:52.9140952Z       "penalized_count": 0,
+2026-11-13T11:40:52.9141144Z       "truncated_count": 1366,
+2026-11-13T11:40:52.9141452Z       "reward_sha256": "3795627240a91a77a9d0741630aa5da846ab977e1f6e924ee4e96e68610051e8"
+2026-11-13T11:40:52.9141923Z     },
+2026-11-13T11:40:52.9142070Z     {
+2026-11-13T11:40:52.9142227Z       "batch_size": 32768,
+2026-11-13T11:40:52.9142420Z       "median_seconds": 0.20944877499999848,
+2026-11-13T11:40:52.9142629Z       "samples_seconds": [
+2026-11-13T11:40:52.9142803Z         0.20939972100001114,
+2026-11-13T11:40:52.9142975Z         0.20936033300000645,
+2026-11-13T11:40:52.9143145Z         0.20944877499999848,
+2026-11-13T11:40:52.9143318Z         0.20966240399999947,
+2026-11-13T11:40:52.9143492Z         0.2102282279999912
+2026-11-13T11:40:52.9143659Z       ],
+2026-11-13T11:40:52.9143814Z       "penalized_count": 16380,
+2026-11-13T11:40:52.9144008Z       "truncated_count": 10923,
+2026-11-13T11:40:52.9144299Z       "reward_sha256": "de5a3f45992af88dd523f35866d7b9301bae463767c5c7b4c0c569995f85ad0d"
+2026-11-13T11:40:52.9144604Z     }
+2026-11-13T11:40:52.9160639Z   ]
+2026-11-13T11:40:52.9160861Z }
+2026-11-13T11:40:52.9189767Z ##[group]Run git checkout e2686ee519b511a4b5d037e168511665a9615165 -- openrlhf/trainer/ppo_utils/length_penalty.py
+2026-11-13T11:40:52.9190653Z [36;1mgit checkout e2686ee519b511a4b5d037e168511665a9615165 -- openrlhf/trainer/ppo_utils/length_penalty.py[0m
+2026-11-13T11:40:52.9191164Z [36;1mgit diff --exit-code e2686ee519b511a4b5d037e168511665a9615165 -- openrlhf tests[0m
+2026-11-13T11:40:52.9191509Z [36;1mset +e[0m
+2026-11-13T11:40:52.9191857Z [36;1mpython -m pytest -q tests/test_length_penalty_batches.py --junitxml=patched.xml > patched.log 2>&1[0m
+2026-11-13T11:40:52.9192253Z [36;1mstatus=$?[0m
+2026-11-13T11:40:52.9192429Z [36;1mset -e[0m
+2026-11-13T11:40:52.9192605Z [36;1mcat patched.log[0m
+2026-11-13T11:40:52.9192798Z [36;1mtest "$status" -eq 0[0m
+2026-11-13T11:40:52.9192986Z [36;1mset +e[0m
+2026-11-13T11:40:52.9193447Z [36;1mpython -m pytest -q tests/test_agent.py -k test_multiturn_truncation_reaches_reward_penalty --junitxml=existing.xml > existing.log 2>&1[0m
+2026-11-13T11:40:52.9193915Z [36;1mstatus=$?[0m
+2026-11-13T11:40:52.9194080Z [36;1mset -e[0m
+2026-11-13T11:40:52.9194242Z [36;1mcat existing.log[0m
+2026-11-13T11:40:52.9194428Z [36;1mtest "$status" -eq 0[0m
+2026-11-13T11:40:52.9194769Z [36;1mpython contribution-validation/benchmark_length_penalties.py > patched-benchmark.json[0m
+2026-11-13T11:40:52.9195153Z [36;1mcat patched-benchmark.json[0m
+2026-11-13T11:40:52.9195380Z [36;1mpython - <<'PY'[0m
+2026-11-13T11:40:52.9195561Z [36;1mimport json[0m
+2026-11-13T11:40:52.9195797Z [36;1mbaseline = json.load(open("baseline-benchmark.json"))[0m
+2026-11-13T11:40:52.9196112Z [36;1mpatched = json.load(open("patched-benchmark.json"))[0m
+2026-11-13T11:40:52.9196440Z [36;1mfor before, after in zip(baseline["rows"], patched["rows"]):[0m
+2026-11-13T11:40:52.9196755Z [36;1m    assert before["batch_size"] == after["batch_size"][0m
+2026-11-13T11:40:52.9197070Z [36;1m    assert before["reward_sha256"] == after["reward_sha256"][0m
+2026-11-13T11:40:52.9197409Z [36;1m    assert before["penalized_count"] == after["penalized_count"][0m
+2026-11-13T11:40:52.9197764Z [36;1m    assert before["truncated_count"] == after["truncated_count"][0m
+2026-11-13T11:40:52.9198204Z [36;1m    print({"batch_size": before["batch_size"], "speedup": before["median_seconds"] / after["median_seconds"]})[0m
+2026-11-13T11:40:52.9198569Z [36;1mPY[0m
+2026-11-13T11:40:52.9243163Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:40:52.9243373Z env:
+2026-11-13T11:40:52.9243541Z   PYTHONPATH: .
+2026-11-13T11:40:52.9243720Z   OMP_NUM_THREADS: 1
+2026-11-13T11:40:52.9243897Z   MKL_NUM_THREADS: 1
+2026-11-13T11:40:52.9244060Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:40:52.9244235Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T11:40:52.9244479Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:52.9244825Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:40:52.9245151Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:52.9245458Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:52.9245908Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:40:52.9246207Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:40:52.9246469Z ##[endgroup]
+2026-11-13T11:40:56.7563961Z ============================= test session starts ==============================
+2026-11-13T11:40:56.7564507Z platform linux -- Python 3.12.16, pytest-9.0.2, pluggy-1.7.0
+2026-11-13T11:40:56.7564834Z rootdir: /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T11:40:56.7565094Z configfile: pyproject.toml
+2026-11-13T11:40:56.7565321Z plugins: platformdirs-4.14.5, anyio-4.16.0
+2026-11-13T11:40:56.7565565Z collected 50 items
+2026-11-13T11:40:56.7565669Z 
+2026-11-13T11:40:56.7565840Z tests/test_length_penalty_batches.py ................................... [ 70%]
+2026-11-13T11:40:56.7566176Z ...............                                                          [100%]
+2026-11-13T11:40:56.7566348Z 
+2026-11-13T11:40:56.7566892Z ----- generated xml file: /home/runner/work/OpenRLHF/OpenRLHF/patched.xml ------
+2026-11-13T11:40:56.7567253Z ============================== slowest durations ===============================
+2026-11-13T11:40:56.7567927Z 0.15s call     tests/test_length_penalty_batches.py::test_combined_penalties_preserve_language_model_updates_and_resume[SGD-dtype0]
+2026-11-13T11:40:56.7568702Z 0.05s call     tests/test_length_penalty_batches.py::test_combined_penalties_preserve_language_model_updates_and_resume[AdamW-dtype0]
+2026-11-13T11:40:56.7569345Z 0.05s call     tests/test_length_penalty_batches.py::test_combined_penalties_preserve_language_model_updates_and_resume[AdamW-dtype1]
+2026-11-13T11:40:56.7569963Z 0.04s call     tests/test_length_penalty_batches.py::test_combined_penalties_preserve_language_model_updates_and_resume[SGD-dtype1]
+2026-11-13T11:40:56.7570770Z 0.01s call     tests/test_length_penalty_batches.py::test_length_penalties_extract_only_batch_scalar_counts[overlong]
+2026-11-13T11:40:56.7571107Z 
+2026-11-13T11:40:56.7571253Z (145 durations < 0.005s hidden.  Use -vv to show these durations.)
+2026-11-13T11:40:56.7571564Z ============================== 50 passed in 2.72s ==============================
+2026-11-13T11:40:58.9294602Z ============================= test session starts ==============================
+2026-11-13T11:40:58.9295098Z platform linux -- Python 3.12.16, pytest-9.0.2, pluggy-1.7.0
+2026-11-13T11:40:58.9295422Z rootdir: /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T11:40:58.9295677Z configfile: pyproject.toml
+2026-11-13T11:40:58.9295897Z plugins: platformdirs-4.14.5, anyio-4.16.0
+2026-11-13T11:40:58.9296145Z collected 56 items / 32 deselected / 24 selected
+2026-11-13T11:40:58.9296393Z 
+2026-11-13T11:40:58.9296605Z tests/test_agent.py ........................                             [100%]
+2026-11-13T11:40:58.9296941Z 
+2026-11-13T11:40:58.9297194Z ----- generated xml file: /home/runner/work/OpenRLHF/OpenRLHF/existing.xml -----
+2026-11-13T11:40:58.9297796Z ============================== slowest durations ===============================
+2026-11-13T11:40:58.9298601Z 0.07s setup    tests/test_agent.py::test_multiturn_truncation_reaches_reward_penalty[0.5-False-finish_reasons2]
+2026-11-13T11:40:58.9300920Z 0.01s setup    tests/test_agent.py::test_multiturn_truncation_reaches_reward_penalty[0.0-False-finish_reasons0]
+2026-11-13T11:40:58.9301366Z 
+2026-11-13T11:40:58.9301588Z (70 durations < 0.005s hidden.  Use -vv to show these durations.)
+2026-11-13T11:40:58.9302061Z ====================== 24 passed, 32 deselected in 1.30s =======================
+2026-11-13T11:41:01.6675060Z {
+2026-11-13T11:41:01.6675388Z   "torch": "2.9.1+cpu",
+2026-11-13T11:41:01.6675705Z   "cpu_threads": 1,
+2026-11-13T11:41:01.6675958Z   "rows": [
+2026-11-13T11:41:01.6676176Z     {
+2026-11-13T11:41:01.6676399Z       "batch_size": 1,
+2026-11-13T11:41:01.6676691Z       "median_seconds": 3.423199999019744e-05,
+2026-11-13T11:41:01.6677047Z       "samples_seconds": [
+2026-11-13T11:41:01.6677366Z         5.2708999987771676e-05,
+2026-11-13T11:41:01.6677985Z         3.861700000129531e-05,
+2026-11-13T11:41:01.6678168Z         3.350000000068576e-05,
+2026-11-13T11:41:01.6678341Z         3.423199999019744e-05,
+2026-11-13T11:41:01.6678516Z         3.325000000131695e-05
+2026-11-13T11:41:01.6678711Z       ],
+2026-11-13T11:41:01.6678874Z       "penalized_count": 0,
+2026-11-13T11:41:01.6679062Z       "truncated_count": 1,
+2026-11-13T11:41:01.6679364Z       "reward_sha256": "8b5b83959ef43d276462d9577a01e58fea571d97acd41b53e7603a6d0f9bd063"
+2026-11-13T11:41:01.6679687Z     },
+2026-11-13T11:41:01.6679835Z     {
+2026-11-13T11:41:01.6679985Z       "batch_size": 64,
+2026-11-13T11:41:01.6680178Z       "median_seconds": 3.614400000628848e-05,
+2026-11-13T11:41:01.6680541Z       "samples_seconds": [
+2026-11-13T11:41:01.6680732Z         3.614400000628848e-05,
+2026-11-13T11:41:01.6680913Z         3.447199999584427e-05,
+2026-11-13T11:41:01.6681097Z         3.502300000945979e-05,
+2026-11-13T11:41:01.6681267Z         5.041599999344726e-05,
+2026-11-13T11:41:01.6681603Z         3.907800000035877e-05
+2026-11-13T11:41:01.6681784Z       ],
+2026-11-13T11:41:01.6681944Z       "penalized_count": 0,
+2026-11-13T11:41:01.6682135Z       "truncated_count": 22,
+2026-11-13T11:41:01.6682437Z       "reward_sha256": "fcf50c2a22fe0619ab45e3a1d47c48bf2f0d6f3e9c7e4bc701777bd5eefe9889"
+2026-11-13T11:41:01.6682749Z     },
+2026-11-13T11:41:01.6682923Z     {
+2026-11-13T11:41:01.6683086Z       "batch_size": 4096,
+2026-11-13T11:41:01.6683289Z       "median_seconds": 6.0039999993932724e-05,
+2026-11-13T11:41:01.6683520Z       "samples_seconds": [
+2026-11-13T11:41:01.6683702Z         6.0539999992670346e-05,
+2026-11-13T11:41:01.6683886Z         6.0980999990079e-05,
+2026-11-13T11:41:01.6684061Z         5.921899999350444e-05,
+2026-11-13T11:41:01.6684229Z         5.984000000580636e-05,
+2026-11-13T11:41:01.6684404Z         6.0039999993932724e-05
+2026-11-13T11:41:01.6684570Z       ],
+2026-11-13T11:41:01.6684722Z       "penalized_count": 0,
+2026-11-13T11:41:01.6684912Z       "truncated_count": 1366,
+2026-11-13T11:41:01.6685223Z       "reward_sha256": "3795627240a91a77a9d0741630aa5da846ab977e1f6e924ee4e96e68610051e8"
+2026-11-13T11:41:01.6685532Z     },
+2026-11-13T11:41:01.6685678Z     {
+2026-11-13T11:41:01.6685832Z       "batch_size": 32768,
+2026-11-13T11:41:01.6686033Z       "median_seconds": 0.0006198980000107213,
+2026-11-13T11:41:01.6686249Z       "samples_seconds": [
+2026-11-13T11:41:01.6686421Z         0.0005938890000010133,
+2026-11-13T11:41:01.6686597Z         0.0006102739999960249,
+2026-11-13T11:41:01.6686767Z         0.0006366329999991649,
+2026-11-13T11:41:01.6686940Z         0.0006198980000107213,
+2026-11-13T11:41:01.6687120Z         0.0006672479999991765
+2026-11-13T11:41:01.6687294Z       ],
+2026-11-13T11:41:01.6687453Z       "penalized_count": 16380,
+2026-11-13T11:41:01.6687658Z       "truncated_count": 10923,
+2026-11-13T11:41:01.6687953Z       "reward_sha256": "de5a3f45992af88dd523f35866d7b9301bae463767c5c7b4c0c569995f85ad0d"
+2026-11-13T11:41:01.6688263Z     }
+2026-11-13T11:41:01.6688413Z   ]
+2026-11-13T11:41:01.6688561Z }
+2026-11-13T11:41:01.6841503Z {'batch_size': 1, 'speedup': 0.33527109150278106}
+2026-11-13T11:41:01.6841910Z {'batch_size': 64, 'speedup': 7.2959550671992295}
+2026-11-13T11:41:01.6842290Z {'batch_size': 4096, 'speedup': 280.4060126864778}
+2026-11-13T11:41:01.6842644Z {'batch_size': 32768, 'speedup': 337.8761909158862}
+2026-11-13T11:41:01.6898335Z ##[group]Run python - <<'PY'
+2026-11-13T11:41:01.6898611Z [36;1mpython - <<'PY'[0m
+2026-11-13T11:41:01.6898796Z [36;1mimport json[0m
+2026-11-13T11:41:01.6898973Z [36;1mimport subprocess[0m
+2026-11-13T11:41:01.6899155Z [36;1mimport sys[0m
+2026-11-13T11:41:01.6899556Z [36;1mversions = [("baseline", "26494490bc237f6c3af62dab6117e6bbb0a78dba"), ("patched", "e2686ee519b511a4b5d037e168511665a9615165")][0m
+2026-11-13T11:41:01.6900001Z [36;1mresults = [][0m
+2026-11-13T11:41:01.6900195Z [36;1mfor label, ref in versions:[0m
+2026-11-13T11:41:01.6900792Z [36;1m    subprocess.run(["git", "checkout", ref, "--", "openrlhf/trainer/ppo_utils/length_penalty.py"], check=True)[0m
+2026-11-13T11:41:01.6901469Z [36;1m    command = [sys.executable, "-m", "pytest", "-q", "--ignore=tests/test_length_penalty_batches.py"][0m
+2026-11-13T11:41:01.6901889Z [36;1m    with open(label + "-existing-suite.log", "w") as log:[0m
+2026-11-13T11:41:01.6902169Z [36;1m        try:[0m
+2026-11-13T11:41:01.6902558Z [36;1m            result = subprocess.run(command, stdout=log, stderr=subprocess.STDOUT, timeout=180, check=False)[0m
+2026-11-13T11:41:01.6903034Z [36;1m            results.append({"source": label, "returncode": result.returncode})[0m
+2026-11-13T11:41:01.6903359Z [36;1m        except subprocess.TimeoutExpired:[0m
+2026-11-13T11:41:01.6903657Z [36;1m            results.append({"source": label, "timeout_seconds": 180})[0m
+2026-11-13T11:41:01.6903986Z [36;1m    print(label + " complete existing suite:", flush=True)[0m
+2026-11-13T11:41:01.6904386Z [36;1m    print("\n".join(open(label + "-existing-suite.log").read().splitlines()[-80:]), flush=True)[0m
+2026-11-13T11:41:01.6904796Z [36;1mwith open("existing-suite-status.json", "w") as out:[0m
+2026-11-13T11:41:01.6905079Z [36;1m    json.dump(results, out, indent=2)[0m
+2026-11-13T11:41:01.6905316Z [36;1mprint(results, flush=True)[0m
+2026-11-13T11:41:01.6905679Z [36;1msubprocess.run([sys.executable, "-m", "compileall", "-q", "openrlhf", "examples", "tests"], check=True)[0m
+2026-11-13T11:41:01.6906039Z [36;1mPY[0m
+2026-11-13T11:41:01.6950618Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:41:01.6950831Z env:
+2026-11-13T11:41:01.6950991Z   PYTHONPATH: .
+2026-11-13T11:41:01.6951171Z   OMP_NUM_THREADS: 1
+2026-11-13T11:41:01.6951349Z   MKL_NUM_THREADS: 1
+2026-11-13T11:41:01.6951512Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:41:01.6951680Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T11:41:01.6951911Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:01.6952253Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:41:01.6952588Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:01.6952899Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:01.6953195Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:01.6953489Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:41:01.6953740Z ##[endgroup]
+2026-11-13T11:41:05.6482189Z baseline complete existing suite:
+2026-11-13T11:41:05.6482661Z testpaths: ./tests
+2026-11-13T11:41:05.6482990Z plugins: platformdirs-4.14.5, anyio-4.16.0
+2026-11-13T11:41:05.6483354Z collected 119 items / 5 errors / 2 skipped
+2026-11-13T11:41:05.6483592Z 
+2026-11-13T11:41:05.6483768Z ==================================== ERRORS ====================================
+2026-11-13T11:41:05.6484269Z _________________ ERROR collecting tests/test_dataset_utils.py _________________
+2026-11-13T11:41:05.6484999Z ImportError while importing test module '/home/runner/work/OpenRLHF/OpenRLHF/tests/test_dataset_utils.py'.
+2026-11-13T11:41:05.6485686Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-13T11:41:05.6486058Z Traceback:
+2026-11-13T11:41:05.6486453Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-13T11:41:05.6487034Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-13T11:41:05.6487986Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:05.6488359Z tests/test_dataset_utils.py:6: in <module>
+2026-11-13T11:41:05.6488719Z     from datasets import Dataset, DatasetDict
+2026-11-13T11:41:05.6489124Z E   ModuleNotFoundError: No module named 'datasets'
+2026-11-13T11:41:05.6489744Z _____________ ERROR collecting tests/test_kl_estimator_gradient.py _____________
+2026-11-13T11:41:05.6490662Z ImportError while importing test module '/home/runner/work/OpenRLHF/OpenRLHF/tests/test_kl_estimator_gradient.py'.
+2026-11-13T11:41:05.6491415Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-13T11:41:05.6491831Z Traceback:
+2026-11-13T11:41:05.6492506Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-13T11:41:05.6493172Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-13T11:41:05.6493599Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:05.6493987Z tests/test_kl_estimator_gradient.py:27: in <module>
+2026-11-13T11:41:05.6494328Z     _utils = _load_utils_module()
+2026-11-13T11:41:05.6494602Z              ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:05.6494963Z tests/test_kl_estimator_gradient.py:23: in _load_utils_module
+2026-11-13T11:41:05.6495372Z     spec.loader.exec_module(module)
+2026-11-13T11:41:05.6495691Z openrlhf/models/utils.py:4: in <module>
+2026-11-13T11:41:05.6496002Z     import deepspeed
+2026-11-13T11:41:05.6496315Z E   ModuleNotFoundError: No module named 'deepspeed'
+2026-11-13T11:41:05.6496817Z _______________ ERROR collecting tests/test_loss_aggregation.py ________________
+2026-11-13T11:41:05.6497585Z ImportError while importing test module '/home/runner/work/OpenRLHF/OpenRLHF/tests/test_loss_aggregation.py'.
+2026-11-13T11:41:05.6498309Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-13T11:41:05.6498722Z Traceback:
+2026-11-13T11:41:05.6499188Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-13T11:41:05.6499841Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-13T11:41:05.6500279Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:05.6500787Z tests/test_loss_aggregation.py:41: in <module>
+2026-11-13T11:41:05.6501145Z     _loss_module = _load_loss_module()
+2026-11-13T11:41:05.6501459Z                    ^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:05.6501812Z tests/test_loss_aggregation.py:25: in _load_loss_module
+2026-11-13T11:41:05.6502219Z     spec.loader.exec_module(module)
+2026-11-13T11:41:05.6502547Z openrlhf/models/utils.py:4: in <module>
+2026-11-13T11:41:05.6502865Z     import deepspeed
+2026-11-13T11:41:05.6503181Z E   ModuleNotFoundError: No module named 'deepspeed'
+2026-11-13T11:41:05.6503650Z ______________ ERROR collecting tests/test_pretrain_loss_mask.py _______________
+2026-11-13T11:41:05.6504392Z ImportError while importing test module '/home/runner/work/OpenRLHF/OpenRLHF/tests/test_pretrain_loss_mask.py'.
+2026-11-13T11:41:05.6505123Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-13T11:41:05.6505508Z Traceback:
+2026-11-13T11:41:05.6505961Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-13T11:41:05.6506615Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-13T11:41:05.6507037Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:05.6507417Z tests/test_pretrain_loss_mask.py:12: in <module>
+2026-11-13T11:41:05.6507794Z     from datasets import Dataset
+2026-11-13T11:41:05.6508124Z E   ModuleNotFoundError: No module named 'datasets'
+2026-11-13T11:41:05.6508605Z ________________ ERROR collecting tests/test_reward_shaping.py _________________
+2026-11-13T11:41:05.6509241Z ImportError while importing test module '/home/runner/work/OpenRLHF/OpenRLHF/tests/test_reward_shaping.py'.
+2026-11-13T11:41:05.6509686Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-13T11:41:05.6510476Z Traceback:
+2026-11-13T11:41:05.6510965Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-13T11:41:05.6511644Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-13T11:41:05.6512090Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:05.6512529Z tests/test_reward_shaping.py:12: in <module>
+2026-11-13T11:41:05.6512951Z     from tests.test_loss_aggregation import _loss_module
+2026-11-13T11:41:05.6513377Z tests/test_loss_aggregation.py:41: in <module>
+2026-11-13T11:41:05.6513736Z     _loss_module = _load_loss_module()
+2026-11-13T11:41:05.6513940Z                    ^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:05.6514322Z tests/test_loss_aggregation.py:25: in _load_loss_module
+2026-11-13T11:41:05.6514579Z     spec.loader.exec_module(module)
+2026-11-13T11:41:05.6514799Z openrlhf/models/utils.py:4: in <module>
+2026-11-13T11:41:05.6515010Z     import deepspeed
+2026-11-13T11:41:05.6515224Z E   ModuleNotFoundError: No module named 'deepspeed'
+2026-11-13T11:41:05.6515512Z =========================== short test summary info ============================
+2026-11-13T11:41:05.6515791Z ERROR tests/test_dataset_utils.py
+2026-11-13T11:41:05.6516018Z ERROR tests/test_kl_estimator_gradient.py
+2026-11-13T11:41:05.6516252Z ERROR tests/test_loss_aggregation.py
+2026-11-13T11:41:05.6516476Z ERROR tests/test_pretrain_loss_mask.py
+2026-11-13T11:41:05.6516694Z ERROR tests/test_reward_shaping.py
+2026-11-13T11:41:05.6516966Z !!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!
+2026-11-13T11:41:05.6517278Z ========================= 2 skipped, 5 errors in 2.67s =========================
+2026-11-13T11:41:09.3733837Z patched complete existing suite:
+2026-11-13T11:41:09.3734164Z testpaths: ./tests
+2026-11-13T11:41:09.3734383Z plugins: platformdirs-4.14.5, anyio-4.16.0
+2026-11-13T11:41:09.3734633Z collected 119 items / 5 errors / 2 skipped
+2026-11-13T11:41:09.3734785Z 
+2026-11-13T11:41:09.3734929Z ==================================== ERRORS ====================================
+2026-11-13T11:41:09.3735410Z _________________ ERROR collecting tests/test_dataset_utils.py _________________
+2026-11-13T11:41:09.3735896Z ImportError while importing test module '/home/runner/work/OpenRLHF/OpenRLHF/tests/test_dataset_utils.py'.
+2026-11-13T11:41:09.3736547Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-13T11:41:09.3736940Z Traceback:
+2026-11-13T11:41:09.3737391Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-13T11:41:09.3737921Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-13T11:41:09.3738287Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:09.3738576Z tests/test_dataset_utils.py:6: in <module>
+2026-11-13T11:41:09.3738915Z     from datasets import Dataset, DatasetDict
+2026-11-13T11:41:09.3739296Z E   ModuleNotFoundError: No module named 'datasets'
+2026-11-13T11:41:09.3739815Z _____________ ERROR collecting tests/test_kl_estimator_gradient.py _____________
+2026-11-13T11:41:09.3740894Z ImportError while importing test module '/home/runner/work/OpenRLHF/OpenRLHF/tests/test_kl_estimator_gradient.py'.
+2026-11-13T11:41:09.3741628Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-13T11:41:09.3742032Z Traceback:
+2026-11-13T11:41:09.3742483Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-13T11:41:09.3743168Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-13T11:41:09.3743579Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:09.3743965Z tests/test_kl_estimator_gradient.py:27: in <module>
+2026-11-13T11:41:09.3744336Z     _utils = _load_utils_module()
+2026-11-13T11:41:09.3744648Z              ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:09.3745020Z tests/test_kl_estimator_gradient.py:23: in _load_utils_module
+2026-11-13T11:41:09.3745686Z     spec.loader.exec_module(module)
+2026-11-13T11:41:09.3746023Z openrlhf/models/utils.py:4: in <module>
+2026-11-13T11:41:09.3746362Z     import deepspeed
+2026-11-13T11:41:09.3746683Z E   ModuleNotFoundError: No module named 'deepspeed'
+2026-11-13T11:41:09.3747192Z _______________ ERROR collecting tests/test_loss_aggregation.py ________________
+2026-11-13T11:41:09.3747941Z ImportError while importing test module '/home/runner/work/OpenRLHF/OpenRLHF/tests/test_loss_aggregation.py'.
+2026-11-13T11:41:09.3748657Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-13T11:41:09.3749080Z Traceback:
+2026-11-13T11:41:09.3749544Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-13T11:41:09.3750503Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-13T11:41:09.3750933Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:09.3751323Z tests/test_loss_aggregation.py:41: in <module>
+2026-11-13T11:41:09.3751707Z     _loss_module = _load_loss_module()
+2026-11-13T11:41:09.3752030Z                    ^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:09.3752411Z tests/test_loss_aggregation.py:25: in _load_loss_module
+2026-11-13T11:41:09.3752820Z     spec.loader.exec_module(module)
+2026-11-13T11:41:09.3753183Z openrlhf/models/utils.py:4: in <module>
+2026-11-13T11:41:09.3753524Z     import deepspeed
+2026-11-13T11:41:09.3753854Z E   ModuleNotFoundError: No module named 'deepspeed'
+2026-11-13T11:41:09.3754351Z ______________ ERROR collecting tests/test_pretrain_loss_mask.py _______________
+2026-11-13T11:41:09.3755097Z ImportError while importing test module '/home/runner/work/OpenRLHF/OpenRLHF/tests/test_pretrain_loss_mask.py'.
+2026-11-13T11:41:09.3755791Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-13T11:41:09.3756187Z Traceback:
+2026-11-13T11:41:09.3756634Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-13T11:41:09.3757277Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-13T11:41:09.3757704Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:09.3758085Z tests/test_pretrain_loss_mask.py:12: in <module>
+2026-11-13T11:41:09.3758472Z     from datasets import Dataset
+2026-11-13T11:41:09.3758835Z E   ModuleNotFoundError: No module named 'datasets'
+2026-11-13T11:41:09.3759336Z ________________ ERROR collecting tests/test_reward_shaping.py _________________
+2026-11-13T11:41:09.3760145Z ImportError while importing test module '/home/runner/work/OpenRLHF/OpenRLHF/tests/test_reward_shaping.py'.
+2026-11-13T11:41:09.3761076Z Hint: make sure your test modules/packages have valid Python names.
+2026-11-13T11:41:09.3761539Z Traceback:
+2026-11-13T11:41:09.3762028Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+2026-11-13T11:41:09.3762717Z     return _bootstrap._gcd_import(name[level:], package, level)
+2026-11-13T11:41:09.3763176Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:09.3763568Z tests/test_reward_shaping.py:12: in <module>
+2026-11-13T11:41:09.3763985Z     from tests.test_loss_aggregation import _loss_module
+2026-11-13T11:41:09.3764416Z tests/test_loss_aggregation.py:41: in <module>
+2026-11-13T11:41:09.3764791Z     _loss_module = _load_loss_module()
+2026-11-13T11:41:09.3765122Z                    ^^^^^^^^^^^^^^^^^^^
+2026-11-13T11:41:09.3765482Z tests/test_loss_aggregation.py:25: in _load_loss_module
+2026-11-13T11:41:09.3765880Z     spec.loader.exec_module(module)
+2026-11-13T11:41:09.3766217Z openrlhf/models/utils.py:4: in <module>
+2026-11-13T11:41:09.3766544Z     import deepspeed
+2026-11-13T11:41:09.3766877Z E   ModuleNotFoundError: No module named 'deepspeed'
+2026-11-13T11:41:09.3767332Z =========================== short test summary info ============================
+2026-11-13T11:41:09.3767758Z ERROR tests/test_dataset_utils.py
+2026-11-13T11:41:09.3768103Z ERROR tests/test_kl_estimator_gradient.py
+2026-11-13T11:41:09.3768636Z ERROR tests/test_loss_aggregation.py
+2026-11-13T11:41:09.3768990Z ERROR tests/test_pretrain_loss_mask.py
+2026-11-13T11:41:09.3769340Z ERROR tests/test_reward_shaping.py
+2026-11-13T11:41:09.3769764Z !!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!
+2026-11-13T11:41:09.3770279Z ========================= 2 skipped, 5 errors in 2.62s =========================
+2026-11-13T11:41:09.3770997Z [{'source': 'baseline', 'returncode': 2}, {'source': 'patched', 'returncode': 2}]
+2026-11-13T11:41:09.4973470Z ##[group]Run python -m isort --check-only --diff openrlhf/trainer/ppo_utils/length_penalty.py tests/test_length_penalty_batches.py contribution-validation/benchmark_length_penalties.py
+2026-11-13T11:41:09.4974616Z [36;1mpython -m isort --check-only --diff openrlhf/trainer/ppo_utils/length_penalty.py tests/test_length_penalty_batches.py contribution-validation/benchmark_length_penalties.py[0m
+2026-11-13T11:41:09.4975510Z [36;1mpython -m black --check --diff openrlhf/trainer/ppo_utils/length_penalty.py tests/test_length_penalty_batches.py contribution-validation/benchmark_length_penalties.py[0m
+2026-11-13T11:41:09.4976453Z [36;1mpython -m autoflake --check-diff --remove-all-unused-imports openrlhf/trainer/ppo_utils/length_penalty.py tests/test_length_penalty_batches.py contribution-validation/benchmark_length_penalties.py[0m
+2026-11-13T11:41:09.4977221Z [36;1mgit diff --exit-code e2686ee519b511a4b5d037e168511665a9615165 -- openrlhf tests[0m
+2026-11-13T11:41:09.5020601Z shell: /usr/bin/bash -e {0}
+2026-11-13T11:41:09.5020807Z env:
+2026-11-13T11:41:09.5020970Z   PYTHONPATH: .
+2026-11-13T11:41:09.5021144Z   OMP_NUM_THREADS: 1
+2026-11-13T11:41:09.5021319Z   MKL_NUM_THREADS: 1
+2026-11-13T11:41:09.5021492Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:41:09.5021670Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T11:41:09.5021908Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:09.5022269Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:41:09.5022593Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:09.5022884Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:09.5023189Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:09.5023488Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:41:09.5023746Z ##[endgroup]
+2026-11-13T11:41:10.0808737Z All done! ✨ 🍰 ✨
+2026-11-13T11:41:10.0809002Z 3 files would be left unchanged.
+2026-11-13T11:41:10.1755812Z contribution-validation/benchmark_length_penalties.py: No issues detected!
+2026-11-13T11:41:10.1756778Z openrlhf/trainer/ppo_utils/length_penalty.py: No issues detected!
+2026-11-13T11:41:10.1763400Z tests/test_length_penalty_batches.py: No issues detected!
+2026-11-13T11:41:10.2145637Z ##[group]Run actions/upload-artifact@v4
+2026-11-13T11:41:10.2145910Z with:
+2026-11-13T11:41:10.2146104Z   name: length-penalties-native-before-after
+2026-11-13T11:41:10.2146480Z   path: *.log
+*.xml
+*benchmark.json
+existing-suite-status.json
+installed-dependencies.txt
+
+2026-11-13T11:41:10.2146826Z   if-no-files-found: warn
+2026-11-13T11:41:10.2147016Z   compression-level: 6
+2026-11-13T11:41:10.2147197Z   overwrite: false
+2026-11-13T11:41:10.2147372Z   include-hidden-files: false
+2026-11-13T11:41:10.2147570Z env:
+2026-11-13T11:41:10.2147719Z   PYTHONPATH: .
+2026-11-13T11:41:10.2147891Z   OMP_NUM_THREADS: 1
+2026-11-13T11:41:10.2148062Z   MKL_NUM_THREADS: 1
+2026-11-13T11:41:10.2148241Z   HF_HUB_OFFLINE: 1
+2026-11-13T11:41:10.2148411Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T11:41:10.2148649Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:10.2148986Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T11:41:10.2149366Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:10.2149667Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:10.2149958Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T11:41:10.2150251Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T11:41:10.2150664Z ##[endgroup]
+2026-11-13T11:41:10.3458043Z (node:2344) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:41:10.3458764Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:41:10.3546331Z With the provided path, there will be 12 files uploaded
+2026-11-13T11:41:10.3549892Z Artifact name is valid!
+2026-11-13T11:41:10.3550697Z Root directory input is valid!
+2026-11-13T11:41:10.7464961Z Beginning upload of artifact content to blob storage
+2026-11-13T11:41:10.8161614Z (node:2344) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T11:41:11.0459946Z Uploaded bytes 9422
+2026-11-13T11:41:11.1032226Z Finished uploading artifact content to blob storage!
+2026-11-13T11:41:11.1032967Z SHA256 digest of uploaded artifact zip is fda5849ee429c77c2a7891342a4caae8e8cd713aa1c28b8421951bce606b0b15
+2026-11-13T11:41:11.1034408Z Finalizing artifact upload
+2026-11-13T11:41:11.4891067Z Artifact length-penalties-native-before-after.zip successfully finalized. Artifact ID 14033066955
+2026-11-13T11:41:11.4891873Z Artifact length-penalties-native-before-after has been successfully uploaded! Final size is 9422 bytes. Artifact ID is 14033066955
+2026-11-13T11:41:11.4892559Z Artifact download URL: https://github.com/Afloat16/OpenRLHF/actions/runs/43418881621/artifacts/14033066955
+2026-11-13T11:41:11.5056993Z Post job cleanup.
+2026-11-13T11:41:11.6015022Z (node:2357) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T11:41:11.6015644Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T11:41:11.6169881Z Post job cleanup.
+2026-11-13T11:41:11.6873958Z [command]/usr/bin/git version
+2026-11-13T11:41:11.6913577Z git version 2.56.1
+2026-11-13T11:41:11.6946551Z Temporarily overriding HOME='/home/runner/work/_temp/7df98e4e-c1b8-47e6-b20f-7cd17322a482' before making global git config changes
+2026-11-13T11:41:11.6947291Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T11:41:11.6951631Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T11:41:11.6989835Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T11:41:11.7047343Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T11:41:11.7353747Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T11:41:11.7391319Z http.https://github.com/.extraheader
+2026-11-13T11:41:11.7395269Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T11:41:11.7449628Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T11:41:11.7753994Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T11:41:11.7786899Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T11:41:11.8172389Z Cleaning up orphan processes
+2026-11-13T11:41:11.8499021Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
