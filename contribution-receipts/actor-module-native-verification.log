@@ -1,0 +1,1685 @@
+﻿2026-11-13T09:51:52.1238412Z Current runner version: '2.338.2'
+2026-11-13T09:51:52.1265819Z ##[group]Runner Image Provisioner
+2026-11-13T09:51:52.1266702Z Hosted Compute Agent
+2026-11-13T09:51:52.1267419Z Version: 20261028.624
+2026-11-13T09:51:52.1268050Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-13T09:51:52.1268855Z Build Date: 2026-10-28T21:51:42Z
+2026-11-13T09:51:52.1269578Z Worker ID: {f6ed49ce-7d1f-48cf-abb1-df28db3e4716}
+2026-11-13T09:51:52.1270304Z Region: eastus
+2026-11-13T09:51:52.1270963Z Cloud: Azure
+2026-11-13T09:51:52.1271512Z ##[endgroup]
+2026-11-13T09:51:52.1273157Z ##[group]Operating System
+2026-11-13T09:51:52.1273868Z Ubuntu
+2026-11-13T09:51:52.1274702Z 26.04.1
+2026-11-13T09:51:52.1275389Z LTS
+2026-11-13T09:51:52.1275955Z ##[endgroup]
+2026-11-13T09:51:52.1277007Z ##[group]Runner Image
+2026-11-13T09:51:52.1277642Z Image: ubuntu-26.04
+2026-11-13T09:51:52.1278211Z Version: 20261101.186.1
+2026-11-13T09:51:52.1279616Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-13T09:51:52.1281276Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+2026-11-13T09:51:52.1282295Z ##[endgroup]
+2026-11-13T09:51:52.1283461Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T09:51:52.1286096Z Contents: read
+2026-11-13T09:51:52.1286801Z Metadata: read
+2026-11-13T09:51:52.1287382Z ##[endgroup]
+2026-11-13T09:51:52.1289617Z Secret source: Actions
+2026-11-13T09:51:52.1290629Z Cache mode: write
+2026-11-13T09:51:52.1291653Z Prepare workflow directory
+2026-11-13T09:51:52.1683043Z Prepare all required actions
+2026-11-13T09:51:52.1731546Z Getting action download info
+2026-11-13T09:51:52.3926779Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-13T09:51:52.4930166Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-13T09:51:52.5501827Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-13T09:51:52.7460619Z Complete job name: native-cpu
+2026-11-13T09:51:52.8400141Z ##[group]Run actions/checkout@v4
+2026-11-13T09:51:52.8401063Z with:
+2026-11-13T09:51:52.8401564Z   ref: f644edc44b24a66ba2382d474b2762bbdc4dbf90
+2026-11-13T09:51:52.8402181Z   fetch-depth: 3
+2026-11-13T09:51:52.8402650Z   repository: Afloat16/OpenRLHF
+2026-11-13T09:51:52.8406654Z   token: ***
+2026-11-13T09:51:52.8407122Z   ssh-strict: true
+2026-11-13T09:51:52.8407573Z   ssh-user: git
+2026-11-13T09:51:52.8408031Z   persist-credentials: true
+2026-11-13T09:51:52.8408526Z   clean: true
+2026-11-13T09:51:52.8408980Z   sparse-checkout-cone-mode: true
+2026-11-13T09:51:52.8409513Z   fetch-tags: false
+2026-11-13T09:51:52.8409969Z   show-progress: true
+2026-11-13T09:51:52.8410428Z   lfs: false
+2026-11-13T09:51:52.8410849Z   submodules: false
+2026-11-13T09:51:52.8411309Z   set-safe-directory: true
+2026-11-13T09:51:52.8411826Z   allow-unsafe-pr-checkout: false
+2026-11-13T09:51:52.8412614Z env:
+2026-11-13T09:51:52.8413054Z   PYTHONPATH: .
+2026-11-13T09:51:52.8413499Z   OMP_NUM_THREADS: 1
+2026-11-13T09:51:52.8413980Z   MKL_NUM_THREADS: 1
+2026-11-13T09:51:52.8414566Z ##[endgroup]
+2026-11-13T09:51:53.1100617Z Syncing repository: Afloat16/OpenRLHF
+2026-11-13T09:51:53.1103720Z ##[group]Getting Git version info
+2026-11-13T09:51:53.1135206Z Working directory is '/home/runner/work/OpenRLHF/OpenRLHF'
+2026-11-13T09:51:53.1136922Z [command]/usr/bin/git version
+2026-11-13T09:51:53.1137683Z git version 2.56.0
+2026-11-13T09:51:53.1152044Z ##[endgroup]
+2026-11-13T09:51:53.1177422Z Temporarily overriding HOME='/home/runner/work/_temp/92891580-793e-4d5b-b87c-9762d7365313' before making global git config changes
+2026-11-13T09:51:53.1180798Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T09:51:53.1187598Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T09:51:53.1277402Z Deleting the contents of '/home/runner/work/OpenRLHF/OpenRLHF'
+2026-11-13T09:51:53.1290254Z ##[group]Initializing the repository
+2026-11-13T09:51:53.1296510Z [command]/usr/bin/git init /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T09:51:53.1423040Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T09:51:53.1425908Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T09:51:53.1428793Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T09:51:53.1430666Z hint: call:
+2026-11-13T09:51:53.1431592Z hint:
+2026-11-13T09:51:53.1432968Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T09:51:53.1434507Z hint:
+2026-11-13T09:51:53.1435810Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T09:51:53.1438071Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T09:51:53.1439674Z hint:
+2026-11-13T09:51:53.1440549Z hint: 	git branch -m <name>
+2026-11-13T09:51:53.1443120Z hint:
+2026-11-13T09:51:53.1444736Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T09:51:53.1447188Z Initialized empty Git repository in /home/runner/work/OpenRLHF/OpenRLHF/.git/
+2026-11-13T09:51:53.1457848Z [command]/usr/bin/git remote add origin https://github.com/Afloat16/OpenRLHF
+2026-11-13T09:51:53.1532620Z ##[endgroup]
+2026-11-13T09:51:53.1534509Z ##[group]Disabling automatic garbage collection
+2026-11-13T09:51:53.1537744Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T09:51:53.1611271Z ##[endgroup]
+2026-11-13T09:51:53.1615116Z ##[group]Setting up auth
+2026-11-13T09:51:53.1617113Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T09:51:53.1673862Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T09:51:53.2239590Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T09:51:53.2275778Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T09:51:53.2567514Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T09:51:53.2603874Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T09:51:53.2879661Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T09:51:53.2920186Z ##[endgroup]
+2026-11-13T09:51:53.2921108Z ##[group]Fetching the repository
+2026-11-13T09:51:53.2930580Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=3 origin f644edc44b24a66ba2382d474b2762bbdc4dbf90
+2026-11-13T09:51:53.5443047Z From https://github.com/Afloat16/OpenRLHF
+2026-11-13T09:51:53.5446436Z  * branch            f644edc44b24a66ba2382d474b2762bbdc4dbf90 -> FETCH_HEAD
+2026-11-13T09:51:53.5452883Z ##[endgroup]
+2026-11-13T09:51:53.5455805Z ##[group]Determining the checkout info
+2026-11-13T09:51:53.5458772Z ##[endgroup]
+2026-11-13T09:51:53.5461406Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T09:51:53.5515882Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T09:51:53.5550984Z ##[group]Checking out the ref
+2026-11-13T09:51:53.5554892Z [command]/usr/bin/git checkout --progress --force f644edc44b24a66ba2382d474b2762bbdc4dbf90
+2026-11-13T09:51:53.5685100Z Note: switching to 'f644edc44b24a66ba2382d474b2762bbdc4dbf90'.
+2026-11-13T09:51:53.5686211Z 
+2026-11-13T09:51:53.5686982Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-13T09:51:53.5688836Z changes and commit them, and you can discard any commits you make in this
+2026-11-13T09:51:53.5690648Z state without impacting any branches by switching back to a branch.
+2026-11-13T09:51:53.5691973Z 
+2026-11-13T09:51:53.5692675Z If you want to create a new branch to retain commits you create, you may
+2026-11-13T09:51:53.5694505Z do so (now or later) by using -c with the switch command. Example:
+2026-11-13T09:51:53.5695513Z 
+2026-11-13T09:51:53.5695926Z   git switch -c <new-branch-name>
+2026-11-13T09:51:53.5696569Z 
+2026-11-13T09:51:53.5697030Z Or undo this operation with:
+2026-11-13T09:51:53.5697789Z 
+2026-11-13T09:51:53.5698287Z   git switch -
+2026-11-13T09:51:53.5698933Z 
+2026-11-13T09:51:53.5699892Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-13T09:51:53.5701273Z 
+2026-11-13T09:51:53.5702290Z HEAD is now at f644edc Import the existing Actor fixture through the test package
+2026-11-13T09:51:53.5725779Z ##[endgroup]
+2026-11-13T09:51:53.5769518Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T09:51:53.5796463Z f644edc44b24a66ba2382d474b2762bbdc4dbf90
+2026-11-13T09:51:53.6267727Z ##[group]Run actions/setup-python@v5
+2026-11-13T09:51:53.6269078Z with:
+2026-11-13T09:51:53.6270009Z   python-version: 3.12
+2026-11-13T09:51:53.6271045Z   check-latest: false
+2026-11-13T09:51:53.6281894Z   token: ***
+2026-11-13T09:51:53.6282862Z   update-environment: true
+2026-11-13T09:51:53.6284006Z   allow-prereleases: false
+2026-11-13T09:51:53.6285211Z   freethreaded: false
+2026-11-13T09:51:53.6286205Z env:
+2026-11-13T09:51:53.6287062Z   PYTHONPATH: .
+2026-11-13T09:51:53.6288020Z   OMP_NUM_THREADS: 1
+2026-11-13T09:51:53.6289015Z   MKL_NUM_THREADS: 1
+2026-11-13T09:51:53.6289985Z ##[endgroup]
+2026-11-13T09:51:53.7679961Z ##[group]Installed versions
+2026-11-13T09:51:53.7816812Z (node:2427) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T09:51:53.7821766Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T09:51:53.7824925Z Successfully set up CPython (3.12.16)
+2026-11-13T09:51:53.7837388Z ##[endgroup]
+2026-11-13T09:51:53.8058497Z ##[group]Run python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+2026-11-13T09:51:53.8061466Z [36;1mpython -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu[0m
+2026-11-13T09:51:53.8064815Z [36;1mpython -m pip install torch==2.9.1 transformers==4.57.1 pytest==9.0.2 black==26.5.1 isort==9.0.0a3 autoflake==2.3.3[0m
+2026-11-13T09:51:53.8069079Z [36;1mpython -m pip freeze > installed-dependencies.txt[0m
+2026-11-13T09:51:53.8169464Z shell: /usr/bin/bash -e {0}
+2026-11-13T09:51:53.8170736Z env:
+2026-11-13T09:51:53.8171906Z   PYTHONPATH: .
+2026-11-13T09:51:53.8173100Z   OMP_NUM_THREADS: 1
+2026-11-13T09:51:53.8174156Z   MKL_NUM_THREADS: 1
+2026-11-13T09:51:53.8175687Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:51:53.8177613Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T09:51:53.8179496Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:51:53.8181331Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:51:53.8183255Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:51:53.8185341Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T09:51:53.8186844Z ##[endgroup]
+2026-11-13T09:51:54.5950873Z Looking in indexes: https://download.pytorch.org/whl/cpu
+2026-11-13T09:51:54.7177523Z Collecting torch==2.9.1
+2026-11-13T09:51:54.7661684Z   Downloading torch-2.9.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (29 kB)
+2026-11-13T09:51:54.8176301Z Collecting filelock (from torch==2.9.1)
+2026-11-13T09:51:54.8534251Z   Downloading filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+2026-11-13T09:51:54.8735728Z Collecting typing-extensions>=4.10.0 (from torch==2.9.1)
+2026-11-13T09:51:54.8779295Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-13T09:51:54.8891077Z Collecting setuptools (from torch==2.9.1)
+2026-11-13T09:51:54.8934757Z   Downloading setuptools-78.1.0-py3-none-any.whl.metadata (6.6 kB)
+2026-11-13T09:51:54.9156259Z Collecting sympy>=1.13.3 (from torch==2.9.1)
+2026-11-13T09:51:54.9185443Z   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+2026-11-13T09:51:54.9575975Z Collecting networkx>=2.5.1 (from torch==2.9.1)
+2026-11-13T09:51:54.9609685Z   Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+2026-11-13T09:51:54.9881447Z Collecting jinja2 (from torch==2.9.1)
+2026-11-13T09:51:54.9923978Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-11-13T09:51:55.0165317Z Collecting fsspec>=0.8.5 (from torch==2.9.1)
+2026-11-13T09:51:55.0198954Z   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+2026-11-13T09:51:55.0544983Z Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.9.1)
+2026-11-13T09:51:55.0579010Z   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+2026-11-13T09:51:55.0812315Z Collecting MarkupSafe>=2.0 (from jinja2->torch==2.9.1)
+2026-11-13T09:51:55.0861137Z   Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-11-13T09:51:55.1017361Z Downloading torch-2.9.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (184.4 MB)
+2026-11-13T09:51:55.7465890Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 184.4/184.4 MB 288.2 MB/s  0:00:00
+2026-11-13T09:51:55.7496614Z Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+2026-11-13T09:51:55.7602087Z Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+2026-11-13T09:51:55.7805991Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 105.9 MB/s  0:00:00
+2026-11-13T09:51:55.7834903Z Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+2026-11-13T09:51:55.8155458Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 218.0 MB/s  0:00:00
+2026-11-13T09:51:55.8187701Z Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+2026-11-13T09:51:55.8237111Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 99.0 MB/s  0:00:00
+2026-11-13T09:51:55.8267241Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-13T09:51:55.8321678Z Downloading filelock-4.2.4-py3-none-any.whl (162 kB)
+2026-11-13T09:51:55.8397618Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-11-13T09:51:55.8474049Z Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+2026-11-13T09:51:55.8539607Z Downloading setuptools-78.1.0-py3-none-any.whl (1.3 MB)
+2026-11-13T09:51:55.8636327Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 134.9 MB/s  0:00:00
+2026-11-13T09:51:56.2410720Z Installing collected packages: mpmath, typing-extensions, sympy, setuptools, networkx, MarkupSafe, fsspec, filelock, jinja2, torch
+2026-11-13T09:52:15.5038241Z 
+2026-11-13T09:52:15.5055895Z Successfully installed MarkupSafe-3.0.3 filelock-4.2.4 fsspec-2026.9.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.7 setuptools-78.1.0 sympy-1.14.0 torch-2.9.1+cpu typing-extensions-4.16.0
+2026-11-13T09:52:15.9437904Z Requirement already satisfied: torch==2.9.1 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (2.9.1+cpu)
+2026-11-13T09:52:15.9960304Z Collecting transformers==4.57.1
+2026-11-13T09:52:16.0213971Z   Downloading transformers-4.57.1-py3-none-any.whl.metadata (43 kB)
+2026-11-13T09:52:16.1588419Z Collecting pytest==9.0.2
+2026-11-13T09:52:16.1626080Z   Downloading pytest-9.0.2-py3-none-any.whl.metadata (7.6 kB)
+2026-11-13T09:52:16.2234648Z Collecting black==26.5.1
+2026-11-13T09:52:16.2273616Z   Downloading black-26.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (95 kB)
+2026-11-13T09:52:16.2680985Z Collecting isort==9.0.0a3
+2026-11-13T09:52:16.2729611Z   Downloading isort-9.0.0a3-py3-none-any.whl.metadata (11 kB)
+2026-11-13T09:52:16.2868332Z Collecting autoflake==2.3.3
+2026-11-13T09:52:16.2911370Z   Downloading autoflake-2.3.3-py3-none-any.whl.metadata (7.6 kB)
+2026-11-13T09:52:16.2960646Z Requirement already satisfied: filelock in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (4.2.4)
+2026-11-13T09:52:16.2967248Z Requirement already satisfied: typing-extensions>=4.10.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (4.16.0)
+2026-11-13T09:52:16.2974546Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (78.1.0)
+2026-11-13T09:52:16.2981440Z Requirement already satisfied: sympy>=1.13.3 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (1.14.0)
+2026-11-13T09:52:16.2987423Z Requirement already satisfied: networkx>=2.5.1 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (3.7)
+2026-11-13T09:52:16.2992452Z Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (3.1.6)
+2026-11-13T09:52:16.2998302Z Requirement already satisfied: fsspec>=0.8.5 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (2026.9.0)
+2026-11-13T09:52:16.3372674Z Collecting huggingface-hub<1.0,>=0.34.0 (from transformers==4.57.1)
+2026-11-13T09:52:16.3410638Z   Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)
+2026-11-13T09:52:16.5510488Z Collecting numpy>=1.17 (from transformers==4.57.1)
+2026-11-13T09:52:16.5547946Z   Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-11-13T09:52:16.5698678Z Collecting packaging>=20.0 (from transformers==4.57.1)
+2026-11-13T09:52:16.5740599Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-11-13T09:52:16.6071767Z Collecting pyyaml>=5.1 (from transformers==4.57.1)
+2026-11-13T09:52:16.6107142Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-11-13T09:52:17.0113824Z Collecting regex!=2019.12.17 (from transformers==4.57.1)
+2026-11-13T09:52:17.0151893Z   Downloading regex-2026.11.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+2026-11-13T09:52:17.0388898Z Collecting requests (from transformers==4.57.1)
+2026-11-13T09:52:17.0426309Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+2026-11-13T09:52:17.1705893Z Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==4.57.1)
+2026-11-13T09:52:17.1742078Z   Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+2026-11-13T09:52:17.2830151Z Collecting safetensors>=0.4.3 (from transformers==4.57.1)
+2026-11-13T09:52:17.2867145Z   Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+2026-11-13T09:52:17.3184978Z Collecting tqdm>=4.27 (from transformers==4.57.1)
+2026-11-13T09:52:17.3219860Z   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+2026-11-13T09:52:17.3395857Z Collecting iniconfig>=1.0.1 (from pytest==9.0.2)
+2026-11-13T09:52:17.3428928Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-11-13T09:52:17.3550352Z Collecting pluggy<2,>=1.5 (from pytest==9.0.2)
+2026-11-13T09:52:17.3584477Z   Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-11-13T09:52:17.3779189Z Collecting pygments>=2.7.2 (from pytest==9.0.2)
+2026-11-13T09:52:17.3813202Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-11-13T09:52:17.3968697Z Collecting click>=8.0.0 (from black==26.5.1)
+2026-11-13T09:52:17.4002694Z   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+2026-11-13T09:52:17.4094680Z Collecting mypy-extensions>=0.4.3 (from black==26.5.1)
+2026-11-13T09:52:17.4127432Z   Downloading mypy_extensions-1.2.0-py3-none-any.whl.metadata (1.1 kB)
+2026-11-13T09:52:17.4244703Z Collecting pathspec>=1.0.0 (from black==26.5.1)
+2026-11-13T09:52:17.4282185Z   Downloading pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+2026-11-13T09:52:17.4492080Z Collecting platformdirs>=2 (from black==26.5.1)
+2026-11-13T09:52:17.4526141Z   Downloading platformdirs-4.14.5-py3-none-any.whl.metadata (5.7 kB)
+2026-11-13T09:52:17.4666603Z Collecting pytokens~=0.4.0 (from black==26.5.1)
+2026-11-13T09:52:17.4701550Z   Downloading pytokens-0.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+2026-11-13T09:52:17.4870315Z Collecting pyflakes>=3.0.0 (from autoflake==2.3.3)
+2026-11-13T09:52:17.4903301Z   Downloading pyflakes-4.1.0-py2.py3-none-any.whl.metadata (3.7 kB)
+2026-11-13T09:52:17.5349262Z Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface-hub<1.0,>=0.34.0->transformers==4.57.1)
+2026-11-13T09:52:17.5388213Z   Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+2026-11-13T09:52:17.5688040Z Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from sympy>=1.13.3->torch==2.9.1) (1.3.0)
+2026-11-13T09:52:17.5726954Z Requirement already satisfied: MarkupSafe>=2.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from jinja2->torch==2.9.1) (3.0.3)
+2026-11-13T09:52:17.6853602Z Collecting charset_normalizer<4,>=2 (from requests->transformers==4.57.1)
+2026-11-13T09:52:17.6891343Z   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+2026-11-13T09:52:17.7065055Z Collecting idna<4,>=2.5 (from requests->transformers==4.57.1)
+2026-11-13T09:52:17.7099030Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-11-13T09:52:17.7539744Z Collecting urllib3<3,>=1.26 (from requests->transformers==4.57.1)
+2026-11-13T09:52:17.7579533Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+2026-11-13T09:52:17.7747791Z Collecting certifi>=2023.5.7 (from requests->transformers==4.57.1)
+2026-11-13T09:52:17.7782672Z   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+2026-11-13T09:52:17.7915454Z Downloading transformers-4.57.1-py3-none-any.whl (12.0 MB)
+2026-11-13T09:52:17.8883713Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 132.6 MB/s  0:00:00
+2026-11-13T09:52:17.8923603Z Downloading pytest-9.0.2-py3-none-any.whl (374 kB)
+2026-11-13T09:52:17.9009881Z Downloading black-26.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+2026-11-13T09:52:17.9103912Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 226.9 MB/s  0:00:00
+2026-11-13T09:52:17.9147860Z Downloading isort-9.0.0a3-py3-none-any.whl (97 kB)
+2026-11-13T09:52:17.9206411Z Downloading autoflake-2.3.3-py3-none-any.whl (17 kB)
+2026-11-13T09:52:17.9269413Z Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+2026-11-13T09:52:17.9318983Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 108.0 MB/s  0:00:00
+2026-11-13T09:52:17.9358464Z Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+2026-11-13T09:52:17.9557756Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 230.3 MB/s  0:00:00
+2026-11-13T09:52:17.9592833Z Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-11-13T09:52:17.9648601Z Downloading pytokens-0.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+2026-11-13T09:52:17.9706634Z Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+2026-11-13T09:52:17.9821514Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 331.3 MB/s  0:00:00
+2026-11-13T09:52:17.9857670Z Downloading click-8.5.1-py3-none-any.whl (126 kB)
+2026-11-13T09:52:17.9926589Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-11-13T09:52:17.9977342Z Downloading mypy_extensions-1.2.0-py3-none-any.whl (5.1 kB)
+2026-11-13T09:52:18.0032374Z Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+2026-11-13T09:52:18.0516456Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 361.7 MB/s  0:00:00
+2026-11-13T09:52:18.0555033Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-11-13T09:52:18.0614568Z Downloading pathspec-1.1.1-py3-none-any.whl (57 kB)
+2026-11-13T09:52:18.0686425Z Downloading platformdirs-4.14.5-py3-none-any.whl (35 kB)
+2026-11-13T09:52:18.0740373Z Downloading pyflakes-4.1.0-py2.py3-none-any.whl (66 kB)
+2026-11-13T09:52:18.0797937Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-11-13T09:52:18.0861268Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 241.7 MB/s  0:00:00
+2026-11-13T09:52:18.0904168Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+2026-11-13T09:52:18.0959413Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 157.7 MB/s  0:00:00
+2026-11-13T09:52:18.0995413Z Downloading regex-2026.11.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (808 kB)
+2026-11-13T09:52:18.1048144Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 808.8/808.8 kB 169.1 MB/s  0:00:00
+2026-11-13T09:52:18.1081512Z Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+2026-11-13T09:52:18.1143184Z Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+2026-11-13T09:52:18.1196312Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+2026-11-13T09:52:18.1248726Z Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+2026-11-13T09:52:18.1305285Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+2026-11-13T09:52:18.1358012Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+2026-11-13T09:52:18.1412069Z Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+2026-11-13T09:52:18.3766991Z Installing collected packages: urllib3, tqdm, safetensors, regex, pyyaml, pytokens, pygments, pyflakes, pluggy, platformdirs, pathspec, packaging, numpy, mypy-extensions, isort, iniconfig, idna, hf-xet, click, charset_normalizer, certifi, requests, pytest, black, autoflake, huggingface-hub, tokenizers, transformers
+2026-11-13T09:52:30.7881893Z 
+2026-11-13T09:52:30.7917659Z Successfully installed autoflake-2.3.3 black-26.5.1 certifi-2026.10.23 charset_normalizer-3.5.2 click-8.5.1 hf-xet-1.8.0 huggingface-hub-0.36.2 idna-3.20 iniconfig-2.3.1 isort-9.0.0a3 mypy-extensions-1.2.0 numpy-2.5.4 packaging-26.3 pathspec-1.1.1 platformdirs-4.14.5 pluggy-1.7.0 pyflakes-4.1.0 pygments-2.21.0 pytest-9.0.2 pytokens-0.4.1 pyyaml-6.0.3 regex-2026.11.9 requests-2.34.2 safetensors-0.8.0 tokenizers-0.22.2 tqdm-4.70.1 transformers-4.57.1 urllib3-2.8.0
+2026-11-13T09:52:30.7926861Z 
+2026-11-13T09:52:30.7927248Z [notice] A new release of pip is available: 26.2.2 -> 26.3
+2026-11-13T09:52:30.7927944Z [notice] To update, run: pip install --upgrade pip
+2026-11-13T09:52:31.1663438Z ##[group]Run git checkout 26494490bc237f6c3af62dab6117e6bbb0a78dba -- openrlhf/models/actor.py
+2026-11-13T09:52:31.1664256Z [36;1mgit checkout 26494490bc237f6c3af62dab6117e6bbb0a78dba -- openrlhf/models/actor.py[0m
+2026-11-13T09:52:31.1664992Z [36;1mpython - <<'PY'[0m
+2026-11-13T09:52:31.1665236Z [36;1mimport subprocess[0m
+2026-11-13T09:52:31.1665469Z [36;1mimport sys[0m
+2026-11-13T09:52:31.1665712Z [36;1mimport xml.etree.ElementTree as ET[0m
+2026-11-13T09:52:31.1666336Z [36;1mwith open("baseline.log", "w") as log:[0m
+2026-11-13T09:52:31.1667115Z [36;1m    result = subprocess.run([sys.executable, "-m", "pytest", "-q", "tests/test_actor_module_instance.py", "--junitxml=baseline.xml"], stdout=log, stderr=subprocess.STDOUT, check=False)[0m
+2026-11-13T09:52:31.1667904Z [36;1mprint(open("baseline.log").read(), flush=True)[0m
+2026-11-13T09:52:31.1668255Z [36;1msuites = ET.parse("baseline.xml").getroot()[0m
+2026-11-13T09:52:31.1668889Z [36;1mtotals = {name: sum(int(s.get(name, 0)) for s in suites.iter("testsuite")) for name in ("tests", "failures", "errors", "skipped")}[0m
+2026-11-13T09:52:31.1669543Z [36;1mprint("Exact-base regression totals:", totals, flush=True)[0m
+2026-11-13T09:52:31.1670117Z [36;1massert result.returncode == 1 and totals == {"tests": 18, "failures": 18, "errors": 0, "skipped": 0}, totals[0m
+2026-11-13T09:52:31.1670596Z [36;1mPY[0m
+2026-11-13T09:52:31.1722434Z shell: /usr/bin/bash -e {0}
+2026-11-13T09:52:31.1722710Z env:
+2026-11-13T09:52:31.1722905Z   PYTHONPATH: .
+2026-11-13T09:52:31.1723122Z   OMP_NUM_THREADS: 1
+2026-11-13T09:52:31.1723331Z   MKL_NUM_THREADS: 1
+2026-11-13T09:52:31.1723604Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:31.1724056Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T09:52:31.1724756Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:31.1725138Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:31.1725519Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:31.1725901Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T09:52:31.1726229Z ##[endgroup]
+2026-11-13T09:52:37.2972376Z ============================= test session starts ==============================
+2026-11-13T09:52:37.2973875Z platform linux -- Python 3.12.16, pytest-9.0.2, pluggy-1.7.0
+2026-11-13T09:52:37.2975050Z rootdir: /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T09:52:37.2975707Z configfile: pyproject.toml
+2026-11-13T09:52:37.2976182Z plugins: platformdirs-4.14.5
+2026-11-13T09:52:37.2976577Z collected 18 items
+2026-11-13T09:52:37.2976820Z 
+2026-11-13T09:52:37.2977195Z tests/test_actor_module_instance.py FFFFFFFFFFFFFFFFFF                   [100%]
+2026-11-13T09:52:37.2977722Z 
+2026-11-13T09:52:37.2977930Z =================================== FAILURES ===================================
+2026-11-13T09:52:37.2978616Z ____________ test_module_actor_retains_packing_configuration[False] ____________
+2026-11-13T09:52:37.2979103Z 
+2026-11-13T09:52:37.2979244Z packing_samples = False
+2026-11-13T09:52:37.2979473Z 
+2026-11-13T09:52:37.2979780Z     @pytest.mark.parametrize("packing_samples", [False, True])
+2026-11-13T09:52:37.2980606Z     def test_module_actor_retains_packing_configuration(packing_samples):
+2026-11-13T09:52:37.2981241Z         model = _model()
+2026-11-13T09:52:37.2981716Z         actor = Actor(model, packing_samples=packing_samples)
+2026-11-13T09:52:37.2982275Z         assert actor.model is model
+2026-11-13T09:52:37.2982782Z >       assert actor.packing_samples is packing_samples
+2026-11-13T09:52:37.2983280Z                ^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.2983572Z 
+2026-11-13T09:52:37.2983757Z tests/test_actor_module_instance.py:52: 
+2026-11-13T09:52:37.2984496Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.2984879Z 
+2026-11-13T09:52:37.2984999Z self = Actor(
+2026-11-13T09:52:37.2985312Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.2986091Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.2986501Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.2987043Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.2987600Z     )
+2026-11-13T09:52:37.2988023Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.2988600Z   )
+2026-11-13T09:52:37.2988950Z )
+2026-11-13T09:52:37.2989260Z name = 'packing_samples'
+2026-11-13T09:52:37.2989515Z 
+2026-11-13T09:52:37.2990031Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.2990628Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.2991175Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.2991684Z             if name in _parameters:
+2026-11-13T09:52:37.2992097Z                 return _parameters[name]
+2026-11-13T09:52:37.2992505Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.2992948Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.2993435Z             if name in _buffers:
+2026-11-13T09:52:37.2993858Z                 return _buffers[name]
+2026-11-13T09:52:37.2994813Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.2995332Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.2995830Z             if name in modules:
+2026-11-13T09:52:37.2996258Z                 return modules[name]
+2026-11-13T09:52:37.2996711Z >       raise AttributeError(
+2026-11-13T09:52:37.2997254Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.2997841Z         )
+2026-11-13T09:52:37.2998356Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.2998862Z 
+2026-11-13T09:52:37.2999505Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3000679Z ____________ test_module_actor_retains_packing_configuration[True] _____________
+2026-11-13T09:52:37.3001203Z 
+2026-11-13T09:52:37.3001358Z packing_samples = True
+2026-11-13T09:52:37.3001561Z 
+2026-11-13T09:52:37.3001818Z     @pytest.mark.parametrize("packing_samples", [False, True])
+2026-11-13T09:52:37.3002608Z     def test_module_actor_retains_packing_configuration(packing_samples):
+2026-11-13T09:52:37.3003279Z         model = _model()
+2026-11-13T09:52:37.3003740Z         actor = Actor(model, packing_samples=packing_samples)
+2026-11-13T09:52:37.3004464Z         assert actor.model is model
+2026-11-13T09:52:37.3004966Z >       assert actor.packing_samples is packing_samples
+2026-11-13T09:52:37.3005459Z                ^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3005724Z 
+2026-11-13T09:52:37.3005908Z tests/test_actor_module_instance.py:52: 
+2026-11-13T09:52:37.3006444Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3006856Z 
+2026-11-13T09:52:37.3006982Z self = Actor(
+2026-11-13T09:52:37.3007318Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3007710Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3008128Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3008634Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3009156Z     )
+2026-11-13T09:52:37.3009562Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3010093Z   )
+2026-11-13T09:52:37.3010465Z )
+2026-11-13T09:52:37.3010760Z name = 'packing_samples'
+2026-11-13T09:52:37.3011012Z 
+2026-11-13T09:52:37.3011264Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3011863Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3012371Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3012871Z             if name in _parameters:
+2026-11-13T09:52:37.3013320Z                 return _parameters[name]
+2026-11-13T09:52:37.3013785Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3014438Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3014953Z             if name in _buffers:
+2026-11-13T09:52:37.3015622Z                 return _buffers[name]
+2026-11-13T09:52:37.3016095Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3016583Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3017077Z             if name in modules:
+2026-11-13T09:52:37.3017471Z                 return modules[name]
+2026-11-13T09:52:37.3017907Z >       raise AttributeError(
+2026-11-13T09:52:37.3018445Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3019184Z         )
+2026-11-13T09:52:37.3019679Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3020194Z 
+2026-11-13T09:52:37.3020803Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3021917Z _______ test_module_actor_forward_matches_native_model[0.7-left-actions] _______
+2026-11-13T09:52:37.3022482Z 
+2026-11-13T09:52:37.3022733Z mode = 'actions', padding = 'left', temperature = 0.7
+2026-11-13T09:52:37.3023131Z 
+2026-11-13T09:52:37.3023453Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3024222Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3025256Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3026041Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3026740Z         model = _model()
+2026-11-13T09:52:37.3027226Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3027849Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3028416Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3028911Z         with torch.no_grad():
+2026-11-13T09:52:37.3029467Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3030171Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3030665Z             )
+2026-11-13T09:52:37.3030977Z >           result = actor(
+2026-11-13T09:52:37.3031350Z                 sequences,
+2026-11-13T09:52:37.3031775Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3032314Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3032794Z                 return_output=True,
+2026-11-13T09:52:37.3033255Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3033701Z                 return_entropy=True,
+2026-11-13T09:52:37.3034099Z             )
+2026-11-13T09:52:37.3034431Z 
+2026-11-13T09:52:37.3034618Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3035178Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3036179Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3037092Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3037533Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3038343Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3039190Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3039598Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3040016Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3040475Z     if self.packing_samples:
+2026-11-13T09:52:37.3040872Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3041330Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3041745Z 
+2026-11-13T09:52:37.3041871Z self = Actor(
+2026-11-13T09:52:37.3042210Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3042590Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3042996Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3043471Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3044003Z     )
+2026-11-13T09:52:37.3044807Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3045354Z   )
+2026-11-13T09:52:37.3045618Z )
+2026-11-13T09:52:37.3045895Z name = 'packing_samples'
+2026-11-13T09:52:37.3046125Z 
+2026-11-13T09:52:37.3046381Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3046981Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3047468Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3048115Z             if name in _parameters:
+2026-11-13T09:52:37.3048556Z                 return _parameters[name]
+2026-11-13T09:52:37.3049019Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3049488Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3049965Z             if name in _buffers:
+2026-11-13T09:52:37.3050359Z                 return _buffers[name]
+2026-11-13T09:52:37.3050771Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3051214Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3051658Z             if name in modules:
+2026-11-13T09:52:37.3052040Z                 return modules[name]
+2026-11-13T09:52:37.3052449Z >       raise AttributeError(
+2026-11-13T09:52:37.3052967Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3053525Z         )
+2026-11-13T09:52:37.3053992Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3054622Z 
+2026-11-13T09:52:37.3055053Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3055731Z ______ test_module_actor_forward_matches_native_model[0.7-left-logprobs] _______
+2026-11-13T09:52:37.3056045Z 
+2026-11-13T09:52:37.3056189Z mode = 'logprobs', padding = 'left', temperature = 0.7
+2026-11-13T09:52:37.3056417Z 
+2026-11-13T09:52:37.3056607Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3057036Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3057770Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3058560Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3059169Z         model = _model()
+2026-11-13T09:52:37.3059457Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3059815Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3060163Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3060464Z         with torch.no_grad():
+2026-11-13T09:52:37.3060812Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3061231Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3061529Z             )
+2026-11-13T09:52:37.3061723Z >           result = actor(
+2026-11-13T09:52:37.3061944Z                 sequences,
+2026-11-13T09:52:37.3062207Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3062526Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3062814Z                 return_output=True,
+2026-11-13T09:52:37.3063094Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3063381Z                 return_entropy=True,
+2026-11-13T09:52:37.3063617Z             )
+2026-11-13T09:52:37.3063725Z 
+2026-11-13T09:52:37.3063840Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3064173Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3065278Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3065886Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3066166Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3066678Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3067393Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3067682Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3067953Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3068231Z     if self.packing_samples:
+2026-11-13T09:52:37.3068472Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3068755Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3069000Z 
+2026-11-13T09:52:37.3069079Z self = Actor(
+2026-11-13T09:52:37.3069403Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3069652Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3069895Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3070198Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3090640Z     )
+2026-11-13T09:52:37.3090988Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3091335Z   )
+2026-11-13T09:52:37.3091511Z )
+2026-11-13T09:52:37.3091705Z name = 'packing_samples'
+2026-11-13T09:52:37.3091876Z 
+2026-11-13T09:52:37.3092040Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3092420Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3092734Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3093034Z             if name in _parameters:
+2026-11-13T09:52:37.3093298Z                 return _parameters[name]
+2026-11-13T09:52:37.3093564Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3093855Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3094153Z             if name in _buffers:
+2026-11-13T09:52:37.3094553Z                 return _buffers[name]
+2026-11-13T09:52:37.3094815Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3095087Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3095367Z             if name in modules:
+2026-11-13T09:52:37.3095606Z                 return modules[name]
+2026-11-13T09:52:37.3095860Z >       raise AttributeError(
+2026-11-13T09:52:37.3096175Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3096498Z         )
+2026-11-13T09:52:37.3096791Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3097089Z 
+2026-11-13T09:52:37.3097456Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3098118Z _______ test_module_actor_forward_matches_native_model[0.7-left-output] ________
+2026-11-13T09:52:37.3098424Z 
+2026-11-13T09:52:37.3098562Z mode = 'output', padding = 'left', temperature = 0.7
+2026-11-13T09:52:37.3098787Z 
+2026-11-13T09:52:37.3098970Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3099413Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3099790Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3100240Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3100652Z         model = _model()
+2026-11-13T09:52:37.3100926Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3101276Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3101609Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3101908Z         with torch.no_grad():
+2026-11-13T09:52:37.3102257Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3102687Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3102983Z             )
+2026-11-13T09:52:37.3103175Z >           result = actor(
+2026-11-13T09:52:37.3103410Z                 sequences,
+2026-11-13T09:52:37.3103664Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3103977Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3104363Z                 return_output=True,
+2026-11-13T09:52:37.3104818Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3105124Z                 return_entropy=True,
+2026-11-13T09:52:37.3105364Z             )
+2026-11-13T09:52:37.3105476Z 
+2026-11-13T09:52:37.3105581Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3105906Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3106537Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3107228Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3107500Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3107996Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3108526Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3108786Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3109043Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3109326Z     if self.packing_samples:
+2026-11-13T09:52:37.3109564Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3109846Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3110080Z 
+2026-11-13T09:52:37.3110161Z self = Actor(
+2026-11-13T09:52:37.3110360Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3110599Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3110843Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3111149Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3111463Z     )
+2026-11-13T09:52:37.3111717Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3112036Z   )
+2026-11-13T09:52:37.3112204Z )
+2026-11-13T09:52:37.3112388Z name = 'packing_samples'
+2026-11-13T09:52:37.3112532Z 
+2026-11-13T09:52:37.3112690Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3113037Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3113343Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3113641Z             if name in _parameters:
+2026-11-13T09:52:37.3113901Z                 return _parameters[name]
+2026-11-13T09:52:37.3114166Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3114686Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3114966Z             if name in _buffers:
+2026-11-13T09:52:37.3115214Z                 return _buffers[name]
+2026-11-13T09:52:37.3115474Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3115742Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3116018Z             if name in modules:
+2026-11-13T09:52:37.3116260Z                 return modules[name]
+2026-11-13T09:52:37.3116516Z >       raise AttributeError(
+2026-11-13T09:52:37.3116814Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3117136Z         )
+2026-11-13T09:52:37.3117428Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3117717Z 
+2026-11-13T09:52:37.3118072Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3118719Z ______ test_module_actor_forward_matches_native_model[0.7-right-actions] _______
+2026-11-13T09:52:37.3119021Z 
+2026-11-13T09:52:37.3119159Z mode = 'actions', padding = 'right', temperature = 0.7
+2026-11-13T09:52:37.3119379Z 
+2026-11-13T09:52:37.3119568Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3119992Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3120361Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3120800Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3121204Z         model = _model()
+2026-11-13T09:52:37.3121489Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3121969Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3122302Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3122599Z         with torch.no_grad():
+2026-11-13T09:52:37.3122940Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3123357Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3123652Z             )
+2026-11-13T09:52:37.3123841Z >           result = actor(
+2026-11-13T09:52:37.3124176Z                 sequences,
+2026-11-13T09:52:37.3124544Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3124859Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3125136Z                 return_output=True,
+2026-11-13T09:52:37.3125405Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3125694Z                 return_entropy=True,
+2026-11-13T09:52:37.3125931Z             )
+2026-11-13T09:52:37.3126044Z 
+2026-11-13T09:52:37.3126156Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3126478Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3127089Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3127664Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3127935Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3128427Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3128962Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3129225Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3129482Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3129751Z     if self.packing_samples:
+2026-11-13T09:52:37.3129984Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3130264Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3130502Z 
+2026-11-13T09:52:37.3130585Z self = Actor(
+2026-11-13T09:52:37.3130784Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3131018Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3131257Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3131562Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3131875Z     )
+2026-11-13T09:52:37.3132126Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3132445Z   )
+2026-11-13T09:52:37.3132612Z )
+2026-11-13T09:52:37.3132796Z name = 'packing_samples'
+2026-11-13T09:52:37.3132943Z 
+2026-11-13T09:52:37.3133104Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3133452Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3133753Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3134052Z             if name in _parameters:
+2026-11-13T09:52:37.3134410Z                 return _parameters[name]
+2026-11-13T09:52:37.3134688Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3134959Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3135236Z             if name in _buffers:
+2026-11-13T09:52:37.3135477Z                 return _buffers[name]
+2026-11-13T09:52:37.3135741Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3136008Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3136285Z             if name in modules:
+2026-11-13T09:52:37.3136528Z                 return modules[name]
+2026-11-13T09:52:37.3136777Z >       raise AttributeError(
+2026-11-13T09:52:37.3137074Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3137388Z         )
+2026-11-13T09:52:37.3137677Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3137959Z 
+2026-11-13T09:52:37.3138304Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3139074Z ______ test_module_actor_forward_matches_native_model[0.7-right-logprobs] ______
+2026-11-13T09:52:37.3139389Z 
+2026-11-13T09:52:37.3139541Z mode = 'logprobs', padding = 'right', temperature = 0.7
+2026-11-13T09:52:37.3139789Z 
+2026-11-13T09:52:37.3139984Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3140409Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3140775Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3141336Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3141746Z         model = _model()
+2026-11-13T09:52:37.3142027Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3142384Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3142712Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3143017Z         with torch.no_grad():
+2026-11-13T09:52:37.3143366Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3143783Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3144073Z             )
+2026-11-13T09:52:37.3144362Z >           result = actor(
+2026-11-13T09:52:37.3144586Z                 sequences,
+2026-11-13T09:52:37.3144837Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3145162Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3145455Z                 return_output=True,
+2026-11-13T09:52:37.3145733Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3146025Z                 return_entropy=True,
+2026-11-13T09:52:37.3146264Z             )
+2026-11-13T09:52:37.3146369Z 
+2026-11-13T09:52:37.3146480Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3146801Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3147417Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3147992Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3148262Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3148762Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3149298Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3149575Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3149842Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3150115Z     if self.packing_samples:
+2026-11-13T09:52:37.3150350Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3150621Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3150869Z 
+2026-11-13T09:52:37.3150946Z self = Actor(
+2026-11-13T09:52:37.3151149Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3151385Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3151637Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3151944Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3152257Z     )
+2026-11-13T09:52:37.3152511Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3152827Z   )
+2026-11-13T09:52:37.3152995Z )
+2026-11-13T09:52:37.3153179Z name = 'packing_samples'
+2026-11-13T09:52:37.3153330Z 
+2026-11-13T09:52:37.3153483Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3153835Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3154136Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3154554Z             if name in _parameters:
+2026-11-13T09:52:37.3154808Z                 return _parameters[name]
+2026-11-13T09:52:37.3155076Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3155349Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3155627Z             if name in _buffers:
+2026-11-13T09:52:37.3155989Z                 return _buffers[name]
+2026-11-13T09:52:37.3156249Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3156516Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3156787Z             if name in modules:
+2026-11-13T09:52:37.3157024Z                 return modules[name]
+2026-11-13T09:52:37.3157282Z >       raise AttributeError(
+2026-11-13T09:52:37.3157578Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3158017Z         )
+2026-11-13T09:52:37.3158300Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3158580Z 
+2026-11-13T09:52:37.3158930Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3159572Z _______ test_module_actor_forward_matches_native_model[0.7-right-output] _______
+2026-11-13T09:52:37.3159879Z 
+2026-11-13T09:52:37.3160019Z mode = 'output', padding = 'right', temperature = 0.7
+2026-11-13T09:52:37.3160247Z 
+2026-11-13T09:52:37.3160434Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3160847Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3161214Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3161651Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3162051Z         model = _model()
+2026-11-13T09:52:37.3162327Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3162675Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3163001Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3163299Z         with torch.no_grad():
+2026-11-13T09:52:37.3163644Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3164063Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3164465Z             )
+2026-11-13T09:52:37.3164668Z >           result = actor(
+2026-11-13T09:52:37.3164891Z                 sequences,
+2026-11-13T09:52:37.3165143Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3165458Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3165738Z                 return_output=True,
+2026-11-13T09:52:37.3166009Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3166296Z                 return_entropy=True,
+2026-11-13T09:52:37.3166545Z             )
+2026-11-13T09:52:37.3166650Z 
+2026-11-13T09:52:37.3166760Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3167084Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3167690Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3168264Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3168543Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3169042Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3169572Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3169836Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3170098Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3170365Z     if self.packing_samples:
+2026-11-13T09:52:37.3170594Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3170866Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3171104Z 
+2026-11-13T09:52:37.3171179Z self = Actor(
+2026-11-13T09:52:37.3171377Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3171609Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3171848Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3172147Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3172466Z     )
+2026-11-13T09:52:37.3172835Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3173154Z   )
+2026-11-13T09:52:37.3173318Z )
+2026-11-13T09:52:37.3173500Z name = 'packing_samples'
+2026-11-13T09:52:37.3173647Z 
+2026-11-13T09:52:37.3173799Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3174137Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3174539Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3174958Z             if name in _parameters:
+2026-11-13T09:52:37.3175215Z                 return _parameters[name]
+2026-11-13T09:52:37.3175479Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3175749Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3176019Z             if name in _buffers:
+2026-11-13T09:52:37.3176260Z                 return _buffers[name]
+2026-11-13T09:52:37.3176531Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3176803Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3177086Z             if name in modules:
+2026-11-13T09:52:37.3177327Z                 return modules[name]
+2026-11-13T09:52:37.3177581Z >       raise AttributeError(
+2026-11-13T09:52:37.3177880Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3178199Z         )
+2026-11-13T09:52:37.3178484Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3178770Z 
+2026-11-13T09:52:37.3179126Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3179767Z _______ test_module_actor_forward_matches_native_model[1.5-left-actions] _______
+2026-11-13T09:52:37.3180073Z 
+2026-11-13T09:52:37.3180208Z mode = 'actions', padding = 'left', temperature = 1.5
+2026-11-13T09:52:37.3180434Z 
+2026-11-13T09:52:37.3180614Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3181044Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3181413Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3181850Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3182251Z         model = _model()
+2026-11-13T09:52:37.3182530Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3182878Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3183203Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3183504Z         with torch.no_grad():
+2026-11-13T09:52:37.3183843Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3184364Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3184658Z             )
+2026-11-13T09:52:37.3184848Z >           result = actor(
+2026-11-13T09:52:37.3185067Z                 sequences,
+2026-11-13T09:52:37.3185320Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3185632Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3185910Z                 return_output=True,
+2026-11-13T09:52:37.3186180Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3186465Z                 return_entropy=True,
+2026-11-13T09:52:37.3186702Z             )
+2026-11-13T09:52:37.3186814Z 
+2026-11-13T09:52:37.3186920Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3187236Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3187844Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3188416Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3188689Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3189228Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3189871Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3190131Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3190398Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3190666Z     if self.packing_samples:
+2026-11-13T09:52:37.3190898Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3191169Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3191401Z 
+2026-11-13T09:52:37.3191486Z self = Actor(
+2026-11-13T09:52:37.3191796Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3192035Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3192278Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3192579Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3192898Z     )
+2026-11-13T09:52:37.3193159Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3193477Z   )
+2026-11-13T09:52:37.3193647Z )
+2026-11-13T09:52:37.3193829Z name = 'packing_samples'
+2026-11-13T09:52:37.3193976Z 
+2026-11-13T09:52:37.3194135Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3194587Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3194887Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3195186Z             if name in _parameters:
+2026-11-13T09:52:37.3195444Z                 return _parameters[name]
+2026-11-13T09:52:37.3195715Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3195999Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3196275Z             if name in _buffers:
+2026-11-13T09:52:37.3196516Z                 return _buffers[name]
+2026-11-13T09:52:37.3196767Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3197035Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3197307Z             if name in modules:
+2026-11-13T09:52:37.3197543Z                 return modules[name]
+2026-11-13T09:52:37.3197793Z >       raise AttributeError(
+2026-11-13T09:52:37.3198098Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3198423Z         )
+2026-11-13T09:52:37.3198705Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3198991Z 
+2026-11-13T09:52:37.3199345Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3199990Z ______ test_module_actor_forward_matches_native_model[1.5-left-logprobs] _______
+2026-11-13T09:52:37.3200303Z 
+2026-11-13T09:52:37.3200439Z mode = 'logprobs', padding = 'left', temperature = 1.5
+2026-11-13T09:52:37.3200666Z 
+2026-11-13T09:52:37.3200851Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3201270Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3201642Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3202082Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3202485Z         model = _model()
+2026-11-13T09:52:37.3202767Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3203120Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3203449Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3203750Z         with torch.no_grad():
+2026-11-13T09:52:37.3204093Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3204644Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3204945Z             )
+2026-11-13T09:52:37.3205133Z >           result = actor(
+2026-11-13T09:52:37.3205353Z                 sequences,
+2026-11-13T09:52:37.3205604Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3205918Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3206196Z                 return_output=True,
+2026-11-13T09:52:37.3206640Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3206937Z                 return_entropy=True,
+2026-11-13T09:52:37.3207178Z             )
+2026-11-13T09:52:37.3207294Z 
+2026-11-13T09:52:37.3207403Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3207721Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3208327Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3209005Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3209279Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3209773Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3210298Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3210559Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3210816Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3211099Z     if self.packing_samples:
+2026-11-13T09:52:37.3211331Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3211605Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3211836Z 
+2026-11-13T09:52:37.3211914Z self = Actor(
+2026-11-13T09:52:37.3212111Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3212342Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3212578Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3212879Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3213199Z     )
+2026-11-13T09:52:37.3213457Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3213770Z   )
+2026-11-13T09:52:37.3213933Z )
+2026-11-13T09:52:37.3214111Z name = 'packing_samples'
+2026-11-13T09:52:37.3214251Z 
+2026-11-13T09:52:37.3214510Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3214854Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3215153Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3215448Z             if name in _parameters:
+2026-11-13T09:52:37.3215701Z                 return _parameters[name]
+2026-11-13T09:52:37.3215968Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3216248Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3216524Z             if name in _buffers:
+2026-11-13T09:52:37.3216768Z                 return _buffers[name]
+2026-11-13T09:52:37.3217032Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3217302Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3217577Z             if name in modules:
+2026-11-13T09:52:37.3217815Z                 return modules[name]
+2026-11-13T09:52:37.3218068Z >       raise AttributeError(
+2026-11-13T09:52:37.3218364Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3218684Z         )
+2026-11-13T09:52:37.3218979Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3219267Z 
+2026-11-13T09:52:37.3219615Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3220263Z _______ test_module_actor_forward_matches_native_model[1.5-left-output] ________
+2026-11-13T09:52:37.3220569Z 
+2026-11-13T09:52:37.3220700Z mode = 'output', padding = 'left', temperature = 1.5
+2026-11-13T09:52:37.3220919Z 
+2026-11-13T09:52:37.3221100Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3221525Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3221895Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3222341Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3222744Z         model = _model()
+2026-11-13T09:52:37.3223017Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3223485Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3223819Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3224116Z         with torch.no_grad():
+2026-11-13T09:52:37.3224556Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3224971Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3225266Z             )
+2026-11-13T09:52:37.3225462Z >           result = actor(
+2026-11-13T09:52:37.3225800Z                 sequences,
+2026-11-13T09:52:37.3226052Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3226362Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3226642Z                 return_output=True,
+2026-11-13T09:52:37.3226909Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3227193Z                 return_entropy=True,
+2026-11-13T09:52:37.3227432Z             )
+2026-11-13T09:52:37.3227545Z 
+2026-11-13T09:52:37.3227656Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3227978Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3228578Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3229148Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3229423Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3229925Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3230460Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3230720Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3230979Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3231250Z     if self.packing_samples:
+2026-11-13T09:52:37.3231490Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3231763Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3231999Z 
+2026-11-13T09:52:37.3232081Z self = Actor(
+2026-11-13T09:52:37.3232285Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3232520Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3232761Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3233061Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3233376Z     )
+2026-11-13T09:52:37.3233626Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3233949Z   )
+2026-11-13T09:52:37.3234122Z )
+2026-11-13T09:52:37.3234406Z name = 'packing_samples'
+2026-11-13T09:52:37.3234551Z 
+2026-11-13T09:52:37.3234704Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3235042Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3235337Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3235625Z             if name in _parameters:
+2026-11-13T09:52:37.3235876Z                 return _parameters[name]
+2026-11-13T09:52:37.3236141Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3236411Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3236684Z             if name in _buffers:
+2026-11-13T09:52:37.3236919Z                 return _buffers[name]
+2026-11-13T09:52:37.3237171Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3237437Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3237707Z             if name in modules:
+2026-11-13T09:52:37.3237951Z                 return modules[name]
+2026-11-13T09:52:37.3238201Z >       raise AttributeError(
+2026-11-13T09:52:37.3238497Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3238815Z         )
+2026-11-13T09:52:37.3239098Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3239388Z 
+2026-11-13T09:52:37.3239736Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3240509Z ______ test_module_actor_forward_matches_native_model[1.5-right-actions] _______
+2026-11-13T09:52:37.3240850Z 
+2026-11-13T09:52:37.3240990Z mode = 'actions', padding = 'right', temperature = 1.5
+2026-11-13T09:52:37.3241215Z 
+2026-11-13T09:52:37.3241398Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3241897Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3242259Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3242805Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3243202Z         model = _model()
+2026-11-13T09:52:37.3243474Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3243824Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3244152Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3244549Z         with torch.no_grad():
+2026-11-13T09:52:37.3244897Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3245315Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3245604Z             )
+2026-11-13T09:52:37.3245798Z >           result = actor(
+2026-11-13T09:52:37.3246028Z                 sequences,
+2026-11-13T09:52:37.3246290Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3246607Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3246898Z                 return_output=True,
+2026-11-13T09:52:37.3247171Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3247458Z                 return_entropy=True,
+2026-11-13T09:52:37.3247692Z             )
+2026-11-13T09:52:37.3247803Z 
+2026-11-13T09:52:37.3247907Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3248227Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3248853Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3249421Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3249691Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3250191Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3250717Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3250972Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3251240Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3251506Z     if self.packing_samples:
+2026-11-13T09:52:37.3251735Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3252009Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3252241Z 
+2026-11-13T09:52:37.3252321Z self = Actor(
+2026-11-13T09:52:37.3252520Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3252757Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3253003Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3253305Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3253619Z     )
+2026-11-13T09:52:37.3253870Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3254187Z   )
+2026-11-13T09:52:37.3254449Z )
+2026-11-13T09:52:37.3254633Z name = 'packing_samples'
+2026-11-13T09:52:37.3254773Z 
+2026-11-13T09:52:37.3254931Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3255275Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3255576Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3255869Z             if name in _parameters:
+2026-11-13T09:52:37.3256124Z                 return _parameters[name]
+2026-11-13T09:52:37.3256389Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3256661Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3256940Z             if name in _buffers:
+2026-11-13T09:52:37.3257306Z                 return _buffers[name]
+2026-11-13T09:52:37.3257569Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3257839Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3258115Z             if name in modules:
+2026-11-13T09:52:37.3258353Z                 return modules[name]
+2026-11-13T09:52:37.3258604Z >       raise AttributeError(
+2026-11-13T09:52:37.3258904Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3259333Z         )
+2026-11-13T09:52:37.3259615Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3259904Z 
+2026-11-13T09:52:37.3260252Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3260900Z ______ test_module_actor_forward_matches_native_model[1.5-right-logprobs] ______
+2026-11-13T09:52:37.3261203Z 
+2026-11-13T09:52:37.3261357Z mode = 'logprobs', padding = 'right', temperature = 1.5
+2026-11-13T09:52:37.3261587Z 
+2026-11-13T09:52:37.3261777Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3262204Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3262579Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3263018Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3263424Z         model = _model()
+2026-11-13T09:52:37.3263712Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3264065Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3264512Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3264816Z         with torch.no_grad():
+2026-11-13T09:52:37.3265163Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3265582Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3265878Z             )
+2026-11-13T09:52:37.3266070Z >           result = actor(
+2026-11-13T09:52:37.3266299Z                 sequences,
+2026-11-13T09:52:37.3266559Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3266871Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3267152Z                 return_output=True,
+2026-11-13T09:52:37.3267424Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3267713Z                 return_entropy=True,
+2026-11-13T09:52:37.3267958Z             )
+2026-11-13T09:52:37.3268068Z 
+2026-11-13T09:52:37.3268174Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3268498Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3269105Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3269684Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3269970Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3270472Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3271004Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3271267Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3271531Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3271806Z     if self.packing_samples:
+2026-11-13T09:52:37.3272040Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3272316Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3272558Z 
+2026-11-13T09:52:37.3272639Z self = Actor(
+2026-11-13T09:52:37.3272840Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3273079Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3273323Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3273626Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3273942Z     )
+2026-11-13T09:52:37.3274431Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3274776Z   )
+2026-11-13T09:52:37.3274950Z )
+2026-11-13T09:52:37.3275138Z name = 'packing_samples'
+2026-11-13T09:52:37.3275293Z 
+2026-11-13T09:52:37.3275452Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3275800Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3276109Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3276529Z             if name in _parameters:
+2026-11-13T09:52:37.3276792Z                 return _parameters[name]
+2026-11-13T09:52:37.3277057Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3277332Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3277610Z             if name in _buffers:
+2026-11-13T09:52:37.3277854Z                 return _buffers[name]
+2026-11-13T09:52:37.3278121Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3278390Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3278670Z             if name in modules:
+2026-11-13T09:52:37.3278913Z                 return modules[name]
+2026-11-13T09:52:37.3279169Z >       raise AttributeError(
+2026-11-13T09:52:37.3279469Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3279789Z         )
+2026-11-13T09:52:37.3280072Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3280360Z 
+2026-11-13T09:52:37.3280709Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3281362Z _______ test_module_actor_forward_matches_native_model[1.5-right-output] _______
+2026-11-13T09:52:37.3281668Z 
+2026-11-13T09:52:37.3281808Z mode = 'output', padding = 'right', temperature = 1.5
+2026-11-13T09:52:37.3282032Z 
+2026-11-13T09:52:37.3282220Z     @pytest.mark.parametrize("mode", ["actions", "logprobs", "output"])
+2026-11-13T09:52:37.3282648Z     @pytest.mark.parametrize("padding", ["left", "right"])
+2026-11-13T09:52:37.3283017Z     @pytest.mark.parametrize("temperature", [0.7, 1.5])
+2026-11-13T09:52:37.3283462Z     def test_module_actor_forward_matches_native_model(mode, padding, temperature):
+2026-11-13T09:52:37.3283864Z         model = _model()
+2026-11-13T09:52:37.3284143Z         actor = Actor(model, temperature=temperature).eval()
+2026-11-13T09:52:37.3284600Z         sequences, attention_mask = _inputs(padding)
+2026-11-13T09:52:37.3284927Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 0]])
+2026-11-13T09:52:37.3285230Z         with torch.no_grad():
+2026-11-13T09:52:37.3285577Z             expected_logits, expected_log_probs, expected_entropy = _reference(
+2026-11-13T09:52:37.3285993Z                 model, sequences, attention_mask, temperature
+2026-11-13T09:52:37.3286289Z             )
+2026-11-13T09:52:37.3286482Z >           result = actor(
+2026-11-13T09:52:37.3286712Z                 sequences,
+2026-11-13T09:52:37.3286971Z                 action_mask if mode == "actions" else None,
+2026-11-13T09:52:37.3287292Z                 attention_mask=attention_mask,
+2026-11-13T09:52:37.3287577Z                 return_output=True,
+2026-11-13T09:52:37.3287857Z                 return_logprobs=mode == "logprobs",
+2026-11-13T09:52:37.3288149Z                 return_entropy=True,
+2026-11-13T09:52:37.3288387Z             )
+2026-11-13T09:52:37.3288500Z 
+2026-11-13T09:52:37.3288604Z tests/test_actor_module_instance.py:68: 
+2026-11-13T09:52:37.3288951Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3289568Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3290149Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3290424Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3290929Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3291574Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3291840Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3292098Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3292365Z     if self.packing_samples:
+2026-11-13T09:52:37.3292592Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3292857Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3293095Z 
+2026-11-13T09:52:37.3293174Z self = Actor(
+2026-11-13T09:52:37.3293479Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3293712Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3293949Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3294254Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3294667Z     )
+2026-11-13T09:52:37.3294920Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3295240Z   )
+2026-11-13T09:52:37.3295407Z )
+2026-11-13T09:52:37.3295588Z name = 'packing_samples'
+2026-11-13T09:52:37.3295737Z 
+2026-11-13T09:52:37.3295899Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3296245Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3296547Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3296848Z             if name in _parameters:
+2026-11-13T09:52:37.3297108Z                 return _parameters[name]
+2026-11-13T09:52:37.3297374Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3297655Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3297932Z             if name in _buffers:
+2026-11-13T09:52:37.3298173Z                 return _buffers[name]
+2026-11-13T09:52:37.3298433Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3298709Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3298983Z             if name in modules:
+2026-11-13T09:52:37.3299227Z                 return modules[name]
+2026-11-13T09:52:37.3299483Z >       raise AttributeError(
+2026-11-13T09:52:37.3300130Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3300622Z         )
+2026-11-13T09:52:37.3301042Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3301373Z 
+2026-11-13T09:52:37.3301791Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3302532Z __________ test_module_actor_trains_and_restores_checkpoint[1.0-sgd] ___________
+2026-11-13T09:52:37.3302931Z 
+2026-11-13T09:52:37.3303218Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_module_actor_trains_and_r0')
+2026-11-13T09:52:37.3303793Z optimizer_name = 'sgd', temperature = 1.0
+2026-11-13T09:52:37.3304048Z 
+2026-11-13T09:52:37.3304413Z     @pytest.mark.parametrize("optimizer_name", ["sgd", "adamw"])
+2026-11-13T09:52:37.3304940Z     @pytest.mark.parametrize("temperature", [1.0, 1.4])
+2026-11-13T09:52:37.3305522Z     def test_module_actor_trains_and_restores_checkpoint(tmp_path, optimizer_name, temperature):
+2026-11-13T09:52:37.3306121Z         reference = _model()
+2026-11-13T09:52:37.3306558Z         actor = Actor(deepcopy(reference), temperature=temperature)
+2026-11-13T09:52:37.3307017Z         optimizer = _optimizer(actor, optimizer_name)
+2026-11-13T09:52:37.3307538Z         reference_optimizer = _optimizer(reference, optimizer_name)
+2026-11-13T09:52:37.3308003Z         sequences, attention_mask = _inputs("left")
+2026-11-13T09:52:37.3308534Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 1]])
+2026-11-13T09:52:37.3309029Z         initial = {name: value.clone() for name, value in reference.state_dict().items()}
+2026-11-13T09:52:37.3318366Z     
+2026-11-13T09:52:37.3318580Z         for step in range(3):
+2026-11-13T09:52:37.3318869Z             optimizer.zero_grad(set_to_none=True)
+2026-11-13T09:52:37.3319215Z             reference_optimizer.zero_grad(set_to_none=True)
+2026-11-13T09:52:37.3319857Z >           actual_log_probs = actor(sequences, action_mask, attention_mask=attention_mask)
+2026-11-13T09:52:37.3320324Z                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3320559Z 
+2026-11-13T09:52:37.3320673Z tests/test_actor_module_instance.py:118: 
+2026-11-13T09:52:37.3321007Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3321619Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3322330Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3322610Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3323121Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3323656Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3323918Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3324182Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3324590Z     if self.packing_samples:
+2026-11-13T09:52:37.3324829Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3325106Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3325353Z 
+2026-11-13T09:52:37.3325439Z self = Actor(
+2026-11-13T09:52:37.3325649Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3325892Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3326133Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3326438Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3326765Z     )
+2026-11-13T09:52:37.3327023Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3327342Z   )
+2026-11-13T09:52:37.3327509Z )
+2026-11-13T09:52:37.3327691Z name = 'packing_samples'
+2026-11-13T09:52:37.3327841Z 
+2026-11-13T09:52:37.3327999Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3328345Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3328653Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3328954Z             if name in _parameters:
+2026-11-13T09:52:37.3329217Z                 return _parameters[name]
+2026-11-13T09:52:37.3329488Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3329766Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3330043Z             if name in _buffers:
+2026-11-13T09:52:37.3330286Z                 return _buffers[name]
+2026-11-13T09:52:37.3330548Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3330824Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3331101Z             if name in modules:
+2026-11-13T09:52:37.3331341Z                 return modules[name]
+2026-11-13T09:52:37.3331601Z >       raise AttributeError(
+2026-11-13T09:52:37.3331905Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3332226Z         )
+2026-11-13T09:52:37.3332515Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3332809Z 
+2026-11-13T09:52:37.3333171Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3333827Z _________ test_module_actor_trains_and_restores_checkpoint[1.0-adamw] __________
+2026-11-13T09:52:37.3334132Z 
+2026-11-13T09:52:37.3334481Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_module_actor_trains_and_r1')
+2026-11-13T09:52:37.3334932Z optimizer_name = 'adamw', temperature = 1.0
+2026-11-13T09:52:37.3335134Z 
+2026-11-13T09:52:37.3335304Z     @pytest.mark.parametrize("optimizer_name", ["sgd", "adamw"])
+2026-11-13T09:52:37.3335694Z     @pytest.mark.parametrize("temperature", [1.0, 1.4])
+2026-11-13T09:52:37.3336181Z     def test_module_actor_trains_and_restores_checkpoint(tmp_path, optimizer_name, temperature):
+2026-11-13T09:52:37.3336648Z         reference = _model()
+2026-11-13T09:52:37.3336968Z         actor = Actor(deepcopy(reference), temperature=temperature)
+2026-11-13T09:52:37.3337478Z         optimizer = _optimizer(actor, optimizer_name)
+2026-11-13T09:52:37.3337856Z         reference_optimizer = _optimizer(reference, optimizer_name)
+2026-11-13T09:52:37.3338224Z         sequences, attention_mask = _inputs("left")
+2026-11-13T09:52:37.3338552Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 1]])
+2026-11-13T09:52:37.3338985Z         initial = {name: value.clone() for name, value in reference.state_dict().items()}
+2026-11-13T09:52:37.3339380Z     
+2026-11-13T09:52:37.3339678Z         for step in range(3):
+2026-11-13T09:52:37.3339941Z             optimizer.zero_grad(set_to_none=True)
+2026-11-13T09:52:37.3340275Z             reference_optimizer.zero_grad(set_to_none=True)
+2026-11-13T09:52:37.3340728Z >           actual_log_probs = actor(sequences, action_mask, attention_mask=attention_mask)
+2026-11-13T09:52:37.3341180Z                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3341411Z 
+2026-11-13T09:52:37.3341529Z tests/test_actor_module_instance.py:118: 
+2026-11-13T09:52:37.3341859Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3342463Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3343041Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3343316Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3343816Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3344558Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3344824Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3345083Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3345356Z     if self.packing_samples:
+2026-11-13T09:52:37.3345591Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3345863Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3346110Z 
+2026-11-13T09:52:37.3346187Z self = Actor(
+2026-11-13T09:52:37.3346389Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3346623Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3346872Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3347173Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3347487Z     )
+2026-11-13T09:52:37.3347740Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3348058Z   )
+2026-11-13T09:52:37.3348227Z )
+2026-11-13T09:52:37.3348407Z name = 'packing_samples'
+2026-11-13T09:52:37.3348556Z 
+2026-11-13T09:52:37.3348709Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3349052Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3349354Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3349665Z             if name in _parameters:
+2026-11-13T09:52:37.3349925Z                 return _parameters[name]
+2026-11-13T09:52:37.3350196Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3350473Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3350752Z             if name in _buffers:
+2026-11-13T09:52:37.3350998Z                 return _buffers[name]
+2026-11-13T09:52:37.3351256Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3351527Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3351808Z             if name in modules:
+2026-11-13T09:52:37.3352056Z                 return modules[name]
+2026-11-13T09:52:37.3352322Z >       raise AttributeError(
+2026-11-13T09:52:37.3352641Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3352966Z         )
+2026-11-13T09:52:37.3353257Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3353548Z 
+2026-11-13T09:52:37.3353899Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3354776Z __________ test_module_actor_trains_and_restores_checkpoint[1.4-sgd] ___________
+2026-11-13T09:52:37.3355090Z 
+2026-11-13T09:52:37.3355328Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_module_actor_trains_and_r2')
+2026-11-13T09:52:37.3355774Z optimizer_name = 'sgd', temperature = 1.4
+2026-11-13T09:52:37.3355962Z 
+2026-11-13T09:52:37.3356134Z     @pytest.mark.parametrize("optimizer_name", ["sgd", "adamw"])
+2026-11-13T09:52:37.3356521Z     @pytest.mark.parametrize("temperature", [1.0, 1.4])
+2026-11-13T09:52:37.3357118Z     def test_module_actor_trains_and_restores_checkpoint(tmp_path, optimizer_name, temperature):
+2026-11-13T09:52:37.3357572Z         reference = _model()
+2026-11-13T09:52:37.3357884Z         actor = Actor(deepcopy(reference), temperature=temperature)
+2026-11-13T09:52:37.3358268Z         optimizer = _optimizer(actor, optimizer_name)
+2026-11-13T09:52:37.3358640Z         reference_optimizer = _optimizer(reference, optimizer_name)
+2026-11-13T09:52:37.3359021Z         sequences, attention_mask = _inputs("left")
+2026-11-13T09:52:37.3359353Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 1]])
+2026-11-13T09:52:37.3359783Z         initial = {name: value.clone() for name, value in reference.state_dict().items()}
+2026-11-13T09:52:37.3360209Z     
+2026-11-13T09:52:37.3360401Z         for step in range(3):
+2026-11-13T09:52:37.3360662Z             optimizer.zero_grad(set_to_none=True)
+2026-11-13T09:52:37.3360994Z             reference_optimizer.zero_grad(set_to_none=True)
+2026-11-13T09:52:37.3361445Z >           actual_log_probs = actor(sequences, action_mask, attention_mask=attention_mask)
+2026-11-13T09:52:37.3361895Z                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3362130Z 
+2026-11-13T09:52:37.3362243Z tests/test_actor_module_instance.py:118: 
+2026-11-13T09:52:37.3362571Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3363178Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3363752Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3364026Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3364632Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3365167Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3365434Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3365712Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3365990Z     if self.packing_samples:
+2026-11-13T09:52:37.3366224Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3366497Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3366732Z 
+2026-11-13T09:52:37.3366817Z self = Actor(
+2026-11-13T09:52:37.3367023Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3367259Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3367509Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3367810Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3368141Z     )
+2026-11-13T09:52:37.3368399Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3368718Z   )
+2026-11-13T09:52:37.3368890Z )
+2026-11-13T09:52:37.3369078Z name = 'packing_samples'
+2026-11-13T09:52:37.3369225Z 
+2026-11-13T09:52:37.3369382Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3369733Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3370031Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3370332Z             if name in _parameters:
+2026-11-13T09:52:37.3370597Z                 return _parameters[name]
+2026-11-13T09:52:37.3370864Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3371136Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3371412Z             if name in _buffers:
+2026-11-13T09:52:37.3371780Z                 return _buffers[name]
+2026-11-13T09:52:37.3372051Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3372323Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3372599Z             if name in modules:
+2026-11-13T09:52:37.3372840Z                 return modules[name]
+2026-11-13T09:52:37.3373094Z >       raise AttributeError(
+2026-11-13T09:52:37.3373393Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3373824Z         )
+2026-11-13T09:52:37.3374110Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3374539Z 
+2026-11-13T09:52:37.3374890Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3375538Z _________ test_module_actor_trains_and_restores_checkpoint[1.4-adamw] __________
+2026-11-13T09:52:37.3375834Z 
+2026-11-13T09:52:37.3376083Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_module_actor_trains_and_r3')
+2026-11-13T09:52:37.3376523Z optimizer_name = 'adamw', temperature = 1.4
+2026-11-13T09:52:37.3376724Z 
+2026-11-13T09:52:37.3376888Z     @pytest.mark.parametrize("optimizer_name", ["sgd", "adamw"])
+2026-11-13T09:52:37.3377278Z     @pytest.mark.parametrize("temperature", [1.0, 1.4])
+2026-11-13T09:52:37.3377759Z     def test_module_actor_trains_and_restores_checkpoint(tmp_path, optimizer_name, temperature):
+2026-11-13T09:52:37.3378212Z         reference = _model()
+2026-11-13T09:52:37.3378536Z         actor = Actor(deepcopy(reference), temperature=temperature)
+2026-11-13T09:52:37.3378915Z         optimizer = _optimizer(actor, optimizer_name)
+2026-11-13T09:52:37.3379282Z         reference_optimizer = _optimizer(reference, optimizer_name)
+2026-11-13T09:52:37.3379649Z         sequences, attention_mask = _inputs("left")
+2026-11-13T09:52:37.3379974Z         action_mask = torch.tensor([[1, 0, 1], [1, 1, 1]])
+2026-11-13T09:52:37.3380408Z         initial = {name: value.clone() for name, value in reference.state_dict().items()}
+2026-11-13T09:52:37.3380800Z     
+2026-11-13T09:52:37.3380985Z         for step in range(3):
+2026-11-13T09:52:37.3381245Z             optimizer.zero_grad(set_to_none=True)
+2026-11-13T09:52:37.3381587Z             reference_optimizer.zero_grad(set_to_none=True)
+2026-11-13T09:52:37.3382029Z >           actual_log_probs = actor(sequences, action_mask, attention_mask=attention_mask)
+2026-11-13T09:52:37.3382155Z                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3382165Z 
+2026-11-13T09:52:37.3382279Z tests/test_actor_module_instance.py:118: 
+2026-11-13T09:52:37.3382413Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3382791Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1775: in _wrapped_call_impl
+2026-11-13T09:52:37.3382902Z     return self._call_impl(*args, **kwargs)
+2026-11-13T09:52:37.3382989Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3383326Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1786: in _call_impl
+2026-11-13T09:52:37.3383424Z     return forward_call(*args, **kwargs)
+2026-11-13T09:52:37.3383509Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3383613Z openrlhf/models/actor.py:236: in forward
+2026-11-13T09:52:37.3383704Z     if self.packing_samples:
+2026-11-13T09:52:37.3383794Z        ^^^^^^^^^^^^^^^^^^^^
+2026-11-13T09:52:37.3383935Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-11-13T09:52:37.3383940Z 
+2026-11-13T09:52:37.3384022Z self = Actor(
+2026-11-13T09:52:37.3384112Z   (model): GPT2LMHeadModel(
+2026-11-13T09:52:37.3384209Z     (transformer): GPT2Model(
+2026-11-13T09:52:37.3384398Z       (wte): Embedding(17, 16)
+2026-11-13T09:52:37.3384553Z       (wpe): Embedding...6,), eps=1e-05, elementwise_affine=True)
+2026-11-13T09:52:37.3384632Z     )
+2026-11-13T09:52:37.3384906Z     (lm_head): Linear(in_features=16, out_features=17, bias=False)
+2026-11-13T09:52:37.3384989Z   )
+2026-11-13T09:52:37.3385059Z )
+2026-11-13T09:52:37.3385156Z name = 'packing_samples'
+2026-11-13T09:52:37.3385161Z 
+2026-11-13T09:52:37.3385318Z     def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+2026-11-13T09:52:37.3385418Z         if "_parameters" in self.__dict__:
+2026-11-13T09:52:37.3385540Z             _parameters = self.__dict__["_parameters"]
+2026-11-13T09:52:37.3385635Z             if name in _parameters:
+2026-11-13T09:52:37.3385836Z                 return _parameters[name]
+2026-11-13T09:52:37.3385929Z         if "_buffers" in self.__dict__:
+2026-11-13T09:52:37.3386036Z             _buffers = self.__dict__["_buffers"]
+2026-11-13T09:52:37.3386134Z             if name in _buffers:
+2026-11-13T09:52:37.3386226Z                 return _buffers[name]
+2026-11-13T09:52:37.3386320Z         if "_modules" in self.__dict__:
+2026-11-13T09:52:37.3386422Z             modules = self.__dict__["_modules"]
+2026-11-13T09:52:37.3386518Z             if name in modules:
+2026-11-13T09:52:37.3386609Z                 return modules[name]
+2026-11-13T09:52:37.3386704Z >       raise AttributeError(
+2026-11-13T09:52:37.3386859Z             f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-11-13T09:52:37.3386939Z         )
+2026-11-13T09:52:37.3387129Z E       AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3387134Z 
+2026-11-13T09:52:37.3387472Z /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/torch/nn/modules/module.py:1964: AttributeError
+2026-11-13T09:52:37.3387716Z ----- generated xml file: /home/runner/work/OpenRLHF/OpenRLHF/baseline.xml -----
+2026-11-13T09:52:37.3387852Z ============================== slowest durations ===============================
+2026-11-13T09:52:37.3388274Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-left-actions]
+2026-11-13T09:52:37.3388605Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-right-output]
+2026-11-13T09:52:37.3388958Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-left-output]
+2026-11-13T09:52:37.3389260Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.4-sgd]
+2026-11-13T09:52:37.3389569Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-left-output]
+2026-11-13T09:52:37.3389889Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-right-output]
+2026-11-13T09:52:37.3390213Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-right-actions]
+2026-11-13T09:52:37.3390524Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-left-actions]
+2026-11-13T09:52:37.3390824Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.0-sgd]
+2026-11-13T09:52:37.3391147Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-right-logprobs]
+2026-11-13T09:52:37.3391466Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-left-logprobs]
+2026-11-13T09:52:37.3391783Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-right-actions]
+2026-11-13T09:52:37.3392097Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-left-logprobs]
+2026-11-13T09:52:37.3392419Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-right-logprobs]
+2026-11-13T09:52:37.3392726Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.4-adamw]
+2026-11-13T09:52:37.3393114Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.0-adamw]
+2026-11-13T09:52:37.3393421Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_retains_packing_configuration[False]
+2026-11-13T09:52:37.3393427Z 
+2026-11-13T09:52:37.3393596Z (37 durations < 0.005s hidden.  Use -vv to show these durations.)
+2026-11-13T09:52:37.3393750Z =========================== short test summary info ============================
+2026-11-13T09:52:37.3394401Z FAILED tests/test_actor_module_instance.py::test_module_actor_retains_packing_configuration[False] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3395106Z FAILED tests/test_actor_module_instance.py::test_module_actor_retains_packing_configuration[True] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3395682Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-left-actions] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3396231Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-left-logprobs] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3396776Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-left-output] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3397322Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-right-actions] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3397877Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-right-logprobs] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3398449Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-right-output] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3398993Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-left-actions] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3399533Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-left-logprobs] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3400074Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-left-output] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3400648Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-right-actions] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3401239Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-right-logprobs] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3401780Z FAILED tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-right-output] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3402295Z FAILED tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.0-sgd] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3402821Z FAILED tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.0-adamw] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3403350Z FAILED tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.4-sgd] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3403863Z FAILED tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.4-adamw] - AttributeError: 'Actor' object has no attribute 'packing_samples'
+2026-11-13T09:52:37.3404125Z ============================== 18 failed in 4.71s ==============================
+2026-11-13T09:52:37.3404133Z 
+2026-11-13T09:52:37.3404633Z Exact-base regression totals: {'tests': 18, 'failures': 18, 'errors': 0, 'skipped': 0}
+2026-11-13T09:52:37.3439230Z ##[group]Run git checkout f644edc44b24a66ba2382d474b2762bbdc4dbf90 -- openrlhf/models/actor.py
+2026-11-13T09:52:37.3439572Z [36;1mgit checkout f644edc44b24a66ba2382d474b2762bbdc4dbf90 -- openrlhf/models/actor.py[0m
+2026-11-13T09:52:37.3439939Z [36;1mtest "$(git rev-parse HEAD)" = "f644edc44b24a66ba2382d474b2762bbdc4dbf90"[0m
+2026-11-13T09:52:37.3440023Z [36;1mset +e[0m
+2026-11-13T09:52:37.3440481Z [36;1mpython -m pytest -q tests/test_actor_module_instance.py tests/test_actor_entropy_temperature.py --junitxml=patched.xml > patched.log 2>&1[0m
+2026-11-13T09:52:37.3440563Z [36;1mstatus=$?[0m
+2026-11-13T09:52:37.3440656Z [36;1mcat patched.log[0m
+2026-11-13T09:52:37.3440738Z [36;1mexit "$status"[0m
+2026-11-13T09:52:37.3489203Z shell: /usr/bin/bash -e {0}
+2026-11-13T09:52:37.3489288Z env:
+2026-11-13T09:52:37.3489381Z   PYTHONPATH: .
+2026-11-13T09:52:37.3489465Z   OMP_NUM_THREADS: 1
+2026-11-13T09:52:37.3489544Z   MKL_NUM_THREADS: 1
+2026-11-13T09:52:37.3489796Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:37.3489998Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T09:52:37.3490158Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:37.3490316Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:37.3490461Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:37.3490610Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T09:52:37.3490695Z ##[endgroup]
+2026-11-13T09:52:42.1956381Z ============================= test session starts ==============================
+2026-11-13T09:52:42.1957203Z platform linux -- Python 3.12.16, pytest-9.0.2, pluggy-1.7.0
+2026-11-13T09:52:42.1957691Z rootdir: /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T09:52:42.1958030Z configfile: pyproject.toml
+2026-11-13T09:52:42.1958298Z plugins: platformdirs-4.14.5
+2026-11-13T09:52:42.1958554Z collected 20 items
+2026-11-13T09:52:42.1958688Z 
+2026-11-13T09:52:42.1958941Z tests/test_actor_module_instance.py ..................                   [ 90%]
+2026-11-13T09:52:42.1959483Z tests/test_actor_entropy_temperature.py ..                               [100%]
+2026-11-13T09:52:42.1959821Z 
+2026-11-13T09:52:42.1960050Z ----- generated xml file: /home/runner/work/OpenRLHF/OpenRLHF/patched.xml ------
+2026-11-13T09:52:42.1960553Z ============================== slowest durations ===============================
+2026-11-13T09:52:42.1961594Z 0.18s call     tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.0-adamw]
+2026-11-13T09:52:42.1962899Z 0.07s call     tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.4-adamw]
+2026-11-13T09:52:42.1964153Z 0.06s call     tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.0-sgd]
+2026-11-13T09:52:42.1965622Z 0.06s call     tests/test_actor_module_instance.py::test_module_actor_trains_and_restores_checkpoint[1.4-sgd]
+2026-11-13T09:52:42.1966446Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-left-actions]
+2026-11-13T09:52:42.1967220Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-left-logprobs]
+2026-11-13T09:52:42.1967975Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-left-logprobs]
+2026-11-13T09:52:42.1968715Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-right-logprobs]
+2026-11-13T09:52:42.1969449Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-right-actions]
+2026-11-13T09:52:42.1970178Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-right-actions]
+2026-11-13T09:52:42.1970902Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-left-actions]
+2026-11-13T09:52:42.1971982Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-right-logprobs]
+2026-11-13T09:52:42.1972744Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-left-output]
+2026-11-13T09:52:42.1973612Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-left-output]
+2026-11-13T09:52:42.1974615Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[0.7-right-output]
+2026-11-13T09:52:42.1975506Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_forward_matches_native_model[1.5-right-output]
+2026-11-13T09:52:42.1976744Z 0.01s call     tests/test_actor_module_instance.py::test_module_actor_retains_packing_configuration[False]
+2026-11-13T09:52:42.1977256Z 
+2026-11-13T09:52:42.1977431Z (43 durations < 0.005s hidden.  Use -vv to show these durations.)
+2026-11-13T09:52:42.1977852Z ============================== 20 passed in 3.60s ==============================
+2026-11-13T09:52:42.2008304Z ##[group]Run python -m isort --check-only --diff openrlhf/models/actor.py tests/test_actor_module_instance.py
+2026-11-13T09:52:42.2009136Z [36;1mpython -m isort --check-only --diff openrlhf/models/actor.py tests/test_actor_module_instance.py[0m
+2026-11-13T09:52:42.2009857Z [36;1mpython -m black --check --diff openrlhf/models/actor.py tests/test_actor_module_instance.py[0m
+2026-11-13T09:52:42.2010662Z [36;1mpython -m autoflake --check-diff --remove-all-unused-imports openrlhf/models/actor.py tests/test_actor_module_instance.py[0m
+2026-11-13T09:52:42.2011284Z [36;1mgit diff --exit-code[0m
+2026-11-13T09:52:42.2061427Z shell: /usr/bin/bash -e {0}
+2026-11-13T09:52:42.2061693Z env:
+2026-11-13T09:52:42.2061897Z   PYTHONPATH: .
+2026-11-13T09:52:42.2062118Z   OMP_NUM_THREADS: 1
+2026-11-13T09:52:42.2062336Z   MKL_NUM_THREADS: 1
+2026-11-13T09:52:42.2062615Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:42.2063111Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T09:52:42.2063561Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:42.2063961Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:42.2064584Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:42.2064986Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T09:52:42.2065326Z ##[endgroup]
+2026-11-13T09:52:43.1876966Z All done! ✨ 🍰 ✨
+2026-11-13T09:52:43.1877452Z 2 files would be left unchanged.
+2026-11-13T09:52:43.4434102Z ##[group]Run actions/upload-artifact@v4
+2026-11-13T09:52:43.4434756Z with:
+2026-11-13T09:52:43.4435085Z   name: actor-module-native-results
+2026-11-13T09:52:43.4435799Z   path: patched.xml
+patched.log
+baseline.xml
+baseline.log
+installed-dependencies.txt
+
+2026-11-13T09:52:43.4436545Z   if-no-files-found: warn
+2026-11-13T09:52:43.4436921Z   compression-level: 6
+2026-11-13T09:52:43.4437267Z   overwrite: false
+2026-11-13T09:52:43.4437610Z   include-hidden-files: false
+2026-11-13T09:52:43.4437992Z env:
+2026-11-13T09:52:43.4438272Z   PYTHONPATH: .
+2026-11-13T09:52:43.4438592Z   OMP_NUM_THREADS: 1
+2026-11-13T09:52:43.4438949Z   MKL_NUM_THREADS: 1
+2026-11-13T09:52:43.4439393Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:43.4440125Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T09:52:43.4440854Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:43.4441536Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:43.4442192Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T09:52:43.4442842Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T09:52:43.4443397Z ##[endgroup]
+2026-11-13T09:52:43.6714044Z (node:2556) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T09:52:43.6715119Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T09:52:43.6837122Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-13T09:52:43.6840584Z The least common ancestor is /home/runner/work/OpenRLHF/OpenRLHF. This will be the root directory of the artifact
+2026-11-13T09:52:43.6842270Z With the provided path, there will be 5 files uploaded
+2026-11-13T09:52:43.6843440Z Artifact name is valid!
+2026-11-13T09:52:43.6844032Z Root directory input is valid!
+2026-11-13T09:52:43.8980436Z Beginning upload of artifact content to blob storage
+2026-11-13T09:52:43.9352356Z (node:2556) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T09:52:43.9792870Z Uploaded bytes 6590
+2026-11-13T09:52:43.9981026Z Finished uploading artifact content to blob storage!
+2026-11-13T09:52:43.9982241Z SHA256 digest of uploaded artifact zip is 45719ab5eae7f92bfe2bfca42c8c8b45a3396cacaf9d9e580681729165e7647d
+2026-11-13T09:52:43.9983541Z Finalizing artifact upload
+2026-11-13T09:52:44.3421713Z Artifact actor-module-native-results.zip successfully finalized. Artifact ID 14027155768
+2026-11-13T09:52:44.3423493Z Artifact actor-module-native-results has been successfully uploaded! Final size is 6590 bytes. Artifact ID is 14027155768
+2026-11-13T09:52:44.3429749Z Artifact download URL: https://github.com/Afloat16/OpenRLHF/actions/runs/43404655917/artifacts/14027155768
+2026-11-13T09:52:44.3647620Z Post job cleanup.
+2026-11-13T09:52:44.4916454Z (node:2568) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T09:52:44.4917803Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T09:52:44.5126317Z Post job cleanup.
+2026-11-13T09:52:44.6148651Z [command]/usr/bin/git version
+2026-11-13T09:52:44.6198740Z git version 2.56.0
+2026-11-13T09:52:44.6247367Z Temporarily overriding HOME='/home/runner/work/_temp/68bf1f82-b6fb-4270-a612-096ce41f81fe' before making global git config changes
+2026-11-13T09:52:44.6285396Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T09:52:44.6286624Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T09:52:44.6345197Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T09:52:44.6376797Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T09:52:44.6696825Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T09:52:44.6732177Z http.https://github.com/.extraheader
+2026-11-13T09:52:44.6756019Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T09:52:44.6809938Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T09:52:44.7226425Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T09:52:44.7270888Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T09:52:44.7713987Z Cleaning up orphan processes
+2026-11-13T09:52:44.8111690Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

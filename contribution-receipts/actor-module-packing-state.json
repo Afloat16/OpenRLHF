@@ -1,0 +1,58 @@
+{
+  "repository": "OpenRLHF/OpenRLHF",
+  "stars": 10151,
+  "title": "Initialize packing configuration for Actor model instances",
+  "base": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+  "branch": "fix/actor-module-packing-state-20261113",
+  "commit": "f644edc44b24a66ba2382d474b2762bbdc4dbf90",
+  "tree": "54390e5659e5de0a3b3bbb9622169bc994408a6f",
+  "commit_url": "https://github.com/Afloat16/OpenRLHF/commit/f644edc44b24a66ba2382d474b2762bbdc4dbf90",
+  "body": "## Problem\n\n`Actor` accepts either a pretrained-model name or an existing `nn.Module`. The constructor only initializes `packing_samples` in the string-input branch, although `forward` reads it for both input types. Passing an existing causal language model therefore raises `AttributeError: 'Actor' object has no attribute 'packing_samples'` before normal policy inference or training.\n\n## Change\n\nInitialize the packing configuration in the common constructor path. Existing module instances and their parameter identities are preserved, and the pretrained-name path receives the same value as before.\n\n## Validation\n\nExact source: `f644edc44b24a66ba2382d474b2762bbdc4dbf90`; upstream base: `26494490bc237f6c3af62dab6117e6bbb0a78dba`.\n\n[Successful native CPU before/after run](https://github.com/Afloat16/OpenRLHF/actions/runs/43404655917), Python 3.12.16, PyTorch 2.9.1+cpu and Transformers 4.57.1:\n\n- Identical 18 new tests on the unchanged base: **18 failed**, all on the missing packing attribute.\n- Fixed source: **18 new tests plus both existing Actor entropy tests passed**, **20 passed** total.\n- A real TinyGPT2 model covers action log probabilities, full log probabilities, raw model outputs, entropy, two temperatures, left/right padding and preservation of the supplied module.\n- SGD and AdamW perform three real updates, including a model/optimizer checkpoint round trip after the first update. Losses, gradients, parameters and optimizer state are compared with the independent Transformers model calculation.\n- Both values of the packing flag are checked at construction. Packed FlashAttention/ring execution is outside this CPU validation.\n- Black 26.5.1, isort 9.0.0a3, autoflake 2.3.3 and `git diff --check` passed.\n\n```bash\npython -m pytest -q tests/test_actor_module_instance.py tests/test_actor_entropy_temperature.py\n```\n\nThe tests reuse the existing Actor CPU import fixture, which substitutes unavailable optional backend imports and runs entropy eagerly. The actual Actor forward, Transformers model, tensor calculations and optimizers execute normally. No GPU, DeepSpeed, packed-attention, compiled execution or complete repository suite is claimed. The validation workflow is on a separate fork branch.\n\n## Prior work checked\n\nAll-state Actor/packing/module-input searches, the complete 93-commit Actor history, related patches including #1115, #1178 and #1209, the user's existing PRs and every pre-existing fork branch were checked. The original packing assignment is specific to the string constructor path; the prior FSDP and from-config work does not initialize this attribute for supplied module instances.\n",
+  "validation": {
+    "run_url": "https://github.com/Afloat16/OpenRLHF/actions/runs/43404655917",
+    "run_id": 43404655917,
+    "job_id": 131815924089,
+    "validation_head": "4d3b326ac8a02f9dcd8a115505464229482e2369",
+    "conclusion": "success",
+    "environment": "Python 3.12.16; PyTorch 2.9.1+cpu; Transformers 4.57.1",
+    "before": {
+      "new_failed": 18,
+      "new_passed": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "after": {
+      "new_passed": 18,
+      "existing_passed": 2,
+      "total_passed": 20
+    },
+    "style": "Black 26.5.1; isort 9.0.0a3; autoflake 2.3.3; git diff --check",
+    "limits": [
+      "CPU eager Actor path with existing optional-backend import fixture",
+      "Packed configuration True checked at construction only",
+      "No GPU, DeepSpeed, FlashAttention/ring, compiled or full-suite claim"
+    ],
+    "corrected_validation_attempt": {
+      "run_id": 43403648715,
+      "problem": "New test used an absolute import for a sibling test module inside the tests package; corrected to relative import and reran the exact final source."
+    }
+  },
+  "peer_review": "Independent read-only review passed for production and all 18 tests; only sibling import changed afterward.",
+  "deduplication": {
+    "related_prs_read": [
+      1115,
+      1178,
+      1209
+    ],
+    "file_history_commits": 93,
+    "preexisting_fork_branches_checked": true,
+    "personal_prs_checked": 5,
+    "new_contribution": true
+  },
+  "pr_created": false,
+  "pr_url": null,
+  "merged_at": null,
+  "status": "validated_branch_ready",
+  "maintainer_can_modify": false,
+  "prefilled_url": "https://github.com/OpenRLHF/OpenRLHF/compare/main...Afloat16:fix/actor-module-packing-state-20261113?expand=1&title=Initialize%20packing%20configuration%20for%20Actor%20model%20instances&body=%23%23%20Problem%0A%0A%60Actor%60%20accepts%20either%20a%20pretrained-model%20name%20or%20an%20existing%20%60nn.Module%60.%20The%20constructor%20only%20initializes%20%60packing_samples%60%20in%20the%20string-input%20branch%2C%20although%20%60forward%60%20reads%20it%20for%20both%20input%20types.%20Passing%20an%20existing%20causal%20language%20model%20therefore%20raises%20%60AttributeError%3A%20'Actor'%20object%20has%20no%20attribute%20'packing_samples'%60%20before%20normal%20policy%20inference%20or%20training.%0A%0A%23%23%20Change%0A%0AInitialize%20the%20packing%20configuration%20in%20the%20common%20constructor%20path.%20Existing%20module%20instances%20and%20their%20parameter%20identities%20are%20preserved%2C%20and%20the%20pretrained-name%20path%20receives%20the%20same%20value%20as%20before.%0A%0A%23%23%20Validation%0A%0AExact%20source%3A%20%60f644edc44b24a66ba2382d474b2762bbdc4dbf90%60%3B%20upstream%20base%3A%20%6026494490bc237f6c3af62dab6117e6bbb0a78dba%60.%0A%0A%5BSuccessful%20native%20CPU%20before%2Fafter%20run%5D(https%3A%2F%2Fgithub.com%2FAfloat16%2FOpenRLHF%2Factions%2Fruns%2F43404655917)%2C%20Python%203.12.16%2C%20PyTorch%202.9.1%2Bcpu%20and%20Transformers%204.57.1%3A%0A%0A-%20Identical%2018%20new%20tests%20on%20the%20unchanged%20base%3A%20**18%20failed**%2C%20all%20on%20the%20missing%20packing%20attribute.%0A-%20Fixed%20source%3A%20**18%20new%20tests%20plus%20both%20existing%20Actor%20entropy%20tests%20passed**%2C%20**20%20passed**%20total.%0A-%20A%20real%20TinyGPT2%20model%20covers%20action%20log%20probabilities%2C%20full%20log%20probabilities%2C%20raw%20model%20outputs%2C%20entropy%2C%20two%20temperatures%2C%20left%2Fright%20padding%20and%20preservation%20of%20the%20supplied%20module.%0A-%20SGD%20and%20AdamW%20perform%20three%20real%20updates%2C%20including%20a%20model%2Foptimizer%20checkpoint%20round%20trip%20after%20the%20first%20update.%20Losses%2C%20gradients%2C%20parameters%20and%20optimizer%20state%20are%20compared%20with%20the%20independent%20Transformers%20model%20calculation.%0A-%20Both%20values%20of%20the%20packing%20flag%20are%20checked%20at%20construction.%20Packed%20FlashAttention%2Fring%20execution%20is%20outside%20this%20CPU%20validation.%0A-%20Black%2026.5.1%2C%20isort%209.0.0a3%2C%20autoflake%202.3.3%20and%20%60git%20diff%20--check%60%20passed.%0A%0A%60%60%60bash%0Apython%20-m%20pytest%20-q%20tests%2Ftest_actor_module_instance.py%20tests%2Ftest_actor_entropy_temperature.py%0A%60%60%60%0A%0AThe%20tests%20reuse%20the%20existing%20Actor%20CPU%20import%20fixture%2C%20which%20substitutes%20unavailable%20optional%20backend%20imports%20and%20runs%20entropy%20eagerly.%20The%20actual%20Actor%20forward%2C%20Transformers%20model%2C%20tensor%20calculations%20and%20optimizers%20execute%20normally.%20No%20GPU%2C%20DeepSpeed%2C%20packed-attention%2C%20compiled%20execution%20or%20complete%20repository%20suite%20is%20claimed.%20The%20validation%20workflow%20is%20on%20a%20separate%20fork%20branch.%0A%0A%23%23%20Prior%20work%20checked%0A%0AAll-state%20Actor%2Fpacking%2Fmodule-input%20searches%2C%20the%20complete%2093-commit%20Actor%20history%2C%20related%20patches%20including%20%231115%2C%20%231178%20and%20%231209%2C%20the%20user's%20existing%20PRs%20and%20every%20pre-existing%20fork%20branch%20were%20checked.%20The%20original%20packing%20assignment%20is%20specific%20to%20the%20string%20constructor%20path%3B%20the%20prior%20FSDP%20and%20from-config%20work%20does%20not%20initialize%20this%20attribute%20for%20supplied%20module%20instances.%0A"
+}
