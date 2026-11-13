@@ -3,10 +3,10 @@
   "retrieved_date": "2026-11-13",
   "counts": {
     "target": 70,
-    "created": 64,
-    "open": 64,
+    "created": 69,
+    "open": 69,
     "merged": 0,
-    "pending": 6
+    "pending": 1
   },
   "excluded_preexisting": [
     {
@@ -1246,34 +1246,80 @@
     {
       "repository": "OpenRLHF/OpenRLHF",
       "slot": 8,
-      "status": "pending",
-      "pr_created": false,
-      "pr_url": null,
-      "head": null,
+      "status": "upstream_pr_open",
+      "pr_created": true,
+      "pr_url": "https://github.com/OpenRLHF/OpenRLHF/pull/1416",
+      "head": "3736b55a69bfc63119c06e838cf67c986c714a81",
       "merged_at": null,
-      "owner": "existing_prs"
+      "owner": "existing_prs",
+      "branch": "fix/corrected-kl-forward-preservation-20261113",
+      "candidate": "Preserve corrected KL forward values",
+      "native_run_urls": [
+        "https://github.com/Afloat16/OpenRLHF/actions/runs/43422359359"
+      ],
+      "pr_number": 1416,
+      "title": "Preserve KL forward values when correcting the gradient",
+      "base": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+      "state": "open",
+      "draft": false,
+      "created_at": "2026-11-13T12:16:02Z",
+      "existing_audit_branch": "audit/corrected-kl-forward-preservation-20261113",
+      "existing_audit_head": "8bac1b473ebe9f4e91b0cb8624f51963487143b3",
+      "receipt_url": "https://github.com/Afloat16/OpenRLHF/blob/8bac1b473ebe9f4e91b0cb8624f51963487143b3/contribution-receipts/corrected-kl-forward-preservation.json",
+      "published_body": "## Problem\n\nWith `unbiased_gradient=True`, `compute_approx_kl` promises to keep the chosen estimator's forward value and substitute the corrected reverse-KL gradient. The current expression evaluates `value + grad_surrogate` first. A large but finite surrogate can round away part or all of the clipped forward value before the detached surrogate is subtracted.\n\nFor example, current/reference log probabilities of -12000 and -1 produce a finite squared surrogate much larger than the clipped k2 value of 10. The current expression returns a different loss even though the gradient correction is intended to affect only backward. Normalized categorical-policy examples and real GPT2 training reproduce the same error.\n\n## Change\n\nSubtract the surrogate and its detached value before adding the detached estimator value:\n\n```python\nreturn value.detach() + (grad_surrogate - grad_surrogate.detach())\n```\n\nFor finite surrogates, the parenthesized expression is zero in forward and retains the existing surrogate gradient. Estimator selection, clipping, importance weighting and the default `unbiased_gradient=False` path keep their existing formulas.\n\n## Validation\n\nExact source `3736b55a69bfc63119c06e838cf67c986c714a81`, based on `26494490bc237f6c3af62dab6117e6bbb0a78dba`.\n\n[Native before/after run](https://github.com/Afloat16/OpenRLHF/actions/runs/43422359359), Python 3.12.16, official PyTorch 2.9.1+cpu, DeepSpeed 0.19.6 and Transformers 5.15.0:\n\n- Identical 44 new tests on the original implementation: **42 failed, 2 passed**.\n- Fixed implementation: **44 passed**.\n- Existing repository suite: **203 passed, 2 skipped** on the original implementation; the full suite including the new tests is **247 passed, 2 skipped** after the fix.\n- Coverage includes k1/k2/k3, on-policy and off-policy weighting, FP16/BF16/FP32/FP64 input tensors, normalized categorical policies, and preserved NaN/invalid-estimator behavior.\n- Twelve real GPT2 training cases cover SGD with momentum and AdamW, FP32/FP64 models and all three estimators. Three updates compare reported losses, every parameter gradient, weights and optimizer state against an independently supplied analytic KL-gradient reference. A disk checkpoint after the first update restores the model and optimizer before the remaining updates.\n- Compile checks and the repository's Black, isort and autoflake checks pass.\n\nThe new tests execute the complete source utility module with installed native dependencies; they do not replace PyTorch or DeepSpeed. Validation is CPU-only. The numerical guarantee is for finite surrogate values; this change does not define behavior for an infinite surrogate minus itself or alter non-finite inputs.\n\n## Prior work checked\n\nAll-state issue/PR searches, the affected file's 39-entry history and every existing non-audit/non-validation fork head were checked. #1309 introduced the corrected-gradient expression, #1101 proposed an earlier gradient variant, and #1335 bounds the separate k3 exponential derivative. None preserves the corrected-gradient forward value by changing this evaluation order.",
+      "evidence_note": "Exact upstream PR metadata retrieved and complete native evidence retained in the receipt and log files at the audit commit."
     },
     {
       "repository": "OpenRLHF/OpenRLHF",
       "slot": 9,
-      "status": "pending",
-      "pr_created": false,
-      "pr_url": null,
-      "head": "3378c344",
+      "status": "upstream_pr_open",
+      "pr_created": true,
+      "pr_url": "https://github.com/OpenRLHF/OpenRLHF/pull/1415",
+      "head": "3378c344009614dc0d8f49c2f0642abee96bb4bf",
       "merged_at": null,
       "owner": "eval_contributions",
       "candidate": "Stable selective log probabilities",
-      "native_run_url": "https://github.com/Afloat16/OpenRLHF/actions/runs/43420574958"
+      "native_run_url": "https://github.com/Afloat16/OpenRLHF/actions/runs/43420574958",
+      "pr_number": 1415,
+      "title": "Stabilize selective log probabilities without retaining vocabulary buffers",
+      "base": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+      "branch": "fix/selective-log-probability-stability-20261113",
+      "state": "open",
+      "draft": false,
+      "created_at": "2026-11-13T12:04:44Z",
+      "native_run_urls": [
+        "https://github.com/Afloat16/OpenRLHF/actions/runs/43421276254"
+      ],
+      "existing_audit_branch": null,
+      "existing_audit_head": "57dad5252ad3d34531d13cb600354e43dbaa1994",
+      "receipt_url": "https://github.com/Afloat16/OpenRLHF/blob/57dad5252ad3d34531d13cb600354e43dbaa1994/contribution-receipts/openrlhf9_logprobs.json",
+      "published_body": "## Problem\n\nThe float32/float64 fallback in `log_probs_from_logits` subtracts a large `logsumexp` result from the selected logit. A shared logit offset can erase the normalizer in that subtraction and also corrupt its gradient. For seven equal float32 logits at 1e8, the existing fallback returns 0 instead of -log(7).\n\n## Change\n\nNormalize each existing 1,024-token chunk with `log_softmax` before gathering the selected labels. Non-reentrant checkpointing includes both operations, so backward recomputes a chunk instead of retaining an additional full-vocabulary output for every token. The unused single-caller logsumexp helper is removed. The FlashAttention path, lower-precision path, temperature behavior, invalid-label checks and empty-batch gradients are preserved.\n\n## Validation\n\n- Exact upstream base: `26494490bc237f6c3af62dab6117e6bbb0a78dba`.\n- Native CPU regression file: 10 failures / 34 passes before; 44 passes after.\n- Repository commands: `python -m compileall -q openrlhf examples tests` passes; `python -m pytest -q` reports 247 passed and 2 skipped. Black, isort and autoflake checks pass.\n- Covers FP32/FP64 values and analytic gradients, signed common offsets, noncontiguous inputs, 1,024-token boundaries, empty batches, FP16/BF16 controls, nonfinite rows, invalid labels and saved-tensor storage.\n- Four local GPT2 training cases compare three SGD updates, including saved optimizer/model restoration, against a stable double-precision reference evaluated on the actual rounded input logits.\n- Native packages: Torch 2.9.1+cpu, DeepSpeed 0.19.6, Transformers 5.15.0, Python 3.12. The complete numerical source module is loaded directly with real dependencies; no functions or dependencies are stubbed. FlashAttention, full Actor execution, GPU and distributed training were not run.\n\n## Memory and timing\n\nOne CPU runner, two threads, one warmup and five timed iterations, random float32 logits:\n\n| Shape | Forward only median | Forward + backward median | First-step process peak RSS |\n| --- | --- | --- | --- |\n| 32 × 512 | 0.231 → 0.324 ms | 0.457 → 0.773 ms | 493,768 → 501,104 KiB for backward |\n| 4,097 × 8,192 | 65.921 → 56.563 ms | 512.248 → 483.824 ms | 1,018,448 → 927,084 KiB for backward |\n\nThe larger backward case saves no additional vocabulary buffer (extra saved storage 16,388 → 0 bytes, excluding input storage). Checkpoint bookkeeping adds overhead to small batches; these are local helper measurements, not an end-to-end RL throughput claim. The benchmark verifies ordinary-input values and sampled gradients before comparing timings.\n\nNative evidence: https://github.com/Afloat16/OpenRLHF/actions/runs/43421276254\n",
+      "evidence_note": "Exact upstream PR metadata retrieved and complete native evidence retained in the receipt and log files at the audit commit."
     },
     {
       "repository": "OpenRLHF/OpenRLHF",
       "slot": 10,
-      "status": "pending",
-      "pr_created": false,
-      "pr_url": null,
-      "head": null,
+      "status": "upstream_pr_open",
+      "pr_created": true,
+      "pr_url": "https://github.com/OpenRLHF/OpenRLHF/pull/1417",
+      "head": "3737390e06bb85a36f050358f4813807a12e4713",
       "merged_at": null,
-      "owner": "eval_contributions"
+      "owner": "eval_contributions",
+      "pr_number": 1417,
+      "title": "Avoid redundant padding copies for single-sequence batches",
+      "base": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+      "branch": "perf/zero-width-padding-copies-20261113",
+      "state": "open",
+      "draft": false,
+      "created_at": "2026-11-13T12:16:33Z",
+      "native_run_urls": [
+        "https://github.com/Afloat16/OpenRLHF/actions/runs/43422837888"
+      ],
+      "existing_audit_branch": null,
+      "existing_audit_head": "7b5ceb27942a22e79dff5afd977137cb668aaa0b",
+      "receipt_url": "https://github.com/Afloat16/OpenRLHF/blob/7b5ceb27942a22e79dff5afd977137cb668aaa0b/contribution-receipts/openrlhf10_single_padding.json",
+      "published_body": "## Problem\n\n`zero_pad_sequences` calls `F.pad` even when a batch contains one sequence. Zero-width padding creates a complete clone, and the following `cat` or `stack` allocates the final batch again. This repeated copy occurs in the default microbatch-size-one SFT collation path.\n\n## Change\n\nFor a single input, call the existing final `cat`/`stack` directly. The result still owns independent storage and retains the existing shape, layout and autograd behavior. The condition follows from the batch structure: one input cannot need padding to match another input. Multi-input batches keep the original padding loop.\n\n## Validation\n\n- Independent upstream base: `26494490bc237f6c3af62dab6117e6bbb0a78dba`.\n- Native CPU regression file: 78 passes and two allocation-budget failures before; 80 passes after. All original semantic controls pass.\n- Covers left/right padding, cat/stack, numeric and Boolean tensors, empty tensors, single/multiple sequences, noncontiguous and expanded views, channels-last layout, output storage independence, exact output strides and gradients.\n- Actual `SFTDataset` and `DataLoader` with a local tokenizer feed GPT2 through three SGD updates. Every parameter matches the existing collation algorithm for microbatch sizes 1 and 2 in SFT and pretraining modes.\n- `python -m compileall -q openrlhf examples tests` passes; the full `python -m pytest -q` run reports 283 passed and 2 skipped.\n- All repository pre-commit hooks pass on the exact source commit, including Black, isort and autoflake.\n\n## Local collation measurements\n\nTorch 2.9.1+cpu, Python 3.12, one hosted CPU runner with two threads. Each case has a 100-call warmup and seven timed blocks of 100 calls. Values below are medians per call; output SHA-256 values match before and after.\n\n| Batch × padded length | Before → after time | Before → after operator-allocated bytes |\n| --- | --- | --- |\n| 1 × 8,192 | 4.549 → 2.113 µs | 131,072 → 65,536 |\n| 8 × 8,192 | 37.835 → 35.926 µs | 1,048,576 → 1,048,576 |\n| 32 × 8,192 | 145.041 → 142.895 µs | 4,194,304 → 4,194,304 |\n| 32 × 8,192, varying lengths | 636.197 → 630.439 µs | 4,194,304 → 4,194,304 |\n\nThe measured improvement is the single-input collation path. Multi-input timing differences are controls for the unchanged algorithm. Allocation figures are positive operator allocation totals from the CPU profiler, not process peak memory. GPU, distributed training and end-to-end RL throughput were not measured.\n\nNative tests and benchmark: https://github.com/Afloat16/OpenRLHF/actions/runs/43422837888\n\nExact-source repository hooks: https://github.com/Afloat16/OpenRLHF/actions/runs/43422903546\n",
+      "evidence_note": "Exact upstream PR metadata retrieved and complete native evidence retained in the receipt and log files at the audit commit."
     },
     {
       "repository": "huggingface/accelerate",
@@ -1389,14 +1435,27 @@
     {
       "repository": "huggingface/accelerate",
       "slot": 6,
-      "status": "pending",
-      "pr_created": false,
-      "pr_url": null,
-      "head": "6994b501f631c4e3ca522625ea003ece6be76f46",
+      "status": "upstream_pr_open",
+      "pr_created": true,
+      "pr_url": "https://github.com/huggingface/accelerate/pull/4545",
+      "head": "be20c6e91fa30f31b7546a163e5ff7e2f8e119fd",
       "merged_at": null,
       "owner": "existing_prs",
       "candidate": "Linear maximum-layer scan",
-      "branch": "perf/linear-maximum-layer-scan-20261113"
+      "branch": "perf/linear-maximum-layer-scan-20261113",
+      "pr_number": 4545,
+      "title": "Avoid quadratic traversal in maximum-layer scanning",
+      "base": "f5cc53877677eb7fa0ef7091fe41536a777fee6a",
+      "state": "open",
+      "draft": false,
+      "created_at": "2026-11-13T12:11:03Z",
+      "native_run_urls": [
+        "https://github.com/Afloat16/accelerate/actions/runs/43421469673"
+      ],
+      "existing_audit_branch": "audit/linear-maximum-layer-scan-20261113",
+      "existing_audit_head": "74932aa06c80f30eb96b028be53a96206948ed3e",
+      "published_body": "## Problem\n\nThe maximum-layer scan repeatedly removes the first item of a Python list and prepends each module's children to the remaining list. A wide model hierarchy therefore spends quadratic time moving list entries during device-map planning.\n\n## Change\n\nUse a reversed stack and append children in reverse order. The scan keeps the same depth-first order, maximum layer size, equal-size name ordering, and no-split behavior. This changes only traversal bookkeeping; layer selection and memory accounting remain unchanged.\n\n## Validation\n\nExact source: `be20c6e91fa30f31b7546a163e5ff7e2f8e119fd`, based on `f5cc53877677eb7fa0ef7091fe41536a777fee6a`.\n\n[Native before/after run](https://github.com/Afloat16/accelerate/actions/runs/43421469673), Python 3.12 and official PyTorch 2.9.0+cpu:\n\n- The identical final tests pass on both sources: **79 passed, 10 skipped, 4 subtests passed**. This includes 41 new cases and the complete existing `test_modeling_utils.py` group. The skips are the existing hardware/slow-test gates.\n- New controls cover CPU/meta modules, FP32/FP64 sizes, reversed input order, no-split classes, equal maxima, zero sizes, tensor leaves, and input-list preservation.\n- Eight integration cases train a real model with SGD momentum, save weights and optimizer state, infer the device map for a fresh meta-initialized model, load it with `load_checkpoint_and_dispatch`, and compare two continuation steps' outputs, gradients, parameters, and momentum buffers.\n- Ruff 0.13.1 lint/format and whitespace checks pass.\n\n## Measured planning cost\n\nFive timed calls per case on one CPU thread; the benchmark constructs a real `ModuleList` of independent meta `Linear(2, 2)` modules. Construction and precomputed sizes are outside the helper timing. The device-map timing calls the complete `infer_auto_device_map` function, including its size computation. Returned layer names and device maps have identical hashes.\n\n| Leaf modules | Maximum-layer scan before / after | Complete device map before / after |\n| ---: | ---: | ---: |\n| 64 | 0.0792 / 0.0793 ms | 0.7132 / 0.7678 ms |\n| 8,192 | 17.4639 / 13.0148 ms | 95.1010 / 94.3681 ms |\n| 65,536 | 450.5455 / 111.0378 ms | 1121.1533 / 797.0523 ms |\n\nAt 65,536 leaves the helper is about **4.06x** faster and complete planning about **1.41x** faster. The helper's measured Python allocation peak decreases from 12,451,762 to 11,928,122 bytes; the complete planner's peak is unchanged at 27,635,863 bytes. Small cases show little benefit and the 64-leaf complete-planning measurement is slightly slower. These are model-planning measurements, not training-throughput or GPU-memory results.\n\nThe benchmark and raw results are retained in the separate validation branch/run artifacts; no workflow is added to this PR.\n\n## Before submitting\n\n- [x] Read contributor guidance and checked related history and all-state PRs.\n- [x] Added semantic and checkpoint-continuation controls.\n- [x] Ran related existing tests on both sources.\n\nRelated performance changes #2756 and #3776 optimize balanced-memory leaf bookkeeping, while #4531 changes which tensors count as layers. This patch keeps the existing layer semantics and removes front-of-list traversal costs.",
+      "evidence_note": "Exact native validation and upstream PR state verified; full receipt/log retained in the named audit branch."
     },
     {
       "repository": "huggingface/accelerate",
@@ -1406,17 +1465,31 @@
       "pr_url": null,
       "head": null,
       "merged_at": null,
-      "owner": "existing_prs"
+      "owner": "root"
     },
     {
       "repository": "huggingface/accelerate",
       "slot": 8,
-      "status": "pending",
-      "pr_created": false,
-      "pr_url": null,
-      "head": null,
+      "status": "upstream_pr_open",
+      "pr_created": true,
+      "pr_url": "https://github.com/huggingface/accelerate/pull/4544",
+      "head": "a95ee5bdda6c74e93e59878a5e5e5db69d554950",
       "merged_at": null,
-      "owner": "root"
+      "owner": "root",
+      "pr_number": 4544,
+      "title": "Avoid retaining full batches in the dispatcher padding cache",
+      "base": "f5cc53877677eb7fa0ef7091fe41536a777fee6a",
+      "branch": "perf/dispatcher-prefix-storage-20261113",
+      "state": "open",
+      "draft": false,
+      "created_at": "2026-11-13T12:02:55Z",
+      "native_run_urls": [
+        "https://github.com/Afloat16/accelerate/actions/runs/43421394225"
+      ],
+      "existing_audit_branch": "audit/dispatcher-prefix-storage-20261113",
+      "existing_audit_head": "24795afad26d9a0e3935c7466981e774a33078a0",
+      "published_body": "## What does this PR do?\n\n`DataLoaderDispatcher` keeps a prefix of the first dispatched batch to pad the last batch. The default tensor slicing returns views, so this small prefix retains the storage of the entire first global batch for the rest of the iterator's lifetime.\n\nClone the tensor leaves of that cached prefix after calling the configured slice function. This releases the full first batch once its consumer and the iterator have moved on. The usual yielded batches, custom slicing behavior, and `drop_last=True` path retain their existing behavior.\n\n## Measured storage reduction\n\n[Native before/after run](https://github.com/Afloat16/accelerate/actions/runs/43421394225), exact source `a95ee5bdda6c74e93e59878a5e5e5db69d554950` on current upstream `f5cc53877677eb7fa0ef7091fe41536a777fee6a`:\n\nA real dispatcher with 256 samples per batch and 2,048 FP32 features per sample caches one sample on a single CPU process. After advancing to the second batch, the padding cache's actual tensor storage changes from **2,097,152 bytes to 8,192 bytes**, while its logical contents stay 8,192 bytes.\n\nThis measures the live cache's tensor storage, not process RSS or GPU peak memory. The change adds one prefix-sized clone per iterator when padding is enabled.\n\n## Correctness validation\n\nPython 3.12, official PyTorch 2.9.0+cpu:\n\n- Unchanged source: 12 storage-lifetime regressions fail; 20 controls/training cases pass.\n- Fixed source: all 32 new cases pass.\n- The entire existing `tests/test_data_loader.py`: 39 pass, 1 conditional skip.\n- Weak-reference tests check that the original first batch is released for tensor, nested mapping, and namedtuple batches, both split modes, and FP32/FP64. The no-padding controls pass before and after.\n- Eight real two-process Gloo DDP runs cover split/unsplit dispatch, SGD with momentum and AdamW, and FP32/FP64. All gradients, updated parameters, and optimizer state match an independent global-batch reference for three updates, including a padded tail and in-place input normalization. Gathered metric samples are exactly the nine original examples, and final parameters agree between ranks.\n- Ruff check, Ruff format, and diff whitespace checks pass.\n\n## Prior work checked\n\nAll-state issue/PR searches, all 126 commits touching `data_loader.py`, and the existing author PRs were checked. #1846 introduces custom dispatch slicing; #4374 handles empty/undersized dispatch; #4507 and #4509 address sampler-owned index-list mutation. Their actual patches do not release the dispatcher's cached tensor-view storage.",
+      "evidence_note": "Exact native validation and upstream PR state verified; full receipt/log retained in the named audit branch."
     },
     {
       "repository": "huggingface/accelerate",
