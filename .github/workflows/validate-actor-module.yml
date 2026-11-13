@@ -15,8 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 7a3555b9b2e4e676c7391e47627887f2df88c056
-          fetch-depth: 2
+          ref: f644edc44b24a66ba2382d474b2762bbdc4dbf90
+          fetch-depth: 3
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -43,8 +43,8 @@ jobs:
       - name: Verify native Actor and model updates
         if: always()
         run: |
-          git checkout 7a3555b9b2e4e676c7391e47627887f2df88c056 -- openrlhf/models/actor.py
-          test "$(git rev-parse HEAD)" = "7a3555b9b2e4e676c7391e47627887f2df88c056"
+          git checkout f644edc44b24a66ba2382d474b2762bbdc4dbf90 -- openrlhf/models/actor.py
+          test "$(git rev-parse HEAD)" = "f644edc44b24a66ba2382d474b2762bbdc4dbf90"
           set +e
           python -m pytest -q tests/test_actor_module_instance.py tests/test_actor_entropy_temperature.py --junitxml=patched.xml > patched.log 2>&1
           status=$?
