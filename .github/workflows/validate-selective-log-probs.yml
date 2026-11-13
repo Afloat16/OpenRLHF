@@ -26,7 +26,7 @@ jobs:
         run: |
           python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
           python -m pip install setuptools wheel packaging
-          python -m pip install --no-build-isolation torch==2.9.1 deepspeed==0.19.6 transformers==5.15.0 pylatexenc sympy pytest==9.0.2 aiohttp httpx black==26.5.1 isort==9.0.0a3 autoflake==2.3.3
+          python -m pip install --no-build-isolation torch==2.9.1 deepspeed==0.19.6 transformers==5.15.0 pylatexenc sympy datasets pytest==9.0.2 aiohttp httpx black==26.5.1 isort==9.0.0a3 autoflake==2.3.3
           python -m pip freeze > installed-dependencies.txt
       - name: Compare exact original and repaired native behavior
         run: python contribution-validation/run_log_probs.py
