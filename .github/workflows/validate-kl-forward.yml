@@ -1,0 +1,68 @@
+name: Validate corrected KL forward preservation
+on:
+  push:
+    branches: [validation/corrected-kl-forward-preservation-20261113]
+permissions:
+  contents: read
+jobs:
+  native-cpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONPATH: .
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+      DS_BUILD_OPS: "0"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install official native CPU dependencies
+        run: |
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install setuptools wheel packaging
+          python -m pip install --no-build-isolation torch==2.9.1 deepspeed==0.19.6 transformers==5.15.0 pylatexenc sympy datasets pytest==9.0.2 aiohttp httpx black==26.5.1 isort==9.0.0a3 autoflake==2.3.3
+          python -m pip freeze > installed-dependencies.txt
+          python -c "import sys, torch, deepspeed, transformers; print(sys.version); print(torch.__version__, deepspeed.__file__, transformers.__version__)"
+      - name: Reproduce the unmodified loss error
+        run: |
+          git checkout 26494490bc237f6c3af62dab6117e6bbb0a78dba -- openrlhf/models/utils.py
+          set +e
+          python -m pytest -q tests/test_kl_forward_preservation.py --junitxml=kl-baseline.xml > kl-baseline.log 2>&1
+          status=$?
+          set -e
+          cat kl-baseline.log
+          test "$status" = 1
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          root = ET.parse("kl-baseline.xml").getroot()
+          suites = list(root.iter("testsuite"))
+          assert sum(int(x.attrib.get("errors", 0)) for x in suites) == 0
+          assert sum(int(x.attrib.get("failures", 0)) for x in suites) > 0
+          PY
+          python -m pytest -q --ignore=tests/test_kl_forward_preservation.py --junitxml=kl-existing-baseline.xml
+      - name: Verify exact changed source and full native suite
+        run: |
+          git checkout 3736b55a69bfc63119c06e838cf67c986c714a81 -- openrlhf/models/utils.py
+          python -m pytest -q tests/test_kl_forward_preservation.py --junitxml=kl-fixed.xml
+          python -m pytest -q --junitxml=kl-complete-fixed.xml
+          python -m compileall -q openrlhf examples tests
+      - name: Project code quality
+        run: |
+          black --check openrlhf/models/utils.py tests/test_kl_forward_preservation.py
+          isort --check-only openrlhf/models/utils.py tests/test_kl_forward_preservation.py
+          autoflake --check --remove-all-unused-imports --ignore-init-module-imports openrlhf/models/utils.py tests/test_kl_forward_preservation.py
+          git diff --check 26494490bc237f6c3af62dab6117e6bbb0a78dba -- openrlhf/models/utils.py tests/test_kl_forward_preservation.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: corrected-kl-native-evidence
+          path: |
+            kl-*.log
+            kl-*.xml
+            installed-dependencies.txt
