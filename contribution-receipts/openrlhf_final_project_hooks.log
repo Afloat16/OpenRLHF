@@ -1,0 +1,291 @@
+﻿2026-11-13T12:10:17.2099301Z Current runner version: '2.338.2'
+2026-11-13T12:10:17.2125347Z ##[group]Runner Image Provisioner
+2026-11-13T12:10:17.2126319Z Hosted Compute Agent
+2026-11-13T12:10:17.2126970Z Version: 20261103.629
+2026-11-13T12:10:17.2127676Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-13T12:10:17.2128522Z Build Date: 2026-11-03T17:26:59Z
+2026-11-13T12:10:17.2129272Z Worker ID: {898e8e56-cc07-4e8c-829b-dda035c0bae3}
+2026-11-13T12:10:17.2129989Z Region: westus
+2026-11-13T12:10:17.2131052Z Cloud: Azure
+2026-11-13T12:10:17.2131625Z ##[endgroup]
+2026-11-13T12:10:17.2133258Z ##[group]Operating System
+2026-11-13T12:10:17.2133981Z Ubuntu
+2026-11-13T12:10:17.2134503Z 24.04.5
+2026-11-13T12:10:17.2135090Z LTS
+2026-11-13T12:10:17.2135615Z ##[endgroup]
+2026-11-13T12:10:17.2136202Z ##[group]Runner Image
+2026-11-13T12:10:17.2136863Z Image: ubuntu-24.04
+2026-11-13T12:10:17.2137435Z Version: 20261111.370.1
+2026-11-13T12:10:17.2138762Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261111.370/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-13T12:10:17.2140808Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261111.370
+2026-11-13T12:10:17.2141931Z ##[endgroup]
+2026-11-13T12:10:17.2143120Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T12:10:17.2145280Z Contents: read
+2026-11-13T12:10:17.2145916Z Metadata: read
+2026-11-13T12:10:17.2146971Z ##[endgroup]
+2026-11-13T12:10:17.2149119Z Secret source: Actions
+2026-11-13T12:10:17.2150210Z Cache mode: write
+2026-11-13T12:10:17.2151161Z Prepare workflow directory
+2026-11-13T12:10:17.2494665Z Prepare all required actions
+2026-11-13T12:10:17.2544393Z Getting action download info
+2026-11-13T12:10:17.6141532Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-13T12:10:17.7386295Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-13T12:10:17.9267053Z Complete job name: project-hooks
+2026-11-13T12:10:18.0148775Z ##[group]Run actions/checkout@v4
+2026-11-13T12:10:18.0149699Z with:
+2026-11-13T12:10:18.0150183Z   ref: 3378c344009614dc0d8f49c2f0642abee96bb4bf
+2026-11-13T12:10:18.0151069Z   fetch-depth: 0
+2026-11-13T12:10:18.0151533Z   repository: Afloat16/OpenRLHF
+2026-11-13T12:10:18.0155551Z   token: ***
+2026-11-13T12:10:18.0155995Z   ssh-strict: true
+2026-11-13T12:10:18.0156441Z   ssh-user: git
+2026-11-13T12:10:18.0156890Z   persist-credentials: true
+2026-11-13T12:10:18.0157398Z   clean: true
+2026-11-13T12:10:18.0157848Z   sparse-checkout-cone-mode: true
+2026-11-13T12:10:18.0158377Z   fetch-tags: false
+2026-11-13T12:10:18.0158823Z   show-progress: true
+2026-11-13T12:10:18.0159276Z   lfs: false
+2026-11-13T12:10:18.0159697Z   submodules: false
+2026-11-13T12:10:18.0160149Z   set-safe-directory: true
+2026-11-13T12:10:18.0160806Z   allow-unsafe-pr-checkout: false
+2026-11-13T12:10:18.0161605Z ##[endgroup]
+2026-11-13T12:10:18.2830903Z Syncing repository: Afloat16/OpenRLHF
+2026-11-13T12:10:18.2833200Z ##[group]Getting Git version info
+2026-11-13T12:10:18.2833970Z Working directory is '/home/runner/work/OpenRLHF/OpenRLHF'
+2026-11-13T12:10:18.2835594Z [command]/usr/bin/git version
+2026-11-13T12:10:18.2991619Z git version 2.56.1
+2026-11-13T12:10:18.3014038Z ##[endgroup]
+2026-11-13T12:10:18.3031424Z Temporarily overriding HOME='/home/runner/work/_temp/37ad121d-9a5c-4dd1-9798-c851a312a507' before making global git config changes
+2026-11-13T12:10:18.3033991Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T12:10:18.3040493Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T12:10:18.3108467Z Deleting the contents of '/home/runner/work/OpenRLHF/OpenRLHF'
+2026-11-13T12:10:18.3116563Z ##[group]Initializing the repository
+2026-11-13T12:10:18.3123183Z [command]/usr/bin/git init /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T12:10:18.3249636Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T12:10:18.3253333Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T12:10:18.3255788Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T12:10:18.3257426Z hint: call:
+2026-11-13T12:10:18.3258323Z hint:
+2026-11-13T12:10:18.3259470Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T12:10:18.3261213Z hint:
+2026-11-13T12:10:18.3262501Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T12:10:18.3265884Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T12:10:18.3267606Z hint:
+2026-11-13T12:10:18.3268687Z hint: 	git branch -m <name>
+2026-11-13T12:10:18.3271673Z hint:
+2026-11-13T12:10:18.3273142Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T12:10:18.3275776Z Initialized empty Git repository in /home/runner/work/OpenRLHF/OpenRLHF/.git/
+2026-11-13T12:10:18.3279847Z [command]/usr/bin/git remote add origin https://github.com/Afloat16/OpenRLHF
+2026-11-13T12:10:18.3393182Z ##[endgroup]
+2026-11-13T12:10:18.3394827Z ##[group]Disabling automatic garbage collection
+2026-11-13T12:10:18.3397553Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T12:10:18.3512349Z ##[endgroup]
+2026-11-13T12:10:18.3514498Z ##[group]Setting up auth
+2026-11-13T12:10:18.3515995Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T12:10:18.3523323Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T12:10:18.3931596Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T12:10:18.3977537Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T12:10:18.4224333Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T12:10:18.4269592Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T12:10:18.4515389Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T12:10:18.4565558Z ##[endgroup]
+2026-11-13T12:10:18.4566564Z ##[group]Fetching the repository
+2026-11-13T12:10:18.4578614Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-11-13T12:10:19.4730029Z From https://github.com/Afloat16/OpenRLHF
+2026-11-13T12:10:19.4733241Z  * [new branch]      audit/actor-module-packing-state-20261113 -> origin/audit/actor-module-packing-state-20261113
+2026-11-13T12:10:19.4736494Z  * [new branch]      audit/batched-length-penalties-20261113 -> origin/audit/batched-length-penalties-20261113
+2026-11-13T12:10:19.4740531Z  * [new branch]      audit/experience-concat-episode-vectors-20261112 -> origin/audit/experience-concat-episode-vectors-20261112
+2026-11-13T12:10:19.4743812Z  * [new branch]      audit/selective-logprob-stability-20261113 -> origin/audit/selective-logprob-stability-20261113
+2026-11-13T12:10:19.4745985Z  * [new branch]      audit/training-seventy-status-20261113 -> origin/audit/training-seventy-status-20261113
+2026-11-13T12:10:19.4748198Z  * [new branch]      fix/actor-module-packing-state-20261113 -> origin/fix/actor-module-packing-state-20261113
+2026-11-13T12:10:19.4751614Z  * [new branch]      fix/corrected-kl-forward-preservation-20261113 -> origin/fix/corrected-kl-forward-preservation-20261113
+2026-11-13T12:10:19.4754345Z  * [new branch]      fix/empty-loss-normalizers-20261112 -> origin/fix/empty-loss-normalizers-20261112
+2026-11-13T12:10:19.4757013Z  * [new branch]      fix/entropy-offset-stability-20261112 -> origin/fix/entropy-offset-stability-20261112
+2026-11-13T12:10:19.4760172Z  * [new branch]      fix/experience-concat-episode-vectors-20261112 -> origin/fix/experience-concat-episode-vectors-20261112
+2026-11-13T12:10:19.4764058Z  * [new branch]      fix/math-integer-reward-precision-20261112 -> origin/fix/math-integer-reward-precision-20261112
+2026-11-13T12:10:19.4767177Z  * [new branch]      fix/math-thousands-separators-20261112 -> origin/fix/math-thousands-separators-20261112
+2026-11-13T12:10:19.4769179Z  * [new branch]      fix/selective-log-probability-stability-20261113 -> origin/fix/selective-log-probability-stability-20261113
+2026-11-13T12:10:19.4771115Z  * [new branch]      main       -> origin/main
+2026-11-13T12:10:19.4772431Z  * [new branch]      perf/batched-length-penalties-20261113 -> origin/perf/batched-length-penalties-20261113
+2026-11-13T12:10:19.4774203Z  * [new branch]      perf/zero-width-padding-copies-20261113 -> origin/perf/zero-width-padding-copies-20261113
+2026-11-13T12:10:19.4776102Z  * [new branch]      validation/actor-module-packing-state-20261113 -> origin/validation/actor-module-packing-state-20261113
+2026-11-13T12:10:19.4778079Z  * [new branch]      validation/batched-length-penalties-20261113 -> origin/validation/batched-length-penalties-20261113
+2026-11-13T12:10:19.4780162Z  * [new branch]      validation/corrected-kl-forward-preservation-20261113 -> origin/validation/corrected-kl-forward-preservation-20261113
+2026-11-13T12:10:19.4783400Z  * [new branch]      validation/experience-concat-vectors-20261112 -> origin/validation/experience-concat-vectors-20261112
+2026-11-13T12:10:19.4785647Z  * [new branch]      validation/openrlhf-final-project-hooks-20261113 -> origin/validation/openrlhf-final-project-hooks-20261113
+2026-11-13T12:10:19.4787728Z  * [new branch]      validation/selective-log-probability-stability-20261113 -> origin/validation/selective-log-probability-stability-20261113
+2026-11-13T12:10:19.4789953Z  * [new branch]      validation/zero-width-padding-copies-20261113 -> origin/validation/zero-width-padding-copies-20261113
+2026-11-13T12:10:19.4793166Z [command]/usr/bin/git rev-parse --verify --quiet 3378c344009614dc0d8f49c2f0642abee96bb4bf^{object}
+2026-11-13T12:10:19.4799989Z 3378c344009614dc0d8f49c2f0642abee96bb4bf
+2026-11-13T12:10:19.4807762Z ##[endgroup]
+2026-11-13T12:10:19.4809780Z ##[group]Determining the checkout info
+2026-11-13T12:10:19.4811830Z ##[endgroup]
+2026-11-13T12:10:19.4816591Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T12:10:19.4889334Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T12:10:19.4941609Z ##[group]Checking out the ref
+2026-11-13T12:10:19.4946544Z [command]/usr/bin/git checkout --progress --force 3378c344009614dc0d8f49c2f0642abee96bb4bf
+2026-11-13T12:10:19.5087273Z Note: switching to '3378c344009614dc0d8f49c2f0642abee96bb4bf'.
+2026-11-13T12:10:19.5088302Z 
+2026-11-13T12:10:19.5089382Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-13T12:10:19.5091706Z changes and commit them, and you can discard any commits you make in this
+2026-11-13T12:10:19.5093600Z state without impacting any branches by switching back to a branch.
+2026-11-13T12:10:19.5094718Z 
+2026-11-13T12:10:19.5095501Z If you want to create a new branch to retain commits you create, you may
+2026-11-13T12:10:19.5096911Z do so (now or later) by using -c with the switch command. Example:
+2026-11-13T12:10:19.5097644Z 
+2026-11-13T12:10:19.5098072Z   git switch -c <new-branch-name>
+2026-11-13T12:10:19.5098749Z 
+2026-11-13T12:10:19.5099008Z Or undo this operation with:
+2026-11-13T12:10:19.5099452Z 
+2026-11-13T12:10:19.5099656Z   git switch -
+2026-11-13T12:10:19.5099968Z 
+2026-11-13T12:10:19.5101060Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-13T12:10:19.5102351Z 
+2026-11-13T12:10:19.5103205Z HEAD is now at 3378c34 Keep numerical tests compatible with existing test import isolation
+2026-11-13T12:10:19.5105742Z ##[endgroup]
+2026-11-13T12:10:19.5150645Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T12:10:19.5184363Z 3378c344009614dc0d8f49c2f0642abee96bb4bf
+2026-11-13T12:10:19.5535421Z ##[group]Run actions/setup-python@v5
+2026-11-13T12:10:19.5536253Z with:
+2026-11-13T12:10:19.5536744Z   python-version: 3.12
+2026-11-13T12:10:19.5537380Z   check-latest: false
+2026-11-13T12:10:19.5547407Z   token: ***
+2026-11-13T12:10:19.5547971Z   update-environment: true
+2026-11-13T12:10:19.5548675Z   allow-prereleases: false
+2026-11-13T12:10:19.5549344Z   freethreaded: false
+2026-11-13T12:10:19.5549914Z ##[endgroup]
+2026-11-13T12:10:19.6960778Z ##[group]Installed versions
+2026-11-13T12:10:19.7057345Z (node:2346) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T12:10:19.7063144Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T12:10:19.7107514Z Successfully set up CPython (3.12.16)
+2026-11-13T12:10:19.7110130Z ##[endgroup]
+2026-11-13T12:10:19.7412759Z ##[group]Run python -m pip install pre-commit
+2026-11-13T12:10:19.7414501Z [36;1mpython -m pip install pre-commit[0m
+2026-11-13T12:10:19.7416015Z [36;1mpre-commit install[0m
+2026-11-13T12:10:19.7456582Z shell: /usr/bin/bash -e {0}
+2026-11-13T12:10:19.7457264Z env:
+2026-11-13T12:10:19.7457958Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:19.7459345Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T12:10:19.7460981Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:19.7462226Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:19.7463475Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:19.7464736Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T12:10:19.7465739Z ##[endgroup]
+2026-11-13T12:10:20.5789625Z Collecting pre-commit
+2026-11-13T12:10:20.6256707Z   Downloading pre_commit-4.7.0-py2.py3-none-any.whl.metadata (1.2 kB)
+2026-11-13T12:10:20.6383911Z Collecting cfgv>=2.0.0 (from pre-commit)
+2026-11-13T12:10:20.6412640Z   Downloading cfgv-3.5.0-py2.py3-none-any.whl.metadata (8.9 kB)
+2026-11-13T12:10:20.6748564Z Collecting identify>=1.0.0 (from pre-commit)
+2026-11-13T12:10:20.6777994Z   Downloading identify-2.6.20-py2.py3-none-any.whl.metadata (4.4 kB)
+2026-11-13T12:10:20.6916741Z Collecting nodeenv>=0.11.1 (from pre-commit)
+2026-11-13T12:10:20.6944426Z   Downloading nodeenv-1.12.0-py3-none-any.whl.metadata (49 kB)
+2026-11-13T12:10:20.7401416Z Collecting pyyaml>=5.1 (from pre-commit)
+2026-11-13T12:10:20.7431325Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-11-13T12:10:20.7914615Z Collecting virtualenv>=20.10.0 (from pre-commit)
+2026-11-13T12:10:20.7943488Z   Downloading virtualenv-21.15.6-py3-none-any.whl.metadata (4.1 kB)
+2026-11-13T12:10:20.8075983Z Collecting distlib<1,>=0.4.3 (from virtualenv>=20.10.0->pre-commit)
+2026-11-13T12:10:20.8106671Z   Downloading distlib-0.4.4-py2.py3-none-any.whl.metadata (5.3 kB)
+2026-11-13T12:10:20.8332131Z Collecting filelock<5,>=3.24.2 (from virtualenv>=20.10.0->pre-commit)
+2026-11-13T12:10:20.8359869Z   Downloading filelock-4.2.10-py3-none-any.whl.metadata (2.3 kB)
+2026-11-13T12:10:20.8494778Z Collecting packaging>=26.3 (from virtualenv>=20.10.0->pre-commit)
+2026-11-13T12:10:20.8524902Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-11-13T12:10:20.8737557Z Collecting platformdirs<5,>=4.4 (from virtualenv>=20.10.0->pre-commit)
+2026-11-13T12:10:20.8772183Z   Downloading platformdirs-4.14.5-py3-none-any.whl.metadata (5.7 kB)
+2026-11-13T12:10:20.8904645Z Collecting python-discovery>=1.6.1 (from virtualenv>=20.10.0->pre-commit)
+2026-11-13T12:10:20.8931819Z   Downloading python_discovery-1.9.5-py3-none-any.whl.metadata (4.2 kB)
+2026-11-13T12:10:20.9033314Z Downloading pre_commit-4.7.0-py2.py3-none-any.whl (226 kB)
+2026-11-13T12:10:20.9114172Z Downloading cfgv-3.5.0-py2.py3-none-any.whl (7.4 kB)
+2026-11-13T12:10:20.9169308Z Downloading identify-2.6.20-py2.py3-none-any.whl (99 kB)
+2026-11-13T12:10:20.9219908Z Downloading nodeenv-1.12.0-py3-none-any.whl (39 kB)
+2026-11-13T12:10:20.9272082Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+2026-11-13T12:10:20.9371528Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 125.7 MB/s  0:00:00
+2026-11-13T12:10:20.9401423Z Downloading virtualenv-21.15.6-py3-none-any.whl (5.7 MB)
+2026-11-13T12:10:20.9649177Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.7/5.7 MB 240.6 MB/s  0:00:00
+2026-11-13T12:10:20.9682416Z Downloading distlib-0.4.4-py2.py3-none-any.whl (472 kB)
+2026-11-13T12:10:20.9744823Z Downloading filelock-4.2.10-py3-none-any.whl (218 kB)
+2026-11-13T12:10:20.9800343Z Downloading platformdirs-4.14.5-py3-none-any.whl (35 kB)
+2026-11-13T12:10:20.9849558Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-11-13T12:10:20.9903911Z Downloading python_discovery-1.9.5-py3-none-any.whl (44 kB)
+2026-11-13T12:10:21.0985944Z Installing collected packages: distlib, pyyaml, platformdirs, packaging, nodeenv, identify, filelock, cfgv, python-discovery, virtualenv, pre-commit
+2026-11-13T12:10:21.7424580Z 
+2026-11-13T12:10:21.7441964Z Successfully installed cfgv-3.5.0 distlib-0.4.4 filelock-4.2.10 identify-2.6.20 nodeenv-1.12.0 packaging-26.3 platformdirs-4.14.5 pre-commit-4.7.0 python-discovery-1.9.5 pyyaml-6.0.3 virtualenv-21.15.6
+2026-11-13T12:10:21.9694712Z pre-commit installed at .git/hooks/pre-commit
+2026-11-13T12:10:21.9895948Z ##[group]Run pre-commit run --files openrlhf/models/utils.py tests/test_selective_log_probs_stability.py
+2026-11-13T12:10:21.9896808Z [36;1mpre-commit run --files openrlhf/models/utils.py tests/test_selective_log_probs_stability.py[0m
+2026-11-13T12:10:21.9897337Z [36;1mgit diff --exit-code[0m
+2026-11-13T12:10:21.9919161Z shell: /usr/bin/bash -e {0}
+2026-11-13T12:10:21.9919418Z env:
+2026-11-13T12:10:21.9919698Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:21.9920161Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T12:10:21.9920958Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:21.9921367Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:21.9921772Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:21.9922176Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T12:10:21.9922516Z ##[endgroup]
+2026-11-13T12:10:22.1218005Z [INFO] Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+2026-11-13T12:10:22.5501479Z [INFO] Initializing environment for https://github.com/PyCQA/autoflake.
+2026-11-13T12:10:22.9728196Z [INFO] Initializing environment for https://github.com/PyCQA/isort.
+2026-11-13T12:10:23.5065054Z [INFO] Initializing environment for https://github.com/psf/black-pre-commit-mirror.
+2026-11-13T12:10:23.9143982Z [INFO] Initializing environment for https://github.com/psf/black-pre-commit-mirror:click==8.0.2.
+2026-11-13T12:10:24.3357601Z [INFO] Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+2026-11-13T12:10:24.3358321Z [INFO] Once installed this environment will be reused.
+2026-11-13T12:10:24.3358695Z [INFO] This may take a few minutes...
+2026-11-13T12:10:27.9081765Z [INFO] Installing environment for https://github.com/PyCQA/autoflake.
+2026-11-13T12:10:27.9082660Z [INFO] Once installed this environment will be reused.
+2026-11-13T12:10:27.9083019Z [INFO] This may take a few minutes...
+2026-11-13T12:10:30.4457964Z [INFO] Installing environment for https://github.com/PyCQA/isort.
+2026-11-13T12:10:30.4459078Z [INFO] Once installed this environment will be reused.
+2026-11-13T12:10:30.4459680Z [INFO] This may take a few minutes...
+2026-11-13T12:10:33.2430568Z [INFO] Installing environment for https://github.com/psf/black-pre-commit-mirror.
+2026-11-13T12:10:33.2431564Z [INFO] Once installed this environment will be reused.
+2026-11-13T12:10:33.2432443Z [INFO] This may take a few minutes...
+2026-11-13T12:10:36.6674683Z check yaml...........................................(no files to check)Skipped
+2026-11-13T12:10:36.7121250Z check for case conflicts.................................................Passed
+2026-11-13T12:10:36.7446017Z detect private key.......................................................Passed
+2026-11-13T12:10:36.7893199Z check for added large files..............................................Passed
+2026-11-13T12:10:36.7894597Z fix requirements.txt.................................(no files to check)Skipped
+2026-11-13T12:10:36.9356614Z autoflake................................................................Passed
+2026-11-13T12:10:37.0634089Z Format imports...........................................................Passed
+2026-11-13T12:10:37.4562095Z Format code..............................................................Passed
+2026-11-13T12:10:37.4833622Z ##[group]Run git checkout --detach 3737390e06bb85a36f050358f4813807a12e4713
+2026-11-13T12:10:37.4834239Z [36;1mgit checkout --detach 3737390e06bb85a36f050358f4813807a12e4713[0m
+2026-11-13T12:10:37.4834839Z [36;1mpre-commit run --files openrlhf/utils/utils.py tests/test_zero_pad_sequence_allocations.py[0m
+2026-11-13T12:10:37.4835349Z [36;1mgit diff --exit-code[0m
+2026-11-13T12:10:37.4856230Z shell: /usr/bin/bash -e {0}
+2026-11-13T12:10:37.4856489Z env:
+2026-11-13T12:10:37.4856767Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:37.4857240Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T12:10:37.4857714Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:37.4858120Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:37.4858536Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:37.4858991Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T12:10:37.4859335Z ##[endgroup]
+2026-11-13T12:10:37.4969456Z Previous HEAD position was 3378c34 Keep numerical tests compatible with existing test import isolation
+2026-11-13T12:10:37.4973955Z HEAD is now at 3737390 Limit the padding fast path to single-sequence batches
+2026-11-13T12:10:37.6796486Z check yaml...........................................(no files to check)Skipped
+2026-11-13T12:10:37.7209746Z check for case conflicts.................................................Passed
+2026-11-13T12:10:37.7497695Z detect private key.......................................................Passed
+2026-11-13T12:10:37.7908688Z check for added large files..............................................Passed
+2026-11-13T12:10:37.7909942Z fix requirements.txt.................................(no files to check)Skipped
+2026-11-13T12:10:37.8953607Z autoflake................................................................Passed
+2026-11-13T12:10:38.0174318Z Format imports...........................................................Passed
+2026-11-13T12:10:38.3070609Z Format code..............................................................Passed
+2026-11-13T12:10:38.3370684Z Post job cleanup.
+2026-11-13T12:10:38.4596650Z (node:2917) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T12:10:38.4597571Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T12:10:38.4802781Z Post job cleanup.
+2026-11-13T12:10:38.5750408Z [command]/usr/bin/git version
+2026-11-13T12:10:38.5799422Z git version 2.56.1
+2026-11-13T12:10:38.5845736Z Temporarily overriding HOME='/home/runner/work/_temp/853da86b-7d20-42d2-adaa-94ceacefe49c' before making global git config changes
+2026-11-13T12:10:38.5847266Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T12:10:38.5852035Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T12:10:38.5893705Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T12:10:38.5931437Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T12:10:38.6238968Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T12:10:38.6266644Z http.https://github.com/.extraheader
+2026-11-13T12:10:38.6279908Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T12:10:38.6375076Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T12:10:38.6705607Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T12:10:38.6768176Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T12:10:38.7228256Z Cleaning up orphan processes
+2026-11-13T12:10:38.7639009Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

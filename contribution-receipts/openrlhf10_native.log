@@ -1,0 +1,914 @@
+﻿2026-11-13T12:09:49.9019992Z Current runner version: '2.338.2'
+2026-11-13T12:09:49.9035684Z ##[group]Runner Image Provisioner
+2026-11-13T12:09:49.9036192Z Hosted Compute Agent
+2026-11-13T12:09:49.9036597Z Version: 20261103.629
+2026-11-13T12:09:49.9037302Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-13T12:09:49.9037717Z Build Date: 2026-11-03T17:26:59Z
+2026-11-13T12:09:49.9038198Z Worker ID: {b9a2dcd9-dfad-4e16-9294-58a2bf2a68f1}
+2026-11-13T12:09:49.9038611Z Region: southcentralus
+2026-11-13T12:09:49.9038973Z Cloud: Azure
+2026-11-13T12:09:49.9039313Z ##[endgroup]
+2026-11-13T12:09:49.9040092Z ##[group]Operating System
+2026-11-13T12:09:49.9040516Z Ubuntu
+2026-11-13T12:09:49.9040831Z 24.04.5
+2026-11-13T12:09:49.9041130Z LTS
+2026-11-13T12:09:49.9041484Z ##[endgroup]
+2026-11-13T12:09:49.9041841Z ##[group]Runner Image
+2026-11-13T12:09:49.9042257Z Image: ubuntu-24.04
+2026-11-13T12:09:49.9042668Z Version: 20261111.370.1
+2026-11-13T12:09:49.9043436Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261111.370/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-13T12:09:49.9044297Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261111.370
+2026-11-13T12:09:49.9045184Z ##[endgroup]
+2026-11-13T12:09:49.9045817Z ##[group]GITHUB_TOKEN Permissions
+2026-11-13T12:09:49.9047261Z Contents: read
+2026-11-13T12:09:49.9047612Z Metadata: read
+2026-11-13T12:09:49.9047965Z ##[endgroup]
+2026-11-13T12:09:49.9049260Z Secret source: Actions
+2026-11-13T12:09:49.9049798Z Cache mode: write
+2026-11-13T12:09:49.9050268Z Prepare workflow directory
+2026-11-13T12:09:49.9279244Z Prepare all required actions
+2026-11-13T12:09:49.9308884Z Getting action download info
+2026-11-13T12:09:50.1880995Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-13T12:09:50.3588107Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-13T12:09:50.4967208Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-13T12:09:50.7504759Z Complete job name: native-cpu
+2026-11-13T12:09:50.8003328Z ##[group]Run actions/checkout@v4
+2026-11-13T12:09:50.8003858Z with:
+2026-11-13T12:09:50.8004107Z   fetch-depth: 0
+2026-11-13T12:09:50.8004375Z   repository: Afloat16/OpenRLHF
+2026-11-13T12:09:50.8006411Z   token: ***
+2026-11-13T12:09:50.8006658Z   ssh-strict: true
+2026-11-13T12:09:50.8007033Z   ssh-user: git
+2026-11-13T12:09:50.8007293Z   persist-credentials: true
+2026-11-13T12:09:50.8007576Z   clean: true
+2026-11-13T12:09:50.8007840Z   sparse-checkout-cone-mode: true
+2026-11-13T12:09:50.8008144Z   fetch-tags: false
+2026-11-13T12:09:50.8008404Z   show-progress: true
+2026-11-13T12:09:50.8008667Z   lfs: false
+2026-11-13T12:09:50.8008917Z   submodules: false
+2026-11-13T12:09:50.8009185Z   set-safe-directory: true
+2026-11-13T12:09:50.8009488Z   allow-unsafe-pr-checkout: false
+2026-11-13T12:09:50.8009864Z env:
+2026-11-13T12:09:50.8010095Z   PYTHONPATH: .
+2026-11-13T12:09:50.8010348Z   OMP_NUM_THREADS: 2
+2026-11-13T12:09:50.8010630Z   MKL_NUM_THREADS: 2
+2026-11-13T12:09:50.8010912Z   HF_HUB_OFFLINE: 1
+2026-11-13T12:09:50.8011168Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T12:09:50.8011439Z   DS_BUILD_OPS: 0
+2026-11-13T12:09:50.8011687Z ##[endgroup]
+2026-11-13T12:09:51.0072810Z Syncing repository: Afloat16/OpenRLHF
+2026-11-13T12:09:51.0073902Z ##[group]Getting Git version info
+2026-11-13T12:09:51.0074302Z Working directory is '/home/runner/work/OpenRLHF/OpenRLHF'
+2026-11-13T12:09:51.0074857Z [command]/usr/bin/git version
+2026-11-13T12:09:51.0195519Z git version 2.56.1
+2026-11-13T12:09:51.0207458Z ##[endgroup]
+2026-11-13T12:09:51.0215250Z Temporarily overriding HOME='/home/runner/work/_temp/1e402301-531b-464e-8eb6-190d7f1465e8' before making global git config changes
+2026-11-13T12:09:51.0216044Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T12:09:51.0218703Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T12:09:51.0315128Z Deleting the contents of '/home/runner/work/OpenRLHF/OpenRLHF'
+2026-11-13T12:09:51.0317544Z ##[group]Initializing the repository
+2026-11-13T12:09:51.0319666Z [command]/usr/bin/git init /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T12:09:51.0398192Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-13T12:09:51.0399189Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-13T12:09:51.0400203Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-13T12:09:51.0401000Z hint: call:
+2026-11-13T12:09:51.0401453Z hint:
+2026-11-13T12:09:51.0401913Z hint: 	git config --global init.defaultBranch <name>
+2026-11-13T12:09:51.0402364Z hint:
+2026-11-13T12:09:51.0402715Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-13T12:09:51.0403239Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-13T12:09:51.0403651Z hint:
+2026-11-13T12:09:51.0404143Z hint: 	git branch -m <name>
+2026-11-13T12:09:51.0404485Z hint:
+2026-11-13T12:09:51.0405340Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-13T12:09:51.0406270Z Initialized empty Git repository in /home/runner/work/OpenRLHF/OpenRLHF/.git/
+2026-11-13T12:09:51.0414517Z [command]/usr/bin/git remote add origin https://github.com/Afloat16/OpenRLHF
+2026-11-13T12:09:51.0539701Z ##[endgroup]
+2026-11-13T12:09:51.0540462Z ##[group]Disabling automatic garbage collection
+2026-11-13T12:09:51.0543008Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-13T12:09:51.0571711Z ##[endgroup]
+2026-11-13T12:09:51.0572389Z ##[group]Setting up auth
+2026-11-13T12:09:51.0576167Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T12:09:51.0605616Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T12:09:51.0919315Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T12:09:51.0955975Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T12:09:51.1141146Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T12:09:51.1177591Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T12:09:51.1366037Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-13T12:09:51.1405485Z ##[endgroup]
+2026-11-13T12:09:51.1406128Z ##[group]Fetching the repository
+2026-11-13T12:09:51.1413951Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-11-13T12:09:51.9995799Z From https://github.com/Afloat16/OpenRLHF
+2026-11-13T12:09:51.9998034Z  * [new branch]      audit/actor-module-packing-state-20261113 -> origin/audit/actor-module-packing-state-20261113
+2026-11-13T12:09:52.0000068Z  * [new branch]      audit/batched-length-penalties-20261113 -> origin/audit/batched-length-penalties-20261113
+2026-11-13T12:09:52.0002328Z  * [new branch]      audit/experience-concat-episode-vectors-20261112 -> origin/audit/experience-concat-episode-vectors-20261112
+2026-11-13T12:09:52.0004826Z  * [new branch]      audit/selective-logprob-stability-20261113 -> origin/audit/selective-logprob-stability-20261113
+2026-11-13T12:09:52.0007816Z  * [new branch]      audit/training-seventy-status-20261113 -> origin/audit/training-seventy-status-20261113
+2026-11-13T12:09:52.0010264Z  * [new branch]      fix/actor-module-packing-state-20261113 -> origin/fix/actor-module-packing-state-20261113
+2026-11-13T12:09:52.0013095Z  * [new branch]      fix/corrected-kl-forward-preservation-20261113 -> origin/fix/corrected-kl-forward-preservation-20261113
+2026-11-13T12:09:52.0016273Z  * [new branch]      fix/empty-loss-normalizers-20261112 -> origin/fix/empty-loss-normalizers-20261112
+2026-11-13T12:09:52.0019179Z  * [new branch]      fix/entropy-offset-stability-20261112 -> origin/fix/entropy-offset-stability-20261112
+2026-11-13T12:09:52.0021509Z  * [new branch]      fix/experience-concat-episode-vectors-20261112 -> origin/fix/experience-concat-episode-vectors-20261112
+2026-11-13T12:09:52.0023968Z  * [new branch]      fix/math-integer-reward-precision-20261112 -> origin/fix/math-integer-reward-precision-20261112
+2026-11-13T12:09:52.0026219Z  * [new branch]      fix/math-thousands-separators-20261112 -> origin/fix/math-thousands-separators-20261112
+2026-11-13T12:09:52.0028778Z  * [new branch]      fix/selective-log-probability-stability-20261113 -> origin/fix/selective-log-probability-stability-20261113
+2026-11-13T12:09:52.0031271Z  * [new branch]      main       -> origin/main
+2026-11-13T12:09:52.0032830Z  * [new branch]      perf/batched-length-penalties-20261113 -> origin/perf/batched-length-penalties-20261113
+2026-11-13T12:09:52.0034847Z  * [new branch]      perf/zero-width-padding-copies-20261113 -> origin/perf/zero-width-padding-copies-20261113
+2026-11-13T12:09:52.0037142Z  * [new branch]      validation/actor-module-packing-state-20261113 -> origin/validation/actor-module-packing-state-20261113
+2026-11-13T12:09:52.0039377Z  * [new branch]      validation/batched-length-penalties-20261113 -> origin/validation/batched-length-penalties-20261113
+2026-11-13T12:09:52.0041807Z  * [new branch]      validation/corrected-kl-forward-preservation-20261113 -> origin/validation/corrected-kl-forward-preservation-20261113
+2026-11-13T12:09:52.0044204Z  * [new branch]      validation/experience-concat-vectors-20261112 -> origin/validation/experience-concat-vectors-20261112
+2026-11-13T12:09:52.0047396Z  * [new branch]      validation/openrlhf-final-project-hooks-20261113 -> origin/validation/openrlhf-final-project-hooks-20261113
+2026-11-13T12:09:52.0051843Z  * [new branch]      validation/selective-log-probability-stability-20261113 -> origin/validation/selective-log-probability-stability-20261113
+2026-11-13T12:09:52.0055967Z  * [new branch]      validation/zero-width-padding-copies-20261113 -> origin/validation/zero-width-padding-copies-20261113
+2026-11-13T12:09:52.0061307Z [command]/usr/bin/git branch --list --remote origin/validation/zero-width-padding-copies-20261113
+2026-11-13T12:09:52.0063478Z   origin/validation/zero-width-padding-copies-20261113
+2026-11-13T12:09:52.0067000Z [command]/usr/bin/git rev-parse refs/remotes/origin/validation/zero-width-padding-copies-20261113
+2026-11-13T12:09:52.0085116Z fdf5b5183a723f54bcd260fea94a19edcb2d93ac
+2026-11-13T12:09:52.0089089Z ##[endgroup]
+2026-11-13T12:09:52.0090328Z ##[group]Determining the checkout info
+2026-11-13T12:09:52.0091943Z ##[endgroup]
+2026-11-13T12:09:52.0092996Z [command]/usr/bin/git sparse-checkout disable
+2026-11-13T12:09:52.0142416Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-13T12:09:52.0176960Z ##[group]Checking out the ref
+2026-11-13T12:09:52.0179733Z [command]/usr/bin/git checkout --progress --force -B validation/zero-width-padding-copies-20261113 refs/remotes/origin/validation/zero-width-padding-copies-20261113
+2026-11-13T12:09:52.0291023Z Switched to a new branch 'validation/zero-width-padding-copies-20261113'
+2026-11-13T12:09:52.0295539Z branch 'validation/zero-width-padding-copies-20261113' set up to track 'origin/validation/zero-width-padding-copies-20261113'.
+2026-11-13T12:09:52.0300706Z ##[endgroup]
+2026-11-13T12:09:52.0339608Z [command]/usr/bin/git log -1 --format=%H
+2026-11-13T12:09:52.0368691Z fdf5b5183a723f54bcd260fea94a19edcb2d93ac
+2026-11-13T12:09:52.0674196Z ##[group]Run actions/setup-python@v5
+2026-11-13T12:09:52.0674881Z with:
+2026-11-13T12:09:52.0675378Z   python-version: 3.12
+2026-11-13T12:09:52.0675955Z   check-latest: false
+2026-11-13T12:09:52.0681014Z   token: ***
+2026-11-13T12:09:52.0681693Z   update-environment: true
+2026-11-13T12:09:52.0682311Z   allow-prereleases: false
+2026-11-13T12:09:52.0682917Z   freethreaded: false
+2026-11-13T12:09:52.0683456Z env:
+2026-11-13T12:09:52.0683930Z   PYTHONPATH: .
+2026-11-13T12:09:52.0684460Z   OMP_NUM_THREADS: 2
+2026-11-13T12:09:52.0685006Z   MKL_NUM_THREADS: 2
+2026-11-13T12:09:52.0685547Z   HF_HUB_OFFLINE: 1
+2026-11-13T12:09:52.0686079Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T12:09:52.0686655Z   DS_BUILD_OPS: 0
+2026-11-13T12:09:52.0687267Z ##[endgroup]
+2026-11-13T12:09:52.1680366Z ##[group]Installed versions
+2026-11-13T12:09:52.2602255Z (node:2186) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T12:09:52.2604301Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T12:09:52.2605723Z Successfully set up CPython (3.12.16)
+2026-11-13T12:09:52.2607409Z ##[endgroup]
+2026-11-13T12:09:52.2750547Z ##[group]Run python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+2026-11-13T12:09:52.2752205Z [36;1mpython -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu[0m
+2026-11-13T12:09:52.2753447Z [36;1mpython -m pip install setuptools wheel packaging[0m
+2026-11-13T12:09:52.2755711Z [36;1mpython -m pip install --no-build-isolation torch==2.9.1 deepspeed==0.19.6 transformers==5.15.0 pylatexenc sympy datasets pytest==9.0.2 aiohttp httpx black==26.5.1 isort==9.0.0a3 autoflake==2.3.3[0m
+2026-11-13T12:09:52.2758755Z [36;1mpython -m pip freeze > installed-dependencies.txt[0m
+2026-11-13T12:09:52.2916668Z shell: /usr/bin/bash -e {0}
+2026-11-13T12:09:52.2917486Z env:
+2026-11-13T12:09:52.2917963Z   PYTHONPATH: .
+2026-11-13T12:09:52.2918470Z   OMP_NUM_THREADS: 2
+2026-11-13T12:09:52.2919002Z   MKL_NUM_THREADS: 2
+2026-11-13T12:09:52.2919522Z   HF_HUB_OFFLINE: 1
+2026-11-13T12:09:52.2920046Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T12:09:52.2920641Z   DS_BUILD_OPS: 0
+2026-11-13T12:09:52.2921284Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:09:52.2922277Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T12:09:52.2923252Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:09:52.2924146Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:09:52.2925040Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:09:52.2925940Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T12:09:52.2926797Z ##[endgroup]
+2026-11-13T12:09:56.2502365Z Looking in indexes: https://download.pytorch.org/whl/cpu
+2026-11-13T12:09:56.4002646Z Collecting torch==2.9.1
+2026-11-13T12:09:56.4964942Z   Downloading torch-2.9.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (29 kB)
+2026-11-13T12:09:56.5266054Z Collecting filelock (from torch==2.9.1)
+2026-11-13T12:09:56.5918965Z   Downloading filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+2026-11-13T12:09:56.6141550Z Collecting typing-extensions>=4.10.0 (from torch==2.9.1)
+2026-11-13T12:09:56.6258652Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-13T12:09:56.6432027Z Collecting setuptools (from torch==2.9.1)
+2026-11-13T12:09:56.6563753Z   Downloading setuptools-78.1.0-py3-none-any.whl.metadata (6.6 kB)
+2026-11-13T12:09:56.6798330Z Collecting sympy>=1.13.3 (from torch==2.9.1)
+2026-11-13T12:09:56.6913849Z   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+2026-11-13T12:09:56.7308455Z Collecting networkx>=2.5.1 (from torch==2.9.1)
+2026-11-13T12:09:56.7424431Z   Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+2026-11-13T12:09:56.7621298Z Collecting jinja2 (from torch==2.9.1)
+2026-11-13T12:09:56.7768564Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-11-13T12:09:56.8014217Z Collecting fsspec>=0.8.5 (from torch==2.9.1)
+2026-11-13T12:09:56.8127278Z   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+2026-11-13T12:09:56.8405060Z Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.9.1)
+2026-11-13T12:09:56.8519829Z   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+2026-11-13T12:09:56.8754007Z Collecting MarkupSafe>=2.0 (from jinja2->torch==2.9.1)
+2026-11-13T12:09:56.8884370Z   Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-11-13T12:09:56.9111210Z Downloading torch-2.9.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (184.4 MB)
+2026-11-13T12:09:58.5642116Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 184.4/184.4 MB 114.2 MB/s  0:00:01
+2026-11-13T12:09:58.5759562Z Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+2026-11-13T12:09:58.6137166Z Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+2026-11-13T12:09:58.6548159Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 63.0 MB/s  0:00:00
+2026-11-13T12:09:58.6662904Z Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+2026-11-13T12:09:58.7153687Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 127.1 MB/s  0:00:00
+2026-11-13T12:09:58.7269209Z Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+2026-11-13T12:09:58.7303450Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 138.2 MB/s  0:00:00
+2026-11-13T12:09:58.7433580Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-13T12:09:58.7563212Z Downloading filelock-4.2.4-py3-none-any.whl (162 kB)
+2026-11-13T12:09:58.7710319Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-11-13T12:09:58.7868786Z Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+2026-11-13T12:09:58.8011527Z Downloading setuptools-78.1.0-py3-none-any.whl (1.3 MB)
+2026-11-13T12:09:58.8276645Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 50.3 MB/s  0:00:00
+2026-11-13T12:09:59.3505743Z Installing collected packages: mpmath, typing-extensions, sympy, setuptools, networkx, MarkupSafe, fsspec, filelock, jinja2, torch
+2026-11-13T12:10:11.0036604Z 
+2026-11-13T12:10:11.0048724Z Successfully installed MarkupSafe-3.0.3 filelock-4.2.4 fsspec-2026.9.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.7 setuptools-78.1.0 sympy-1.14.0 torch-2.9.1+cpu typing-extensions-4.16.0
+2026-11-13T12:10:11.8525258Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (78.1.0)
+2026-11-13T12:10:11.9269512Z Collecting wheel
+2026-11-13T12:10:11.9792049Z   Downloading wheel-0.48.0-py3-none-any.whl.metadata (2.3 kB)
+2026-11-13T12:10:12.0013788Z Collecting packaging
+2026-11-13T12:10:12.0117261Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-11-13T12:10:12.0267234Z Downloading wheel-0.48.0-py3-none-any.whl (33 kB)
+2026-11-13T12:10:12.0454896Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-11-13T12:10:12.0809827Z Installing collected packages: packaging, wheel
+2026-11-13T12:10:12.1479803Z 
+2026-11-13T12:10:12.1489694Z Successfully installed packaging-26.3 wheel-0.48.0
+2026-11-13T12:10:12.8678782Z Requirement already satisfied: torch==2.9.1 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (2.9.1+cpu)
+2026-11-13T12:10:12.9414039Z Collecting deepspeed==0.19.6
+2026-11-13T12:10:13.0020658Z   Downloading deepspeed-0.19.6.tar.gz (1.9 MB)
+2026-11-13T12:10:13.0701857Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 49.8 MB/s  0:00:00
+2026-11-13T12:10:13.2861796Z   Preparing metadata (pyproject.toml): started
+2026-11-13T12:10:17.7448758Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2026-11-13T12:10:17.8024986Z Collecting transformers==5.15.0
+2026-11-13T12:10:17.8160742Z   Downloading transformers-5.15.0-py3-none-any.whl.metadata (32 kB)
+2026-11-13T12:10:17.8502431Z Collecting pylatexenc
+2026-11-13T12:10:17.8624836Z   Downloading pylatexenc-2.11-py2.py3-none-any.whl.metadata (3.9 kB)
+2026-11-13T12:10:17.8648549Z Requirement already satisfied: sympy in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (1.14.0)
+2026-11-13T12:10:17.8884891Z Collecting datasets
+2026-11-13T12:10:17.9009131Z   Downloading datasets-5.2.0-py3-none-any.whl.metadata (24 kB)
+2026-11-13T12:10:17.9455584Z Collecting pytest==9.0.2
+2026-11-13T12:10:17.9579241Z   Downloading pytest-9.0.2-py3-none-any.whl.metadata (7.6 kB)
+2026-11-13T12:10:18.2465605Z Collecting aiohttp
+2026-11-13T12:10:18.2596258Z   Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+2026-11-13T12:10:18.2836865Z Collecting httpx
+2026-11-13T12:10:18.2963614Z   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+2026-11-13T12:10:18.3704149Z Collecting black==26.5.1
+2026-11-13T12:10:18.3838453Z   Downloading black-26.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (95 kB)
+2026-11-13T12:10:18.4427639Z Collecting isort==9.0.0a3
+2026-11-13T12:10:18.4559232Z   Downloading isort-9.0.0a3-py3-none-any.whl.metadata (11 kB)
+2026-11-13T12:10:18.4773804Z Collecting autoflake==2.3.3
+2026-11-13T12:10:18.4907034Z   Downloading autoflake-2.3.3-py3-none-any.whl.metadata (7.6 kB)
+2026-11-13T12:10:18.4937156Z Requirement already satisfied: filelock in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (4.2.4)
+2026-11-13T12:10:18.4940045Z Requirement already satisfied: typing-extensions>=4.10.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (4.16.0)
+2026-11-13T12:10:18.4943333Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (78.1.0)
+2026-11-13T12:10:18.4946968Z Requirement already satisfied: networkx>=2.5.1 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (3.7)
+2026-11-13T12:10:18.4949157Z Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (3.1.6)
+2026-11-13T12:10:18.4951469Z Requirement already satisfied: fsspec>=0.8.5 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from torch==2.9.1) (2026.9.0)
+2026-11-13T12:10:18.5128152Z Collecting einops (from deepspeed==0.19.6)
+2026-11-13T12:10:18.5252049Z   Downloading einops-0.8.2-py3-none-any.whl.metadata (13 kB)
+2026-11-13T12:10:18.5449760Z Collecting hjson (from deepspeed==0.19.6)
+2026-11-13T12:10:18.5572364Z   Downloading hjson-3.1.0-py3-none-any.whl.metadata (2.6 kB)
+2026-11-13T12:10:18.6284459Z Collecting msgpack (from deepspeed==0.19.6)
+2026-11-13T12:10:18.6408511Z   Downloading msgpack-1.2.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+2026-11-13T12:10:18.6688157Z Collecting ninja (from deepspeed==0.19.6)
+2026-11-13T12:10:18.6815362Z   Downloading ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.4 kB)
+2026-11-13T12:10:18.7875511Z Collecting numpy (from deepspeed==0.19.6)
+2026-11-13T12:10:18.8004378Z   Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-11-13T12:10:18.8033592Z Requirement already satisfied: packaging>=20.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from deepspeed==0.19.6) (26.3)
+2026-11-13T12:10:18.8451572Z Collecting psutil (from deepspeed==0.19.6)
+2026-11-13T12:10:18.8578715Z   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+2026-11-13T12:10:18.8784652Z Collecting py-cpuinfo (from deepspeed==0.19.6)
+2026-11-13T12:10:18.8909767Z   Downloading py_cpuinfo-9.0.0-py3-none-any.whl.metadata (794 bytes)
+2026-11-13T12:10:18.9535943Z Collecting pydantic>=2.0.0 (from deepspeed==0.19.6)
+2026-11-13T12:10:18.9662644Z   Downloading pydantic-2.14.3-py3-none-any.whl.metadata (141 kB)
+2026-11-13T12:10:18.9960675Z Collecting tqdm (from deepspeed==0.19.6)
+2026-11-13T12:10:19.0084711Z   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+2026-11-13T12:10:19.0443980Z Collecting huggingface-hub<2.0,>=1.5.0 (from transformers==5.15.0)
+2026-11-13T12:10:19.0568221Z   Downloading huggingface_hub-1.33.0-py3-none-any.whl.metadata (16 kB)
+2026-11-13T12:10:19.0929699Z Collecting pyyaml>=5.1 (from transformers==5.15.0)
+2026-11-13T12:10:19.1053831Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-11-13T12:10:19.3410620Z Collecting regex>=2025.10.22 (from transformers==5.15.0)
+2026-11-13T12:10:19.3539615Z   Downloading regex-2026.11.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+2026-11-13T12:10:19.4340907Z Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==5.15.0)
+2026-11-13T12:10:19.4471900Z   Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+2026-11-13T12:10:19.4717352Z Collecting typer (from transformers==5.15.0)
+2026-11-13T12:10:19.4843432Z   Downloading typer-0.29.1-py3-none-any.whl.metadata (16 kB)
+2026-11-13T12:10:19.5553409Z Collecting safetensors>=0.8.0 (from transformers==5.15.0)
+2026-11-13T12:10:19.5678726Z   Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+2026-11-13T12:10:19.5901155Z Collecting iniconfig>=1.0.1 (from pytest==9.0.2)
+2026-11-13T12:10:19.6026977Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-11-13T12:10:19.6214580Z Collecting pluggy<2,>=1.5 (from pytest==9.0.2)
+2026-11-13T12:10:19.6338661Z   Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-11-13T12:10:19.6550078Z Collecting pygments>=2.7.2 (from pytest==9.0.2)
+2026-11-13T12:10:19.6676086Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-11-13T12:10:19.6890509Z Collecting click>=8.0.0 (from black==26.5.1)
+2026-11-13T12:10:19.7012856Z   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+2026-11-13T12:10:19.7190037Z Collecting mypy-extensions>=0.4.3 (from black==26.5.1)
+2026-11-13T12:10:19.7312284Z   Downloading mypy_extensions-1.2.0-py3-none-any.whl.metadata (1.1 kB)
+2026-11-13T12:10:19.7506062Z Collecting pathspec>=1.0.0 (from black==26.5.1)
+2026-11-13T12:10:19.7634200Z   Downloading pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+2026-11-13T12:10:19.7873761Z Collecting platformdirs>=2 (from black==26.5.1)
+2026-11-13T12:10:19.7999168Z   Downloading platformdirs-4.14.5-py3-none-any.whl.metadata (5.7 kB)
+2026-11-13T12:10:19.8200480Z Collecting pytokens~=0.4.0 (from black==26.5.1)
+2026-11-13T12:10:19.8326982Z   Downloading pytokens-0.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+2026-11-13T12:10:19.8530912Z Collecting pyflakes>=3.0.0 (from autoflake==2.3.3)
+2026-11-13T12:10:19.8655368Z   Downloading pyflakes-4.1.0-py2.py3-none-any.whl.metadata (3.7 kB)
+2026-11-13T12:10:19.9028702Z Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub<2.0,>=1.5.0->transformers==5.15.0)
+2026-11-13T12:10:19.9156280Z   Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+2026-11-13T12:10:19.9408543Z Collecting anyio (from httpx)
+2026-11-13T12:10:19.9533147Z   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+2026-11-13T12:10:19.9752984Z Collecting certifi (from httpx)
+2026-11-13T12:10:19.9879035Z   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+2026-11-13T12:10:20.0083143Z Collecting httpcore==1.* (from httpx)
+2026-11-13T12:10:20.0207243Z   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+2026-11-13T12:10:20.0707435Z Collecting idna (from httpx)
+2026-11-13T12:10:20.0833637Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-11-13T12:10:20.1035045Z Collecting h11>=0.16 (from httpcore==1.*->httpx)
+2026-11-13T12:10:20.1158884Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2026-11-13T12:10:20.1221065Z Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from sympy) (1.3.0)
+2026-11-13T12:10:20.1764816Z Collecting pyarrow>=24.0.0 (from datasets)
+2026-11-13T12:10:20.1891568Z   Downloading pyarrow-26.0.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+2026-11-13T12:10:20.2091998Z Collecting dill<0.4.2,>=0.3.0 (from datasets)
+2026-11-13T12:10:20.2216390Z   Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+2026-11-13T12:10:20.2952208Z Collecting pandas (from datasets)
+2026-11-13T12:10:20.3083820Z   Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (16 kB)
+2026-11-13T12:10:20.4296539Z Collecting xxhash (from datasets)
+2026-11-13T12:10:20.4430571Z   Downloading xxhash-4.1.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (18 kB)
+2026-11-13T12:10:20.4676615Z Collecting multiprocess<0.70.20 (from datasets)
+2026-11-13T12:10:20.4802812Z   Downloading multiprocess-0.70.19-py312-none-any.whl.metadata (7.5 kB)
+2026-11-13T12:10:20.5071083Z Collecting aiohappyeyeballs>=2.5.0 (from aiohttp)
+2026-11-13T12:10:20.5196356Z   Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+2026-11-13T12:10:20.5380644Z Collecting aiosignal>=1.4.0 (from aiohttp)
+2026-11-13T12:10:20.5503563Z   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+2026-11-13T12:10:20.5698825Z Collecting attrs>=17.3.0 (from aiohttp)
+2026-11-13T12:10:20.5820725Z   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+2026-11-13T12:10:20.6265984Z Collecting frozenlist>=1.1.1 (from aiohttp)
+2026-11-13T12:10:20.6390724Z   Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+2026-11-13T12:10:20.8391619Z Collecting multidict<8.0,>=4.5 (from aiohttp)
+2026-11-13T12:10:20.8524362Z   Downloading multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (6.1 kB)
+2026-11-13T12:10:20.8997179Z Collecting propcache>=0.2.0 (from aiohttp)
+2026-11-13T12:10:20.9121872Z   Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+2026-11-13T12:10:21.0549772Z Collecting yarl<2.0,>=1.25.1 (from aiohttp)
+2026-11-13T12:10:21.0677525Z   Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+2026-11-13T12:10:21.1017178Z Collecting annotated-types>=0.6.0 (from pydantic>=2.0.0->deepspeed==0.19.6)
+2026-11-13T12:10:21.1143466Z   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+2026-11-13T12:10:21.5332939Z Collecting pydantic-core==2.50.4 (from pydantic>=2.0.0->deepspeed==0.19.6)
+2026-11-13T12:10:21.5464044Z   Downloading pydantic_core-2.50.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.6 kB)
+2026-11-13T12:10:21.5655778Z Collecting typing-inspection>=0.4.4 (from pydantic>=2.0.0->deepspeed==0.19.6)
+2026-11-13T12:10:21.5780928Z   Downloading typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
+2026-11-13T12:10:21.5869106Z Requirement already satisfied: MarkupSafe>=2.0 in /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages (from jinja2->torch==2.9.1) (3.0.3)
+2026-11-13T12:10:21.6064579Z Collecting python-dateutil>=2.9.0 (from pandas->datasets)
+2026-11-13T12:10:21.6187536Z   Downloading python_dateutil-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+2026-11-13T12:10:21.6393173Z Collecting tzdata (from python-dateutil>=2.9.0->pandas->datasets)
+2026-11-13T12:10:21.6517453Z   Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+2026-11-13T12:10:21.6758197Z Collecting shellingham>=1.3.0 (from typer->transformers==5.15.0)
+2026-11-13T12:10:21.6882390Z   Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+2026-11-13T12:10:21.7148017Z Collecting rich>=13.8.0 (from typer->transformers==5.15.0)
+2026-11-13T12:10:21.7270711Z   Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+2026-11-13T12:10:21.7457243Z Collecting annotated-doc>=0.0.2 (from typer->transformers==5.15.0)
+2026-11-13T12:10:21.7582712Z   Downloading annotated_doc-0.0.6-py3-none-any.whl.metadata (6.5 kB)
+2026-11-13T12:10:21.7790052Z Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer->transformers==5.15.0)
+2026-11-13T12:10:21.7912543Z   Downloading markdown_it_py-4.3.0-py3-none-any.whl.metadata (7.9 kB)
+2026-11-13T12:10:21.8111958Z Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers==5.15.0)
+2026-11-13T12:10:21.8236041Z   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+2026-11-13T12:10:21.8415583Z Downloading transformers-5.15.0-py3-none-any.whl (11.7 MB)
+2026-11-13T12:10:21.9346848Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.7/11.7 MB 126.1 MB/s  0:00:00
+2026-11-13T12:10:21.9482794Z Downloading pytest-9.0.2-py3-none-any.whl (374 kB)
+2026-11-13T12:10:21.9630502Z Downloading black-26.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+2026-11-13T12:10:21.9714201Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 234.4 MB/s  0:00:00
+2026-11-13T12:10:21.9848588Z Downloading isort-9.0.0a3-py3-none-any.whl (97 kB)
+2026-11-13T12:10:21.9994537Z Downloading autoflake-2.3.3-py3-none-any.whl (17 kB)
+2026-11-13T12:10:22.0130262Z Downloading huggingface_hub-1.33.0-py3-none-any.whl (846 kB)
+2026-11-13T12:10:22.0171616Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 846.4/846.4 kB 216.3 MB/s  0:00:00
+2026-11-13T12:10:22.0299510Z Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+2026-11-13T12:10:22.0475284Z Downloading click-8.5.1-py3-none-any.whl (126 kB)
+2026-11-13T12:10:22.0618016Z Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+2026-11-13T12:10:22.0921330Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 141.8 MB/s  0:00:00
+2026-11-13T12:10:22.1044771Z Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+2026-11-13T12:10:22.1185314Z Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-11-13T12:10:22.1324508Z Downloading pytokens-0.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+2026-11-13T12:10:22.1470952Z Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+2026-11-13T12:10:22.1614287Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 233.3 MB/s  0:00:00
+2026-11-13T12:10:22.1737510Z Downloading pylatexenc-2.11-py2.py3-none-any.whl (137 kB)
+2026-11-13T12:10:22.1875560Z Downloading datasets-5.2.0-py3-none-any.whl (608 kB)
+2026-11-13T12:10:22.1909424Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 608.3/608.3 kB 164.7 MB/s  0:00:00
+2026-11-13T12:10:22.2037080Z Downloading dill-0.4.1-py3-none-any.whl (120 kB)
+2026-11-13T12:10:22.2174967Z Downloading multiprocess-0.70.19-py312-none-any.whl (150 kB)
+2026-11-13T12:10:22.2314810Z Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+2026-11-13T12:10:22.2407101Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 207.2 MB/s  0:00:00
+2026-11-13T12:10:22.2529540Z Downloading multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (516 kB)
+2026-11-13T12:10:22.2674279Z Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+2026-11-13T12:10:22.2812765Z Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+2026-11-13T12:10:22.2992774Z Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+2026-11-13T12:10:22.3132334Z Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+2026-11-13T12:10:22.3271784Z Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+2026-11-13T12:10:22.3410073Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+2026-11-13T12:10:22.3546011Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+2026-11-13T12:10:22.3682070Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-11-13T12:10:22.3815601Z Downloading mypy_extensions-1.2.0-py3-none-any.whl (5.1 kB)
+2026-11-13T12:10:22.3950387Z Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+2026-11-13T12:10:22.5145522Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 140.9 MB/s  0:00:00
+2026-11-13T12:10:22.5271670Z Downloading pathspec-1.1.1-py3-none-any.whl (57 kB)
+2026-11-13T12:10:22.5411686Z Downloading platformdirs-4.14.5-py3-none-any.whl (35 kB)
+2026-11-13T12:10:22.5550456Z Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
+2026-11-13T12:10:22.5692288Z Downloading pyarrow-26.0.1-cp312-cp312-manylinux_2_28_x86_64.whl (55.0 MB)
+2026-11-13T12:10:22.9753404Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.0/55.0 MB 135.4 MB/s  0:00:00
+2026-11-13T12:10:22.9883142Z Downloading pydantic-2.14.3-py3-none-any.whl (494 kB)
+2026-11-13T12:10:23.0035584Z Downloading pydantic_core-2.50.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
+2026-11-13T12:10:23.0162122Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 182.0 MB/s  0:00:00
+2026-11-13T12:10:23.0286961Z Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+2026-11-13T12:10:23.0425731Z Downloading pyflakes-4.1.0-py2.py3-none-any.whl (66 kB)
+2026-11-13T12:10:23.0564508Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-11-13T12:10:23.0613859Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 294.0 MB/s  0:00:00
+2026-11-13T12:10:23.0738620Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+2026-11-13T12:10:23.0777662Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 216.9 MB/s  0:00:00
+2026-11-13T12:10:23.0903156Z Downloading regex-2026.11.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (808 kB)
+2026-11-13T12:10:23.0939137Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 808.8/808.8 kB 236.6 MB/s  0:00:00
+2026-11-13T12:10:23.1061947Z Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+2026-11-13T12:10:23.1208943Z Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+2026-11-13T12:10:23.1371594Z Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
+2026-11-13T12:10:23.1511444Z Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+2026-11-13T12:10:23.1652018Z Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+2026-11-13T12:10:23.1792297Z Downloading einops-0.8.2-py3-none-any.whl (65 kB)
+2026-11-13T12:10:23.1930518Z Downloading hjson-3.1.0-py3-none-any.whl (54 kB)
+2026-11-13T12:10:23.2070775Z Downloading msgpack-1.2.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (475 kB)
+2026-11-13T12:10:23.2215963Z Downloading ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (183 kB)
+2026-11-13T12:10:23.2359369Z Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.0 MB)
+2026-11-13T12:10:23.3343176Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 121.8 MB/s  0:00:00
+2026-11-13T12:10:23.3474555Z Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+2026-11-13T12:10:23.3617636Z Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+2026-11-13T12:10:23.3760283Z Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+2026-11-13T12:10:23.3898978Z Downloading typer-0.29.1-py3-none-any.whl (121 kB)
+2026-11-13T12:10:23.4039205Z Downloading annotated_doc-0.0.6-py3-none-any.whl (5.3 kB)
+2026-11-13T12:10:23.4176494Z Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+2026-11-13T12:10:23.4318248Z Downloading markdown_it_py-4.3.0-py3-none-any.whl (96 kB)
+2026-11-13T12:10:23.4750272Z Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+2026-11-13T12:10:23.5052772Z Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+2026-11-13T12:10:23.5347507Z Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+2026-11-13T12:10:23.5844504Z Downloading xxhash-4.1.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (472 kB)
+2026-11-13T12:10:23.8058689Z Building wheels for collected packages: deepspeed
+2026-11-13T12:10:23.8064584Z   Building wheel for deepspeed (pyproject.toml): started
+2026-11-13T12:10:25.3493057Z   Building wheel for deepspeed (pyproject.toml): finished with status 'done'
+2026-11-13T12:10:25.3516300Z   Created wheel for deepspeed: filename=deepspeed-0.19.6-py3-none-any.whl size=2085359 sha256=ad28abdb1eeba0d53e23f0254569c43555c10242c8a53a1023ed19b274e6da31
+2026-11-13T12:10:25.3517240Z   Stored in directory: /home/runner/.cache/pip/wheels/cc/6f/60/93e353c8fba02c968b5340eeb47d46ad225a861a0ed16e7ab3
+2026-11-13T12:10:25.3567761Z Successfully built deepspeed
+2026-11-13T12:10:25.4997906Z Installing collected packages: pylatexenc, py-cpuinfo, hjson, xxhash, tzdata, typing-inspection, tqdm, shellingham, safetensors, regex, pyyaml, pytokens, pygments, pyflakes, pydantic-core, pyarrow, psutil, propcache, pluggy, platformdirs, pathspec, numpy, ninja, mypy-extensions, multidict, msgpack, mdurl, isort, iniconfig, idna, hf-xet, h11, frozenlist, einops, dill, click, certifi, attrs, annotated-types, annotated-doc, aiohappyeyeballs, yarl, python-dateutil, pytest, pydantic, multiprocess, markdown-it-py, httpcore, black, autoflake, anyio, aiosignal, rich, pandas, httpx, deepspeed, aiohttp, typer, huggingface-hub, tokenizers, datasets, transformers
+2026-11-13T12:10:39.2924797Z 
+2026-11-13T12:10:39.2957013Z Successfully installed aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiosignal-1.4.0 annotated-doc-0.0.6 annotated-types-0.8.0 anyio-4.16.0 attrs-26.1.0 autoflake-2.3.3 black-26.5.1 certifi-2026.10.23 click-8.5.1 datasets-5.2.0 deepspeed-0.19.6 dill-0.4.1 einops-0.8.2 frozenlist-1.8.0 h11-0.16.0 hf-xet-1.8.0 hjson-3.1.0 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-1.33.0 idna-3.20 iniconfig-2.3.1 isort-9.0.0a3 markdown-it-py-4.3.0 mdurl-0.1.2 msgpack-1.2.4 multidict-7.2.1 multiprocess-0.70.19 mypy-extensions-1.2.0 ninja-1.13.2 numpy-2.5.4 pandas-3.1.1 pathspec-1.1.1 platformdirs-4.14.5 pluggy-1.7.0 propcache-0.5.4 psutil-7.2.2 py-cpuinfo-9.0.0 pyarrow-26.0.1 pydantic-2.14.3 pydantic-core-2.50.4 pyflakes-4.1.0 pygments-2.21.0 pylatexenc-2.11 pytest-9.0.2 python-dateutil-4.0.0 pytokens-0.4.1 pyyaml-6.0.3 regex-2026.11.9 rich-15.0.0 safetensors-0.8.0 shellingham-1.5.4 tokenizers-0.22.2 tqdm-4.70.1 transformers-5.15.0 typer-0.29.1 typing-inspection-0.4.5 tzdata-2026.6 xxhash-4.1.0 yarl-1.25.1
+2026-11-13T12:10:39.8649780Z ##[group]Run python contribution-validation/run_zero_padding.py
+2026-11-13T12:10:39.8650064Z [36;1mpython contribution-validation/run_zero_padding.py[0m
+2026-11-13T12:10:39.8666266Z shell: /usr/bin/bash -e {0}
+2026-11-13T12:10:39.8666398Z env:
+2026-11-13T12:10:39.8666504Z   PYTHONPATH: .
+2026-11-13T12:10:39.8666614Z   OMP_NUM_THREADS: 2
+2026-11-13T12:10:39.8666888Z   MKL_NUM_THREADS: 2
+2026-11-13T12:10:39.8667000Z   HF_HUB_OFFLINE: 1
+2026-11-13T12:10:39.8667113Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T12:10:39.8667233Z   DS_BUILD_OPS: 0
+2026-11-13T12:10:39.8667383Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:39.8667611Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T12:10:39.8667838Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:39.8668040Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:39.8668416Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:10:39.8668622Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T12:10:39.8668795Z ##[endgroup]
+2026-11-13T12:10:45.3412187Z ===== baseline: exit 1 =====
+2026-11-13T12:10:45.3412543Z ============================= test session starts ==============================
+2026-11-13T12:10:45.3412799Z platform linux -- Python 3.12.16, pytest-9.0.2, pluggy-1.7.0
+2026-11-13T12:10:45.3413000Z rootdir: /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T12:10:45.3413210Z configfile: pyproject.toml
+2026-11-13T12:10:45.3413417Z plugins: platformdirs-4.14.5, anyio-4.16.0
+2026-11-13T12:10:45.3413646Z collected 80 items
+2026-11-13T12:10:45.3413757Z 
+2026-11-13T12:10:45.3413928Z tests/test_zero_pad_sequence_allocations.py ............................ [ 35%]
+2026-11-13T12:10:45.3414293Z ........................................FF..........                     [100%]
+2026-11-13T12:10:45.3414465Z 
+2026-11-13T12:10:45.3414583Z =================================== FAILURES ===================================
+2026-11-13T12:10:45.3414811Z ____ test_single_sequence_batches_allocate_only_the_combined_output[False] _____
+2026-11-13T12:10:45.3414966Z 
+2026-11-13T12:10:45.3415012Z stack = False
+2026-11-13T12:10:45.3415075Z 
+2026-11-13T12:10:45.3415151Z     @pytest.mark.parametrize("stack", [False, True])
+2026-11-13T12:10:45.3415378Z     def test_single_sequence_batches_allocate_only_the_combined_output(stack):
+2026-11-13T12:10:45.3415634Z         inputs = [torch.arange(8 * 4096, dtype=torch.float32).reshape(8, 4096)]
+2026-11-13T12:10:45.3415968Z         with torch.profiler.profile(activities=[torch.profiler.ProfilerActivity.CPU], profile_memory=True) as profile:
+2026-11-13T12:10:45.3416290Z             result = zero_pad_sequences(inputs, side="right", stack=stack)
+2026-11-13T12:10:45.3416549Z         allocated = sum(max(event.self_cpu_memory_usage, 0) for event in profile.events())
+2026-11-13T12:10:45.3416995Z         output_bytes = result.numel() * result.element_size()
+2026-11-13T12:10:45.3417222Z         # The final cat/stack still owns its output; a single sequence needs no
+2026-11-13T12:10:45.3417453Z         # additional full-sized padding clone before that allocation.
+2026-11-13T12:10:45.3417681Z >       assert allocated <= output_bytes + 4096, (allocated, output_bytes)
+2026-11-13T12:10:45.3417870Z E       AssertionError: (262144, 131072)
+2026-11-13T12:10:45.3418016Z E       assert 262144 <= (131072 + 4096)
+2026-11-13T12:10:45.3418103Z 
+2026-11-13T12:10:45.3418195Z tests/test_zero_pad_sequence_allocations.py:71: AssertionError
+2026-11-13T12:10:45.3418432Z _____ test_single_sequence_batches_allocate_only_the_combined_output[True] _____
+2026-11-13T12:10:45.3418587Z 
+2026-11-13T12:10:45.3418632Z stack = True
+2026-11-13T12:10:45.3418692Z 
+2026-11-13T12:10:45.3418764Z     @pytest.mark.parametrize("stack", [False, True])
+2026-11-13T12:10:45.3418978Z     def test_single_sequence_batches_allocate_only_the_combined_output(stack):
+2026-11-13T12:10:45.3419670Z         inputs = [torch.arange(8 * 4096, dtype=torch.float32).reshape(8, 4096)]
+2026-11-13T12:10:45.3420014Z         with torch.profiler.profile(activities=[torch.profiler.ProfilerActivity.CPU], profile_memory=True) as profile:
+2026-11-13T12:10:45.3420330Z             result = zero_pad_sequences(inputs, side="right", stack=stack)
+2026-11-13T12:10:45.3420585Z         allocated = sum(max(event.self_cpu_memory_usage, 0) for event in profile.events())
+2026-11-13T12:10:45.3420824Z         output_bytes = result.numel() * result.element_size()
+2026-11-13T12:10:45.3421039Z         # The final cat/stack still owns its output; a single sequence needs no
+2026-11-13T12:10:45.3421267Z         # additional full-sized padding clone before that allocation.
+2026-11-13T12:10:45.3421487Z >       assert allocated <= output_bytes + 4096, (allocated, output_bytes)
+2026-11-13T12:10:45.3421674Z E       AssertionError: (262144, 131072)
+2026-11-13T12:10:45.3421816Z E       assert 262144 <= (131072 + 4096)
+2026-11-13T12:10:45.3422016Z 
+2026-11-13T12:10:45.3422108Z tests/test_zero_pad_sequence_allocations.py:71: AssertionError
+2026-11-13T12:10:45.3422311Z =============================== warnings summary ===============================
+2026-11-13T12:10:45.3422489Z openrlhf/utils/math_utils.py:102
+2026-11-13T12:10:45.3422757Z   /home/runner/work/OpenRLHF/OpenRLHF/openrlhf/utils/math_utils.py:102: SyntaxWarning: invalid escape sequence '\%'
+2026-11-13T12:10:45.3423033Z     string = string.replace("\%", "")
+2026-11-13T12:10:45.3423127Z 
+2026-11-13T12:10:45.3423417Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-False]
+2026-11-13T12:10:45.3423777Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-False]
+2026-11-13T12:10:45.3424133Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-True]
+2026-11-13T12:10:45.3424479Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-True]
+2026-11-13T12:10:45.3424830Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-False]
+2026-11-13T12:10:45.3425179Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-False]
+2026-11-13T12:10:45.3425523Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-True]
+2026-11-13T12:10:45.3425870Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-True]
+2026-11-13T12:10:45.3426408Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/multiprocess/popen_fork.py:66: DeprecationWarning: This process (pid=2311) is multi-threaded, use of fork() may lead to deadlocks in the child.
+2026-11-13T12:10:45.3427034Z     self.pid = os.fork()
+2026-11-13T12:10:45.3427125Z 
+2026-11-13T12:10:45.3427256Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T12:10:45.3427549Z ----- generated xml file: /home/runner/work/OpenRLHF/OpenRLHF/baseline.xml -----
+2026-11-13T12:10:45.3427782Z ============================== slowest durations ===============================
+2026-11-13T12:10:45.3428085Z 0.15s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-False]
+2026-11-13T12:10:45.3443346Z 0.14s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-False]
+2026-11-13T12:10:45.3443923Z 0.13s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-True]
+2026-11-13T12:10:45.3444314Z 0.13s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-True]
+2026-11-13T12:10:45.3444536Z 
+2026-11-13T12:10:45.3444642Z (236 durations < 0.005s hidden.  Use -vv to show these durations.)
+2026-11-13T12:10:45.3444865Z =========================== short test summary info ============================
+2026-11-13T12:10:45.3445435Z FAILED tests/test_zero_pad_sequence_allocations.py::test_single_sequence_batches_allocate_only_the_combined_output[False] - AssertionError: (262144, 131072)
+2026-11-13T12:10:45.3445779Z assert 262144 <= (131072 + 4096)
+2026-11-13T12:10:45.3446118Z FAILED tests/test_zero_pad_sequence_allocations.py::test_single_sequence_batches_allocate_only_the_combined_output[True] - AssertionError: (262144, 131072)
+2026-11-13T12:10:45.3446562Z assert 262144 <= (131072 + 4096)
+2026-11-13T12:10:45.3446879Z =================== 2 failed, 78 passed, 9 warnings in 3.78s ===================
+2026-11-13T12:10:45.3447022Z 
+2026-11-13T12:10:48.3517215Z {
+2026-11-13T12:10:48.3517485Z   "torch": "2.9.1+cpu",
+2026-11-13T12:10:48.3517701Z   "threads": 2,
+2026-11-13T12:10:48.3517859Z   "rows": [
+2026-11-13T12:10:48.3518016Z     {
+2026-11-13T12:10:48.3518180Z       "batch_size": 1,
+2026-11-13T12:10:48.3518329Z       "length": 8192,
+2026-11-13T12:10:48.3518506Z       "ragged": false,
+2026-11-13T12:10:48.3519119Z       "output_sha256": "d7c2866f911c21d6ef9dd404b53dd7516860ff6b088a5135b3b71c81442c0c9e",
+2026-11-13T12:10:48.3519487Z       "operator_allocated_bytes": 131072,
+2026-11-13T12:10:48.3519713Z       "output_bytes": 65536,
+2026-11-13T12:10:48.3519896Z       "median_seconds": 4.548689999808175e-06,
+2026-11-13T12:10:48.3520045Z       "all_seconds": [
+2026-11-13T12:10:48.3520162Z         4.63101000008237e-06,
+2026-11-13T12:10:48.3520289Z         4.548689999808175e-06,
+2026-11-13T12:10:48.3520425Z         4.583440000089922e-06,
+2026-11-13T12:10:48.3520545Z         4.516340000009222e-06,
+2026-11-13T12:10:48.3520665Z         4.5954600000186475e-06,
+2026-11-13T12:10:48.3520788Z         4.5188400000029105e-06,
+2026-11-13T12:10:48.3520909Z         4.536970000117435e-06
+2026-11-13T12:10:48.3521027Z       ]
+2026-11-13T12:10:48.3521125Z     },
+2026-11-13T12:10:48.3521220Z     {
+2026-11-13T12:10:48.3521319Z       "batch_size": 8,
+2026-11-13T12:10:48.3521435Z       "length": 8192,
+2026-11-13T12:10:48.3521550Z       "ragged": false,
+2026-11-13T12:10:48.3521751Z       "output_sha256": "8e1ced97f6ccd97cdc3f01ec62440d72cb88c7c8840f915f85485a178273148d",
+2026-11-13T12:10:48.3521984Z       "operator_allocated_bytes": 1048576,
+2026-11-13T12:10:48.3522128Z       "output_bytes": 524288,
+2026-11-13T12:10:48.3522262Z       "median_seconds": 3.783488000010493e-05,
+2026-11-13T12:10:48.3522403Z       "all_seconds": [
+2026-11-13T12:10:48.3522515Z         3.783488000010493e-05,
+2026-11-13T12:10:48.3522639Z         3.798410000001695e-05,
+2026-11-13T12:10:48.3522756Z         3.810699000013073e-05,
+2026-11-13T12:10:48.3522874Z         3.7898969999901055e-05,
+2026-11-13T12:10:48.3522994Z         3.773262000009936e-05,
+2026-11-13T12:10:48.3523111Z         3.779211000022542e-05,
+2026-11-13T12:10:48.3523229Z         3.775835999988431e-05
+2026-11-13T12:10:48.3523343Z       ]
+2026-11-13T12:10:48.3523436Z     },
+2026-11-13T12:10:48.3523529Z     {
+2026-11-13T12:10:48.3523627Z       "batch_size": 32,
+2026-11-13T12:10:48.3523744Z       "length": 8192,
+2026-11-13T12:10:48.3523862Z       "ragged": false,
+2026-11-13T12:10:48.3524059Z       "output_sha256": "a20c7ca44f19bb3e7ae78333a4c76fb848e07eb7d4c79bd5cf145943ffb7f9a9",
+2026-11-13T12:10:48.3524291Z       "operator_allocated_bytes": 4194304,
+2026-11-13T12:10:48.3524433Z       "output_bytes": 2097152,
+2026-11-13T12:10:48.3524568Z       "median_seconds": 0.00014504085999988091,
+2026-11-13T12:10:48.3524710Z       "all_seconds": [
+2026-11-13T12:10:48.3524823Z         0.00014589615999994977,
+2026-11-13T12:10:48.3524942Z         0.0001477226199997972,
+2026-11-13T12:10:48.3525059Z         0.00014504085999988091,
+2026-11-13T12:10:48.3525178Z         0.00014544557999983,
+2026-11-13T12:10:48.3525299Z         0.00014430504999978665,
+2026-11-13T12:10:48.3525415Z         0.0001430410400001847,
+2026-11-13T12:10:48.3525531Z         0.00014356563000006873
+2026-11-13T12:10:48.3525645Z       ]
+2026-11-13T12:10:48.3525736Z     },
+2026-11-13T12:10:48.3525826Z     {
+2026-11-13T12:10:48.3525925Z       "batch_size": 32,
+2026-11-13T12:10:48.3526038Z       "length": 8192,
+2026-11-13T12:10:48.3526262Z       "ragged": true,
+2026-11-13T12:10:48.3526458Z       "output_sha256": "e95ed1ef4d0cdb8021e630bd47c5c2d39817f97ffb075bfad929b055a6556a9f",
+2026-11-13T12:10:48.3526799Z       "operator_allocated_bytes": 4194304,
+2026-11-13T12:10:48.3526987Z       "output_bytes": 2097152,
+2026-11-13T12:10:48.3527121Z       "median_seconds": 0.0006361965700000383,
+2026-11-13T12:10:48.3527261Z       "all_seconds": [
+2026-11-13T12:10:48.3527377Z         0.000638180579999812,
+2026-11-13T12:10:48.3527495Z         0.0006337498600001368,
+2026-11-13T12:10:48.3527611Z         0.0006277643100000319,
+2026-11-13T12:10:48.3527729Z         0.0006313434199998369,
+2026-11-13T12:10:48.3527846Z         0.0006361965700000383,
+2026-11-13T12:10:48.3527970Z         0.0006378838300000211,
+2026-11-13T12:10:48.3528084Z         0.0006365047400001345
+2026-11-13T12:10:48.3528196Z       ]
+2026-11-13T12:10:48.3528287Z     }
+2026-11-13T12:10:48.3528464Z   ]
+2026-11-13T12:10:48.3528553Z }
+2026-11-13T12:10:48.3528609Z 
+2026-11-13T12:10:53.2254352Z ===== patched: exit 0 =====
+2026-11-13T12:10:53.2254700Z ============================= test session starts ==============================
+2026-11-13T12:10:53.2255074Z platform linux -- Python 3.12.16, pytest-9.0.2, pluggy-1.7.0
+2026-11-13T12:10:53.2255386Z rootdir: /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T12:10:53.2255636Z configfile: pyproject.toml
+2026-11-13T12:10:53.2255855Z plugins: platformdirs-4.14.5, anyio-4.16.0
+2026-11-13T12:10:53.2256088Z collected 80 items
+2026-11-13T12:10:53.2256199Z 
+2026-11-13T12:10:53.2256373Z tests/test_zero_pad_sequence_allocations.py ............................ [ 35%]
+2026-11-13T12:10:53.2256894Z ....................................................                     [100%]
+2026-11-13T12:10:53.2257041Z 
+2026-11-13T12:10:53.2257124Z =============================== warnings summary ===============================
+2026-11-13T12:10:53.2257482Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-False]
+2026-11-13T12:10:53.2257863Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-False]
+2026-11-13T12:10:53.2258225Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-True]
+2026-11-13T12:10:53.2258581Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-True]
+2026-11-13T12:10:53.2258939Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-False]
+2026-11-13T12:10:53.2259299Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-False]
+2026-11-13T12:10:53.2259659Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-True]
+2026-11-13T12:10:53.2260013Z tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-True]
+2026-11-13T12:10:53.2260569Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/multiprocess/popen_fork.py:66: DeprecationWarning: This process (pid=2382) is multi-threaded, use of fork() may lead to deadlocks in the child.
+2026-11-13T12:10:53.2261004Z     self.pid = os.fork()
+2026-11-13T12:10:53.2261087Z 
+2026-11-13T12:10:53.2261219Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T12:10:53.2261492Z ----- generated xml file: /home/runner/work/OpenRLHF/OpenRLHF/patched.xml ------
+2026-11-13T12:10:53.2261734Z ============================== slowest durations ===============================
+2026-11-13T12:10:53.2262049Z 0.29s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-False]
+2026-11-13T12:10:53.2262454Z 0.13s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-True]
+2026-11-13T12:10:53.2263092Z 0.13s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-True]
+2026-11-13T12:10:53.2263489Z 0.13s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-False]
+2026-11-13T12:10:53.2263711Z 
+2026-11-13T12:10:53.2263805Z (236 durations < 0.005s hidden.  Use -vv to show these durations.)
+2026-11-13T12:10:53.2264023Z ======================== 80 passed, 8 warnings in 3.25s ========================
+2026-11-13T12:10:53.2264155Z 
+2026-11-13T12:10:56.5762260Z {
+2026-11-13T12:10:56.5762533Z   "torch": "2.9.1+cpu",
+2026-11-13T12:10:56.5762754Z   "threads": 2,
+2026-11-13T12:10:56.5762923Z   "rows": [
+2026-11-13T12:10:56.5763068Z     {
+2026-11-13T12:10:56.5763226Z       "batch_size": 1,
+2026-11-13T12:10:56.5763401Z       "length": 8192,
+2026-11-13T12:10:56.5763572Z       "ragged": false,
+2026-11-13T12:10:56.5763878Z       "output_sha256": "d7c2866f911c21d6ef9dd404b53dd7516860ff6b088a5135b3b71c81442c0c9e",
+2026-11-13T12:10:56.5764121Z       "operator_allocated_bytes": 65536,
+2026-11-13T12:10:56.5764536Z       "output_bytes": 65536,
+2026-11-13T12:10:56.5764678Z       "median_seconds": 2.1129000000996713e-06,
+2026-11-13T12:10:56.5764821Z       "all_seconds": [
+2026-11-13T12:10:56.5764940Z         2.120910000087406e-06,
+2026-11-13T12:10:56.5765118Z         2.1129000000996713e-06,
+2026-11-13T12:10:56.5765304Z         2.112100000033479e-06,
+2026-11-13T12:10:56.5765485Z         2.1884099999169848e-06,
+2026-11-13T12:10:56.5765639Z         2.107690000059392e-06,
+2026-11-13T12:10:56.5765758Z         2.2490100002414694e-06,
+2026-11-13T12:10:56.5765878Z         2.080950000049597e-06
+2026-11-13T12:10:56.5765997Z       ]
+2026-11-13T12:10:56.5766092Z     },
+2026-11-13T12:10:56.5766185Z     {
+2026-11-13T12:10:56.5766283Z       "batch_size": 8,
+2026-11-13T12:10:56.5766395Z       "length": 8192,
+2026-11-13T12:10:56.5766525Z       "ragged": false,
+2026-11-13T12:10:56.5766875Z       "output_sha256": "8e1ced97f6ccd97cdc3f01ec62440d72cb88c7c8840f915f85485a178273148d",
+2026-11-13T12:10:56.5767182Z       "operator_allocated_bytes": 1048576,
+2026-11-13T12:10:56.5767331Z       "output_bytes": 524288,
+2026-11-13T12:10:56.5767467Z       "median_seconds": 3.592558000008239e-05,
+2026-11-13T12:10:56.5767609Z       "all_seconds": [
+2026-11-13T12:10:56.5767721Z         3.592558000008239e-05,
+2026-11-13T12:10:56.5767837Z         3.5648660000049406e-05,
+2026-11-13T12:10:56.5767955Z         3.62232300000187e-05,
+2026-11-13T12:10:56.5768073Z         3.599519000005102e-05,
+2026-11-13T12:10:56.5768189Z         3.694091999989268e-05,
+2026-11-13T12:10:56.5768305Z         3.5861879999856684e-05,
+2026-11-13T12:10:56.5768422Z         3.5760740000227995e-05
+2026-11-13T12:10:56.5768540Z       ]
+2026-11-13T12:10:56.5768632Z     },
+2026-11-13T12:10:56.5768726Z     {
+2026-11-13T12:10:56.5768824Z       "batch_size": 32,
+2026-11-13T12:10:56.5768935Z       "length": 8192,
+2026-11-13T12:10:56.5769043Z       "ragged": false,
+2026-11-13T12:10:56.5769236Z       "output_sha256": "a20c7ca44f19bb3e7ae78333a4c76fb848e07eb7d4c79bd5cf145943ffb7f9a9",
+2026-11-13T12:10:56.5769474Z       "operator_allocated_bytes": 4194304,
+2026-11-13T12:10:56.5769615Z       "output_bytes": 2097152,
+2026-11-13T12:10:56.5769748Z       "median_seconds": 0.00014289540999982365,
+2026-11-13T12:10:56.5769886Z       "all_seconds": [
+2026-11-13T12:10:56.5769994Z         0.0001421073200000933,
+2026-11-13T12:10:56.5770109Z         0.0001415695000000028,
+2026-11-13T12:10:56.5770227Z         0.00014289540999982365,
+2026-11-13T12:10:56.5770344Z         0.00014333257000004096,
+2026-11-13T12:10:56.5770458Z         0.00014438255999976946,
+2026-11-13T12:10:56.5770575Z         0.00014314918999986048,
+2026-11-13T12:10:56.5770695Z         0.00014248559000009208
+2026-11-13T12:10:56.5770805Z       ]
+2026-11-13T12:10:56.5770895Z     },
+2026-11-13T12:10:56.5770985Z     {
+2026-11-13T12:10:56.5771080Z       "batch_size": 32,
+2026-11-13T12:10:56.5771192Z       "length": 8192,
+2026-11-13T12:10:56.5771301Z       "ragged": true,
+2026-11-13T12:10:56.5771500Z       "output_sha256": "e95ed1ef4d0cdb8021e630bd47c5c2d39817f97ffb075bfad929b055a6556a9f",
+2026-11-13T12:10:56.5771863Z       "operator_allocated_bytes": 4194304,
+2026-11-13T12:10:56.5772003Z       "output_bytes": 2097152,
+2026-11-13T12:10:56.5772136Z       "median_seconds": 0.0006304385300001059,
+2026-11-13T12:10:56.5772276Z       "all_seconds": [
+2026-11-13T12:10:56.5772387Z         0.0006303214499999399,
+2026-11-13T12:10:56.5772502Z         0.0006304385300001059,
+2026-11-13T12:10:56.5772617Z         0.0006275001699998484,
+2026-11-13T12:10:56.5772734Z         0.0006299902499998212,
+2026-11-13T12:10:56.5772850Z         0.0006391972900001975,
+2026-11-13T12:10:56.5772963Z         0.0006675470999999789,
+2026-11-13T12:10:56.5773080Z         0.0006566837500000133
+2026-11-13T12:10:56.5773192Z       ]
+2026-11-13T12:10:56.5773282Z     }
+2026-11-13T12:10:56.5773373Z   ]
+2026-11-13T12:10:56.5773465Z }
+2026-11-13T12:10:56.5773518Z 
+2026-11-13T12:10:56.6750398Z ===== compileall: exit 0 =====
+2026-11-13T12:10:56.6750843Z 
+2026-11-13T12:11:07.0592756Z ===== full-suite: exit 0 =====
+2026-11-13T12:11:07.0593135Z ============================= test session starts ==============================
+2026-11-13T12:11:07.0593501Z platform linux -- Python 3.12.16, pytest-9.0.2, pluggy-1.7.0
+2026-11-13T12:11:07.0593805Z rootdir: /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T12:11:07.0594005Z configfile: pyproject.toml
+2026-11-13T12:11:07.0594132Z testpaths: ./tests
+2026-11-13T12:11:07.0594260Z plugins: platformdirs-4.14.5, anyio-4.16.0
+2026-11-13T12:11:07.0594413Z collected 283 items / 2 skipped
+2026-11-13T12:11:07.0594512Z 
+2026-11-13T12:11:07.0594628Z tests/test_actor_entropy_temperature.py ..                               [  0%]
+2026-11-13T12:11:07.0594875Z tests/test_agent.py .................................................... [ 19%]
+2026-11-13T12:11:07.0595081Z ....                                                                     [ 20%]
+2026-11-13T12:11:07.0595397Z tests/test_dataset_utils.py .....                                        [ 22%]
+2026-11-13T12:11:07.0595769Z tests/test_experience.py ...                                             [ 23%]
+2026-11-13T12:11:07.0596033Z tests/test_kl_estimator_gradient.py ............                         [ 27%]
+2026-11-13T12:11:07.0596274Z tests/test_loss_aggregation.py ..............                            [ 32%]
+2026-11-13T12:11:07.0596512Z tests/test_ppo_trainer.py .........                                      [ 35%]
+2026-11-13T12:11:07.0596907Z tests/test_preference_eval.py ............                               [ 39%]
+2026-11-13T12:11:07.0597149Z tests/test_pretrain_loss_mask.py ...................                     [ 46%]
+2026-11-13T12:11:07.0597384Z tests/test_ray_env_vars.py .........                                     [ 49%]
+2026-11-13T12:11:07.0597616Z tests/test_reward_shaping.py ..................................          [ 61%]
+2026-11-13T12:11:07.0597853Z tests/test_samples_generator.py ..                                       [ 62%]
+2026-11-13T12:11:07.0598093Z tests/test_sft_trainer.py ..........................                     [ 71%]
+2026-11-13T12:11:07.0598336Z tests/test_zero_pad_sequence_allocations.py ............................ [ 81%]
+2026-11-13T12:11:07.0598555Z ....................................................                     [100%]
+2026-11-13T12:11:07.0598675Z 
+2026-11-13T12:11:07.0598754Z =============================== warnings summary ===============================
+2026-11-13T12:11:07.0598938Z tests/test_pretrain_loss_mask.py: 32 warnings
+2026-11-13T12:11:07.0599119Z tests/test_zero_pad_sequence_allocations.py: 8 warnings
+2026-11-13T12:11:07.0599591Z   /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/multiprocess/popen_fork.py:66: DeprecationWarning: This process (pid=2451) is multi-threaded, use of fork() may lead to deadlocks in the child.
+2026-11-13T12:11:07.0600019Z     self.pid = os.fork()
+2026-11-13T12:11:07.0600095Z 
+2026-11-13T12:11:07.0600222Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-13T12:11:07.0600688Z ---- generated xml file: /home/runner/work/OpenRLHF/OpenRLHF/full-suite.xml ----
+2026-11-13T12:11:07.0600919Z ============================== slowest durations ===============================
+2026-11-13T12:11:07.0601289Z 0.15s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[True-texts0-16]
+2026-11-13T12:11:07.0601913Z 0.15s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-False]
+2026-11-13T12:11:07.0602504Z 0.14s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-False]
+2026-11-13T12:11:07.0603151Z 0.14s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[1-True]
+2026-11-13T12:11:07.0603770Z 0.14s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[False-texts6-3]
+2026-11-13T12:11:07.0604436Z 0.14s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[False-texts7-16]
+2026-11-13T12:11:07.0605292Z 0.14s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[False-texts5-16]
+2026-11-13T12:11:07.0605991Z 0.14s call     tests/test_zero_pad_sequence_allocations.py::test_native_sft_collation_preserves_optimizer_updates[2-True]
+2026-11-13T12:11:07.0606605Z 0.14s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[False-texts3-16]
+2026-11-13T12:11:07.0607396Z 0.13s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[False-texts4-16]
+2026-11-13T12:11:07.0608030Z 0.13s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[False-texts0-16]
+2026-11-13T12:11:07.0608675Z 0.13s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[False-texts2-16]
+2026-11-13T12:11:07.0609332Z 0.13s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[True-texts7-16]
+2026-11-13T12:11:07.0609964Z 0.13s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[True-texts4-16]
+2026-11-13T12:11:07.0610578Z 0.13s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[False-texts1-16]
+2026-11-13T12:11:07.0611235Z 0.13s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[True-texts5-16]
+2026-11-13T12:11:07.0611906Z 0.13s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[True-texts2-16]
+2026-11-13T12:11:07.0612601Z 0.13s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[True-texts1-16]
+2026-11-13T12:11:07.0613263Z 0.12s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[True-texts6-3]
+2026-11-13T12:11:07.0613950Z 0.12s call     tests/test_pretrain_loss_mask.py::test_pretrain_targets_and_gradients_follow_valid_next_tokens[True-texts3-16]
+2026-11-13T12:11:07.0614577Z 0.01s call     tests/test_dataset_utils.py::test_saved_dataset_split_selection_does_not_scan_rows[False-train]
+2026-11-13T12:11:07.0615166Z 0.01s call     tests/test_dataset_utils.py::test_saved_dataset_split_selection_does_not_scan_rows[True-train]
+2026-11-13T12:11:07.0615764Z 0.01s call     tests/test_dataset_utils.py::test_saved_dataset_split_selection_does_not_scan_rows[True-validation]
+2026-11-13T12:11:07.0616329Z 0.01s call     tests/test_sft_trainer.py::test_epoch_updates_match_token_mean_reference[0.1-lengths5-1-1]
+2026-11-13T12:11:07.0617008Z 0.01s call     tests/test_agent.py::test_remote_rewards_distribute_nonempty_shards[3-False-6-6]
+2026-11-13T12:11:07.0617529Z 0.01s call     tests/test_dataset_utils.py::test_saved_dataset_split_selection_does_not_scan_rows[False-None]
+2026-11-13T12:11:07.0618296Z 0.01s call     tests/test_sft_trainer.py::test_epoch_updates_match_token_mean_reference[0.0-lengths5-1-1]
+2026-11-13T12:11:07.0618886Z 0.01s call     tests/test_dataset_utils.py::test_saved_dataset_split_selection_does_not_scan_rows[False-validation]
+2026-11-13T12:11:07.0619507Z 0.01s call     tests/test_preference_eval.py::test_preference_eval_weights_each_pair_equally[acc_mean-0.6666666666666666-1-rm]
+2026-11-13T12:11:07.0620091Z 0.01s call     tests/test_agent.py::test_remote_rewards_distribute_nonempty_shards[3-True-6-6]
+2026-11-13T12:11:07.0620607Z 0.01s call     tests/test_sft_trainer.py::test_epoch_updates_match_token_mean_reference[0.1-lengths6-4-2]
+2026-11-13T12:11:07.0621121Z 0.01s call     tests/test_sft_trainer.py::test_resume_matches_uninterrupted_training[2-0]
+2026-11-13T12:11:07.0621617Z 0.01s call     tests/test_agent.py::test_remote_rewards_distribute_nonempty_shards[3-False-6-4]
+2026-11-13T12:11:07.0622104Z 0.01s call     tests/test_sft_trainer.py::test_resume_matches_uninterrupted_training[1-0]
+2026-11-13T12:11:07.0622786Z 0.01s call     tests/test_sft_trainer.py::test_epoch_updates_match_token_mean_reference[0.0-lengths6-4-2]
+2026-11-13T12:11:07.0623299Z 0.01s call     tests/test_sft_trainer.py::test_resume_matches_uninterrupted_training[2-1]
+2026-11-13T12:11:07.0623884Z 0.01s call     tests/test_preference_eval.py::test_preference_eval_weights_each_pair_equally[acc_mean-0.6666666666666666-2-rm]
+2026-11-13T12:11:07.0624501Z 0.01s call     tests/test_sft_trainer.py::test_epoch_updates_match_token_mean_reference[0.0-lengths0-4-1]
+2026-11-13T12:11:07.0625024Z 0.01s call     tests/test_sft_trainer.py::test_resume_matches_uninterrupted_training[1-1]
+2026-11-13T12:11:07.0625542Z 0.01s call     tests/test_sft_trainer.py::test_epoch_updates_match_token_mean_reference[0.1-lengths4-2-1]
+2026-11-13T12:11:07.0625861Z 
+2026-11-13T12:11:07.0626016Z (809 durations < 0.005s hidden.  Use -vv to show these durations.)
+2026-11-13T12:11:07.0626392Z ================= 283 passed, 2 skipped, 40 warnings in 8.21s ==================
+2026-11-13T12:11:07.0626621Z 
+2026-11-13T12:11:07.1296260Z ===== style-isort: exit 0 =====
+2026-11-13T12:11:07.1296446Z 
+2026-11-13T12:11:07.3340550Z ===== style-black: exit 0 =====
+2026-11-13T12:11:07.3341151Z All done! ✨ 🍰 ✨
+2026-11-13T12:11:07.3341345Z 2 files would be left unchanged.
+2026-11-13T12:11:07.3341445Z 
+2026-11-13T12:11:07.3958439Z ===== style-autoflake: exit 0 =====
+2026-11-13T12:11:07.3958783Z openrlhf/utils/utils.py: No issues detected!
+2026-11-13T12:11:07.3959097Z tests/test_zero_pad_sequence_allocations.py: No issues detected!
+2026-11-13T12:11:07.3959321Z 
+2026-11-13T12:11:07.3959415Z {
+2026-11-13T12:11:07.3959565Z   "baseline": {
+2026-11-13T12:11:07.3959737Z     "exit": 1,
+2026-11-13T12:11:07.3959893Z     "tests": 80,
+2026-11-13T12:11:07.3960058Z     "failures": 2,
+2026-11-13T12:11:07.3960228Z     "errors": 0,
+2026-11-13T12:11:07.3960391Z     "skipped": 0
+2026-11-13T12:11:07.3960542Z   },
+2026-11-13T12:11:07.3960727Z   "patched": {
+2026-11-13T12:11:07.3960885Z     "exit": 0,
+2026-11-13T12:11:07.3961053Z     "tests": 80,
+2026-11-13T12:11:07.3961214Z     "failures": 0,
+2026-11-13T12:11:07.3961375Z     "errors": 0,
+2026-11-13T12:11:07.3961527Z     "skipped": 0
+2026-11-13T12:11:07.3961677Z   },
+2026-11-13T12:11:07.3961828Z   "compileall_exit": 0,
+2026-11-13T12:11:07.3962012Z   "full_suite_exit": 0,
+2026-11-13T12:11:07.3962191Z   "style_exit": 0,
+2026-11-13T12:11:07.3962390Z   "base": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+2026-11-13T12:11:07.3962669Z   "source": "3737390e06bb85a36f050358f4813807a12e4713",
+2026-11-13T12:11:07.3963161Z   "scope": "Native CPU Torch, public SFTDataset/DataLoader, local HF GPT2 three-step updates; no GPU or distributed run."
+2026-11-13T12:11:07.3963600Z }
+2026-11-13T12:11:07.4060631Z ##[group]Run actions/upload-artifact@v4
+2026-11-13T12:11:07.4060788Z with:
+2026-11-13T12:11:07.4060909Z   name: zero-padding-native-before-after
+2026-11-13T12:11:07.4061143Z   path: *.log
+*.xml
+*benchmark.json
+installed-dependencies.txt
+validation-result.json
+
+2026-11-13T12:11:07.4061377Z   if-no-files-found: warn
+2026-11-13T12:11:07.4061499Z   compression-level: 6
+2026-11-13T12:11:07.4061613Z   overwrite: false
+2026-11-13T12:11:07.4061726Z   include-hidden-files: false
+2026-11-13T12:11:07.4061849Z env:
+2026-11-13T12:11:07.4061949Z   PYTHONPATH: .
+2026-11-13T12:11:07.4062054Z   OMP_NUM_THREADS: 2
+2026-11-13T12:11:07.4062161Z   MKL_NUM_THREADS: 2
+2026-11-13T12:11:07.4062268Z   HF_HUB_OFFLINE: 1
+2026-11-13T12:11:07.4062376Z   TRANSFORMERS_OFFLINE: 1
+2026-11-13T12:11:07.4062494Z   DS_BUILD_OPS: 0
+2026-11-13T12:11:07.4062634Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:11:07.4062860Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-13T12:11:07.4063096Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:11:07.4063295Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:11:07.4063492Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-13T12:11:07.4063821Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-13T12:11:07.4063988Z ##[endgroup]
+2026-11-13T12:11:07.5146900Z (node:2786) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T12:11:07.5147299Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T12:11:07.5217393Z With the provided path, there will be 16 files uploaded
+2026-11-13T12:11:07.5218230Z Artifact name is valid!
+2026-11-13T12:11:07.5218529Z Root directory input is valid!
+2026-11-13T12:11:07.8236214Z Beginning upload of artifact content to blob storage
+2026-11-13T12:11:07.9311676Z (node:2786) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-13T12:11:08.0711138Z Uploaded bytes 13200
+2026-11-13T12:11:08.1100169Z Finished uploading artifact content to blob storage!
+2026-11-13T12:11:08.1100614Z SHA256 digest of uploaded artifact zip is 41b9b4dd45d9fc12c65cb2a3594e7b3fb0e4d23fae18e59015133308bce4e149
+2026-11-13T12:11:08.1101739Z Finalizing artifact upload
+2026-11-13T12:11:08.5076812Z Artifact zero-padding-native-before-after.zip successfully finalized. Artifact ID 14034837934
+2026-11-13T12:11:08.5077388Z Artifact zero-padding-native-before-after has been successfully uploaded! Final size is 13200 bytes. Artifact ID is 14034837934
+2026-11-13T12:11:08.5082964Z Artifact download URL: https://github.com/Afloat16/OpenRLHF/actions/runs/43422837888/artifacts/14034837934
+2026-11-13T12:11:08.5238664Z Post job cleanup.
+2026-11-13T12:11:08.6042902Z (node:2798) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-13T12:11:08.6043307Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-13T12:11:08.6217116Z Post job cleanup.
+2026-11-13T12:11:08.6827548Z [command]/usr/bin/git version
+2026-11-13T12:11:08.6861644Z git version 2.56.1
+2026-11-13T12:11:08.6884730Z Temporarily overriding HOME='/home/runner/work/_temp/7a572076-dc3b-458b-848c-407087ed361e' before making global git config changes
+2026-11-13T12:11:08.6885714Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-13T12:11:08.6888118Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/OpenRLHF/OpenRLHF
+2026-11-13T12:11:08.6923646Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-13T12:11:08.6956559Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-13T12:11:08.7166479Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-13T12:11:08.7207607Z http.https://github.com/.extraheader
+2026-11-13T12:11:08.7218932Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-13T12:11:08.7297658Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-13T12:11:08.7545115Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-13T12:11:08.7587568Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-13T12:11:08.7945107Z Cleaning up orphan processes
+2026-11-13T12:11:08.8167134Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

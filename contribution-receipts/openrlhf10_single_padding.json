@@ -1,0 +1,235 @@
+{
+  "repository": "OpenRLHF/OpenRLHF",
+  "fork": "Afloat16/OpenRLHF",
+  "stars": 10151,
+  "archived": false,
+  "default_branch": "main",
+  "base_commit": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+  "base_tree": "454f86b1467e35a3c376f4734ac63ebf306bb0a1",
+  "branch": "perf/zero-width-padding-copies-20261113",
+  "commit": "3737390e06bb85a36f050358f4813807a12e4713",
+  "files": [
+    "openrlhf/utils/utils.py",
+    "tests/test_zero_pad_sequence_allocations.py"
+  ],
+  "status": "open",
+  "novelty": {
+    "classification": "genuinely-new",
+    "history_entries": 56,
+    "actual_prs_read": [
+      19,
+      655,
+      1023,
+      1027,
+      1115,
+      1177
+    ],
+    "actual_history_read": [
+      "c4c2175e0dd9da70227cb41361c400a26f4e7082",
+      "f02dac11131271391d1683ac5344cac6ce9fc8f3",
+      "14fe44c62cc08d90b2b8b62262b17c1f0a2fe5a5",
+      "52498da5fd476ad12393e885590c439baa90672c"
+    ],
+    "fork_heads_checked": 16,
+    "user_prs_checked": 7
+  },
+  "scope": "Single-sequence padding fast path; multi-sequence loop unchanged.",
+  "rejected_attempt": {
+    "head": "daef38be01c88492d7492f517c088ec775a3d559",
+    "reason": "Skipping all zero-width padding reduced allocations but regressed measured 32-sequence CPU collation latency."
+  },
+  "title": "Avoid redundant padding copies for single-sequence batches",
+  "body": "## Problem\n\n`zero_pad_sequences` calls `F.pad` even when a batch contains one sequence. Zero-width padding creates a complete clone, and the following `cat` or `stack` allocates the final batch again. This repeated copy occurs in the default microbatch-size-one SFT collation path.\n\n## Change\n\nFor a single input, call the existing final `cat`/`stack` directly. The result still owns independent storage and retains the existing shape, layout and autograd behavior. The condition follows from the batch structure: one input cannot need padding to match another input. Multi-input batches keep the original padding loop.\n\n## Validation\n\n- Independent upstream base: `26494490bc237f6c3af62dab6117e6bbb0a78dba`.\n- Native CPU regression file: 78 passes and two allocation-budget failures before; 80 passes after. All original semantic controls pass.\n- Covers left/right padding, cat/stack, numeric and Boolean tensors, empty tensors, single/multiple sequences, noncontiguous and expanded views, channels-last layout, output storage independence, exact output strides and gradients.\n- Actual `SFTDataset` and `DataLoader` with a local tokenizer feed GPT2 through three SGD updates. Every parameter matches the existing collation algorithm for microbatch sizes 1 and 2 in SFT and pretraining modes.\n- `python -m compileall -q openrlhf examples tests` passes; the full `python -m pytest -q` run reports 283 passed and 2 skipped.\n- All repository pre-commit hooks pass on the exact source commit, including Black, isort and autoflake.\n\n## Local collation measurements\n\nTorch 2.9.1+cpu, Python 3.12, one hosted CPU runner with two threads. Each case has a 100-call warmup and seven timed blocks of 100 calls. Values below are medians per call; output SHA-256 values match before and after.\n\n| Batch × padded length | Before → after time | Before → after operator-allocated bytes |\n| --- | --- | --- |\n| 1 × 8,192 | 4.549 → 2.113 µs | 131,072 → 65,536 |\n| 8 × 8,192 | 37.835 → 35.926 µs | 1,048,576 → 1,048,576 |\n| 32 × 8,192 | 145.041 → 142.895 µs | 4,194,304 → 4,194,304 |\n| 32 × 8,192, varying lengths | 636.197 → 630.439 µs | 4,194,304 → 4,194,304 |\n\nThe measured improvement is the single-input collation path. Multi-input timing differences are controls for the unchanged algorithm. Allocation figures are positive operator allocation totals from the CPU profiler, not process peak memory. GPU, distributed training and end-to-end RL throughput were not measured.\n\nNative tests and benchmark: https://github.com/Afloat16/OpenRLHF/actions/runs/43422837888\n\nExact-source repository hooks: https://github.com/Afloat16/OpenRLHF/actions/runs/43422903546\n",
+  "head": "3737390e06bb85a36f050358f4813807a12e4713",
+  "upstream_merged_count": 0,
+  "merged_at": null,
+  "native_run": "https://github.com/Afloat16/OpenRLHF/actions/runs/43422837888",
+  "native_job_id": 131876812366,
+  "validation_commit": "fdf5b5183a723f54bcd260fea94a19edcb2d93ac",
+  "baseline": {
+    "failed": 2,
+    "passed": 78,
+    "failure_scope": "Allocation-budget checks only; semantic controls pass."
+  },
+  "tests": {
+    "new_passed": 80,
+    "full_passed": 283,
+    "full_skipped": 2,
+    "compileall": "passed",
+    "pre_commit": "passed"
+  },
+  "hooks": {
+    "run": "https://github.com/Afloat16/OpenRLHF/actions/runs/43422903546",
+    "job_id": 131877026549,
+    "commit": "cc4b73c1d3ea01471b369790454b4d9a0bf67466",
+    "status": "passed"
+  },
+  "benchmark": [
+    {
+      "torch": "2.9.1+cpu",
+      "threads": 2,
+      "rows": [
+        {
+          "batch_size": 1,
+          "length": 8192,
+          "ragged": false,
+          "output_sha256": "d7c2866f911c21d6ef9dd404b53dd7516860ff6b088a5135b3b71c81442c0c9e",
+          "operator_allocated_bytes": 131072,
+          "output_bytes": 65536,
+          "median_seconds": 0.000004548689999808175,
+          "all_seconds": [
+            0.00000463101000008237,
+            0.000004548689999808175,
+            0.000004583440000089922,
+            0.000004516340000009222,
+            0.0000045954600000186475,
+            0.0000045188400000029105,
+            0.000004536970000117435
+          ]
+        },
+        {
+          "batch_size": 8,
+          "length": 8192,
+          "ragged": false,
+          "output_sha256": "8e1ced97f6ccd97cdc3f01ec62440d72cb88c7c8840f915f85485a178273148d",
+          "operator_allocated_bytes": 1048576,
+          "output_bytes": 524288,
+          "median_seconds": 0.00003783488000010493,
+          "all_seconds": [
+            0.00003783488000010493,
+            0.00003798410000001695,
+            0.00003810699000013073,
+            0.000037898969999901055,
+            0.00003773262000009936,
+            0.00003779211000022542,
+            0.00003775835999988431
+          ]
+        },
+        {
+          "batch_size": 32,
+          "length": 8192,
+          "ragged": false,
+          "output_sha256": "a20c7ca44f19bb3e7ae78333a4c76fb848e07eb7d4c79bd5cf145943ffb7f9a9",
+          "operator_allocated_bytes": 4194304,
+          "output_bytes": 2097152,
+          "median_seconds": 0.00014504085999988091,
+          "all_seconds": [
+            0.00014589615999994977,
+            0.0001477226199997972,
+            0.00014504085999988091,
+            0.00014544557999983,
+            0.00014430504999978665,
+            0.0001430410400001847,
+            0.00014356563000006873
+          ]
+        },
+        {
+          "batch_size": 32,
+          "length": 8192,
+          "ragged": true,
+          "output_sha256": "e95ed1ef4d0cdb8021e630bd47c5c2d39817f97ffb075bfad929b055a6556a9f",
+          "operator_allocated_bytes": 4194304,
+          "output_bytes": 2097152,
+          "median_seconds": 0.0006361965700000383,
+          "all_seconds": [
+            0.000638180579999812,
+            0.0006337498600001368,
+            0.0006277643100000319,
+            0.0006313434199998369,
+            0.0006361965700000383,
+            0.0006378838300000211,
+            0.0006365047400001345
+          ]
+        }
+      ]
+    },
+    {
+      "torch": "2.9.1+cpu",
+      "threads": 2,
+      "rows": [
+        {
+          "batch_size": 1,
+          "length": 8192,
+          "ragged": false,
+          "output_sha256": "d7c2866f911c21d6ef9dd404b53dd7516860ff6b088a5135b3b71c81442c0c9e",
+          "operator_allocated_bytes": 65536,
+          "output_bytes": 65536,
+          "median_seconds": 0.0000021129000000996713,
+          "all_seconds": [
+            0.000002120910000087406,
+            0.0000021129000000996713,
+            0.000002112100000033479,
+            0.0000021884099999169848,
+            0.000002107690000059392,
+            0.0000022490100002414694,
+            0.000002080950000049597
+          ]
+        },
+        {
+          "batch_size": 8,
+          "length": 8192,
+          "ragged": false,
+          "output_sha256": "8e1ced97f6ccd97cdc3f01ec62440d72cb88c7c8840f915f85485a178273148d",
+          "operator_allocated_bytes": 1048576,
+          "output_bytes": 524288,
+          "median_seconds": 0.00003592558000008239,
+          "all_seconds": [
+            0.00003592558000008239,
+            0.000035648660000049406,
+            0.0000362232300000187,
+            0.00003599519000005102,
+            0.00003694091999989268,
+            0.000035861879999856684,
+            0.000035760740000227995
+          ]
+        },
+        {
+          "batch_size": 32,
+          "length": 8192,
+          "ragged": false,
+          "output_sha256": "a20c7ca44f19bb3e7ae78333a4c76fb848e07eb7d4c79bd5cf145943ffb7f9a9",
+          "operator_allocated_bytes": 4194304,
+          "output_bytes": 2097152,
+          "median_seconds": 0.00014289540999982365,
+          "all_seconds": [
+            0.0001421073200000933,
+            0.0001415695000000028,
+            0.00014289540999982365,
+            0.00014333257000004096,
+            0.00014438255999976946,
+            0.00014314918999986048,
+            0.00014248559000009208
+          ]
+        },
+        {
+          "batch_size": 32,
+          "length": 8192,
+          "ragged": true,
+          "output_sha256": "e95ed1ef4d0cdb8021e630bd47c5c2d39817f97ffb075bfad929b055a6556a9f",
+          "operator_allocated_bytes": 4194304,
+          "output_bytes": 2097152,
+          "median_seconds": 0.0006304385300001059,
+          "all_seconds": [
+            0.0006303214499999399,
+            0.0006304385300001059,
+            0.0006275001699998484,
+            0.0006299902499998212,
+            0.0006391972900001975,
+            0.0006675470999999789,
+            0.0006566837500000133
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "CPU collation measurements only; no GPU or distributed training execution.",
+    "No end-to-end RL throughput or model quality improvement claimed.",
+    "Multiple-input batches retain the original padding implementation; small timing differences are control measurements."
+  ],
+  "prefilled_url": "https://github.com/OpenRLHF/OpenRLHF/compare/main...Afloat16:perf/zero-width-padding-copies-20261113?expand=1&title=Avoid%20redundant%20padding%20copies%20for%20single-sequence%20batches&body=%23%23%20Problem%0A%0A%60zero_pad_sequences%60%20calls%20%60F.pad%60%20even%20when%20a%20batch%20contains%20one%20sequence.%20Zero-width%20padding%20creates%20a%20complete%20clone%2C%20and%20the%20following%20%60cat%60%20or%20%60stack%60%20allocates%20the%20final%20batch%20again.%20This%20repeated%20copy%20occurs%20in%20the%20default%20microbatch-size-one%20SFT%20collation%20path.%0A%0A%23%23%20Change%0A%0AFor%20a%20single%20input%2C%20call%20the%20existing%20final%20%60cat%60%2F%60stack%60%20directly.%20The%20result%20still%20owns%20independent%20storage%20and%20retains%20the%20existing%20shape%2C%20layout%20and%20autograd%20behavior.%20The%20condition%20follows%20from%20the%20batch%20structure%3A%20one%20input%20cannot%20need%20padding%20to%20match%20another%20input.%20Multi-input%20batches%20keep%20the%20original%20padding%20loop.%0A%0A%23%23%20Validation%0A%0A-%20Independent%20upstream%20base%3A%20%6026494490bc237f6c3af62dab6117e6bbb0a78dba%60.%0A-%20Native%20CPU%20regression%20file%3A%2078%20passes%20and%20two%20allocation-budget%20failures%20before%3B%2080%20passes%20after.%20All%20original%20semantic%20controls%20pass.%0A-%20Covers%20left%2Fright%20padding%2C%20cat%2Fstack%2C%20numeric%20and%20Boolean%20tensors%2C%20empty%20tensors%2C%20single%2Fmultiple%20sequences%2C%20noncontiguous%20and%20expanded%20views%2C%20channels-last%20layout%2C%20output%20storage%20independence%2C%20exact%20output%20strides%20and%20gradients.%0A-%20Actual%20%60SFTDataset%60%20and%20%60DataLoader%60%20with%20a%20local%20tokenizer%20feed%20GPT2%20through%20three%20SGD%20updates.%20Every%20parameter%20matches%20the%20existing%20collation%20algorithm%20for%20microbatch%20sizes%201%20and%202%20in%20SFT%20and%20pretraining%20modes.%0A-%20%60python%20-m%20compileall%20-q%20openrlhf%20examples%20tests%60%20passes%3B%20the%20full%20%60python%20-m%20pytest%20-q%60%20run%20reports%20283%20passed%20and%202%20skipped.%0A-%20All%20repository%20pre-commit%20hooks%20pass%20on%20the%20exact%20source%20commit%2C%20including%20Black%2C%20isort%20and%20autoflake.%0A%0A%23%23%20Local%20collation%20measurements%0A%0ATorch%202.9.1%2Bcpu%2C%20Python%203.12%2C%20one%20hosted%20CPU%20runner%20with%20two%20threads.%20Each%20case%20has%20a%20100-call%20warmup%20and%20seven%20timed%20blocks%20of%20100%20calls.%20Values%20below%20are%20medians%20per%20call%3B%20output%20SHA-256%20values%20match%20before%20and%20after.%0A%0A%7C%20Batch%20%C3%97%20padded%20length%20%7C%20Before%20%E2%86%92%20after%20time%20%7C%20Before%20%E2%86%92%20after%20operator-allocated%20bytes%20%7C%0A%7C%20---%20%7C%20---%20%7C%20---%20%7C%0A%7C%201%20%C3%97%208%2C192%20%7C%204.549%20%E2%86%92%202.113%20%C2%B5s%20%7C%20131%2C072%20%E2%86%92%2065%2C536%20%7C%0A%7C%208%20%C3%97%208%2C192%20%7C%2037.835%20%E2%86%92%2035.926%20%C2%B5s%20%7C%201%2C048%2C576%20%E2%86%92%201%2C048%2C576%20%7C%0A%7C%2032%20%C3%97%208%2C192%20%7C%20145.041%20%E2%86%92%20142.895%20%C2%B5s%20%7C%204%2C194%2C304%20%E2%86%92%204%2C194%2C304%20%7C%0A%7C%2032%20%C3%97%208%2C192%2C%20varying%20lengths%20%7C%20636.197%20%E2%86%92%20630.439%20%C2%B5s%20%7C%204%2C194%2C304%20%E2%86%92%204%2C194%2C304%20%7C%0A%0AThe%20measured%20improvement%20is%20the%20single-input%20collation%20path.%20Multi-input%20timing%20differences%20are%20controls%20for%20the%20unchanged%20algorithm.%20Allocation%20figures%20are%20positive%20operator%20allocation%20totals%20from%20the%20CPU%20profiler%2C%20not%20process%20peak%20memory.%20GPU%2C%20distributed%20training%20and%20end-to-end%20RL%20throughput%20were%20not%20measured.%0A%0ANative%20tests%20and%20benchmark%3A%20https%3A%2F%2Fgithub.com%2FAfloat16%2FOpenRLHF%2Factions%2Fruns%2F43422837888%0A%0AExact-source%20repository%20hooks%3A%20https%3A%2F%2Fgithub.com%2FAfloat16%2FOpenRLHF%2Factions%2Fruns%2F43422903546%0A",
+  "pr_number": 1417,
+  "pr_url": "https://github.com/OpenRLHF/OpenRLHF/pull/1417",
+  "draft": false,
+  "maintainer_can_modify": false
+}
