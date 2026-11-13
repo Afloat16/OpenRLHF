@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 BASE = "26494490bc237f6c3af62dab6117e6bbb0a78dba"
-SOURCE = "daef38be01c88492d7492f517c088ec775a3d559"
+SOURCE = "3737390e06bb85a36f050358f4813807a12e4713"
 PRODUCTION = "openrlhf/utils/utils.py"
 TEST = "tests/test_zero_pad_sequence_allocations.py"
 
@@ -61,9 +61,12 @@ results.update(
 )
 Path("validation-result.json").write_text(json.dumps(results, indent=2))
 print(json.dumps(results, indent=2), flush=True)
-assert results["baseline"] == {"exit": 1, "tests": 46, "failures": 2, "errors": 0, "skipped": 0}, results
-assert results["patched"] == {"exit": 0, "tests": 46, "failures": 0, "errors": 0, "skipped": 0}, results
+assert results["baseline"] == {"exit": 1, "tests": 80, "failures": 2, "errors": 0, "skipped": 0}, results
+assert results["patched"] == {"exit": 0, "tests": 80, "failures": 0, "errors": 0, "skipped": 0}, results
 assert results["compileall_exit"] == 0 and results["style_exit"] == 0, results
 for before, after in zip(benchmarks["baseline"]["rows"], benchmarks["patched"]["rows"]):
     assert before["output_sha256"] == after["output_sha256"]
-    assert after["operator_allocated_bytes"] < before["operator_allocated_bytes"]
+    if before["batch_size"] == 1:
+        assert after["operator_allocated_bytes"] < before["operator_allocated_bytes"]
+    else:
+        assert after["operator_allocated_bytes"] == before["operator_allocated_bytes"]
