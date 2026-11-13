@@ -1,0 +1,75 @@
+{
+  "repository": "OpenRLHF/OpenRLHF",
+  "fork": "Afloat16/OpenRLHF",
+  "stars": 10151,
+  "archived": false,
+  "default_branch": "main",
+  "base_commit": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+  "base_tree": "454f86b1467e35a3c376f4734ac63ebf306bb0a1",
+  "branch": "fix/selective-log-probability-stability-20261113",
+  "files": [
+    "openrlhf/models/utils.py",
+    "tests/test_selective_log_probs_stability.py"
+  ],
+  "status": "open",
+  "novelty": {
+    "classification": "genuinely-new",
+    "history_entries": 39,
+    "actual_patches_read": [
+      718,
+      878,
+      1319,
+      634,
+      1101,
+      1411
+    ],
+    "related_exclusions": {
+      "634": "Casts actor logits to FP32.",
+      "718": "Introduces selected-logit minus logsumexp; no stabilization against common offsets.",
+      "878": "Adds FlashAttention fast path and token chunking, still uses the cancellation-prone fallback.",
+      "1319": "Temperature is scaled before actor entropy and log probabilities; no fallback normalization change.",
+      "1411": "Independent entropy API; current log_probs_from_logits unchanged."
+    },
+    "personal_heads_checked": 7,
+    "private_helper_search": "Only openrlhf/models/utils.py references _logsumexp_by_chunk."
+  },
+  "validation_scope": "Complete source module loaded with importlib and real DeepSpeed/Torch; native HF GPT2 optimizer steps. No FlashAttention, full Actor or distributed run.",
+  "commit": "3378c344009614dc0d8f49c2f0642abee96bb4bf",
+  "title": "Stabilize selective log probabilities without retaining vocabulary buffers",
+  "body": "## Problem\n\nThe float32/float64 fallback in `log_probs_from_logits` subtracts a large `logsumexp` result from the selected logit. A shared logit offset can erase the normalizer in that subtraction and also corrupt its gradient. For seven equal float32 logits at 1e8, the existing fallback returns 0 instead of -log(7).\n\n## Change\n\nNormalize each existing 1,024-token chunk with `log_softmax` before gathering the selected labels. Non-reentrant checkpointing includes both operations, so backward recomputes a chunk instead of retaining an additional full-vocabulary output for every token. The unused single-caller logsumexp helper is removed. The FlashAttention path, lower-precision path, temperature behavior, invalid-label checks and empty-batch gradients are preserved.\n\n## Validation\n\n- Exact upstream base: `26494490bc237f6c3af62dab6117e6bbb0a78dba`.\n- Native CPU regression file: 10 failures / 34 passes before; 44 passes after.\n- Repository commands: `python -m compileall -q openrlhf examples tests` passes; `python -m pytest -q` reports 247 passed and 2 skipped. Black, isort and autoflake checks pass.\n- Covers FP32/FP64 values and analytic gradients, signed common offsets, noncontiguous inputs, 1,024-token boundaries, empty batches, FP16/BF16 controls, nonfinite rows, invalid labels and saved-tensor storage.\n- Four local GPT2 training cases compare three SGD updates, including saved optimizer/model restoration, against a stable double-precision reference evaluated on the actual rounded input logits.\n- Native packages: Torch 2.9.1+cpu, DeepSpeed 0.19.6, Transformers 5.15.0, Python 3.12. The complete numerical source module is loaded directly with real dependencies; no functions or dependencies are stubbed. FlashAttention, full Actor execution, GPU and distributed training were not run.\n\n## Memory and timing\n\nOne CPU runner, two threads, one warmup and five timed iterations, random float32 logits:\n\n| Shape | Forward only median | Forward + backward median | First-step process peak RSS |\n| --- | --- | --- | --- |\n| 32 × 512 | 0.231 → 0.324 ms | 0.457 → 0.773 ms | 493,768 → 501,104 KiB for backward |\n| 4,097 × 8,192 | 65.921 → 56.563 ms | 512.248 → 483.824 ms | 1,018,448 → 927,084 KiB for backward |\n\nThe larger backward case saves no additional vocabulary buffer (extra saved storage 16,388 → 0 bytes, excluding input storage). Checkpoint bookkeeping adds overhead to small batches; these are local helper measurements, not an end-to-end RL throughput claim. The benchmark verifies ordinary-input values and sampled gradients before comparing timings.\n\nNative evidence: https://github.com/Afloat16/OpenRLHF/actions/runs/43421276254\n",
+  "head": "3378c344009614dc0d8f49c2f0642abee96bb4bf",
+  "upstream_merged_count": 0,
+  "merged_at": null,
+  "native_run": "https://github.com/Afloat16/OpenRLHF/actions/runs/43421276254",
+  "native_job_id": 131871608369,
+  "validation_commit": "ea3a01f0b5a02d4efafdb649d64b62ab0437f28b",
+  "baseline": {
+    "failed": 10,
+    "passed": 34
+  },
+  "tests": {
+    "new_passed": 44,
+    "full_passed": 247,
+    "full_skipped": 2,
+    "compileall": "passed",
+    "black": "passed",
+    "isort": "passed",
+    "autoflake": "passed"
+  },
+  "limitations": [
+    "Only CPU execution; no FlashAttention, full Actor, GPU or distributed execution.",
+    "Small-batch checkpoint overhead is measured and reported.",
+    "Full suite uses its existing fixtures; the new regression file separately loads the entire numerical source module with real DeepSpeed and Torch."
+  ],
+  "prefilled_url": "https://github.com/OpenRLHF/OpenRLHF/compare/main...Afloat16:fix/selective-log-probability-stability-20261113?expand=1&title=Stabilize%20selective%20log%20probabilities%20without%20retaining%20vocabulary%20buffers&body=%23%23%20Problem%0A%0AThe%20float32%2Ffloat64%20fallback%20in%20%60log_probs_from_logits%60%20subtracts%20a%20large%20%60logsumexp%60%20result%20from%20the%20selected%20logit.%20A%20shared%20logit%20offset%20can%20erase%20the%20normalizer%20in%20that%20subtraction%20and%20also%20corrupt%20its%20gradient.%20For%20seven%20equal%20float32%20logits%20at%201e8%2C%20the%20existing%20fallback%20returns%200%20instead%20of%20-log(7).%0A%0A%23%23%20Change%0A%0ANormalize%20each%20existing%201%2C024-token%20chunk%20with%20%60log_softmax%60%20before%20gathering%20the%20selected%20labels.%20Non-reentrant%20checkpointing%20includes%20both%20operations%2C%20so%20backward%20recomputes%20a%20chunk%20instead%20of%20retaining%20an%20additional%20full-vocabulary%20output%20for%20every%20token.%20The%20unused%20single-caller%20logsumexp%20helper%20is%20removed.%20The%20FlashAttention%20path%2C%20lower-precision%20path%2C%20temperature%20behavior%2C%20invalid-label%20checks%20and%20empty-batch%20gradients%20are%20preserved.%0A%0A%23%23%20Validation%0A%0A-%20Exact%20upstream%20base%3A%20%6026494490bc237f6c3af62dab6117e6bbb0a78dba%60.%0A-%20Native%20CPU%20regression%20file%3A%2010%20failures%20%2F%2034%20passes%20before%3B%2044%20passes%20after.%0A-%20Repository%20commands%3A%20%60python%20-m%20compileall%20-q%20openrlhf%20examples%20tests%60%20passes%3B%20%60python%20-m%20pytest%20-q%60%20reports%20247%20passed%20and%202%20skipped.%20Black%2C%20isort%20and%20autoflake%20checks%20pass.%0A-%20Covers%20FP32%2FFP64%20values%20and%20analytic%20gradients%2C%20signed%20common%20offsets%2C%20noncontiguous%20inputs%2C%201%2C024-token%20boundaries%2C%20empty%20batches%2C%20FP16%2FBF16%20controls%2C%20nonfinite%20rows%2C%20invalid%20labels%20and%20saved-tensor%20storage.%0A-%20Four%20local%20GPT2%20training%20cases%20compare%20three%20SGD%20updates%2C%20including%20saved%20optimizer%2Fmodel%20restoration%2C%20against%20a%20stable%20double-precision%20reference%20evaluated%20on%20the%20actual%20rounded%20input%20logits.%0A-%20Native%20packages%3A%20Torch%202.9.1%2Bcpu%2C%20DeepSpeed%200.19.6%2C%20Transformers%205.15.0%2C%20Python%203.12.%20The%20complete%20numerical%20source%20module%20is%20loaded%20directly%20with%20real%20dependencies%3B%20no%20functions%20or%20dependencies%20are%20stubbed.%20FlashAttention%2C%20full%20Actor%20execution%2C%20GPU%20and%20distributed%20training%20were%20not%20run.%0A%0A%23%23%20Memory%20and%20timing%0A%0AOne%20CPU%20runner%2C%20two%20threads%2C%20one%20warmup%20and%20five%20timed%20iterations%2C%20random%20float32%20logits%3A%0A%0A%7C%20Shape%20%7C%20Forward%20only%20median%20%7C%20Forward%20%2B%20backward%20median%20%7C%20First-step%20process%20peak%20RSS%20%7C%0A%7C%20---%20%7C%20---%20%7C%20---%20%7C%20---%20%7C%0A%7C%2032%20%C3%97%20512%20%7C%200.231%20%E2%86%92%200.324%20ms%20%7C%200.457%20%E2%86%92%200.773%20ms%20%7C%20493%2C768%20%E2%86%92%20501%2C104%20KiB%20for%20backward%20%7C%0A%7C%204%2C097%20%C3%97%208%2C192%20%7C%2065.921%20%E2%86%92%2056.563%20ms%20%7C%20512.248%20%E2%86%92%20483.824%20ms%20%7C%201%2C018%2C448%20%E2%86%92%20927%2C084%20KiB%20for%20backward%20%7C%0A%0AThe%20larger%20backward%20case%20saves%20no%20additional%20vocabulary%20buffer%20(extra%20saved%20storage%2016%2C388%20%E2%86%92%200%20bytes%2C%20excluding%20input%20storage).%20Checkpoint%20bookkeeping%20adds%20overhead%20to%20small%20batches%3B%20these%20are%20local%20helper%20measurements%2C%20not%20an%20end-to-end%20RL%20throughput%20claim.%20The%20benchmark%20verifies%20ordinary-input%20values%20and%20sampled%20gradients%20before%20comparing%20timings.%0A%0ANative%20evidence%3A%20https%3A%2F%2Fgithub.com%2FAfloat16%2FOpenRLHF%2Factions%2Fruns%2F43421276254%0A",
+  "pr_number": 1415,
+  "pr_url": "https://github.com/OpenRLHF/OpenRLHF/pull/1415",
+  "draft": false,
+  "maintainer_can_modify": false,
+  "hooks": {
+    "run": "https://github.com/Afloat16/OpenRLHF/actions/runs/43421861103",
+    "job_id": 131873544289,
+    "commit": "7465092d9ca49ce1c75501039174dd99638ff806",
+    "status": "passed"
+  }
+}
