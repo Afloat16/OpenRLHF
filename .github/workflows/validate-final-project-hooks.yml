@@ -26,6 +26,6 @@ jobs:
           git diff --exit-code
       - name: Check zero-width padding
         run: |
-          git checkout --detach 2610aac7095e1e3476b00d3b2cb5f7027f355f33
+          git checkout --detach daef38be01c88492d7492f517c088ec775a3d559
           pre-commit run --files openrlhf/utils/utils.py tests/test_zero_pad_sequence_allocations.py
           git diff --exit-code
