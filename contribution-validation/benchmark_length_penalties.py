@@ -7,7 +7,6 @@ import torch
 
 from openrlhf.trainer.ppo_utils import Experience, apply_overlong_penalty, apply_stop_properly_penalty
 
-
 torch.set_num_threads(1)
 rows = []
 for size in (1, 64, 4096, 32768):
