@@ -1,0 +1,69 @@
+name: Validate module-instance Actor initialization
+on:
+  push:
+    branches: [validation/actor-module-packing-state-20261113]
+permissions:
+  contents: read
+jobs:
+  native-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: .
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 7a3555b9b2e4e676c7391e47627887f2df88c056
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install native CPU dependencies
+        run: |
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install torch==2.9.1 transformers==4.57.1 pytest==9.0.2 black==26.5.1 isort==9.0.0a3 autoflake==2.3.3
+          python -m pip freeze > installed-dependencies.txt
+      - name: Verify unchanged upstream failure
+        run: |
+          git checkout 26494490bc237f6c3af62dab6117e6bbb0a78dba -- openrlhf/models/actor.py
+          python - <<'PY'
+          import subprocess
+          import sys
+          import xml.etree.ElementTree as ET
+          with open("baseline.log", "w") as log:
+              result = subprocess.run([sys.executable, "-m", "pytest", "-q", "tests/test_actor_module_instance.py", "--junitxml=baseline.xml"], stdout=log, stderr=subprocess.STDOUT, check=False)
+          print(open("baseline.log").read(), flush=True)
+          suites = ET.parse("baseline.xml").getroot()
+          totals = {name: sum(int(s.get(name, 0)) for s in suites.iter("testsuite")) for name in ("tests", "failures", "errors", "skipped")}
+          print("Exact-base regression totals:", totals, flush=True)
+          assert result.returncode == 1 and totals == {"tests": 18, "failures": 18, "errors": 0, "skipped": 0}, totals
+          PY
+      - name: Verify native Actor and model updates
+        if: always()
+        run: |
+          git checkout 7a3555b9b2e4e676c7391e47627887f2df88c056 -- openrlhf/models/actor.py
+          test "$(git rev-parse HEAD)" = "7a3555b9b2e4e676c7391e47627887f2df88c056"
+          set +e
+          python -m pytest -q tests/test_actor_module_instance.py tests/test_actor_entropy_temperature.py --junitxml=patched.xml > patched.log 2>&1
+          status=$?
+          cat patched.log
+          exit "$status"
+      - name: Check project Python style
+        if: always()
+        run: |
+          python -m isort --check-only --diff openrlhf/models/actor.py tests/test_actor_module_instance.py
+          python -m black --check --diff openrlhf/models/actor.py tests/test_actor_module_instance.py
+          python -m autoflake --check-diff --remove-all-unused-imports openrlhf/models/actor.py tests/test_actor_module_instance.py
+          git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: actor-module-native-results
+          path: |
+            patched.xml
+            patched.log
+            baseline.xml
+            baseline.log
+            installed-dependencies.txt
