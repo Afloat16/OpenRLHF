@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 BASE = "26494490bc237f6c3af62dab6117e6bbb0a78dba"
-SOURCE = "2610aac7095e1e3476b00d3b2cb5f7027f355f33"
+SOURCE = "daef38be01c88492d7492f517c088ec775a3d559"
 PRODUCTION = "openrlhf/utils/utils.py"
 TEST = "tests/test_zero_pad_sequence_allocations.py"
 
