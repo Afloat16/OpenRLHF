@@ -1,0 +1,2179 @@
+{
+  "audit_version": 1,
+  "generated_at": "2026-11-13T12:28:13.821Z",
+  "source_snapshot": "root_work/global_live_pr_snapshots.json",
+  "source_snapshot_verified_at": "2026-11-13T12:10:04.499Z",
+  "source_snapshot_entries": 293,
+  "selection": "state == open and (comments > 0 or review_comments > 0)",
+  "selected_prs": 75,
+  "scope_note": "This audits feedback on the selected snapshot, not all CI failures or final merge eligibility. Later PRs or comments are outside the retrieval window unless included in a later refresh.",
+  "retrieval": {
+    "endpoints": 225,
+    "all_successful": true,
+    "pagination": "All comment/review lists returned fewer than 100 items; no further pages.",
+    "first": "2026-11-13T12:23:44.384Z",
+    "last": "2026-11-13T12:24:08.180Z"
+  },
+  "counts": {
+    "issue_comments": 114,
+    "formal_reviews": 24,
+    "inline_comments": 2,
+    "actor_items": {
+      "automation": 129,
+      "pr_author": 8,
+      "third_party_user_account": 3
+    },
+    "formal_review_states": {
+      "COMMENTED": 24
+    },
+    "unaddressed_in_scope_code_requests": 0,
+    "implemented_code_requests": 2
+  },
+  "cautions": [
+    "GitHub user account type and author association are recorded; write permission or maintainer status is not inferred from a contributor account.",
+    "Automated approval recommendations have COMMENTED state and are not counted as formal human approvals.",
+    "This audit adds zero improvement or merged counts. No PR, comment, review, label, approval or code was modified."
+  ],
+  "deferred_separate_issue": {
+    "repository": "huggingface/accelerate",
+    "pr_number": 4531,
+    "description": "dispatch_model ignores a direct-parameter device_map entry as a non-submodule; the reported runtime storage budget issue exists on both parent and PR and is explicitly outside the sizing fix.",
+    "evidence": "https://github.com/huggingface/accelerate/pull/4531#issuecomment-6834185084"
+  },
+  "entries": [
+    {
+      "repository": "cleanlab/cleanlab",
+      "pr_number": 1365,
+      "head": "58b3ade069c78ae2907be46f77450792df9496f3",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "CLAassistant",
+          "actor_type": "automation",
+          "classification": "cla_satisfied",
+          "count": 1
+        },
+        {
+          "kind": "issue_comments",
+          "actor": "Afloat16",
+          "actor_type": "pr_author",
+          "classification": "author_followup",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/cleanlab/cleanlab/pull/1365#issuecomment-6827896317",
+        "https://github.com/cleanlab/cleanlab/pull/1365#issuecomment-6843562489"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CLA is satisfied; any author CI-baseline comparison is informational.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "cleanlab/cleanlab",
+      "pr_number": 1366,
+      "head": "acb54a1a888781a140617c4275bcfe6a57c2924a",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "CLAassistant",
+          "actor_type": "automation",
+          "classification": "cla_satisfied",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/cleanlab/cleanlab/pull/1366#issuecomment-6827896009"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CLA is satisfied; any author CI-baseline comparison is informational.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "cleanlab/cleanlab",
+      "pr_number": 1369,
+      "head": "7cc8b24467a5de2aa3db5d7348f59849822f7122",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "CLAassistant",
+          "actor_type": "automation",
+          "classification": "cla_satisfied",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/cleanlab/cleanlab/pull/1369#issuecomment-6828502724"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CLA is satisfied; any author CI-baseline comparison is informational.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "cleanlab/cleanlab",
+      "pr_number": 1370,
+      "head": "18330d8a0e6b3233d7ff41d39da4ad5d817aa1cf",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "CLAassistant",
+          "actor_type": "automation",
+          "classification": "cla_satisfied",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/cleanlab/cleanlab/pull/1370#issuecomment-6828503011"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CLA is satisfied; any author CI-baseline comparison is informational.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "cleanlab/cleanlab",
+      "pr_number": 1371,
+      "head": "7e72253b23affb1d5d886ee42ab612772e999a3d",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "CLAassistant",
+          "actor_type": "automation",
+          "classification": "cla_satisfied",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/cleanlab/cleanlab/pull/1371#issuecomment-6828737291"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CLA is satisfied; any author CI-baseline comparison is informational.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "cleanlab/cleanlab",
+      "pr_number": 1367,
+      "head": "834f9b38c70cf3399abcf2faa6a5eb8b2d6fdc25",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "CLAassistant",
+          "actor_type": "automation",
+          "classification": "cla_satisfied",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/cleanlab/cleanlab/pull/1367#issuecomment-6828291572"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CLA is satisfied; any author CI-baseline comparison is informational.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "cleanlab/cleanlab",
+      "pr_number": 1373,
+      "head": "336bee612c4baef1715f948fb3c45cb4d4528722",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "CLAassistant",
+          "actor_type": "automation",
+          "classification": "cla_satisfied",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/cleanlab/cleanlab/pull/1373#issuecomment-6828887891"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CLA is satisfied; any author CI-baseline comparison is informational.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "cleanlab/cleanlab",
+      "pr_number": 1374,
+      "head": "9fb0e84f6f542b54d731ac3f131fd39a8d11486b",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "CLAassistant",
+          "actor_type": "automation",
+          "classification": "cla_satisfied",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/cleanlab/cleanlab/pull/1374#issuecomment-6828888265"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CLA is satisfied; any author CI-baseline comparison is informational.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "cleanlab/cleanlab",
+      "pr_number": 1372,
+      "head": "82432167e3f9849e5f5d8acafce983dc0e30c8f3",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "CLAassistant",
+          "actor_type": "automation",
+          "classification": "cla_satisfied",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/cleanlab/cleanlab/pull/1372#issuecomment-6828824803"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CLA is satisfied; any author CI-baseline comparison is informational.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "cleanlab/cleanlab",
+      "pr_number": 1368,
+      "head": "48831c62c3dcbdb66e2fa1897c3a2b942a37d600",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "CLAassistant",
+          "actor_type": "automation",
+          "classification": "cla_satisfied",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/cleanlab/cleanlab/pull/1368#issuecomment-6828291019"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CLA is satisfied; any author CI-baseline comparison is informational.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/accelerate",
+      "pr_number": 4531,
+      "head": "afff12fe664b31fea12a049a4580ed7d9aecd583",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "JonnyFaeth",
+          "actor_type": "third_party_user_account",
+          "classification": "separate_downstream_limitation_documented",
+          "count": 1
+        },
+        {
+          "kind": "issue_comments",
+          "actor": "Afloat16",
+          "actor_type": "pr_author",
+          "classification": "author_followup",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/accelerate/pull/4531#issuecomment-6834185084",
+        "https://github.com/huggingface/accelerate/pull/4531#issuecomment-6842100055"
+      ],
+      "assessment": {
+        "disposition": "scope_clarified_separate_issue_deferred",
+        "note": "Direct-parameter dispatch exceeds the runtime memory budget on both parent and PR. Public reply and PR description explicitly limit this change to planner sizing; dispatch/offload behavior remains a separate issue.",
+        "evidence": [
+          "https://github.com/huggingface/accelerate/pull/4531#issuecomment-6834185084",
+          "https://github.com/huggingface/accelerate/pull/4531#issuecomment-6842100055"
+        ],
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/datasets",
+      "pr_number": 9018,
+      "head": "5e7b9d0dcb4327099f3f1cd6e42af7c11771f723",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "JonnyFaeth",
+          "actor_type": "third_party_user_account",
+          "classification": "positive_integration_evidence",
+          "count": 1
+        },
+        {
+          "kind": "issue_comments",
+          "actor": "Afloat16",
+          "actor_type": "pr_author",
+          "classification": "author_followup",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/datasets/pull/9018#issuecomment-6833999767",
+        "https://github.com/huggingface/datasets/pull/9018#issuecomment-6842111517"
+      ],
+      "assessment": {
+        "disposition": "positive_feedback_acknowledged",
+        "note": "Additional public streaming/resume tests report success and exact-parent failures. Per-file pandas materialization remains documented; no requested change.",
+        "evidence": [
+          "https://github.com/huggingface/datasets/pull/9018#issuecomment-6833999767",
+          "https://github.com/huggingface/datasets/pull/9018#issuecomment-6842111517"
+        ],
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/transformers",
+      "pr_number": 50675,
+      "head": "cfb813eb70e312ff1a91a5726d52236b3827713c",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "maintainer_ci_approval_pending",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/transformers/pull/50675#issuecomment-6832415734"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Repository CI awaits maintainer approval; this is not a code-change request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/transformers",
+      "pr_number": 50665,
+      "head": "f1af5a0d1993eb58304db4ebe61daec35ba4a132",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "maintainer_ci_approval_pending",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/transformers/pull/50665#issuecomment-6827632427"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Repository CI awaits maintainer approval; this is not a code-change request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/transformers",
+      "pr_number": 50678,
+      "head": "6cb160b49beefcb922bc7f0b158094be1000ca74",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "maintainer_ci_approval_pending",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/transformers/pull/50678#issuecomment-6833055088"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Repository CI awaits maintainer approval; this is not a code-change request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/transformers",
+      "pr_number": 50700,
+      "head": "d7b21da91ac1f4aae5276869762853508475ed00",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "maintainer_ci_approval_pending",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/transformers/pull/50700#issuecomment-6848521635"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Repository CI awaits maintainer approval; this is not a code-change request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/transformers",
+      "pr_number": 50680,
+      "head": "708763e7fe0c2627bf2305442bd324d571e82187",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "maintainer_ci_approval_pending",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/transformers/pull/50680#issuecomment-6833730257"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Repository CI awaits maintainer approval; this is not a code-change request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/transformers",
+      "pr_number": 50701,
+      "head": "d6a9829826927f13543ccc3e93a74ba2cde0aae3",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "obsolete_security_failure_replaced",
+          "count": 1
+        },
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "maintainer_ci_approval_pending",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/transformers/pull/50701#issuecomment-6848531284",
+        "https://github.com/huggingface/transformers/pull/50701#issuecomment-6849017647"
+      ],
+      "assessment": {
+        "disposition": "security_failure_replaced_maintainer_ci_approval_pending",
+        "note": "The blocked-security notice concerns old head 29f8350. Current d6a9829 has a successful bandit-check and a successful approval-needed notice; the CI approval step is skipped pending maintainer action.",
+        "current_head": "d6a9829826927f13543ccc3e93a74ba2cde0aae3",
+        "evidence": [
+          "https://github.com/huggingface/transformers/actions/runs/43400213055/job/131801089488",
+          "https://github.com/huggingface/transformers/actions/runs/43400213055/job/131801086071",
+          "https://github.com/huggingface/transformers/actions/runs/43400213055/job/131800990745"
+        ],
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/transformers",
+      "pr_number": 50702,
+      "head": "3bf25ca148b65b52f3c6849d86c3084205a03c5c",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "maintainer_ci_approval_pending",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/transformers/pull/50702#issuecomment-6849013403"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Repository CI awaits maintainer approval; this is not a code-change request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/transformers",
+      "pr_number": 50705,
+      "head": "bf9a3cbe64372541b9be46b691f033301e6fc1b8",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "maintainer_ci_approval_pending",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/transformers/pull/50705#issuecomment-6849798645"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Repository CI awaits maintainer approval; this is not a code-change request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "pr_number": 10035,
+      "head": "0f828731e70bab5ae2ca026995a3b97235c60f02",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "netlify[bot]",
+          "actor_type": "automation",
+          "classification": "optional_preview_approval_pending",
+          "count": 4
+        }
+      ],
+      "sources": [
+        "https://github.com/HumanSignal/label-studio/pull/10035#issuecomment-6834720415",
+        "https://github.com/HumanSignal/label-studio/pull/10035#issuecomment-6834720440",
+        "https://github.com/HumanSignal/label-studio/pull/10035#issuecomment-6834720497",
+        "https://github.com/HumanSignal/label-studio/pull/10035#issuecomment-6834720607"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only optional Netlify preview approval notices.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/transformers",
+      "pr_number": 50708,
+      "head": "bbfc2fe3c40a2d017f52934a6cb0d43aeee4710c",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "maintainer_ci_approval_pending",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/transformers/pull/50708#issuecomment-6850102110"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Repository CI awaits maintainer approval; this is not a code-change request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "pr_number": 10039,
+      "head": "1b3c60f52c0d8aea720f2fe35d21674188a05b73",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "netlify[bot]",
+          "actor_type": "automation",
+          "classification": "optional_preview_approval_pending",
+          "count": 4
+        }
+      ],
+      "sources": [
+        "https://github.com/HumanSignal/label-studio/pull/10039#issuecomment-6835333255",
+        "https://github.com/HumanSignal/label-studio/pull/10039#issuecomment-6835333263",
+        "https://github.com/HumanSignal/label-studio/pull/10039#issuecomment-6835333286",
+        "https://github.com/HumanSignal/label-studio/pull/10039#issuecomment-6835333410"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only optional Netlify preview approval notices.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "pr_number": 10037,
+      "head": "bed8cea6f91e60a040c94d347ef58142e5a99551",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "netlify[bot]",
+          "actor_type": "automation",
+          "classification": "optional_preview_approval_pending",
+          "count": 4
+        }
+      ],
+      "sources": [
+        "https://github.com/HumanSignal/label-studio/pull/10037#issuecomment-6835192186",
+        "https://github.com/HumanSignal/label-studio/pull/10037#issuecomment-6835192200",
+        "https://github.com/HumanSignal/label-studio/pull/10037#issuecomment-6835192227",
+        "https://github.com/HumanSignal/label-studio/pull/10037#issuecomment-6835192426"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only optional Netlify preview approval notices.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "pr_number": 10043,
+      "head": "ef338e5da49ba613e7860d1900b48bc27e2ed4f7",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "netlify[bot]",
+          "actor_type": "automation",
+          "classification": "optional_preview_approval_pending",
+          "count": 4
+        }
+      ],
+      "sources": [
+        "https://github.com/HumanSignal/label-studio/pull/10043#issuecomment-6835939659",
+        "https://github.com/HumanSignal/label-studio/pull/10043#issuecomment-6835939725",
+        "https://github.com/HumanSignal/label-studio/pull/10043#issuecomment-6835939812",
+        "https://github.com/HumanSignal/label-studio/pull/10043#issuecomment-6835939976"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only optional Netlify preview approval notices.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "pr_number": 10041,
+      "head": "967977d2c7e0e1cca0612e2e481642bf4351f11f",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "netlify[bot]",
+          "actor_type": "automation",
+          "classification": "optional_preview_approval_pending",
+          "count": 4
+        }
+      ],
+      "sources": [
+        "https://github.com/HumanSignal/label-studio/pull/10041#issuecomment-6835704110",
+        "https://github.com/HumanSignal/label-studio/pull/10041#issuecomment-6835704130",
+        "https://github.com/HumanSignal/label-studio/pull/10041#issuecomment-6835704165",
+        "https://github.com/HumanSignal/label-studio/pull/10041#issuecomment-6835704305"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only optional Netlify preview approval notices.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "pr_number": 10048,
+      "head": "8fce0827c6980b02722bb11b3c470568bf7f521d",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "netlify[bot]",
+          "actor_type": "automation",
+          "classification": "optional_preview_approval_pending",
+          "count": 4
+        }
+      ],
+      "sources": [
+        "https://github.com/HumanSignal/label-studio/pull/10048#issuecomment-6848680781",
+        "https://github.com/HumanSignal/label-studio/pull/10048#issuecomment-6848680805",
+        "https://github.com/HumanSignal/label-studio/pull/10048#issuecomment-6848680813",
+        "https://github.com/HumanSignal/label-studio/pull/10048#issuecomment-6848680960"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only optional Netlify preview approval notices.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "pr_number": 10045,
+      "head": "f0783c10eacf7c7857ebff179d77ff9cc729d1d3",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "netlify[bot]",
+          "actor_type": "automation",
+          "classification": "optional_preview_approval_pending",
+          "count": 4
+        }
+      ],
+      "sources": [
+        "https://github.com/HumanSignal/label-studio/pull/10045#issuecomment-6836228267",
+        "https://github.com/HumanSignal/label-studio/pull/10045#issuecomment-6836228295",
+        "https://github.com/HumanSignal/label-studio/pull/10045#issuecomment-6836228311",
+        "https://github.com/HumanSignal/label-studio/pull/10045#issuecomment-6836228458"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only optional Netlify preview approval notices.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "huggingface/transformers",
+      "pr_number": 50699,
+      "head": "70f2d58479c7f204648bfad1a67a08435d453e72",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "maintainer_ci_approval_pending",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/huggingface/transformers/pull/50699#issuecomment-6848471429"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Repository CI awaits maintainer approval; this is not a code-change request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "pr_number": 10053,
+      "head": "0e1901aed38f406f993ecfc48d33efd65572e339",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "netlify[bot]",
+          "actor_type": "automation",
+          "classification": "optional_preview_approval_pending",
+          "count": 4
+        }
+      ],
+      "sources": [
+        "https://github.com/HumanSignal/label-studio/pull/10053#issuecomment-6849460521",
+        "https://github.com/HumanSignal/label-studio/pull/10053#issuecomment-6849460532",
+        "https://github.com/HumanSignal/label-studio/pull/10053#issuecomment-6849460533",
+        "https://github.com/HumanSignal/label-studio/pull/10053#issuecomment-6849460677"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only optional Netlify preview approval notices.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "pr_number": 10051,
+      "head": "b79fb42eee772e026ce84890de0ca8cf65b6ef62",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "netlify[bot]",
+          "actor_type": "automation",
+          "classification": "optional_preview_approval_pending",
+          "count": 4
+        }
+      ],
+      "sources": [
+        "https://github.com/HumanSignal/label-studio/pull/10051#issuecomment-6849117914",
+        "https://github.com/HumanSignal/label-studio/pull/10051#issuecomment-6849117930",
+        "https://github.com/HumanSignal/label-studio/pull/10051#issuecomment-6849117948",
+        "https://github.com/HumanSignal/label-studio/pull/10051#issuecomment-6849118014"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only optional Netlify preview approval notices.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "pr_number": 10054,
+      "head": "bc366894e486ab8d74194c4ab0a51f3acd2b6027",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "netlify[bot]",
+          "actor_type": "automation",
+          "classification": "optional_preview_approval_pending",
+          "count": 4
+        }
+      ],
+      "sources": [
+        "https://github.com/HumanSignal/label-studio/pull/10054#issuecomment-6849503212",
+        "https://github.com/HumanSignal/label-studio/pull/10054#issuecomment-6849503237",
+        "https://github.com/HumanSignal/label-studio/pull/10054#issuecomment-6849503246",
+        "https://github.com/HumanSignal/label-studio/pull/10054#issuecomment-6849503382"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only optional Netlify preview approval notices.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "pr_number": 34180,
+      "head": "7ea94334d49d7cf39e7f3f953b0c054c3205b086",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "azure-pipelines[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actor_type": "automation",
+          "classification": "automated_no_findings_comment",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/microsoft/onnxruntime/pull/34180#issuecomment-6848718269",
+        "https://github.com/microsoft/onnxruntime/pull/34180#pullrequestreview-5888568980"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Automated review reports no findings; Azure note is an authorization advisory, not proof of a code failure.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "pr_number": 34182,
+      "head": "8554dd5683f4d6e492d38b530d6d4f14755680f5",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "azure-pipelines[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actor_type": "automation",
+          "classification": "automated_no_findings_comment",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/microsoft/onnxruntime/pull/34182#issuecomment-6849283903",
+        "https://github.com/microsoft/onnxruntime/pull/34182#pullrequestreview-5888866487"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Automated review reports no findings; Azure note is an authorization advisory, not proof of a code failure.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "pr_number": 34181,
+      "head": "a798a04dfbdddb08181903bc7d73923ca97dd2b3",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "azure-pipelines[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actor_type": "automation",
+          "classification": "automated_no_findings_comment",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/microsoft/onnxruntime/pull/34181#issuecomment-6848739235",
+        "https://github.com/microsoft/onnxruntime/pull/34181#pullrequestreview-5888570521"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Automated review reports no findings; Azure note is an authorization advisory, not proof of a code failure.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "pr_number": 34183,
+      "head": "d8596d3fe7a5b0d548e52a97f2252111035b1879",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "azure-pipelines[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actor_type": "automation",
+          "classification": "automated_no_findings_comment",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/microsoft/onnxruntime/pull/34183#issuecomment-6849557929",
+        "https://github.com/microsoft/onnxruntime/pull/34183#pullrequestreview-5889027348"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Automated review reports no findings; Azure note is an authorization advisory, not proof of a code failure.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "pr_number": 34179,
+      "head": "8dea1194e974fa07b1d2f07a190949c3a92cab80",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "azure-pipelines[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actor_type": "automation",
+          "classification": "automated_no_findings_comment",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/microsoft/onnxruntime/pull/34179#issuecomment-6848689133",
+        "https://github.com/microsoft/onnxruntime/pull/34179#pullrequestreview-5888564711"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Automated review reports no findings; Azure note is an authorization advisory, not proof of a code failure.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "pr_number": 34184,
+      "head": "ff57d2442bf826c42f0dd70c96b1e6b7001447e1",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "azure-pipelines[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actor_type": "automation",
+          "classification": "code_request_already_implemented",
+          "count": 1,
+          "review_state": "COMMENTED"
+        },
+        {
+          "kind": "reviews",
+          "actor": "Afloat16",
+          "actor_type": "pr_author",
+          "classification": "author_followup",
+          "count": 1,
+          "review_state": "COMMENTED"
+        },
+        {
+          "kind": "inline_comments",
+          "actor": "Copilot",
+          "actor_type": "automation",
+          "classification": "code_request_already_implemented",
+          "count": 1
+        },
+        {
+          "kind": "inline_comments",
+          "actor": "Afloat16",
+          "actor_type": "pr_author",
+          "classification": "author_followup",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/microsoft/onnxruntime/pull/34184#issuecomment-6849649827",
+        "https://github.com/microsoft/onnxruntime/pull/34184#pullrequestreview-5889112060",
+        "https://github.com/microsoft/onnxruntime/pull/34184#pullrequestreview-5889469788",
+        "https://github.com/microsoft/onnxruntime/pull/34184#discussion_r4561943335",
+        "https://github.com/microsoft/onnxruntime/pull/34184#discussion_r4562213469"
+      ],
+      "assessment": {
+        "disposition": "code_request_implemented",
+        "note": "Root sparse initializers seed graph sorting through values.name in ff57d244; four sparse If/Loop subcases and exact-source native validation already address the request. This is a follow-up to the same PR, not another improvement. Platform thread-resolution state is not asserted.",
+        "resolution_commit": "ff57d2442bf826c42f0dd70c96b1e6b7001447e1",
+        "evidence": [
+          "https://github.com/microsoft/onnxruntime/pull/34184#discussion_r4561943335",
+          "https://github.com/microsoft/onnxruntime/pull/34184#discussion_r4562213469",
+          "https://github.com/Afloat16/onnxruntime/actions/runs/43408398837"
+        ],
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "pr_number": 34185,
+      "head": "be74e3b96032bfdc7060e1a91625de54d1bf773f",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "azure-pipelines[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actor_type": "automation",
+          "classification": "automated_no_findings_comment",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/microsoft/onnxruntime/pull/34185#issuecomment-6849676667",
+        "https://github.com/microsoft/onnxruntime/pull/34185#pullrequestreview-5889098620"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Automated review reports no findings; Azure note is an authorization advisory, not proof of a code failure.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "pr_number": 34186,
+      "head": "5c574563ff5a3707345cd40f507e4c0cdbfb438f",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "azure-pipelines[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actor_type": "automation",
+          "classification": "automated_no_findings_comment",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/microsoft/onnxruntime/pull/34186#issuecomment-6850087030",
+        "https://github.com/microsoft/onnxruntime/pull/34186#pullrequestreview-5889329627"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Automated review reports no findings; Azure note is an authorization advisory, not proof of a code failure.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "pr_number": 34188,
+      "head": "0bceda4c8362cd68a0593cac842957d60363c7e2",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "azure-pipelines[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actor_type": "automation",
+          "classification": "automated_no_findings_comment",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/microsoft/onnxruntime/pull/34188#issuecomment-6850482260",
+        "https://github.com/microsoft/onnxruntime/pull/34188#pullrequestreview-5889564892"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Automated review reports no findings; Azure note is an authorization advisory, not proof of a code failure.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "pr_number": 34190,
+      "head": "d9c51010d378330a4aeb9c3d7a9f4fdbba4866c4",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "azure-pipelines[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actor_type": "automation",
+          "classification": "automated_no_findings_comment",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/microsoft/onnxruntime/pull/34190#issuecomment-6851018153",
+        "https://github.com/microsoft/onnxruntime/pull/34190#pullrequestreview-5889887081"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Automated review reports no findings; Azure note is an authorization advisory, not proof of a code failure.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "mlflow/mlflow",
+      "pr_number": 27729,
+      "head": "bf84e533123259c36e3341e4ccdab5c4e2941ef7",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "installation_and_activity_notice",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/mlflow/mlflow/pull/27729#issuecomment-6826498168"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only installation instructions and author-activity statistics; those statistics are not used as task contribution or merged counts.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "mlflow/mlflow",
+      "pr_number": 27731,
+      "head": "d537881b2c3d26be4e3faaf16b7d3c510a2b7199",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "installation_and_activity_notice",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/mlflow/mlflow/pull/27731#issuecomment-6826992615"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only installation instructions and author-activity statistics; those statistics are not used as task contribution or merged counts.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "mlflow/mlflow",
+      "pr_number": 27728,
+      "head": "ce054f7076a9772e1e873e990f52372c704f342c",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "installation_and_activity_notice",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/mlflow/mlflow/pull/27728#issuecomment-6826033981"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only installation instructions and author-activity statistics; those statistics are not used as task contribution or merged counts.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "mlflow/mlflow",
+      "pr_number": 27733,
+      "head": "27aa3248cf00fd22b0bf8e518f12573543133a1f",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "installation_and_activity_notice",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/mlflow/mlflow/pull/27733#issuecomment-6828092596"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only installation instructions and author-activity statistics; those statistics are not used as task contribution or merged counts.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "mlflow/mlflow",
+      "pr_number": 27734,
+      "head": "6d1ec610ae49ed6517332fafd446b6c5dc719509",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "installation_and_activity_notice",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/mlflow/mlflow/pull/27734#issuecomment-6828565977"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only installation instructions and author-activity statistics; those statistics are not used as task contribution or merged counts.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "mlflow/mlflow",
+      "pr_number": 27735,
+      "head": "52ce6c051302c37c238df020a0321f657464d560",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "installation_and_activity_notice",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/mlflow/mlflow/pull/27735#issuecomment-6830326059"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only installation instructions and author-activity statistics; those statistics are not used as task contribution or merged counts.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "mlflow/mlflow",
+      "pr_number": 27737,
+      "head": "4d70d5066b326a5a2922fc2c2c71a6c1a455addb",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "installation_and_activity_notice",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/mlflow/mlflow/pull/27737#issuecomment-6831606658"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only installation instructions and author-activity statistics; those statistics are not used as task contribution or merged counts.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "mlflow/mlflow",
+      "pr_number": 27736,
+      "head": "dfef96be40bffb37020347f1c934489a03318dda",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "installation_and_activity_notice",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/mlflow/mlflow/pull/27736#issuecomment-6831108493"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only installation instructions and author-activity statistics; those statistics are not used as task contribution or merged counts.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "mlflow/mlflow",
+      "pr_number": 27732,
+      "head": "e6eeed36b6978dd0c37ddbcf1a01916e7e138a1f",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "installation_and_activity_notice",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/mlflow/mlflow/pull/27732#issuecomment-6827571022"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only installation instructions and author-activity statistics; those statistics are not used as task contribution or merged counts.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "mlflow/mlflow",
+      "pr_number": 27738,
+      "head": "24a5e68f716f21b03c41b44cda246e49481a941f",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "installation_and_activity_notice",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/mlflow/mlflow/pull/27738#issuecomment-6832367454"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only installation instructions and author-activity statistics; those statistics are not used as task contribution or merged counts.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "pytorch/ao",
+      "pr_number": 5104,
+      "head": "8d29c54ba128b48cb705e7695a8de00261179607",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "pytorch-bot[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/pytorch/ao/pull/5104#issuecomment-6834591319"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only links to CI artifacts and documentation previews.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "pytorch/ao",
+      "pr_number": 5105,
+      "head": "df5b76c2210d9d67e9e14115f84c1af02999f849",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "pytorch-bot[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/pytorch/ao/pull/5105#issuecomment-6834735438"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only links to CI artifacts and documentation previews.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "pytorch/ao",
+      "pr_number": 5106,
+      "head": "c5bafe82a631837cb2f462901c2e51cf0a825a8d",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "pytorch-bot[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/pytorch/ao/pull/5106#issuecomment-6835167775"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only links to CI artifacts and documentation previews.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "pytorch/ao",
+      "pr_number": 5110,
+      "head": "f0f6d28e312ab505fbe2a08de50d3e37e46643f4",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "pytorch-bot[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/pytorch/ao/pull/5110#issuecomment-6848341386"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only links to CI artifacts and documentation previews.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "pytorch/ao",
+      "pr_number": 5111,
+      "head": "f1cca771be688284f1015db6f8d5e5ff8541e03b",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "pytorch-bot[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/pytorch/ao/pull/5111#issuecomment-6848440020"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only links to CI artifacts and documentation previews.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "pytorch/ao",
+      "pr_number": 5113,
+      "head": "9e0beae00fd32dfb34fe173cacd97f22bbfc356a",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "pytorch-bot[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/pytorch/ao/pull/5113#issuecomment-6848977871"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only links to CI artifacts and documentation previews.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "pytorch/ao",
+      "pr_number": 5114,
+      "head": "2cb2497e32703910b9998c90886bcf44eb0e4322",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "pytorch-bot[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/pytorch/ao/pull/5114#issuecomment-6849368725"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only links to CI artifacts and documentation previews.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "pytorch/ao",
+      "pr_number": 5115,
+      "head": "49d23b3410c6870bab011b5f6d9e4b3c1e3d927b",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "pytorch-bot[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/pytorch/ao/pull/5115#issuecomment-6850064709"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only links to CI artifacts and documentation previews.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "pytorch/ao",
+      "pr_number": 5112,
+      "head": "6eda0c4e1c4003d68de96bf79fb3f5ec4383846f",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "pytorch-bot[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/pytorch/ao/pull/5112#issuecomment-6848642998"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only links to CI artifacts and documentation previews.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "pytorch/ao",
+      "pr_number": 5116,
+      "head": "e4da8a230aaf9ca316b67dc1cd1cb5cea2f6893c",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "pytorch-bot[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        }
+      ],
+      "sources": [
+        "https://github.com/pytorch/ao/pull/5116#issuecomment-6850198780"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Only links to CI artifacts and documentation previews.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "sgl-project/sglang",
+      "pr_number": 50164,
+      "head": "3e2b9ff667f11c0a4c3eb56fd857389b3d57c102",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "Afloat16",
+          "actor_type": "pr_author",
+          "classification": "author_followup",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/sgl-project/sglang/pull/50164#issuecomment-6842129562",
+        "https://github.com/sgl-project/sglang/pull/50164#pullrequestreview-5880018139"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "Optional automated review is disabled for forks. Existing author follow-up documents the CI run-ci label gate.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "sgl-project/sglang",
+      "pr_number": 50179,
+      "head": "6cfa1c2b244d2a7b9816ade3d58927e5fb9914bd",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "obsolete_title_failure_replaced",
+          "count": 1
+        },
+        {
+          "kind": "issue_comments",
+          "actor": "Afloat16",
+          "actor_type": "pr_author",
+          "classification": "author_followup",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/sgl-project/sglang/pull/50179#issuecomment-6835141373",
+        "https://github.com/sgl-project/sglang/pull/50179#issuecomment-6842089334",
+        "https://github.com/sgl-project/sglang/pull/50179#pullrequestreview-5881487123"
+      ],
+      "assessment": {
+        "disposition": "title_fixed_ci_label_pending",
+        "note": "The old title-failure comment is obsolete: the current title conforms and its replacement check passed. Current labels are empty; the inspected gate log explicitly reports missing run-ci.",
+        "current_title": "[Fix] embedding: Normalize FP16 pooled embeddings in float32",
+        "current_head": "6cfa1c2b244d2a7b9816ade3d58927e5fb9914bd",
+        "evidence": [
+          "https://github.com/sgl-project/sglang/actions/runs/43350893213/job/131641410412",
+          "https://github.com/sgl-project/sglang/actions/runs/43300163091/job/131469145414"
+        ],
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "sgl-project/sglang",
+      "pr_number": 50291,
+      "head": "b157c3866c7c7313c87a6b1cc59052e78b3121e4",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "obsolete_title_failure_replaced",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/sgl-project/sglang/pull/50291#issuecomment-6850020024",
+        "https://github.com/sgl-project/sglang/pull/50291#pullrequestreview-5889207329"
+      ],
+      "assessment": {
+        "disposition": "title_fixed_ci_label_pending",
+        "note": "The old title-failure comment is obsolete: the current title conforms and its replacement check passed. Current labels are empty; the inspected gate log explicitly reports missing run-ci.",
+        "current_title": "[Fix] ipc: Preserve unsupported values through the MessagePack fallback",
+        "current_head": "b157c3866c7c7313c87a6b1cc59052e78b3121e4",
+        "evidence": [
+          "https://github.com/sgl-project/sglang/actions/runs/43408585210/job/131828993706",
+          "https://github.com/sgl-project/sglang/actions/runs/43406629201/job/131822703186"
+        ],
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "sgl-project/sglang",
+      "pr_number": 50312,
+      "head": "57a8862391bf234f58eb1ccd11d3a540c576d921",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "obsolete_title_failure_replaced",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/sgl-project/sglang/pull/50312#issuecomment-6851096970",
+        "https://github.com/sgl-project/sglang/pull/50312#pullrequestreview-5889856269"
+      ],
+      "assessment": {
+        "disposition": "title_fixed_ci_label_pending",
+        "note": "The old title-failure comment is obsolete: the current title conforms and its replacement check passed. Current labels are empty; the inspected gate log explicitly reports missing run-ci.",
+        "current_title": "[Fix] preprocessing: Account for retained buffers in cache budgets",
+        "current_head": "57a8862391bf234f58eb1ccd11d3a540c576d921",
+        "evidence": [
+          "https://github.com/sgl-project/sglang/actions/runs/43416395088/job/131855275553",
+          "https://github.com/sgl-project/sglang/actions/runs/43414060064/job/131847660168"
+        ],
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "sgl-project/sglang",
+      "pr_number": 50288,
+      "head": "ea71bf744ee5b7902dbbe24639f008fd9bba68cb",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "obsolete_title_failure_replaced",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/sgl-project/sglang/pull/50288#issuecomment-6849706155",
+        "https://github.com/sgl-project/sglang/pull/50288#pullrequestreview-5889058299"
+      ],
+      "assessment": {
+        "disposition": "title_fixed_ci_label_pending",
+        "note": "The old title-failure comment is obsolete: the current title conforms and its replacement check passed. Current labels are empty; the inspected gate log explicitly reports missing run-ci.",
+        "current_title": "[Fix] layernorm: Follow live parameter dtype",
+        "current_head": "ea71bf744ee5b7902dbbe24639f008fd9bba68cb",
+        "evidence": [
+          "https://github.com/sgl-project/sglang/actions/runs/43406652354/job/131822505802",
+          "https://github.com/sgl-project/sglang/actions/runs/43404786427/job/131816544014"
+        ],
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "Unstructured-IO/unstructured",
+      "pr_number": 4705,
+      "head": "c35f0f9d96997344393c677da0b4063b00b5afcb",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "Afloat16",
+          "actor_type": "pr_author",
+          "classification": "author_followup",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "cragwolfe",
+          "actor_type": "third_party_user_account",
+          "classification": "code_request_already_implemented",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/Unstructured-IO/unstructured/pull/4705#issuecomment-6841956679",
+        "https://github.com/Unstructured-IO/unstructured/pull/4705#pullrequestreview-5880009771"
+      ],
+      "assessment": {
+        "disposition": "code_request_implemented",
+        "note": "Current c35f0f9 preserves fractional coordinates until shrink/grid conversion and adds public sort_page_elements fractional/zero-size controls. Current source diff was read. Output-order/ID effects are documented. Upstream tests pass; benchmark check fails before measurement in dependency setup per the linked comparison.",
+        "resolution_commit": "c35f0f9d96997344393c677da0b4063b00b5afcb",
+        "evidence": [
+          "https://github.com/Unstructured-IO/unstructured/pull/4705#pullrequestreview-5880009771",
+          "https://github.com/Unstructured-IO/unstructured/pull/4705#issuecomment-6841956679",
+          "https://github.com/Unstructured-IO/unstructured/commit/c35f0f9d96997344393c677da0b4063b00b5afcb"
+        ],
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "vllm-project/vllm",
+      "pr_number": 67449,
+      "head": "b7b7946da1ef215beb159cd1dd5434ea3018b80a",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_policy_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/vllm-project/vllm/pull/67449#issuecomment-6849948235",
+        "https://github.com/vllm-project/vllm/pull/67449#pullrequestreview-5889153398"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CI policy and optional automated-review notices; preview links are informational. No concrete code request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "vllm-project/vllm",
+      "pr_number": 67431,
+      "head": "17743dbff5b96c393f297a2ce0bc086f72680f22",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_policy_notice",
+          "count": 1
+        },
+        {
+          "kind": "issue_comments",
+          "actor": "mergify[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/vllm-project/vllm/pull/67431#issuecomment-6848684336",
+        "https://github.com/vllm-project/vllm/pull/67431#issuecomment-6848694773",
+        "https://github.com/vllm-project/vllm/pull/67431#pullrequestreview-5888529967"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CI policy and optional automated-review notices; preview links are informational. No concrete code request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "vllm-project/vllm",
+      "pr_number": 67450,
+      "head": "cbffffcca072ed912a38981f0c5571e46804548e",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_policy_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/vllm-project/vllm/pull/67450#issuecomment-6850088317",
+        "https://github.com/vllm-project/vllm/pull/67450#pullrequestreview-5889260634"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CI policy and optional automated-review notices; preview links are informational. No concrete code request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "vllm-project/vllm",
+      "pr_number": 67473,
+      "head": "11c0abf92f2b6237cb731050b9617c58da79f4c8",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "mergify[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        },
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_policy_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/vllm-project/vllm/pull/67473#issuecomment-6851810609",
+        "https://github.com/vllm-project/vllm/pull/67473#issuecomment-6851854047",
+        "https://github.com/vllm-project/vllm/pull/67473#pullrequestreview-5890323797"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CI policy and optional automated-review notices; preview links are informational. No concrete code request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "vllm-project/vllm",
+      "pr_number": 67472,
+      "head": "c04161eda9e574dc5d5b6d0182bbba661830bf21",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "mergify[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        },
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_policy_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/vllm-project/vllm/pull/67472#issuecomment-6851810180",
+        "https://github.com/vllm-project/vllm/pull/67472#issuecomment-6851820374",
+        "https://github.com/vllm-project/vllm/pull/67472#pullrequestreview-5890323665"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CI policy and optional automated-review notices; preview links are informational. No concrete code request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "vllm-project/vllm",
+      "pr_number": 67477,
+      "head": "a1d104587bcf4b86592fe988ac05f4b6cd47ede4",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_policy_notice",
+          "count": 1
+        },
+        {
+          "kind": "issue_comments",
+          "actor": "mergify[bot]",
+          "actor_type": "automation",
+          "classification": "artifact_links",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/vllm-project/vllm/pull/67477#issuecomment-6852244331",
+        "https://github.com/vllm-project/vllm/pull/67477#issuecomment-6852717942",
+        "https://github.com/vllm-project/vllm/pull/67477#pullrequestreview-5890598237"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CI policy and optional automated-review notices; preview links are informational. No concrete code request.",
+        "new_in_scope_code_request": false
+      }
+    },
+    {
+      "repository": "vllm-project/vllm",
+      "pr_number": 67475,
+      "head": "2e7c853b3b6af28d8fb66923b71a67c74d08d84a",
+      "feedback": [
+        {
+          "kind": "issue_comments",
+          "actor": "github-actions[bot]",
+          "actor_type": "automation",
+          "classification": "ci_authorization_policy_notice",
+          "count": 1
+        },
+        {
+          "kind": "reviews",
+          "actor": "claude[bot]",
+          "actor_type": "automation",
+          "classification": "optional_automated_review_disabled_for_fork",
+          "count": 1,
+          "review_state": "COMMENTED"
+        }
+      ],
+      "sources": [
+        "https://github.com/vllm-project/vllm/pull/67475#issuecomment-6851939423",
+        "https://github.com/vllm-project/vllm/pull/67475#pullrequestreview-5890406781"
+      ],
+      "assessment": {
+        "disposition": "no_unaddressed_code_request",
+        "note": "CI policy and optional automated-review notices; preview links are informational. No concrete code request.",
+        "new_in_scope_code_request": false
+      }
+    }
+  ],
+  "external_gate_summary": [
+    {
+      "repository": "huggingface/transformers",
+      "prs": [
+        50675,
+        50665,
+        50678,
+        50700,
+        50680,
+        50701,
+        50702,
+        50705,
+        50708,
+        50699
+      ],
+      "type": "maintainer_ci_approval",
+      "status": "requested_by_repository_bot",
+      "note": "The old security-failure comment on #50701 has been superseded by successful checks on the current head."
+    },
+    {
+      "repository": "sgl-project/sglang",
+      "prs": [
+        50179,
+        50291,
+        50312,
+        50288
+      ],
+      "type": "run_ci_label",
+      "status": "confirmed_missing_in_inspected_upstream_gate_logs",
+      "note": "All four title-failure comments are obsolete; replacement title checks succeeded."
+    },
+    {
+      "repository": "sgl-project/sglang",
+      "prs": [
+        50164
+      ],
+      "type": "run_ci_label",
+      "status": "documented_in_existing_author_followup"
+    },
+    {
+      "repository": "microsoft/onnxruntime",
+      "prs": [
+        34180,
+        34182,
+        34181,
+        34183,
+        34179,
+        34184,
+        34185,
+        34186,
+        34188,
+        34190
+      ],
+      "type": "azure_pipeline_authorization",
+      "status": "advisory_notice_only",
+      "note": "The bot says some pipelines may need an authorized /azp run command; this audit does not assert every pipeline is blocked."
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "prs": [
+        10035,
+        10039,
+        10037,
+        10043,
+        10041,
+        10048,
+        10045,
+        10053,
+        10051,
+        10054
+      ],
+      "type": "netlify_preview_approval",
+      "status": "pending_preview_approval_notice",
+      "note": "Preview deployment notices are not classified as code requests or assumed mandatory merge checks."
+    },
+    {
+      "repository": "vllm-project/vllm",
+      "prs": [
+        67449,
+        67431,
+        67450,
+        67473,
+        67472,
+        67477,
+        67475
+      ],
+      "type": "manual_upstream_ci_policy",
+      "status": "policy_notice",
+      "note": "The bot describes authorized CI triggers and optional automated reviews; it gives no concrete code defect."
+    },
+    {
+      "repository": "Unstructured-IO/unstructured",
+      "prs": [
+        4705
+      ],
+      "type": "benchmark_environment_and_workflow_approval",
+      "status": "current_benchmark_check_failure_and_author_documentation",
+      "note": "Current source tests passed. The author provides a parent/base comparison for the premeasurement dependency failure and requests security-workflow approval; that authorization request is not a new code request."
+    }
+  ]
+}
