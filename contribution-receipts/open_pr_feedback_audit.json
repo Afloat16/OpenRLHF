@@ -4186,5 +4186,675 @@
         ]
       }
     ]
+  },
+  "draft_limits": {
+    "checked_at": "2026-11-13T12:59:11.772Z",
+    "scope": "Fourteen drafts across bitsandbytes, MLflow and vLLM are blocked from Ready by repository ordinary-open limits. No review-state mutation was made.",
+    "ready_connector_available": "github_mark_pull_request_ready_for_review",
+    "groups": [
+      {
+        "repository": "bitsandbytes-foundation/bitsandbytes",
+        "author": "Afloat16",
+        "recorded_non_draft_open_limit": 5,
+        "creation_reason_source": "Original bnb9/bnb10 contribution receipts record the repository's five-open-non-draft contributor limit.",
+        "current_open_non_draft_query": {
+          "repository": "bitsandbytes-foundation/bitsandbytes",
+          "url": "https://api.github.com/search/issues?q=repo%3Abitsandbytes-foundation%2Fbitsandbytes%20author%3AAfloat16%20is%3Apr%20is%3Aopen%20draft%3Afalse&per_page=100",
+          "retrieved_at": "2026-11-13T12:52:07.424Z",
+          "total_count": 5,
+          "incomplete_results": false,
+          "prs": [
+            {
+              "number": 2136,
+              "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2136",
+              "title": "Reload quantized Linear8bitLt checkpoints after the first forward",
+              "state": "open"
+            },
+            {
+              "number": 2135,
+              "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2135",
+              "title": "Honor optimizer checkpoint load hooks for state migration",
+              "state": "open"
+            },
+            {
+              "number": 2134,
+              "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2134",
+              "title": "Preserve module ownership and shared state in Params4bit deepcopy",
+              "state": "open"
+            },
+            {
+              "number": 2133,
+              "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2133",
+              "title": "Forward StableEmbedding device and dtype as factory keywords",
+              "state": "open"
+            },
+            {
+              "number": 2132,
+              "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2132",
+              "title": "Use the normalization parameter dtype in StableEmbedding",
+              "state": "open"
+            }
+          ]
+        },
+        "affected_draft_prs": [
+          {
+            "repository": "bitsandbytes-foundation/bitsandbytes",
+            "pr_number": 2137,
+            "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2137",
+            "head": "879f512b0d014cb53c3cacb6817803c92e09e75d",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:09.724Z"
+          },
+          {
+            "repository": "bitsandbytes-foundation/bitsandbytes",
+            "pr_number": 2138,
+            "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2138",
+            "head": "eeaa2f804eda7d04d4326097e6140429b01e247a",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:09.750Z"
+          },
+          {
+            "repository": "bitsandbytes-foundation/bitsandbytes",
+            "pr_number": 2139,
+            "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2139",
+            "head": "68fef90cd796dc324d12abb5cbaa3fa7166fa0ae",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:09.925Z"
+          },
+          {
+            "repository": "bitsandbytes-foundation/bitsandbytes",
+            "pr_number": 2140,
+            "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2140",
+            "head": "11527a20279abe05140c9c154eefedba854acbdb",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:10.409Z"
+          },
+          {
+            "repository": "bitsandbytes-foundation/bitsandbytes",
+            "pr_number": 2141,
+            "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2141",
+            "head": "5fa7276f1f2590b7e27419c02ddd05f25b5b1612",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:09.671Z"
+          }
+        ],
+        "browser_ready_control": {
+          "page_url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2140",
+          "observed_label": "Ready for review",
+          "aria_disabled": "true",
+          "is_enabled": false,
+          "accessible_description": "Author has reached the open pull request limit",
+          "read_only_observation": true
+        },
+        "assessment": "Keep these drafts while the repository's ordinary-open limit is reached. They were not left in Draft merely as a creation default.",
+        "ready_transition_attempted": false
+      },
+      {
+        "repository": "mlflow/mlflow",
+        "author": "Afloat16",
+        "recorded_non_draft_open_limit": 3,
+        "creation_reason_source": "Creation-time repository UI observation recorded in the parent task: contributors without write access are limited to three ordinary open PRs.",
+        "current_open_non_draft_query": {
+          "repository": "mlflow/mlflow",
+          "url": "https://api.github.com/search/issues?q=repo%3Amlflow%2Fmlflow%20author%3AAfloat16%20is%3Apr%20is%3Aopen%20draft%3Afalse&per_page=100",
+          "retrieved_at": "2026-11-13T12:52:07.740Z",
+          "total_count": 3,
+          "incomplete_results": false,
+          "prs": [
+            {
+              "number": 27731,
+              "url": "https://github.com/mlflow/mlflow/pull/27731",
+              "title": "Avoid quadratic list copying in the autologging metrics queue",
+              "state": "open"
+            },
+            {
+              "number": 27729,
+              "url": "https://github.com/mlflow/mlflow/pull/27729",
+              "title": "Normalize `mean_on_target` by sample weights in regression evaluation",
+              "state": "open"
+            },
+            {
+              "number": 27728,
+              "url": "https://github.com/mlflow/mlflow/pull/27728",
+              "title": "Preserve score-scale invariance in `compare_evaluations`",
+              "state": "open"
+            }
+          ]
+        },
+        "affected_draft_prs": [
+          {
+            "repository": "mlflow/mlflow",
+            "pr_number": 27732,
+            "url": "https://github.com/mlflow/mlflow/pull/27732",
+            "head": "e6eeed36b6978dd0c37ddbcf1a01916e7e138a1f",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:10.071Z"
+          },
+          {
+            "repository": "mlflow/mlflow",
+            "pr_number": 27733,
+            "url": "https://github.com/mlflow/mlflow/pull/27733",
+            "head": "27aa3248cf00fd22b0bf8e518f12573543133a1f",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:09.844Z"
+          },
+          {
+            "repository": "mlflow/mlflow",
+            "pr_number": 27734,
+            "url": "https://github.com/mlflow/mlflow/pull/27734",
+            "head": "6d1ec610ae49ed6517332fafd446b6c5dc719509",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:09.786Z"
+          },
+          {
+            "repository": "mlflow/mlflow",
+            "pr_number": 27735,
+            "url": "https://github.com/mlflow/mlflow/pull/27735",
+            "head": "52ce6c051302c37c238df020a0321f657464d560",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:09.717Z"
+          },
+          {
+            "repository": "mlflow/mlflow",
+            "pr_number": 27736,
+            "url": "https://github.com/mlflow/mlflow/pull/27736",
+            "head": "dfef96be40bffb37020347f1c934489a03318dda",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:09.924Z"
+          },
+          {
+            "repository": "mlflow/mlflow",
+            "pr_number": 27737,
+            "url": "https://github.com/mlflow/mlflow/pull/27737",
+            "head": "4d70d5066b326a5a2922fc2c2c71a6c1a455addb",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:09.926Z"
+          },
+          {
+            "repository": "mlflow/mlflow",
+            "pr_number": 27738,
+            "url": "https://github.com/mlflow/mlflow/pull/27738",
+            "head": "24a5e68f716f21b03c41b44cda246e49481a941f",
+            "state": "open",
+            "draft": true,
+            "merged_at": null,
+            "verified_at": "2026-11-13T12:54:10.041Z"
+          }
+        ],
+        "browser_ready_control": {
+          "page_url": "https://github.com/mlflow/mlflow/pull/27732",
+          "observed_label": "Ready for review",
+          "aria_disabled": "true",
+          "is_enabled": false,
+          "accessible_description": "Author has reached the open pull request limit",
+          "read_only_observation": true
+        },
+        "assessment": "Keep these drafts while the repository's ordinary-open limit is reached. They were not left in Draft merely as a creation default.",
+        "ready_transition_attempted": false
+      },
+      {
+        "repository": "vllm-project/vllm",
+        "author": "Afloat16",
+        "recorded_non_draft_open_limit": 8,
+        "creation_reason_source": "Creation-time page explicitly showed the eight-ordinary-open contributor limit; current existing Draft Ready control was independently read in this audit.",
+        "current_open_non_draft_query": {
+          "repository": "vllm-project/vllm",
+          "url": "https://api.github.com/search/issues?q=repo%3Avllm-project%2Fvllm%20author%3AAfloat16%20is%3Apr%20is%3Aopen%20draft%3Afalse&per_page=100",
+          "retrieved_at": "2026-11-13T12:56:39.849Z",
+          "total_count": 8,
+          "incomplete_results": false,
+          "prs": [
+            {
+              "number": 67479,
+              "url": "https://github.com/vllm-project/vllm/pull/67479",
+              "state": "open"
+            },
+            {
+              "number": 67477,
+              "url": "https://github.com/vllm-project/vllm/pull/67477",
+              "state": "open"
+            },
+            {
+              "number": 67475,
+              "url": "https://github.com/vllm-project/vllm/pull/67475",
+              "state": "open"
+            },
+            {
+              "number": 67473,
+              "url": "https://github.com/vllm-project/vllm/pull/67473",
+              "state": "open"
+            },
+            {
+              "number": 67472,
+              "url": "https://github.com/vllm-project/vllm/pull/67472",
+              "state": "open"
+            },
+            {
+              "number": 67450,
+              "url": "https://github.com/vllm-project/vllm/pull/67450",
+              "state": "open"
+            },
+            {
+              "number": 67449,
+              "url": "https://github.com/vllm-project/vllm/pull/67449",
+              "state": "open"
+            },
+            {
+              "number": 67431,
+              "url": "https://github.com/vllm-project/vllm/pull/67431",
+              "state": "open"
+            }
+          ]
+        },
+        "affected_draft_prs": [
+          {
+            "repository": "vllm-project/vllm",
+            "pr_number": 67481,
+            "head": "06988e1701c08a617a19a582bb58d0915f9db2b9",
+            "state": "open",
+            "draft": true,
+            "comments": 2,
+            "review_comments": 0,
+            "updated_at": "2026-11-13T12:50:34Z",
+            "merged_at": null,
+            "url": "https://github.com/vllm-project/vllm/pull/67481",
+            "verified_at": "2026-11-13T12:54:26.912Z"
+          },
+          {
+            "repository": "vllm-project/vllm",
+            "pr_number": 67482,
+            "head": "a7e2892b3a8e0984bc76d8faf04215640ffdca51",
+            "state": "open",
+            "draft": true,
+            "comments": 2,
+            "review_comments": 0,
+            "updated_at": "2026-11-13T12:54:01Z",
+            "merged_at": null,
+            "url": "https://github.com/vllm-project/vllm/pull/67482",
+            "verified_at": "2026-11-13T12:54:26.912Z"
+          }
+        ],
+        "browser_ready_control": {
+          "page_url": "https://github.com/vllm-project/vllm/pull/67481",
+          "observed_label": "Ready for review",
+          "aria_disabled": "true",
+          "is_enabled": false,
+          "accessible_description": "Author has reached the open pull request limit",
+          "read_only_observation": true
+        },
+        "assessment": "Keep these drafts while the repository's ordinary-open limit is reached. They were not left in Draft merely as a creation default.",
+        "ready_transition_attempted": false
+      }
+    ],
+    "new_contribution_count": 0,
+    "new_merge_count": 0
+  },
+  "final_snapshot_delta": {
+    "checked_at": "2026-11-13T12:59:11.772Z",
+    "source_snapshot": "root_work/global_live_pr_snapshots.json",
+    "source_snapshot_verified_at": "2026-11-13T12:54:26.912Z",
+    "source_snapshot_entries": 300,
+    "selection": "New open PRs outside the previous 75+210 formal-review coverage, plus issue/inline endpoints whose counts changed. Unchanged endpoints were not repeated.",
+    "new_prs": [
+      67481,
+      67482
+    ],
+    "changed_comment_prs": [
+      67477,
+      67479
+    ],
+    "successful_endpoints": 8,
+    "new_issue_comments_read": 10,
+    "new_formal_reviews_read": 0,
+    "new_inline_comments_read": 0,
+    "unhandled_actionable_requests": 1,
+    "unhandled_code_change_requests": 0,
+    "review_coverage": {
+      "open_prs": 287,
+      "formal_review_endpoints_covered_across_passes": 287,
+      "formal_review_states_observed": {
+        "COMMENTED": 30,
+        "APPROVED": 1
+      },
+      "unique_issue_comments_read": 124,
+      "inline_comments_read": 2
+    },
+    "entries": [
+      {
+        "repository": "vllm-project/vllm",
+        "pr_number": 67477,
+        "kind": "issue_comments",
+        "head_at_snapshot": "8bbeadccf7f90a349582461d1631bd1473a21a22",
+        "source_url": "https://api.github.com/repos/vllm-project/vllm/issues/67477/comments?per_page=100&page=1",
+        "retrieved_at": "2026-11-13T12:55:46.381Z",
+        "item_count": 2,
+        "reason": "count_changed",
+        "previous_count": 1,
+        "current_count": 2,
+        "items": [
+          {
+            "id": 6852244331,
+            "url": "https://github.com/vllm-project/vllm/pull/67477#issuecomment-6852244331",
+            "user": "github-actions[bot]",
+            "user_type": "Bot",
+            "author_association": "NONE",
+            "created_at": "2026-11-13T12:01:03Z",
+            "previously_read": true,
+            "summary": "Repository CI policy notice; no specific code request.",
+            "disposition": "informational"
+          },
+          {
+            "id": 6852717942,
+            "url": "https://github.com/vllm-project/vllm/pull/67477#issuecomment-6852717942",
+            "user": "mergify[bot]",
+            "user_type": "Bot",
+            "author_association": "CONTRIBUTOR",
+            "created_at": "2026-11-13T12:20:47Z",
+            "previously_read": true,
+            "summary": "Documentation preview link; no code request.",
+            "disposition": "informational"
+          }
+        ]
+      },
+      {
+        "repository": "vllm-project/vllm",
+        "pr_number": 67479,
+        "kind": "issue_comments",
+        "head_at_snapshot": "e4ffb1f7a6e2f582cf62d567753b7a658ca86354",
+        "source_url": "https://api.github.com/repos/vllm-project/vllm/issues/67479/comments?per_page=100&page=1",
+        "retrieved_at": "2026-11-13T12:55:46.057Z",
+        "item_count": 6,
+        "reason": "count_changed",
+        "previous_count": 0,
+        "current_count": 6,
+        "items": [
+          {
+            "id": 6852800719,
+            "url": "https://github.com/vllm-project/vllm/pull/67479#issuecomment-6852800719",
+            "user": "github-actions[bot]",
+            "user_type": "Bot",
+            "author_association": "NONE",
+            "created_at": "2026-11-13T12:24:18Z",
+            "previously_read": false,
+            "summary": "Repository CI policy notice; no specific code request.",
+            "disposition": "informational"
+          },
+          {
+            "id": 6852810773,
+            "url": "https://github.com/vllm-project/vllm/pull/67479#issuecomment-6852810773",
+            "user": "mergify[bot]",
+            "user_type": "Bot",
+            "author_association": "CONTRIBUTOR",
+            "created_at": "2026-11-13T12:24:45Z",
+            "previously_read": false,
+            "summary": "Documentation preview link; no code request.",
+            "disposition": "informational"
+          },
+          {
+            "id": 6853222830,
+            "url": "https://github.com/vllm-project/vllm/pull/67479#issuecomment-6853222830",
+            "user": "DarkLight1337",
+            "user_type": "User",
+            "author_association": "MEMBER",
+            "created_at": "2026-11-13T12:41:29Z",
+            "previously_read": false,
+            "summary": "Member acknowledged the contribution.",
+            "disposition": "informational"
+          },
+          {
+            "id": 6853224862,
+            "url": "https://github.com/vllm-project/vllm/pull/67479#issuecomment-6853224862",
+            "user": "DarkLight1337",
+            "user_type": "User",
+            "author_association": "MEMBER",
+            "created_at": "2026-11-13T12:41:34Z",
+            "previously_read": false,
+            "summary": "Member requested an upstream CI run.",
+            "disposition": "informational"
+          },
+          {
+            "id": 6853233252,
+            "url": "https://github.com/vllm-project/vllm/pull/67479#issuecomment-6853233252",
+            "user": "github-actions[bot]",
+            "user_type": "Bot",
+            "author_association": "NONE",
+            "created_at": "2026-11-13T12:41:53Z",
+            "previously_read": false,
+            "summary": "No new CI build started: the head is one commit behind main and the bot could not update the fork (403). Normal branch synchronization and another authorized CI run are pending.",
+            "disposition": "pending_branch_sync_and_upstream_ci"
+          },
+          {
+            "id": 6853234433,
+            "url": "https://github.com/vllm-project/vllm/pull/67479#issuecomment-6853234433",
+            "user": "github-actions[bot]",
+            "user_type": "Bot",
+            "author_association": "NONE",
+            "created_at": "2026-11-13T12:41:56Z",
+            "previously_read": false,
+            "summary": "The PR author is now authorized to use the repository CI commands; this notice does not mean a build started.",
+            "disposition": "informational"
+          }
+        ]
+      },
+      {
+        "repository": "vllm-project/vllm",
+        "pr_number": 67481,
+        "kind": "issue_comments",
+        "head_at_snapshot": "06988e1701c08a617a19a582bb58d0915f9db2b9",
+        "source_url": "https://api.github.com/repos/vllm-project/vllm/issues/67481/comments?per_page=100&page=1",
+        "retrieved_at": "2026-11-13T12:55:46.054Z",
+        "item_count": 2,
+        "reason": "newly_published_pr",
+        "items": [
+          {
+            "id": 6853445648,
+            "url": "https://github.com/vllm-project/vllm/pull/67481#issuecomment-6853445648",
+            "user": "github-actions[bot]",
+            "user_type": "Bot",
+            "author_association": "NONE",
+            "created_at": "2026-11-13T12:50:05Z",
+            "previously_read": false,
+            "summary": "Repository CI policy notice; no specific code request.",
+            "disposition": "informational"
+          },
+          {
+            "id": 6853456868,
+            "url": "https://github.com/vllm-project/vllm/pull/67481#issuecomment-6853456868",
+            "user": "mergify[bot]",
+            "user_type": "Bot",
+            "author_association": "CONTRIBUTOR",
+            "created_at": "2026-11-13T12:50:31Z",
+            "previously_read": false,
+            "summary": "Documentation preview link; no code request.",
+            "disposition": "informational"
+          }
+        ]
+      },
+      {
+        "repository": "vllm-project/vllm",
+        "pr_number": 67481,
+        "kind": "reviews",
+        "head_at_snapshot": "06988e1701c08a617a19a582bb58d0915f9db2b9",
+        "source_url": "https://api.github.com/repos/vllm-project/vllm/pulls/67481/reviews?per_page=100&page=1",
+        "retrieved_at": "2026-11-13T12:55:46.134Z",
+        "item_count": 0,
+        "reason": "newly_published_pr",
+        "items": []
+      },
+      {
+        "repository": "vllm-project/vllm",
+        "pr_number": 67481,
+        "kind": "inline_comments",
+        "head_at_snapshot": "06988e1701c08a617a19a582bb58d0915f9db2b9",
+        "source_url": "https://api.github.com/repos/vllm-project/vllm/pulls/67481/comments?per_page=100&page=1",
+        "retrieved_at": "2026-11-13T12:55:45.999Z",
+        "item_count": 0,
+        "reason": "newly_published_pr",
+        "items": []
+      },
+      {
+        "repository": "vllm-project/vllm",
+        "pr_number": 67482,
+        "kind": "issue_comments",
+        "head_at_snapshot": "a7e2892b3a8e0984bc76d8faf04215640ffdca51",
+        "source_url": "https://api.github.com/repos/vllm-project/vllm/issues/67482/comments?per_page=100&page=1",
+        "retrieved_at": "2026-11-13T12:55:46.130Z",
+        "item_count": 2,
+        "reason": "newly_published_pr",
+        "items": [
+          {
+            "id": 6853525941,
+            "url": "https://github.com/vllm-project/vllm/pull/67482#issuecomment-6853525941",
+            "user": "github-actions[bot]",
+            "user_type": "Bot",
+            "author_association": "NONE",
+            "created_at": "2026-11-13T12:53:31Z",
+            "previously_read": false,
+            "summary": "Repository CI policy notice; no specific code request.",
+            "disposition": "informational"
+          },
+          {
+            "id": 6853537952,
+            "url": "https://github.com/vllm-project/vllm/pull/67482#issuecomment-6853537952",
+            "user": "mergify[bot]",
+            "user_type": "Bot",
+            "author_association": "CONTRIBUTOR",
+            "created_at": "2026-11-13T12:53:58Z",
+            "previously_read": false,
+            "summary": "Documentation preview link; no code request.",
+            "disposition": "informational"
+          }
+        ]
+      },
+      {
+        "repository": "vllm-project/vllm",
+        "pr_number": 67482,
+        "kind": "reviews",
+        "head_at_snapshot": "a7e2892b3a8e0984bc76d8faf04215640ffdca51",
+        "source_url": "https://api.github.com/repos/vllm-project/vllm/pulls/67482/reviews?per_page=100&page=1",
+        "retrieved_at": "2026-11-13T12:55:46.108Z",
+        "item_count": 0,
+        "reason": "newly_published_pr",
+        "items": []
+      },
+      {
+        "repository": "vllm-project/vllm",
+        "pr_number": 67482,
+        "kind": "inline_comments",
+        "head_at_snapshot": "a7e2892b3a8e0984bc76d8faf04215640ffdca51",
+        "source_url": "https://api.github.com/repos/vllm-project/vllm/pulls/67482/comments?per_page=100&page=1",
+        "retrieved_at": "2026-11-13T12:55:46.047Z",
+        "item_count": 0,
+        "reason": "newly_published_pr",
+        "items": []
+      }
+    ],
+    "pending_followups": [
+      {
+        "repository": "vllm-project/vllm",
+        "pr_number": 67479,
+        "head_at_snapshot": "e4ffb1f7a6e2f582cf62d567753b7a658ca86354",
+        "status": "pending",
+        "kind": "upstream_ci_not_started",
+        "review_request_url": "https://github.com/vllm-project/vllm/pull/67479#issuecomment-6853224862",
+        "failure_url": "https://github.com/vllm-project/vllm/pull/67479#issuecomment-6853233252",
+        "authorization_url": "https://github.com/vllm-project/vllm/pull/67479#issuecomment-6853234433",
+        "required_followup": "Synchronize the existing PR branch with current main, verify the relevant change, and start authorized CI. Await actual build evidence before marking handled.",
+        "status_note": "Implementation owner is handling this follow-up; this audit has not modified the branch or posted comments. No new contribution is counted."
+      }
+    ],
+    "external_gate_updates": [
+      {
+        "repository": "vllm-project/vllm",
+        "pr_number": 67481,
+        "job_id": 131896098146,
+        "source_log_endpoint": "https://api.github.com/repos/vllm-project/vllm/actions/jobs/131896098146/logs",
+        "verification": "Decoded complete upstream workflow job log read.",
+        "gate": "pre-run-check",
+        "status": "blocked_repository_eligibility",
+        "details": "Requires a verified/ready/ready-run-all-tests label or at least four merged PRs by the author in this repository. The log reported zero. The code lint stage was not executed by this gate; this does not negate separate fork validation."
+      },
+      {
+        "repository": "vllm-project/vllm",
+        "pr_number": 67482,
+        "job_id": 131897626261,
+        "source_log_endpoint": "https://api.github.com/repos/vllm-project/vllm/actions/jobs/131897626261/logs",
+        "verification": "Decoded complete upstream workflow job log read.",
+        "gate": "pre-run-check",
+        "status": "blocked_repository_eligibility",
+        "details": "Requires a verified/ready/ready-run-all-tests label or at least four merged PRs by the author in this repository. The log reported zero. The code lint stage was not executed by this gate; this does not negate separate fork validation."
+      },
+      {
+        "pr_number": 67481,
+        "build_id": 35867618,
+        "head": "06988e1701c08a617a19a582bb58d0915f9db2b9",
+        "source_file": "training_work/rtd_review/v2_build_35867618.json",
+        "failure_link_from_log": "https://github.com/vllm-project/vllm/actions/runs/43428509450/job/131895807742",
+        "repository": "vllm-project/vllm",
+        "gate": "Read the Docs pre-run eligibility",
+        "status": "blocked_before_documentation_build",
+        "verification": "Read complete saved official v2 build JSON including all executed commands.",
+        "last_command": "bash docs/pre_run_check.sh",
+        "last_exit_code": 1,
+        "observed_log": "pre-commit/pre-run-check did not pass; skipping docs build.",
+        "details": "Stopped during post-checkout before Python dependency installation or MkDocs. This is the prerequisite upstream eligibility gate; neither a documentation compilation failure nor successful documentation build is claimed."
+      },
+      {
+        "pr_number": 67482,
+        "build_id": 35867692,
+        "head": "a7e2892b3a8e0984bc76d8faf04215640ffdca51",
+        "source_file": "training_work/rtd_review/v2_build_35867692.json",
+        "failure_link_from_log": "https://github.com/vllm-project/vllm/actions/runs/43428960296/job/131897331326",
+        "repository": "vllm-project/vllm",
+        "gate": "Read the Docs pre-run eligibility",
+        "status": "blocked_before_documentation_build",
+        "verification": "Read complete saved official v2 build JSON including all executed commands.",
+        "last_command": "bash docs/pre_run_check.sh",
+        "last_exit_code": 1,
+        "observed_log": "pre-commit/pre-run-check did not pass; skipping docs build.",
+        "details": "Stopped during post-checkout before Python dependency installation or MkDocs. This is the prerequisite upstream eligibility gate; neither a documentation compilation failure nor successful documentation build is claimed."
+      }
+    ],
+    "limitations": [
+      "Separate observations have separate timestamps; this is not a simultaneous all-checks-green claim.",
+      "The requested count-based issue/inline delta cannot identify edits that leave counts unchanged. Previously covered formal-review endpoints retain their preceding retrieval timestamps."
+    ],
+    "new_contribution_count": 0,
+    "new_merge_count": 0
+  },
+  "current_assessment": {
+    "as_of": "2026-11-13T13:00:12.817Z",
+    "source": "final_snapshot_delta",
+    "unhandled_actionable_requests": 1,
+    "pending_prs": [
+      "vllm-project/vllm#67479"
+    ],
+    "unhandled_code_change_requests": 0,
+    "external_gates_remain": true,
+    "formal_approvals_observed": 1,
+    "formal_approval_is_not_merge": true,
+    "note": "Earlier counts are historical per-pass results. The pending CI request in this final delta supersedes a global claim of no outstanding requests."
   }
 }
